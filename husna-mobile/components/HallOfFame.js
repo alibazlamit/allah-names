@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Platform } from 'react-native';
+import CountryPicker from 'react-native-country-picker-modal';
 
 const API_URL = Platform.OS === 'android' ? 'http://10.0.2.2:3005' : 'http://localhost:3005';
 
 const HallOfFame = ({ initialMode, onOathComplete }) => {
     const [mode, setMode] = useState(initialMode); // 'oath' or 'leaderboard'
     const [name, setName] = useState('');
-    const [country, setCountry] = useState('');
+    const [country, setCountry] = useState(null); // Will store country object
     const [sworeOath, setSworeOath] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -39,8 +40,8 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
             setError('You must swear the oath to proceed.');
             return;
         }
-        if (!name.trim() || !country.trim()) {
-            setError('Please provide your name and country.');
+        if (!name.trim() || !country) {
+            setError('Please provide your name and select your country.');
             return;
         }
 
@@ -50,7 +51,7 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
             const res = await fetch(`${API_URL}/api/leaderboard`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, country, sworeOath })
+                body: JSON.stringify({ name, country: country.name, sworeOath })
             });
             const data = await res.json();
             if (res.ok) {
@@ -85,13 +86,26 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
                             value={name}
                             onChangeText={setName}
                         />
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Your Country (e.g. Morocco)"
-                            placeholderTextColor="#888"
-                            value={country}
-                            onChangeText={setCountry}
-                        />
+
+                        <View style={styles.countryPickerContainer}>
+                            <CountryPicker
+                                withFilter
+                                withFlag
+                                withCountryNameButton
+                                withAlphaFilter={false}
+                                withCallingCode={false}
+                                withEmoji
+                                onSelect={(c) => setCountry(c)}
+                                visible={false}
+                                theme={{
+                                    onBackgroundTextColor: '#fff',
+                                    backgroundColor: '#1e1e1e',
+                                    filterPlaceholderTextColor: '#888',
+                                    primaryColor: '#000',
+                                }}
+                            />
+                            {!country && <Text style={styles.countryPlaceholder}>Select Your Country</Text>}
+                        </View>
 
                         <TouchableOpacity
                             style={styles.checkboxWrapper}
@@ -184,6 +198,24 @@ const styles = StyleSheet.create({
         padding: 15,
         marginBottom: 15,
         fontSize: 16,
+    },
+    countryPickerContainer: {
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+        borderRadius: 8,
+        padding: 15,
+        marginBottom: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        minHeight: 54,
+    },
+    countryPlaceholder: {
+        color: '#888',
+        fontSize: 16,
+        marginLeft: 10,
+        position: 'absolute',
+        left: 45, // roughly after the flag
     },
     checkboxWrapper: {
         flexDirection: 'row',

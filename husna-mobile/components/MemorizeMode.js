@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Animated, ScrollView, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Animated, ScrollView, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import namesData from '../data/names.json';
 
 const { width } = Dimensions.get('window');
@@ -7,7 +7,7 @@ const { width } = Dimensions.get('window');
 const TILE_SIZE = (width - 40 - 20) / 3;
 
 // A single Tile Component
-const NameTile = ({ item, isFlipped }) => {
+const NameTile = ({ item, isFlipped, onLongPress }) => {
     const flipAnim = React.useRef(new Animated.Value(isFlipped ? 180 : 0)).current;
 
     React.useEffect(() => {
@@ -29,16 +29,18 @@ const NameTile = ({ item, isFlipped }) => {
     });
 
     return (
-        <View style={styles.tileWrapper}>
-            <Animated.View style={[styles.tileCard, styles.tileFront, { transform: [{ rotateY: frontInterpolate }] }]}>
-                <Text style={styles.tileNumber}>{item.id}</Text>
-            </Animated.View>
+        <TouchableWithoutFeedback onLongPress={onLongPress}>
+            <View style={styles.tileWrapper}>
+                <Animated.View style={[styles.tileCard, styles.tileFront, { transform: [{ rotateY: frontInterpolate }] }]}>
+                    <Text style={styles.tileNumber}>{item.id}</Text>
+                </Animated.View>
 
-            <Animated.View style={[styles.tileCard, styles.tileBack, { transform: [{ rotateY: backInterpolate }] }]}>
-                <Text style={styles.tileArabic}>{item.arabic}</Text>
-                <Text style={styles.tileTransliteration} numberOfLines={1}>{item.transliteration}</Text>
-            </Animated.View>
-        </View>
+                <Animated.View style={[styles.tileCard, styles.tileBack, { transform: [{ rotateY: backInterpolate }] }]}>
+                    <Text style={styles.tileArabic}>{item.arabic}</Text>
+                    <Text style={styles.tileTransliteration} numberOfLines={1}>{item.transliteration}</Text>
+                </Animated.View>
+            </View>
+        </TouchableWithoutFeedback>
     );
 };
 
@@ -106,9 +108,14 @@ const MemorizeMode = ({ onComplete }) => {
         }
     };
 
-    const useHint = () => {
-        if (hintsUsed >= 10) return;
+    const revealHint = (id) => {
+        if (!revealedIds.has(id)) {
+            setRevealedIds(prev => new Set(prev).add(id));
+            setHintsUsed(h => h + 1);
+        }
+    };
 
+    const useHint = () => {
         // Find first unrevealed
         const unrevealed = namesData.find(name => !revealedIds.has(name.id));
         if (unrevealed) {
@@ -126,17 +133,34 @@ const MemorizeMode = ({ onComplete }) => {
     const isTestComplete = revealedIds.size === namesData.length;
 
     if (isTestComplete) {
-        const finalScore = namesData.length - hintsUsed;
         return (
             <View style={styles.completeContainer}>
                 <Text style={styles.completeHeader}>Masha'Allah!</Text>
-                <Text style={styles.successMsg}>You have revealed all 99 Names.</Text>
-                <Text style={styles.scoreMsg}>Your Score: {finalScore} / 99</Text>
-                {hintsUsed > 0 && <Text style={styles.hintMsg}>({hintsUsed} hints used)</Text>}
+                <Text style={styles.successMsg}>
+                    You memorized {namesData.length - hintsUsed} of {namesData.length} and used {hintsUsed} hints.
+                </Text>
 
-                <TouchableOpacity style={styles.primaryBtn} onPress={onComplete}>
-                    <Text style={styles.primaryBtnText}>Proceed to Oath</Text>
-                </TouchableOpacity>
+                {hintsUsed === 0 ? (
+                    <TouchableOpacity style={styles.primaryBtn} onPress={onComplete}>
+                        <Text style={styles.primaryBtnText}>Proceed to Oath</Text>
+                    </TouchableOpacity>
+                ) : (
+                    <View style={{ alignItems: 'center' }}>
+                        <Text style={[styles.scoreMsg, { textAlign: 'center', marginBottom: 20, paddingHorizontal: 20 }]}>
+                            In order to qualify for the Hall of Fame you must memorize 99 names using no hints. Keep doing it brother!
+                        </Text>
+                        <TouchableOpacity
+                            style={styles.primaryBtn}
+                            onPress={() => {
+                                setRevealedIds(new Set());
+                                setHintsUsed(0);
+                                setInputVal('');
+                            }}
+                        >
+                            <Text style={styles.primaryBtnText}>Try Again</Text>
+                        </TouchableOpacity>
+                    </View>
+                )}
             </View>
         );
     }
@@ -149,11 +173,10 @@ const MemorizeMode = ({ onComplete }) => {
                     <Text style={styles.progress}>{revealedIds.size} / 99 Revealed</Text>
                 </View>
                 <TouchableOpacity
-                    style={[styles.hintBtn, hintsUsed >= 10 && styles.hintBtnDisabled]}
+                    style={styles.hintBtn}
                     onPress={useHint}
-                    disabled={hintsUsed >= 10}
                 >
-                    <Text style={styles.hintBtnText}>Hint ({10 - hintsUsed})</Text>
+                    <Text style={styles.hintBtnText}>Use Hint</Text>
                 </TouchableOpacity>
             </View>
 
@@ -190,6 +213,7 @@ const MemorizeMode = ({ onComplete }) => {
                         key={name.id}
                         item={name}
                         isFlipped={revealedIds.has(name.id)}
+                        onLongPress={() => revealHint(name.id)}
                     />
                 ))}
             </ScrollView>

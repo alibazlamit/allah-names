@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: husna-api
+    restart: always
+    ports:
+      - "3005:3005"
+    volumes:
+      # This binds the local ./data folder to the container's /usr/src/app/data folder
+      # ensuring the SQLite database file persists across container restarts
+      - ./data:/usr/src/app/data
+    environment:
+      - NODE_ENV=production

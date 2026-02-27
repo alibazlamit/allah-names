@@ -1,12 +1,62 @@
 [
-  { "id": 1, "arabic": "ٱلْرَّحْمَـانُ", "transliteration": "Ar-Rahmaan", "meaning": "The Beneficent" },
-  { "id": 2, "arabic": "ٱلْرَّحِيْمُ", "transliteration": "Ar-Raheem", "meaning": "The Merciful" },
-  { "id": 3, "arabic": "ٱلْمَلِكُ", "transliteration": "Al-Malik", "meaning": "The King" },
-  { "id": 4, "arabic": "ٱلْقُدُّوسُ", "transliteration": "Al-Quddus", "meaning": "The Most Sacred" },
-  { "id": 5, "arabic": "ٱلْسَّلَامُ", "transliteration": "As-Salam", "meaning": "The Source of Peace" },
-  { "id": 6, "arabic": "ٱلْمُؤْمِنُ", "transliteration": "Al-Mu'min", "meaning": "The Infuser of Faith" },
-  { "id": 7, "arabic": "ٱلْمُهَيْمِنُ", "transliteration": "Al-Muhaymin", "meaning": "The Preserver of Safety" },
-  { "id": 8, "arabic": "ٱلْعَزِيزُ", "transliteration": "Al-Aziz", "meaning": "The All Mighty" },
-  { "id": 9, "arabic": "ٱلْجَبَّارُ", "transliteration": "Al-Jabbar", "meaning": "The Compeller" },
-  { "id": 10, "arabic": "ٱلْمُتَكَبِّرُ", "transliteration": "Al-Mutakabbir", "meaning": "The Supreme, The Majestic" }
+  {
+    "id": 1,
+    "arabic": "الرحمن",
+    "transliteration": "Ar-Rahman",
+    "meaning": "The All-Compassionate"
+  },
+  {
+    "id": 2,
+    "arabic": "ٱلْرَّحِيْمُ",
+    "transliteration": "Ar-Raheem",
+    "meaning": "The Merciful"
+  },
+  {
+    "id": 3,
+    "arabic": "ٱلْمَلِكُ",
+    "transliteration": "Al-Malik",
+    "meaning": "The King"
+  },
+  {
+    "id": 4,
+    "arabic": "ٱلْقُدُّوسُ",
+    "transliteration": "Al-Quddus",
+    "meaning": "The Most Sacred"
+  },
+  {
+    "id": 5,
+    "arabic": "ٱلْسَّلَامُ",
+    "transliteration": "As-Salam",
+    "meaning": "The Source of Peace"
+  },
+  {
+    "id": 6,
+    "arabic": "ٱلْمُؤْمِنُ",
+    "transliteration": "Al-Mu'min",
+    "meaning": "The Infuser of Faith"
+  },
+  {
+    "id": 7,
+    "arabic": "ٱلْمُهَيْمِنُ",
+    "transliteration": "Al-Muhaymin",
+    "meaning": "The Preserver of Safety"
+  },
+  {
+    "id": 8,
+    "arabic": "ٱلْعَزِيزُ",
+    "transliteration": "Al-Aziz",
+    "meaning": "The All Mighty"
+  },
+  {
+    "id": 9,
+    "arabic": "ٱلْجَبَّارُ",
+    "transliteration": "Al-Jabbar",
+    "meaning": "The Compeller"
+  },
+  {
+    "id": 10,
+    "arabic": "ٱلْمُتَكَبِّرُ",
+    "transliteration": "Al-Mutakabbir",
+    "meaning": "The Supreme, The Majestic"
+  }
 ]

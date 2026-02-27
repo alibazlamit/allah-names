@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "arabic": "ٱلْرَّحْمَـانُ",
+        "arabic": "الرحمن",
         "transliteration": "Ar-Rahman",
-        "meaning": "The Beneficent"
+        "meaning": "The All-Compassionate"
     },
     {
         "id": 2,
@@ -493,7 +493,7 @@
     },
     {
         "id": 83,
-        "arabic": "ٱلْرَّءُوفُ",
+        "arabic": "الرؤوف",
         "transliteration": "Ar-Ra'oof",
         "meaning": "The Clement"
     },

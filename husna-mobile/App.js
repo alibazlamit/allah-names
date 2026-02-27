@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, Dimensions, Platform } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Dimensions, Platform } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import LearnMode from './components/LearnMode';
 import MemorizeMode from './components/MemorizeMode';
 import HallOfFame from './components/HallOfFame';
@@ -10,45 +11,47 @@ export default function App() {
   const [currentView, setCurrentView] = useState('learn');
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="light-content" backgroundColor="#0f2b23" />
-      <View style={styles.container}>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.safeArea}>
+        <StatusBar barStyle="light-content" backgroundColor="#0f2b23" />
+        <View style={styles.container}>
 
-        <View style={styles.topNav}>
-          <Text style={styles.logo}>Husna</Text>
-          <View style={styles.navButtons}>
-            <TouchableOpacity
-              style={[styles.navBtn, currentView === 'learn' && styles.activeNavBtn]}
-              onPress={() => setCurrentView('learn')}
-            >
-              <Text style={[styles.navBtnText, currentView === 'learn' && styles.activeNavBtnText]}>Learn</Text>
-            </TouchableOpacity>
+          <View style={styles.topNav}>
+            <Text style={styles.logo}>Husna</Text>
+            <View style={styles.navButtons}>
+              <TouchableOpacity
+                style={[styles.navBtn, currentView === 'learn' && styles.activeNavBtn]}
+                onPress={() => setCurrentView('learn')}
+              >
+                <Text style={[styles.navBtnText, currentView === 'learn' && styles.activeNavBtnText]}>Learn</Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity
-              style={[styles.navBtn, currentView === 'memorize' && styles.activeNavBtn]}
-              onPress={() => setCurrentView('memorize')}
-            >
-              <Text style={[styles.navBtnText, currentView === 'memorize' && styles.activeNavBtnText]}>Memorize</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.navBtn, currentView === 'memorize' && styles.activeNavBtn]}
+                onPress={() => setCurrentView('memorize')}
+              >
+                <Text style={[styles.navBtnText, currentView === 'memorize' && styles.activeNavBtnText]}>Memorize</Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity
-              style={[styles.navBtn, currentView === 'hall' && styles.activeNavBtn]}
-              onPress={() => setCurrentView('hall')}
-            >
-              <Text style={[styles.navBtnText, currentView === 'hall' && styles.activeNavBtnText]}>Hall</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.navBtn, currentView === 'hall' && styles.activeNavBtn]}
+                onPress={() => setCurrentView('hall')}
+              >
+                <Text style={[styles.navBtnText, currentView === 'hall' && styles.activeNavBtnText]}>Hall</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.mainContent}>
-          {currentView === 'learn' && <LearnMode />}
-          {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
-          {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
-          {currentView === 'oath' && <HallOfFame initialMode="oath" onOathComplete={() => setCurrentView('hall')} />}
-        </View>
+          <View style={styles.mainContent}>
+            {currentView === 'learn' && <LearnMode />}
+            {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
+            {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
+            {currentView === 'oath' && <HallOfFame initialMode="oath" onOathComplete={() => setCurrentView('hall')} />}
+          </View>
 
-      </View>
-    </SafeAreaView>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
