@@ -1,3 +1,0 @@
-husna.alibazlamit.com {
-    reverse_proxy api:3005
-}

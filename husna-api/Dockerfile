@@ -4,7 +4,10 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+# Install build dependencies for sqlite3, build npm packages, then clean up
+RUN apk add --no-cache python3 make g++ && \
+    npm install && \
+    apk del python3 make g++
 
 # Copy application files and change ownership to 'node' user
 COPY --chown=node:node . .

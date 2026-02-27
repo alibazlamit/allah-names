@@ -5,27 +5,17 @@ services:
     build: .
     container_name: husna-api
     restart: always
-    # We remove the port mapping here so the API is ONLY accessible through Caddy internally
+    # Exposing the port to the external network
+    expose:
+      - "3005"
     volumes:
       - ./data:/usr/src/app/data
     environment:
       - NODE_ENV=production
+    networks:
+      - shared_caddy_network
 
-  caddy:
-    image: caddy:latest
-    container_name: husna-caddy
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp" # Optional: for HTTP/3 support
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - api
-
-volumes:
-  caddy_data:
-  caddy_config:
+networks:
+  shared_caddy_network:
+    external: true
+    name: app_default
