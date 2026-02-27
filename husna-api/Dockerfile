@@ -6,7 +6,14 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+# Copy application files and change ownership to 'node' user
+COPY --chown=node:node . .
+
+# Set up the data directory with correct permissions in case it doesn't exist yet
+RUN mkdir -p data && chown -R node:node data
+
+# Switch to the non-root 'node' user
+USER node
 
 # Expose the API port
 EXPOSE 3005

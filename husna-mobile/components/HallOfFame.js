@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Platform } from 'react-native';
 import CountryPicker from 'react-native-country-picker-modal';
 
-const API_URL = Platform.OS === 'android' ? 'http://10.0.2.2:3005' : 'http://localhost:3005';
+const API_URL = 'https://husna.alibazlamit.com';
 
 const HallOfFame = ({ initialMode, onOathComplete }) => {
     const [mode, setMode] = useState(initialMode); // 'oath' or 'leaderboard'

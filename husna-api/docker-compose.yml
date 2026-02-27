@@ -5,11 +5,27 @@ services:
     build: .
     container_name: husna-api
     restart: always
-    ports:
-      - "3005:3005"
+    # We remove the port mapping here so the API is ONLY accessible through Caddy internally
     volumes:
-      # This binds the local ./data folder to the container's /usr/src/app/data folder
-      # ensuring the SQLite database file persists across container restarts
       - ./data:/usr/src/app/data
     environment:
       - NODE_ENV=production
+
+  caddy:
+    image: caddy:latest
+    container_name: husna-caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp" # Optional: for HTTP/3 support
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+
+volumes:
+  caddy_data:
+  caddy_config:
