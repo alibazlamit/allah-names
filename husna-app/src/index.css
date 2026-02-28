@@ -102,9 +102,11 @@ body {
 }
 
 .names-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .name-card {
@@ -198,12 +200,11 @@ body {
 .memorize-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .memorize-header {
-  text-align: center;
+  text-align: left;
 }
 
 .memorize-header h2 {
@@ -212,20 +213,85 @@ body {
   margin-bottom: 5px;
 }
 
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .progress {
   color: var(--accent-gold);
-  margin-top: 10px;
+  margin-top: 5px;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
-.flashcard {
-  width: 100%;
-  max-width: 400px;
-  height: 350px;
+.hint-btn {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.hint-btn:hover {
+  background: rgba(212, 175, 55, 0.3);
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.answer-input {
+  flex-grow: 1;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-light);
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.answer-input:focus {
+  border-color: var(--accent-gold);
+}
+
+.submit-btn-floating {
+  background: var(--accent-gold);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn-floating:hover {
+  background: #b5952f;
+}
+
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  padding-bottom: 40px;
+}
+
+.tile-wrapper {
+  aspect-ratio: 1 / 1;
   perspective: 1000px;
+  cursor: pointer;
 }
 
-.flashcard-inner {
+.tile-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -233,65 +299,58 @@ body {
   transform-style: preserve-3d;
 }
 
-.flashcard.flipped .flashcard-inner {
+.tile-wrapper.flipped .tile-inner {
   transform: rotateY(180deg);
 }
 
-.flashcard-front,
-.flashcard-back {
+.tile-front,
+.tile-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: var(--card-bg);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 20px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 5px;
 }
 
-.flashcard-back {
+.tile-front {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tile-front .tile-number {
+  color: var(--text-dim);
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0.3;
+}
+
+.tile-back {
   transform: rotateY(180deg);
-  background: linear-gradient(145deg, rgba(212, 175, 55, 0.1), var(--card-bg));
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
 }
 
-.play-btn.large {
-  width: 60px;
-  height: 60px;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.meaning-hint {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  text-align: center;
-  color: var(--text-light);
-  font-style: italic;
-}
-
-.answer-input {
-  width: 100%;
-  padding: 12px 20px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(0, 0, 0, 0.3);
-  color: var(--text-light);
-  font-size: 1.1rem;
-  outline: none;
-  transition: border-color 0.3s;
+.tile-back .tile-arabic {
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 4px;
   text-align: center;
 }
 
-.answer-input:focus {
-  border-color: var(--accent-gold);
+.tile-back .tile-transliteration {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 600;
+  text-align: center;
 }
 
-.submit-btn,
+
+
 .next-btn,
 .primary-btn,
 .secondary-btn {
@@ -305,15 +364,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.submit-btn {
-  background: var(--accent-gold);
-  color: #000;
-}
 
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-}
 
 .next-btn {
   background: rgba(255, 255, 255, 0.1);

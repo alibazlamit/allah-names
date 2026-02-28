@@ -1,52 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import namesData from '../data/names.json';
 
-const MemorizeMode = ({ onComplete }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [inputVal, setInputVal] = useState('');
-    const [isFlipped, setIsFlipped] = useState(false);
-    const [score, setScore] = useState(0);
-    const [hintsUsed, setHintsUsed] = useState(0);
-    const [testComplete, setTestComplete] = useState(false);
-
+const NameTile = ({ item, isFlipped, onLongPress }) => {
     const pressTimer = useRef(null);
-
-    const currentName = namesData[currentIndex];
-
-    const playAudio = () => {
-        const utterance = new SpeechSynthesisUtterance(currentName.arabic);
-        utterance.lang = 'ar-SA';
-        window.speechSynthesis.speak(utterance);
-    };
-
-    const handleReveal = () => {
-        // Basic verification: accept if it matches transliteration or arabic roughly
-        // Real implementation would use fuzzy finding for normalization.
-        const normalizedInput = inputVal.toLowerCase().trim();
-        const isCorrect =
-            normalizedInput === currentName.transliteration.toLowerCase() ||
-            normalizedInput === currentName.arabic;
-
-        if (isCorrect) setScore(s => s + 1);
-        setIsFlipped(true);
-    };
-
-    const handleNext = () => {
-        if (currentIndex < namesData.length - 1) {
-            setCurrentIndex(i => i + 1);
-            setIsFlipped(false);
-            setInputVal('');
-        } else {
-            setTestComplete(true);
-        }
-    };
 
     const handlePressIn = () => {
         pressTimer.current = setTimeout(() => {
-            if (!isFlipped) {
-                setIsFlipped(true);
-                setHintsUsed(h => h + 1);
-            }
+            onLongPress();
         }, 600);
     };
 
@@ -54,21 +14,133 @@ const MemorizeMode = ({ onComplete }) => {
         if (pressTimer.current) clearTimeout(pressTimer.current);
     };
 
-    if (testComplete) {
+    return (
+        <div
+            className={`tile-wrapper ${isFlipped ? 'flipped' : ''}`}
+            onMouseDown={handlePressIn}
+            onMouseUp={handlePressOut}
+            onMouseLeave={handlePressOut}
+            onTouchStart={handlePressIn}
+            onTouchEnd={handlePressOut}
+        >
+            <div className="tile-inner">
+                <div className="tile-front">
+                    <span className="tile-number">{item.id}</span>
+                </div>
+                <div className="tile-back">
+                    <div className="tile-arabic">{item.arabic}</div>
+                    <div className="tile-transliteration">{item.transliteration}</div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const MemorizeMode = ({ onComplete }) => {
+    const [inputVal, setInputVal] = useState('');
+    const [revealedIds, setRevealedIds] = useState(new Set());
+    const [hintsUsed, setHintsUsed] = useState(0);
+
+    const normalizeArabic = (text) => {
+        return text
+            .replace(/[\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E8\u06EA-\u06ED]/g, '') // Remove diacritics
+            .replace(/[إأٱآا]/g, 'ا') // Normalize Alif
+            .replace(/[يى]/g, 'ي') // Normalize Yaa/Alif Maqsura
+            .replace(/ة/g, 'ه') // Normalize Ta Marbuta
+            .replace(/ـ/g, '') // Remove Tatweel/Kashida
+            .replace(/[^ء-ي]/g, ''); // Remove EVERYTHING that is not a core Arabic letter
+    };
+
+    const normalizeEnglish = (text) => {
+        return text.toLowerCase().replace(/[^a-z]/gi, ''); // Only letters
+    };
+
+    const handleInputChange = (e) => {
+        const text = e.target.value;
+        setInputVal(text);
+        if (!text.trim()) return;
+
+        const normEnInput = normalizeEnglish(text);
+        const normArInput = normalizeArabic(text);
+
+        const matchedName = namesData.find(name => {
+            if (revealedIds.has(name.id)) return false;
+
+            // Transliteration checks
+            const normTrans = normalizeEnglish(name.transliteration);
+            let normTransBase = normTrans;
+            if (normTrans.startsWith('al')) normTransBase = normTrans.slice(2);
+            else if (normTrans.startsWith('ar')) normTransBase = normTrans.slice(2);
+            else if (normTrans.startsWith('as')) normTransBase = normTrans.slice(2);
+            else if (normTrans.startsWith('ad')) normTransBase = normTrans.slice(2);
+            else if (normTrans.startsWith('an')) normTransBase = normTrans.slice(2);
+            else if (normTrans.startsWith('az')) normTransBase = normTrans.slice(2);
+            else if (normTrans.startsWith('ash')) normTransBase = normTrans.slice(3);
+            else if (normTrans.startsWith('at')) normTransBase = normTrans.slice(2);
+
+            // Arabic checks
+            const normArabic = normalizeArabic(name.arabic);
+            const normArabicBase = normArabic.startsWith('ال') ? normArabic.substring(2) : normArabic;
+
+            const isEnglishMatch = normEnInput.length > 2 && (normEnInput === normTrans || normEnInput === normTransBase);
+            const isArabicMatch = normArInput.length > 1 && (normArInput === normArabic || normArInput === normArabicBase);
+
+            return isEnglishMatch || isArabicMatch;
+        });
+
+        if (matchedName) {
+            setRevealedIds(prev => new Set(prev).add(matchedName.id));
+            setInputVal(''); // clear input after correct guess
+
+            // Auto scroll in browser
+            setTimeout(() => {
+                const element = document.getElementById(`tile-${matchedName.id}`);
+                if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    };
+
+    const revealHint = (id) => {
+        if (!revealedIds.has(id)) {
+            setRevealedIds(prev => new Set(prev).add(id));
+            setHintsUsed(h => h + 1);
+        }
+    };
+
+    const useHint = () => {
+        // Find first unrevealed
+        const unrevealed = namesData.find(name => !revealedIds.has(name.id));
+        if (unrevealed) {
+            setRevealedIds(prev => new Set(prev).add(unrevealed.id));
+            setHintsUsed(h => h + 1);
+
+            setTimeout(() => {
+                const element = document.getElementById(`tile-${unrevealed.id}`);
+                if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    };
+
+    const isTestComplete = revealedIds.size === namesData.length;
+
+    if (isTestComplete) {
         return (
             <div className="test-complete">
-                <h2>Memorization Complete</h2>
-                <p>You scored {score} out of {namesData.length} and used {hintsUsed} hints.</p>
-                {score === namesData.length && hintsUsed === 0 ? (
+                <h2>Masha'Allah!</h2>
+                <p className="success-msg">
+                    You memorized {namesData.length - hintsUsed} of {namesData.length} and used {hintsUsed} hints.
+                </p>
+                {hintsUsed === 0 ? (
                     <div>
-                        <p className="success-msg">Masha'Allah! You have memorized the names perfectly.</p>
                         <button className="primary-btn" onClick={onComplete}>Proceed to Oath</button>
                     </div>
                 ) : (
                     <div>
-                        <p>In order to qualify for the Hall of Fame you must memorize 99 names using no hints. Keep doing it brother!</p>
+                        <p style={{ marginBottom: '20px' }}>In order to qualify for the Hall of Fame you must memorize 99 names using no hints. Keep doing it brother!</p>
                         <button className="secondary-btn" onClick={() => {
-                            setCurrentIndex(0); setScore(0); setHintsUsed(0); setTestComplete(false); setInputVal(''); setIsFlipped(false);
+                            setRevealedIds(new Set());
+                            setHintsUsed(0);
+                            setInputVal('');
                         }}>Try Again</button>
                     </div>
                 )}
@@ -78,48 +150,35 @@ const MemorizeMode = ({ onComplete }) => {
 
     return (
         <div className="memorize-container">
-            <div className="memorize-header">
-                <h2>Memorize Mode</h2>
-                <p>Type the Transliteration or Arabic name</p>
-                <div className="progress">Card {currentIndex + 1} of {namesData.length}</div>
+            <div className="header-row" style={{ width: '100%', maxWidth: '600px' }}>
+                <div className="memorize-header">
+                    <h2>Memorize (Grid Mode)</h2>
+                    <div className="progress">{revealedIds.size} / 99 Revealed</div>
+                </div>
+                <button className="hint-btn" onClick={useHint}>Use Hint</button>
             </div>
 
-            <div className={`flashcard ${isFlipped ? 'flipped' : ''}`}>
-                <div className="flashcard-inner">
-                    <div
-                        className="flashcard-front"
-                        onMouseDown={handlePressIn}
-                        onMouseUp={handlePressOut}
-                        onMouseLeave={handlePressOut}
-                        onTouchStart={handlePressIn}
-                        onTouchEnd={handlePressOut}
-                    >
-                        <button className="play-btn large" onClick={(e) => { e.stopPropagation(); playAudio(); }} title="Play Audio">▶</button>
-                        <div className="meaning-hint">"{currentName.meaning}"</div>
+            <div className="input-container" style={{ maxWidth: '600px', width: '100%' }}>
+                <input
+                    type="text"
+                    className="answer-input"
+                    placeholder="Type any name..."
+                    value={inputVal}
+                    onChange={handleInputChange}
+                    autoFocus
+                />
+            </div>
 
-                        <input
-                            type="text"
-                            className="answer-input"
-                            placeholder="Type the name..."
-                            value={inputVal}
-                            onChange={(e) => setInputVal(e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && !isFlipped && handleReveal()}
-                            disabled={isFlipped}
-                            autoFocus
+            <div className="tiles-grid">
+                {namesData.map((name) => (
+                    <div key={name.id} id={`tile-${name.id}`}>
+                        <NameTile
+                            item={name}
+                            isFlipped={revealedIds.has(name.id)}
+                            onLongPress={() => revealHint(name.id)}
                         />
-
-                        {!isFlipped && (
-                            <button className="submit-btn" onClick={handleReveal}>Submit</button>
-                        )}
                     </div>
-
-                    <div className="flashcard-back">
-                        <h3 className="result-title">Answer:</h3>
-                        <div className="arabic-text">{currentName.arabic}</div>
-                        <div className="transliteration">{currentName.transliteration}</div>
-                        <button className="next-btn" onClick={handleNext}>Next Card</button>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
