@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 
 const HallOfFame = ({ initialMode, onOathComplete }) => {
     const [mode, setMode] = useState(initialMode); // 'oath' or 'leaderboard'
     const [name, setName] = useState('');
-    const [country, setCountry] = useState('');
+    const [country, setCountry] = useState(null);
     const [sworeOath, setSworeOath] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
     const [leaderboard, setLeaderboard] = useState([]);
+    const countryOptions = useMemo(() => countryList().getData(), []);
 
     useEffect(() => {
         setMode(initialMode);
@@ -20,7 +23,7 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
     const fetchLeaderboard = async () => {
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:3005/api/leaderboard');
+            const res = await fetch('https://husna.alibazlamit.com/api/leaderboard');
             const data = await res.json();
             if (data.data) {
                 setLeaderboard(data.data);
@@ -38,7 +41,7 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
             setError('You must swear the oath to proceed.');
             return;
         }
-        if (!name || !country) {
+        if (!name || !country || !country.label) {
             setError('Please provide your name and country.');
             return;
         }
@@ -46,10 +49,10 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
         setLoading(true);
         setError('');
         try {
-            const res = await fetch('http://localhost:3005/api/leaderboard', {
+            const res = await fetch('https://husna.alibazlamit.com/api/leaderboard', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, country, sworeOath })
+                body: JSON.stringify({ name, country: country.label, sworeOath })
             });
             const data = await res.json();
             if (res.ok) {
@@ -84,12 +87,22 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
                             onChange={e => setName(e.target.value)}
                             required
                         />
-                        <input
-                            type="text"
-                            placeholder="Your Country (e.g. Morocco, Indonesia)"
+                        <Select
+                            options={countryOptions}
                             value={country}
-                            onChange={e => setCountry(e.target.value)}
-                            required
+                            onChange={selectedOption => setCountry(selectedOption)}
+                            placeholder="Select your country..."
+                            className="country-select-container"
+                            classNamePrefix="country-select"
+                            styles={{
+                                control: (base) => ({
+                                    ...base,
+                                    padding: '5px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ccc',
+                                    marginBottom: '1rem'
+                                })
+                            }}
                         />
 
                         <div className="checkbox-wrapper">
