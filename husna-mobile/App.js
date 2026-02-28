@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Dimensions, Platform } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import * as NavigationBar from 'expo-navigation-bar';
+import * as SystemUI from 'expo-system-ui';
 import LearnMode from './components/LearnMode';
 import MemorizeMode from './components/MemorizeMode';
 import HallOfFame from './components/HallOfFame';
+
+// Force absolute Edge-to-Edge on Android
+if (Platform.OS === 'android') {
+  NavigationBar.setPositionAsync('absolute');
+  NavigationBar.setBackgroundColorAsync('#ffffff00'); // fully transparent
+  SystemUI.setBackgroundColorAsync('#121212'); // prevent flashes behind nav
+}
 
 const { height } = Dimensions.get('window');
 
@@ -42,7 +51,7 @@ export default function App() {
             </View>
           </View>
 
-          <View style={styles.mainContent}>
+          <View style={[styles.mainContent, { paddingBottom: Platform.OS === 'android' ? 20 : 0 }]}>
             {currentView === 'learn' && <LearnMode />}
             {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
             {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
