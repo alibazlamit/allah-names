@@ -169,7 +169,6 @@ const MemorizeMode = ({ onComplete }) => {
         <View style={styles.container}>
             <View style={styles.headerRow}>
                 <View style={styles.header}>
-                    <Text style={styles.title}>Memorize (Grid Mode)</Text>
                     <Text style={styles.progress}>{revealedIds.size} / 99 Revealed</Text>
                 </View>
                 <TouchableOpacity
@@ -296,7 +295,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         justifyContent: 'flex-start',
         gap: 10,
-        paddingBottom: 40,
+        paddingBottom: 80,
     },
     tileWrapper: {
         width: TILE_SIZE,
