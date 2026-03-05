@@ -6,6 +6,7 @@ import * as SystemUI from 'expo-system-ui';
 import LearnMode from './components/LearnMode';
 import MemorizeMode from './components/MemorizeMode';
 import HallOfFame from './components/HallOfFame';
+import Dedication from './components/Dedication';
 
 // Force absolute Edge-to-Edge on Android
 if (Platform.OS === 'android') {
@@ -48,6 +49,13 @@ export default function App() {
               >
                 <Text style={[styles.navBtnText, currentView === 'hall' && styles.activeNavBtnText]}>Hall</Text>
               </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.navBtn, currentView === 'dedication' && styles.activeNavBtn]}
+                onPress={() => setCurrentView('dedication')}
+              >
+                <Text style={[styles.navBtnText, currentView === 'dedication' && styles.activeNavBtnText]}>♥</Text>
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -56,6 +64,7 @@ export default function App() {
             {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
             {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
             {currentView === 'oath' && <HallOfFame initialMode="oath" onOathComplete={() => setCurrentView('hall')} />}
+            {currentView === 'dedication' && <Dedication />}
           </View>
 
         </View>
