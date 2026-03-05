@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Animated, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Animated, Dimensions, Platform } from 'react-native';
 
 const { height } = Dimensions.get('window');
 
