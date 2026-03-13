@@ -63,6 +63,9 @@ const Dedication = () => {
                 <Text style={styles.footerText}>
                     {t('dedication.footer')}
                 </Text>
+                <Text style={styles.versionText}>
+                    {t('dedication.version')}
+                </Text>
             </Animated.View>
         </ScrollView>
     );
@@ -154,6 +157,12 @@ const styles = StyleSheet.create({
         color: 'rgba(255,255,255,0.3)',
         marginTop: 10,
         fontStyle: 'italic',
+    },
+    versionText: {
+        fontSize: 12,
+        color: 'rgba(212, 175, 55, 0.4)',
+        marginTop: 5,
+        fontWeight: '600',
     }
 });
 
