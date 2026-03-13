@@ -6,7 +6,12 @@
         "meaning": "The All-Compassionate",
         "meaning_en": "The All-Compassionate",
         "meaning_ar": "الله",
-        "meaning_bs": "Allah, Bog"
+        "meaning_bs": "Allah, Bog",
+        "meaning_tr": "Tüm isim ve sıfatları kendinde toplayan.",
+        "meaning_ur": "تمام ناموں اور صفات کا جامع۔",
+        "meaning_id": "Nama yang mencakup semua nama-Nya dan maknanya.",
+        "meaning_bn": "সব নাম ও গুণের অধিকারী।",
+        "meaning_fa": "تنها معبودحق"
     },
     {
         "id": 2,
@@ -15,7 +20,12 @@
         "meaning": "The Merciful",
         "meaning_en": "The Merciful",
         "meaning_ar": "الرحمن",
-        "meaning_bs": "Svemilosni"
+        "meaning_bs": "Svemilosni",
+        "meaning_tr": "Rahmetiyle muamele eden, esirgeyen.",
+        "meaning_ur": "رحمت کرنے والا، نعمتیں دینے والا۔",
+        "meaning_id": "Yang Maha Pengasih.",
+        "meaning_bn": "পরম করুণাময়, দয়ালু।",
+        "meaning_fa": "بسیار بخشنده"
     },
     {
         "id": 3,
@@ -24,7 +34,12 @@
         "meaning": "The King",
         "meaning_en": "The King",
         "meaning_ar": "الرحيم",
-        "meaning_bs": "Samilosni"
+        "meaning_bs": "Samilosni",
+        "meaning_tr": "Merhamet eden, bağışlayan.",
+        "meaning_ur": "بہت رحم کرنے والا، بخشنے والا۔",
+        "meaning_id": "Yang Maha Penyayang.",
+        "meaning_bn": "মহা দয়ালু, ক্ষমাশীল।",
+        "meaning_fa": "مهربان"
     },
     {
         "id": 4,
@@ -33,7 +48,12 @@
         "meaning": "The Most Sacred",
         "meaning_en": "The Most Sacred",
         "meaning_ar": "الملك",
-        "meaning_bs": "Vladar, Suvereni"
+        "meaning_bs": "Vladar, Suvereni",
+        "meaning_tr": "Mülkün gerçek sahibi, mülk ve saltanatı devamlı olan.",
+        "meaning_ur": "حکومت کا حقیقی مالک، بادشاہی دائمی۔",
+        "meaning_id": "Penguasa sesungguhnya yang kekuasaannya tidak akan pernah berakhir.",
+        "meaning_bn": "সর্বশক্তির মালিক ও শাসক।",
+        "meaning_fa": "پادشاه و مالک مطلق سلطنت"
     },
     {
         "id": 5,
@@ -42,7 +62,12 @@
         "meaning": "The Source of Peace",
         "meaning_en": "The Source of Peace",
         "meaning_ar": "القدوس",
-        "meaning_bs": "Sveti, Najčistiji"
+        "meaning_bs": "Sveti, Najčistiji",
+        "meaning_tr": "Her türlü eksiklik ve ayıplardan münezzeh olan.",
+        "meaning_ur": "ہر عیب و نقص سے پاک۔",
+        "meaning_id": "Murni dari segala kekurangan dan kelemahan.",
+        "meaning_bn": "সকল ত্রুটি ও অপূর্ণতা থেকে মুক্ত।",
+        "meaning_fa": "پاک و منزه از هر نقص"
     },
     {
         "id": 6,
@@ -51,7 +76,12 @@
         "meaning": "The Infuser of Faith",
         "meaning_en": "The Infuser of Faith",
         "meaning_ar": "السلام",
-        "meaning_bs": "Izvor mira i spasa"
+        "meaning_bs": "Izvor mira i spasa",
+        "meaning_tr": "Kullarını selâmete çıkaran.",
+        "meaning_ur": "اپنے بندوں کو سلامت کرنے والا۔",
+        "meaning_id": "Pemberi kedamaian.",
+        "meaning_bn": "নিরাপত্তা দানকারী, শান্তি প্রদানকারী।",
+        "meaning_fa": "دهنده صلح و سلامتی"
     },
     {
         "id": 7,
@@ -60,7 +90,12 @@
         "meaning": "The Preserver of Safety",
         "meaning_en": "The Preserver of Safety",
         "meaning_ar": "المؤمن",
-        "meaning_bs": "Pouzdani, Koji daje sigurnost"
+        "meaning_bs": "Pouzdani, Koji daje sigurnost",
+        "meaning_tr": "Gönüllerde iman ışığı uyandıran.",
+        "meaning_ur": "دلوں میں ایمان کی روشنی جگانے والا۔",
+        "meaning_id": "Yang menumbuhkan keimanan di hati.",
+        "meaning_bn": "বিশ্বাস ও নিরাপত্তা প্রদানকারী।",
+        "meaning_fa": "اطمینان‌دهنده و جان‌پناه"
     },
     {
         "id": 8,
@@ -69,7 +104,12 @@
         "meaning": "The All Mighty",
         "meaning_en": "The All Mighty",
         "meaning_ar": "المهيمن",
-        "meaning_bs": "Zaštitnik, Koji sve pazi i prati"
+        "meaning_bs": "Zaštitnik, Koji sve pazi i prati",
+        "meaning_tr": "Gözeten ve koruyan.",
+        "meaning_ur": "نگہبان اور محافظ۔",
+        "meaning_id": "Pelindung dan pengawas.",
+        "meaning_bn": "নিগরানকারী ও রক্ষাকারী।",
+        "meaning_fa": "نگهبان و مراقب همیشگی"
     },
     {
         "id": 9,
@@ -78,7 +118,12 @@
         "meaning": "The Compeller",
         "meaning_en": "The Compeller",
         "meaning_ar": "العزيز",
-        "meaning_bs": "Silni, Snažni"
+        "meaning_bs": "Silni, Snažni",
+        "meaning_tr": "Mağlup edilmesi asla mümkün olmayan.",
+        "meaning_ur": "جس کی تاب نہ لائی جا سکے۔",
+        "meaning_id": "Yang kuat and tidak pernah terkalahkan.",
+        "meaning_bn": "অপরাজেয়, পরাক্রমশালী।",
+        "meaning_fa": "نیرومند و شکست‌ناپذیر"
     },
     {
         "id": 10,
@@ -87,7 +132,12 @@
         "meaning": "The Supreme, The Majestic",
         "meaning_en": "The Supreme, The Majestic",
         "meaning_ar": "الجبار",
-        "meaning_bs": "Silni, Koji sve potčinjava"
+        "meaning_bs": "Silni, Koji sve potčinjava",
+        "meaning_tr": "İstediğini mutlak yapan, dilediğine muktedir olan.",
+        "meaning_ur": "مکمل اختیار والا، جو چاہے کر سکے۔",
+        "meaning_id": "Yang melakukan apa yang dikehendaki dan mampu melakukannya.",
+        "meaning_bn": "ইচ্ছামতো কাজ করার ক্ষমতাসম্পন্ন।",
+        "meaning_fa": "مقتدر، کسی که چاره‌ساز است"
     },
     {
         "id": 11,
@@ -96,7 +146,12 @@
         "meaning": "The Creator",
         "meaning_en": "The Creator",
         "meaning_ar": "المتكبر",
-        "meaning_bs": "Gordi, Veličanstveni"
+        "meaning_bs": "Gordi, Veličanstveni",
+        "meaning_tr": "Her şeyde büyüklüğünü gösteren.",
+        "meaning_ur": "ہر چیز میں عظمت دکھانے والا۔",
+        "meaning_id": "Yang Maha Agung dan berhak atas keagungan.",
+        "meaning_bn": "মহত্ত্ব ও গৌরবের অধিকারী।",
+        "meaning_fa": "بزرگ و برتر از هر چیز"
     },
     {
         "id": 12,
@@ -105,7 +160,12 @@
         "meaning": "The Maker",
         "meaning_en": "The Maker",
         "meaning_ar": "الخالق",
-        "meaning_bs": "Stvoritelj"
+        "meaning_bs": "Stvoritelj",
+        "meaning_tr": "Her şeyi yoktan var eden.",
+        "meaning_ur": "ہر شے کو عدم سے وجود میں لانے والا۔",
+        "meaning_id": "Yang menciptakan segala sesuatu dari ketiadaan menjadi ada.",
+        "meaning_bn": "সৃষ্টিকর্তা, কিছু না থেকেও সৃষ্টি করেন।",
+        "meaning_fa": "پدیدآورنده‌ی هستی از هیچ"
     },
     {
         "id": 13,
@@ -114,7 +174,12 @@
         "meaning": "The Fashioner of Forms",
         "meaning_en": "The Fashioner of Forms",
         "meaning_ar": "البارئ",
-        "meaning_bs": "Koji divno stvara"
+        "meaning_bs": "Koji divno stvara",
+        "meaning_tr": "Her şeyi uygun bir tarzda ve birbirine uygun yaratan.",
+        "meaning_ur": "ہر شے کو مناسب انداز سے پیدا کرنے والا۔",
+        "meaning_id": "Pencipta segala sesuatu dengan baik dan seimbang.",
+        "meaning_bn": "যথোপযুক্তভাবে সৃষ্টি করেন।",
+        "meaning_fa": "شکل‌دهنده‌ی شگفت‌انگیز خلقت"
     },
     {
         "id": 14,
@@ -123,7 +188,12 @@
         "meaning": "The All-Forgiving",
         "meaning_en": "The All-Forgiving",
         "meaning_ar": "المصور",
-        "meaning_bs": "Koji likove daje"
+        "meaning_bs": "Koji likove daje",
+        "meaning_tr": "Her şeye bir şekil ve hususiyet verip tasvir eden.",
+        "meaning_ur": "ہر چیز کو صورت و خصوصیت دینے والا۔",
+        "meaning_id": "Yang membentuk ciptaan-Nya dengan berbagai bentuk yang unik.",
+        "meaning_bn": "রূপ ও বৈশিষ্ট্য দানকারী।",
+        "meaning_fa": "تصویردار و ویژگی‌دهنده"
     },
     {
         "id": 15,
@@ -132,7 +202,12 @@
         "meaning": "The All-Compelling Subduer",
         "meaning_en": "The All-Compelling Subduer",
         "meaning_ar": "الغفار",
-        "meaning_bs": "Onaj Koji mnogo prašta"
+        "meaning_bs": "Onaj Koji mnogo prašta",
+        "meaning_tr": "Kullarının günahlarını örten, günahlarını bağışlayan.",
+        "meaning_ur": "بندوں کے گناہوں کو چھپانے اور معاف کرنے والا۔",
+        "meaning_id": "Yang menutupi dosa hamba-hamba-Nya dan mengampuninya.",
+        "meaning_bn": "গোপনকারী ও ক্ষমাশীল।",
+        "meaning_fa": "آمرزنده‌ی بزرگ، پرده‌پوش گناه"
     },
     {
         "id": 16,
@@ -141,7 +216,12 @@
         "meaning": "The Bestower",
         "meaning_en": "The Bestower",
         "meaning_ar": "القهار",
-        "meaning_bs": "Onaj Koji nadvladava"
+        "meaning_bs": "Onaj Koji nadvladava",
+        "meaning_tr": "Her şeye, her istediğini yapacak surette galip ve hakim olan.",
+        "meaning_ur": "ہر چیز پر غالب، ہر حال میں کامیاب۔",
+        "meaning_id": "Yang berkuasa penuh.",
+        "meaning_bn": "সর্বজয়ী ও কর্তৃত্বশালী।",
+        "meaning_fa": "غالب بر همه و پیروز مطلق"
     },
     {
         "id": 17,
@@ -150,7 +230,12 @@
         "meaning": "The Ever-Providing",
         "meaning_en": "The Ever-Providing",
         "meaning_ar": "الوهاب",
-        "meaning_bs": "Onaj Koji obilno daruje"
+        "meaning_bs": "Onaj Koji obilno daruje",
+        "meaning_tr": "Çok fazla ihsan eden.",
+        "meaning_ur": "بے حد انعام کرنے والا۔",
+        "meaning_id": "Yang murah hati dalam memberikan berlimpah.",
+        "meaning_bn": "প্রচুর দানকারী।",
+        "meaning_fa": "بخشنده‌ای که نعمت‌های بی‌کران می‌دهد"
     },
     {
         "id": 18,
@@ -159,7 +244,12 @@
         "meaning": "The Opener, The Judge",
         "meaning_en": "The Opener, The Judge",
         "meaning_ar": "الرزاق",
-        "meaning_bs": "Onaj Koji opskrbljuje"
+        "meaning_bs": "Onaj Koji opskrbljuje",
+        "meaning_tr": "Bütün mahlukatın rızkını veren ve ihtiyacını karşılayan.",
+        "meaning_ur": "تمام مخلوقات کی رزق دینے والا۔",
+        "meaning_id": "Yang memberi rezeki dan kebutuhan bagi setiap makhluk.",
+        "meaning_bn": "রিজিক দানকারী।",
+        "meaning_fa": "روزی‌دهنده‌ی دائمی"
     },
     {
         "id": 19,
@@ -168,7 +258,12 @@
         "meaning": "The All-Knowing",
         "meaning_en": "The All-Knowing",
         "meaning_ar": "الفتاح",
-        "meaning_bs": "Onaj Koji otvara i rješava"
+        "meaning_bs": "Onaj Koji otvara i rješava",
+        "meaning_tr": "Her türlü zorlukları kolaylaştıran, darlıktan kurtaran.",
+        "meaning_ur": "مشکلات کو آسان کرنے والا، دروازے کھولنے والا۔",
+        "meaning_id": "Yang membuka pintu-pintu yang tertutup dan mempermudah segala urusan.",
+        "meaning_bn": "উন্মোচনকারী, পথপ্রদর্শক।",
+        "meaning_fa": "گشایشگر در مشکلات و قضاوت‌ها"
     },
     {
         "id": 20,
@@ -177,7 +272,12 @@
         "meaning": "The Withholder",
         "meaning_en": "The Withholder",
         "meaning_ar": "العليم",
-        "meaning_bs": "Sveznajući"
+        "meaning_bs": "Sveznajući",
+        "meaning_tr": "Her şeyi en ince noktasına kadar bilen, ilmi ebedi ve ezeli olan.",
+        "meaning_ur": "ہر شے کو باریک بینی سے جاننے والا۔",
+        "meaning_id": "Yang mengetahui segala hal, hal-hal kecil maupun besar.",
+        "meaning_bn": "সর্বজ্ঞ, সব কিছু জানেন।",
+        "meaning_fa": "دانای مطلق، آگاه به همه چیز"
     },
     {
         "id": 21,
@@ -186,7 +286,12 @@
         "meaning": "The Expander",
         "meaning_en": "The Expander",
         "meaning_ar": "القابض",
-        "meaning_bs": "Onaj Koji steže i susteže"
+        "meaning_bs": "Onaj Koji steže i susteže",
+        "meaning_tr": "Dilediğine darlık veren, sıkan, daraltan.",
+        "meaning_ur": "جو چاہے قحطی دے، جو چاہے روک دے۔",
+        "meaning_id": "Yang menahan dan menyempitkan apa yang dikehendaki-Nya.",
+        "meaning_bn": "সংকোচনকারী।",
+        "meaning_fa": "کسیکه جمع و قبض روزی می‌کند"
     },
     {
         "id": 22,
@@ -195,7 +300,12 @@
         "meaning": "The Abaser",
         "meaning_en": "The Abaser",
         "meaning_ar": "الباسط",
-        "meaning_bs": "Onaj Koji pruža i širi"
+        "meaning_bs": "Onaj Koji pruža i širi",
+        "meaning_tr": "Dilediğine bolluk veren, açan, genişleten.",
+        "meaning_ur": "جو چاہے کشادگی دے، رزق بڑھائے۔",
+        "meaning_id": "Yang melapangkan dan melebarkan apa yang dikehendaki-Nya.",
+        "meaning_bn": "প্রসারিতকারী, দানকারী।",
+        "meaning_fa": "گسترش‌دهنده و وسعت‌بخش"
     },
     {
         "id": 23,
@@ -204,7 +314,12 @@
         "meaning": "The Exalter",
         "meaning_en": "The Exalter",
         "meaning_ar": "الخافض",
-        "meaning_bs": "Onaj Koji spušta"
+        "meaning_bs": "Onaj Koji spušta",
+        "meaning_tr": "Yukarıdan aşağıya indiren, alçaltan.",
+        "meaning_ur": "جو ہاتھ سے نیچے لے جائے، ذلیل کرے۔",
+        "meaning_id": "Yang merendahkan.",
+        "meaning_bn": "অবনমিতকারী, নিচে নামিয়ে দেন।",
+        "meaning_fa": "پایین‌آورنده‌ی مقام‌های ناپسند"
     },
     {
         "id": 24,
@@ -213,7 +328,12 @@
         "meaning": "The Giver of Honor",
         "meaning_en": "The Giver of Honor",
         "meaning_ar": "الرافع",
-        "meaning_bs": "Onaj Koji uzdiže"
+        "meaning_bs": "Onaj Koji uzdiže",
+        "meaning_tr": "Yukarı kaldıran, yükselten.",
+        "meaning_ur": "بلند کرنے والا، مرتبہ بڑھانے والا۔",
+        "meaning_id": "Yang meninggikan.",
+        "meaning_bn": "উন্নীতকারী, মর্যাদা বৃদ্ধি করেন।",
+        "meaning_fa": "ارتقا دهنده‌ی جایگاه"
     },
     {
         "id": 25,
@@ -222,7 +342,12 @@
         "meaning": "The Giver of Dishonor",
         "meaning_en": "The Giver of Dishonor",
         "meaning_ar": "المعز",
-        "meaning_bs": "Onaj Koji uzvisuje"
+        "meaning_bs": "Onaj Koji uzvisuje",
+        "meaning_tr": "İzzet verip ağırlayan.",
+        "meaning_ur": "عزت دینے والا، قدر بڑھانے والا۔",
+        "meaning_id": "Yang memberi kemuliaan.",
+        "meaning_bn": "সম্মান ও মর্যাদা দানকারী।",
+        "meaning_fa": "عزت‌بخش و قدررسان"
     },
     {
         "id": 26,
@@ -231,7 +356,12 @@
         "meaning": "The All-Hearing",
         "meaning_en": "The All-Hearing",
         "meaning_ar": "المذل",
-        "meaning_bs": "Onaj Koji unižava"
+        "meaning_bs": "Onaj Koji unižava",
+        "meaning_tr": "Zillete düşüren, hor ve hakir eden.",
+        "meaning_ur": "ذلت دینے والا، حقیر بنانے والا۔",
+        "meaning_id": "Yang menghinakan dan mengecilkan.",
+        "meaning_bn": "অপমানকারী, হীন করেন।",
+        "meaning_fa": "ذلیل‌کننده‌ی ظلم‌ورزان"
     },
     {
         "id": 27,
@@ -240,7 +370,12 @@
         "meaning": "The All-Seeing",
         "meaning_en": "The All-Seeing",
         "meaning_ar": "السميع",
-        "meaning_bs": "Svečujući"
+        "meaning_bs": "Svečujući",
+        "meaning_tr": "Her şeyi işiten.",
+        "meaning_ur": "ہر شے سننے والا۔",
+        "meaning_id": "Yang mendengar segala sesuatu.",
+        "meaning_bn": "সব কিছু শ্রবণ করেন।",
+        "meaning_fa": "شنونده‌ی تمام صداها و نداها"
     },
     {
         "id": 28,
@@ -249,7 +384,12 @@
         "meaning": "The Judge",
         "meaning_en": "The Judge",
         "meaning_ar": "البصير",
-        "meaning_bs": "Svevideći"
+        "meaning_bs": "Svevideći",
+        "meaning_tr": "Her şeyi gören.",
+        "meaning_ur": "ہر شے دیکھنے والا۔",
+        "meaning_id": "Yang melihat segala sesuatu.",
+        "meaning_bn": "সব কিছু দর্শন করেন।",
+        "meaning_fa": "بینایی که از ظواهر و بواطن خبر دارد"
     },
     {
         "id": 29,
@@ -258,7 +398,12 @@
         "meaning": "The Utterly Just",
         "meaning_en": "The Utterly Just",
         "meaning_ar": "الحكم",
-        "meaning_bs": "Sudija"
+        "meaning_bs": "Sudija",
+        "meaning_tr": "Her işte hikmet ve adaletle hükmeden.",
+        "meaning_ur": "حکمت اور عدل کے ساتھ فیصلہ کرنے والا۔",
+        "meaning_id": "Yang menetapkan hukum dengan kebijaksanaan dan keadilan dalam semua urusan.",
+        "meaning_bn": "বিচারক, যথাযথভাবে বিচার করেন।",
+        "meaning_fa": "داوری عادلانه‌کننده"
     },
     {
         "id": 30,
@@ -267,7 +412,12 @@
         "meaning": "The Subtle One",
         "meaning_en": "The Subtle One",
         "meaning_ar": "العدل",
-        "meaning_bs": "Pravedni"
+        "meaning_bs": "Pravedni",
+        "meaning_tr": "Son derece adaletli olan.",
+        "meaning_ur": "انتہائی منصف، ہر حال میں عدل کرنے والا۔",
+        "meaning_id": "Yang Maha Adil.",
+        "meaning_bn": "পরিপূর্ণ ন্যায়পরায়ণ।",
+        "meaning_fa": "کامل‌ترین عدل‌بخش"
     },
     {
         "id": 31,
@@ -276,7 +426,12 @@
         "meaning": "The All-Aware",
         "meaning_en": "The All-Aware",
         "meaning_ar": "اللطيف",
-        "meaning_bs": "Dobri, Milostivi"
+        "meaning_bs": "Dobri, Milostivi",
+        "meaning_tr": "İşlerin bütün inceliklerini bilen.",
+        "meaning_ur": "تمام باریکیاں جاننے والا، نہایت نرمی والا۔",
+        "meaning_id": "Yang mengetahui semua hal, hal-hal halus dan tersembunyi.",
+        "meaning_bn": "সূক্ষ্মজ্ঞ, সবকিছুর সূক্ষ্মতা জানেন।",
+        "meaning_fa": "لطیف، درک‌کننده‌ی همه ظرافت‌ها"
     },
     {
         "id": 32,
@@ -285,7 +440,12 @@
         "meaning": "The Forbearing",
         "meaning_en": "The Forbearing",
         "meaning_ar": "الخبير",
-        "meaning_bs": "O svemu obaviješteni"
+        "meaning_bs": "O svemu obaviješteni",
+        "meaning_tr": "Her şeyin iç yüzünden, gizli tarafından haberdar olan.",
+        "meaning_ur": "ہر چیز کے باطن اور خفیہ پہلو سے واقف۔",
+        "meaning_id": "Yang mengetahui kebenaran tentang segala sesuatu.",
+        "meaning_bn": "সর্বজ্ঞ, সব কিছুর অন্তর্নিহিত বিষয় জানেন।",
+        "meaning_fa": "آگاه به حقایق نهان"
     },
     {
         "id": 33,
@@ -294,7 +454,12 @@
         "meaning": "The Magnificent",
         "meaning_en": "The Magnificent",
         "meaning_ar": "الحليم",
-        "meaning_bs": "Blagi, Strpljivi"
+        "meaning_bs": "Blagi, Strpljivi",
+        "meaning_tr": "Yumuşak davranan, hilmi çok olan.",
+        "meaning_ur": "نرمی کرنے والا، درگزر والا۔",
+        "meaning_id": "Yang baik hati dan sabar.",
+        "meaning_bn": "সহনশীল, ক্ষমাশীল।",
+        "meaning_fa": "بردبار و صبور"
     },
     {
         "id": 34,
@@ -303,7 +468,12 @@
         "meaning": "The Great Forgiver",
         "meaning_en": "The Great Forgiver",
         "meaning_ar": "العظيم",
-        "meaning_bs": "Veličanstveni"
+        "meaning_bs": "Veličanstveni",
+        "meaning_tr": "Pek azametli ve büyük olan.",
+        "meaning_ur": "حد سے بلند عظمت والا۔",
+        "meaning_id": "Yang Agung and Perkasa.",
+        "meaning_bn": "মহান, গৌরবশালী।",
+        "meaning_fa": "عظیم و محترم"
     },
     {
         "id": 35,
@@ -312,7 +482,12 @@
         "meaning": "The Rewarder of Thankfulness",
         "meaning_en": "The Rewarder of Thankfulness",
         "meaning_ar": "الغفور",
-        "meaning_bs": "Onaj Koji mnogo prašta"
+        "meaning_bs": "Onaj Koji mnogo prašta",
+        "meaning_tr": "Çok bağışlayan, magfireti çok olan.",
+        "meaning_ur": "بہت زیادہ بخشنے والا۔",
+        "meaning_id": "Yang Maha Pengampun.",
+        "meaning_bn": "অত্যন্ত ক্ষমাশীল।",
+        "meaning_fa": "بسیار آمرزنده"
     },
     {
         "id": 36,
@@ -321,7 +496,12 @@
         "meaning": "The Highest",
         "meaning_en": "The Highest",
         "meaning_ar": "الشكور",
-        "meaning_bs": "Zahvalni"
+        "meaning_bs": "Zahvalni",
+        "meaning_tr": "Kendi rızası için yapılan iyi işleri, ziyadesiyle mükafatlandıran.",
+        "meaning_ur": "اپنی رضا کے کاموں کا وفور سے اجر دینے والا۔",
+        "meaning_id": "Yang memberi ganjaran berlebihan atas kebaikan yang dilakukan karena-Nya.",
+        "meaning_bn": "কৃতজ্ঞতা দানকারী, ভালো কাজের পুরস্কারদাতা।",
+        "meaning_fa": "سپاس‌گزار و بخشنده‌ی پاداش‌ها"
     },
     {
         "id": 37,
@@ -330,7 +510,12 @@
         "meaning": "The Greatest",
         "meaning_en": "The Greatest",
         "meaning_ar": "العلي",
-        "meaning_bs": "Uzvišeni"
+        "meaning_bs": "Uzvišeni",
+        "meaning_tr": "Çok yüce. Pek yüksek olan.",
+        "meaning_ur": "بہت بلند مرتبہ والا۔",
+        "meaning_id": "Yang Maha Tinggi.",
+        "meaning_bn": "সর্বোচ্চ মর্যাদার অধিকারী।",
+        "meaning_fa": "بلند و والا"
     },
     {
         "id": 38,
@@ -339,7 +524,12 @@
         "meaning": "The Preserver",
         "meaning_en": "The Preserver",
         "meaning_ar": "الكبير",
-        "meaning_bs": "Veliki"
+        "meaning_bs": "Veliki",
+        "meaning_tr": "Büyüklüğünde hudut olmayan.",
+        "meaning_ur": "حد نہ ہونے والی بزرگی والا۔",
+        "meaning_id": "Yang kebesaran-Nya tidak terbatas.",
+        "meaning_bn": "সীমাহীন মহানতা।",
+        "meaning_fa": "بزرگ و پرشکوه"
     },
     {
         "id": 39,
@@ -348,7 +538,12 @@
         "meaning": "The Nourisher",
         "meaning_en": "The Nourisher",
         "meaning_ar": "الحفيظ",
-        "meaning_bs": "Čuvar"
+        "meaning_bs": "Čuvar",
+        "meaning_tr": "Yapılan işleri bütün tafsilatıyla, ayrıntılarıyla tutan.",
+        "meaning_ur": "تمام اعمال کو مکمل تفصیل میں محفوظ رکھنے والا۔",
+        "meaning_id": "Yang mencatat semua amal perbuatan secara rinci.",
+        "meaning_bn": "রক্ষাকারী ও সংরক্ষণকারী।",
+        "meaning_fa": "حافظ و نگهدارنده اعمال"
     },
     {
         "id": 40,
@@ -357,7 +552,12 @@
         "meaning": "The Reckoner",
         "meaning_en": "The Reckoner",
         "meaning_ar": "المقيت",
-        "meaning_bs": "Onaj Koji pazi i izdržava"
+        "meaning_bs": "Onaj Koji pazi i izdržava",
+        "meaning_tr": "Yaratılmış her şeyin azığını veren.",
+        "meaning_ur": "ہر مخلوق کو قوت زندگی عطا کرنے والا۔",
+        "meaning_id": "Yang memberi rezeki kepada semua makhluk.",
+        "meaning_bn": "জীবিকা ও পুষ্টি দানকারী।",
+        "meaning_fa": "تغذیه‌دهنده و نگهدار حیات"
     },
     {
         "id": 41,
@@ -366,7 +566,12 @@
         "meaning": "The Majestic",
         "meaning_en": "The Majestic",
         "meaning_ar": "الحسيب",
-        "meaning_bs": "Onaj Koji obračun svodi"
+        "meaning_bs": "Onaj Koji obračun svodi",
+        "meaning_tr": "Herkesin hayatı boyunca yaptıklarının hesabını soran.",
+        "meaning_ur": "ہر شخص کا حساب لینے والا۔",
+        "meaning_id": "Yang menghitung amal perbuatan manusia.",
+        "meaning_bn": "হিসাবগ্রহণকারী।",
+        "meaning_fa": "محاسب نهایی"
     },
     {
         "id": 42,
@@ -375,7 +580,12 @@
         "meaning": "The Bountiful",
         "meaning_en": "The Bountiful",
         "meaning_ar": "الجليل",
-        "meaning_bs": "Veličanstveni"
+        "meaning_bs": "Veličanstveni",
+        "meaning_tr": "Azamet sahibi olan, ululuk sahibi olan.",
+        "meaning_ur": "عظمت والا، بزرگی کا حامل۔",
+        "meaning_id": "Yang memiliki keagungan dan kemuliaan.",
+        "meaning_bn": "মহিমাশালী ও সম্মানীয়।",
+        "meaning_fa": "بزرگ و باشکوه"
     },
     {
         "id": 43,
@@ -384,7 +594,12 @@
         "meaning": "The Watchful One",
         "meaning_en": "The Watchful One",
         "meaning_ar": "الكريم",
-        "meaning_bs": "Plemeniti"
+        "meaning_bs": "Plemeniti",
+        "meaning_tr": "Çok ikram edici. Keremi ve mağfireti bol olan.",
+        "meaning_ur": "بہت بڑے انعامات دینے والا۔",
+        "meaning_id": "Yang murah hati dan pemaaf.",
+        "meaning_bn": "সুমহান, দয়াবান।",
+        "meaning_fa": "بزرگ‌ترین کریم و باب بخشش"
     },
     {
         "id": 44,
@@ -393,7 +608,12 @@
         "meaning": "The Responsive",
         "meaning_en": "The Responsive",
         "meaning_ar": "الرقيب",
-        "meaning_bs": "Onaj Koji na sve motri"
+        "meaning_bs": "Onaj Koji na sve motri",
+        "meaning_tr": "Bütün varlıklar üzerine gözcü olan.",
+        "meaning_ur": "تمام مخلوقات پر نگہبان۔",
+        "meaning_id": "Yang mengawasi segala sesuatu.",
+        "meaning_bn": "সবকিছুর উপর তত্ত্বাবধায়ক",
+        "meaning_fa": "ناظر و مراقب دائمی"
     },
     {
         "id": 45,
@@ -402,7 +622,12 @@
         "meaning": "The All-Encompassing",
         "meaning_en": "The All-Encompassing",
         "meaning_ar": "المجيب",
-        "meaning_bs": "Onaj Koji molitve uslišava"
+        "meaning_bs": "Onaj Koji molitve uslišava",
+        "meaning_tr": "Dua edenlerin dualarını kabul eden, isteklerini veren.",
+        "meaning_ur": "دعا کرنے والوں کی دعا قبول کرنے والا۔",
+        "meaning_id": "Yang mengabulkan doa dan kebutuhan.",
+        "meaning_bn": "প্রার্থনা কবulকারী।",
+        "meaning_fa": "جواب‌دهنده‌ی دعا"
     },
     {
         "id": 46,
@@ -411,7 +636,12 @@
         "meaning": "The Wise",
         "meaning_en": "The Wise",
         "meaning_ar": "الواسع",
-        "meaning_bs": "Sveobuhvatni"
+        "meaning_bs": "Sveobuhvatni",
+        "meaning_tr": "Lütfu bol olan.",
+        "meaning_ur": "بہت کشادہ اور وسیع رحمت والا۔",
+        "meaning_id": "Yang Maha Luas dan meliputi segalanya.",
+        "meaning_bn": "সর্বব্যাপী দয়ালু।",
+        "meaning_fa": "وسیع‌الرحمت و داناترین"
     },
     {
         "id": 47,
@@ -420,7 +650,12 @@
         "meaning": "The Loving",
         "meaning_en": "The Loving",
         "meaning_ar": "الحكيم",
-        "meaning_bs": "Mudri"
+        "meaning_bs": "Mudri",
+        "meaning_tr": "Emirleri, kelamı ve bütün işleri hikmetli olan.",
+        "meaning_ur": "ہر کام حکمت سے بھرا ہوا۔",
+        "meaning_id": "Yang bijaksana dalam perintah, kata-kata, and segala urusan.",
+        "meaning_bn": "জ্ঞান ও প্রজ্ঞার অধিকারী।",
+        "meaning_fa": "حکیم و فرمان‌بردار حکمت"
     },
     {
         "id": 48,
@@ -429,7 +664,12 @@
         "meaning": "The Glorious",
         "meaning_en": "The Glorious",
         "meaning_ar": "الودود",
-        "meaning_bs": "Onaj Koji voli"
+        "meaning_bs": "Onaj Koji voli",
+        "meaning_tr": "İyi kullarını seven, sevilmeye ve dostluğa hakkıyla layık olan.",
+        "meaning_ur": "اپنے اچھے بندوں سے محبت کرنے والا۔",
+        "meaning_id": "Yang mencintai hamba-hamba-Nya yang baik dan dicintai oleh mereka.",
+        "meaning_bn": "ভালবাসাময়, পরম প্রেমময়।",
+        "meaning_fa": "دوست‌داشتنی‌ترین نسبت به بندگان"
     },
     {
         "id": 49,
@@ -438,7 +678,12 @@
         "meaning": "The Resurrector",
         "meaning_en": "The Resurrector",
         "meaning_ar": "المجيد",
-        "meaning_bs": "Slavljeni"
+        "meaning_bs": "Slavljeni",
+        "meaning_tr": "Şanı çok büyük ve çok yüksek olan.",
+        "meaning_ur": "عظمت اور شان والا۔",
+        "meaning_id": "Yang Maha Mulia och memiliki kedudukan tinggi.",
+        "meaning_bn": "মহিমান্বিত ও সম্মানীয়।",
+        "meaning_fa": "عزتمند و پر‌شکوه"
     },
     {
         "id": 50,
@@ -447,7 +692,12 @@
         "meaning": "The Witness",
         "meaning_en": "The Witness",
         "meaning_ar": "الباعث",
-        "meaning_bs": "Onaj Koji proživljava"
+        "meaning_bs": "Onaj Koji proživljava",
+        "meaning_tr": "Ölüleri diriltip kabirlerinden çıkaran.",
+        "meaning_ur": "مردوں کو قبر سے زندہ کرنے والا۔",
+        "meaning_id": "Yang membangkitkan orang mati.",
+        "meaning_bn": "মৃতদের পুনর্জীবিতকারী।",
+        "meaning_fa": "زنده‌کننده‌ی مردگان"
     },
     {
         "id": 51,
@@ -456,7 +706,12 @@
         "meaning": "The Truth",
         "meaning_en": "The Truth",
         "meaning_ar": "الشهيد",
-        "meaning_bs": "Svjedok svega"
+        "meaning_bs": "Svjedok svega",
+        "meaning_tr": "Her zaman ve her yerde hazır ve nazır olan.",
+        "meaning_ur": "ہر وقت ہر جگہ حاضر۔",
+        "meaning_id": "Yang selalu hadir di setiap waktu och tempat.",
+        "meaning_bn": "সর্বত্র উপস্থিত ও সবকিছুর সাক্ষী।",
+        "meaning_fa": "شاهد مطلق بر همه چیز"
     },
     {
         "id": 52,
@@ -465,7 +720,12 @@
         "meaning": "The Trustee",
         "meaning_en": "The Trustee",
         "meaning_ar": "الحق",
-        "meaning_bs": "Istina"
+        "meaning_bs": "Istina",
+        "meaning_tr": "Vacib\"ul vücut olan, varlığı hiç değişmeden duran.",
+        "meaning_ur": "واجب الوجود، حقیقت میں موجود۔",
+        "meaning_id": "Yang benar-benar och selalu ada.",
+        "meaning_bn": "চিরন্তন সত্য, অস্তিত্বে অনড়।",
+        "meaning_fa": "حقیقت مطلق و بدون تغییر"
     },
     {
         "id": 53,
@@ -474,7 +734,12 @@
         "meaning": "The Possessor of All Strength",
         "meaning_en": "The Possessor of All Strength",
         "meaning_ar": "الوكيل",
-        "meaning_bs": "Zaštitnik, Oslonac"
+        "meaning_bs": "Zaštitnik, Oslonac",
+        "meaning_tr": "İşlerini kendisine bırakanların işini düzelten ve her şeyin iyisini temin eden.",
+        "meaning_ur": "کام وثوق سے سنبھالنے والا، بہترین ناصح۔",
+        "meaning_id": "Yang mengatur och meluruskan urusan orang yang bergantung padanya.",
+        "meaning_bn": "বিশ্বাসভাজন রক্ষাকারী ও ব্যবস্থাপক।",
+        "meaning_fa": "سپرده‌شده برای کارها، بهترین ناصح"
     },
     {
         "id": 54,
@@ -483,7 +748,12 @@
         "meaning": "The Forceful One",
         "meaning_en": "The Forceful One",
         "meaning_ar": "القوي",
-        "meaning_bs": "Snažni"
+        "meaning_bs": "Snažni",
+        "meaning_tr": "Pek kuvvetli. Pek güçlü olan.",
+        "meaning_ur": "بے حد طاقتور۔",
+        "meaning_id": "Yang kuat and perkasa.",
+        "meaning_bn": "অত্যಂತ শক্তিশালী।",
+        "meaning_fa": "بسیار قدرتمند"
     },
     {
         "id": 55,
@@ -492,7 +762,12 @@
         "meaning": "The Protecting Friend",
         "meaning_en": "The Protecting Friend",
         "meaning_ar": "المتين",
-        "meaning_bs": "Čvrsti"
+        "meaning_bs": "Čvrsti",
+        "meaning_tr": "Çok sağlam olan.",
+        "meaning_ur": "بہت مضبوط اور ثابت قدم۔",
+        "meaning_id": "Yang Teguh.",
+        "meaning_bn": "অটল, সুদৃঢ়।",
+        "meaning_fa": "استوار و مستحکم"
     },
     {
         "id": 56,
@@ -501,7 +776,12 @@
         "meaning": "The Praiseworthy",
         "meaning_en": "The Praiseworthy",
         "meaning_ar": "الولي",
-        "meaning_bs": "Zaštitnik, Prijatelj"
+        "meaning_bs": "Zaštitnik, Prijatelj",
+        "meaning_tr": "İyi kullarına, gerçek mü’minlere dost olan.",
+        "meaning_ur": "اصل مومنوں کا دوست، مددگار۔",
+        "meaning_id": "Pelindung och sahabat bagi hamba-hamba-Nya yang baik och orang-orang yang beriman.",
+        "meaning_bn": "সৎ ও ঈমানদারদের অভিভাবক ও বন্ধু।",
+        "meaning_fa": "دوست و معنوی مؤمنان"
     },
     {
         "id": 57,
@@ -510,7 +790,12 @@
         "meaning": "The Accounter",
         "meaning_en": "The Accounter",
         "meaning_ar": "الحميد",
-        "meaning_bs": "Hvaljeni"
+        "meaning_bs": "Hvaljeni",
+        "meaning_tr": "Her türlü hamd ve övgüye layık olan.",
+        "meaning_ur": "تمام تعریفوں کے لائق۔",
+        "meaning_id": "Yang terpuji och pantas untuk dipuji.",
+        "meaning_bn": "সকল প্রশংসার যোগ্য।",
+        "meaning_fa": "شایسته همه حمدها"
     },
     {
         "id": 58,
@@ -519,7 +804,12 @@
         "meaning": "The Originator",
         "meaning_en": "The Originator",
         "meaning_ar": "المحصي",
-        "meaning_bs": "Onaj Koji sve obuhvata i broji"
+        "meaning_bs": "Onaj Koji sve obuhvata i broji",
+        "meaning_tr": "İstisnasız her şeyin tek tek sayısını bilen.",
+        "meaning_ur": "ہر شے کا شمار جاننے والا۔",
+        "meaning_id": "Yang mengetahui jumlah segala sesuatu.",
+        "meaning_bn": "সবকিছুর নির্ভুল হিসাব জানেন।",
+        "meaning_fa": "شمارنده‌ی مطلق و دقیق همه‌ چیز"
     },
     {
         "id": 59,
@@ -528,7 +818,12 @@
         "meaning": "The Restorer",
         "meaning_en": "The Restorer",
         "meaning_ar": "المبدئ",
-        "meaning_bs": "Početni Stvoritelj"
+        "meaning_bs": "Početni Stvoritelj",
+        "meaning_tr": "Bütün mahlukatı maddesiz ve örneksiz olarak ilk baştan yaratan.",
+        "meaning_ur": "ابتداء میں بغیر مواد ہر چیز پیدا کرنے والا۔",
+        "meaning_id": "Yang memulai ciptaan.",
+        "meaning_bn": "নতুনভাবে ও নিদর্শন ছাড়াই সৃষ্টিকর্তা।",
+        "meaning_fa": "آغازگر بدون مشابه پیشین"
     },
     {
         "id": 60,
@@ -537,7 +832,12 @@
         "meaning": "The Giver of Life",
         "meaning_en": "The Giver of Life",
         "meaning_ar": "المعيد",
-        "meaning_bs": "Onaj Koji sve vraća na početak"
+        "meaning_bs": "Onaj Koji sve vraća na početak",
+        "meaning_tr": "Yaratılmışları yok ettikten sonra tekrar yaratan.",
+        "meaning_ur": "تمام مخلوقات کو مرتا کے بعد دوبارہ پیدا کرنے والا",
+        "meaning_id": "Yang mengembalikan ciptaan.",
+        "meaning_bn": "নতুন করে সৃষ্টি প্রদানকারী।",
+        "meaning_fa": "بازآفریننده پس از نابودی"
     },
     {
         "id": 61,
@@ -546,7 +846,12 @@
         "meaning": "The Taker of Life",
         "meaning_en": "The Taker of Life",
         "meaning_ar": "المحيي",
-        "meaning_bs": "Onaj Koji život daje"
+        "meaning_bs": "Onaj Koji život daje",
+        "meaning_tr": "İhya eden, dirilten, can bağışlayan, sağlık veren.",
+        "meaning_ur": "زندہ کرنے والا، جان عطا کرنے والا",
+        "meaning_id": "Yang memberi kehidupan.",
+        "meaning_bn": "জীবনদানকারী, প্রাণ সঞ্চারকারী।",
+        "meaning_fa": "حیات‌بخش حقیقی"
     },
     {
         "id": 62,
@@ -555,7 +860,12 @@
         "meaning": "The Ever Living One",
         "meaning_en": "The Ever Living One",
         "meaning_ar": "المميت",
-        "meaning_bs": "Onaj Koji smrt daje"
+        "meaning_bs": "Onaj Koji smrt daje",
+        "meaning_tr": "Ölümü yaratan, öldüren.",
+        "meaning_ur": "موت دینے والا، ہلاک کرنے والا",
+        "meaning_id": "Yang mengakhiri kehidupan.",
+        "meaning_bn": "মৃত্যু ঘটান, জীবন সমাপ্ত করেন।",
+        "meaning_fa": "خالق مرگ"
     },
     {
         "id": 63,
@@ -564,7 +874,12 @@
         "meaning": "The Self-Existing One",
         "meaning_en": "The Self-Existing One",
         "meaning_ar": "الحي",
-        "meaning_bs": "Živi"
+        "meaning_bs": "Živi",
+        "meaning_tr": "Diri, tam ve mükemmel manasıyla hayat sahibi.",
+        "meaning_ur": "زندہ، کامل زندگی والا۔",
+        "meaning_id": "Yang hidup and tidak akan pernah mati.",
+        "meaning_bn": "চিরঞ্জীব, চিরন্তন জীবিত।",
+        "meaning_fa": "زنده و ابدی"
     },
     {
         "id": 64,
@@ -573,7 +888,12 @@
         "meaning": "The Finder",
         "meaning_en": "The Finder",
         "meaning_ar": "القيوم",
-        "meaning_bs": "Vječni, Održavatelj"
+        "meaning_bs": "Vječni, Održavatelj",
+        "meaning_tr": "Gökleri, yeri ve her şeyi tutan.",
+        "meaning_ur": "آسمان و زمین سب سنبھالنے والا۔",
+        "meaning_id": "Yang mengatur segala urusan och tidak membutuhkan yang lain.",
+        "meaning_bn": "সবকিছু ধরে রাখেন ও সমর্থন করেন।",
+        "meaning_fa": "پابرجا و نگهدار هستی"
     },
     {
         "id": 65,
@@ -582,7 +902,12 @@
         "meaning": "The Glorious",
         "meaning_en": "The Glorious",
         "meaning_ar": "الواجد",
-        "meaning_bs": "Bogati, Koji sve ima"
+        "meaning_bs": "Bogati, Koji sve ima",
+        "meaning_tr": "İstediğini, istediği vakit bulan.",
+        "meaning_ur": "جو چاہے وقت پر دلائے۔",
+        "meaning_id": "Yang menemukan och menciptakan tanpa contoh sebelumnya.",
+        "meaning_bn": "যা চান তা অনায়াসে লাভ করেন।",
+        "meaning_fa": "که همیشه می‌یابد آنچه خواهد"
     },
     {
         "id": 66,
@@ -591,7 +916,12 @@
         "meaning": "The Only One",
         "meaning_en": "The Only One",
         "meaning_ar": "الماجد",
-        "meaning_bs": "Slavni"
+        "meaning_bs": "Slavni",
+        "meaning_tr": "Kadri büyük, keremi bol olan.",
+        "meaning_ur": "عظمت والا، بخشش والا۔",
+        "meaning_id": "Yang memiliki kemuliaan and kehormatan.",
+        "meaning_bn": "মহান মর্যাদার ও সম্মানিত।",
+        "meaning_fa": "پرجلال och کریم"
     },
     {
         "id": 67,
@@ -600,7 +930,12 @@
         "meaning": "The One",
         "meaning_en": "The One",
         "meaning_ar": "الواحد",
-        "meaning_bs": "Jedini"
+        "meaning_bs": "Jedini",
+        "meaning_tr": "Tek olan.",
+        "meaning_ur": "یگانه، کسی کا شریک نہیں۔",
+        "meaning_id": "Yang Maha Esa, tidak ada yang lain seperti-Nya.",
+        "meaning_bn": "একমাত্র, সঙ্গীহীন।",
+        "meaning_fa": "یگانه، بی‌همتا"
     },
     {
         "id": 68,
@@ -609,7 +944,12 @@
         "meaning": "The Eternal, Absolute",
         "meaning_en": "The Eternal, Absolute",
         "meaning_ar": "الصمد",
-        "meaning_bs": "Utočište svakom"
+        "meaning_bs": "Utočište svakom",
+        "meaning_tr": "Sığınacak tek dayanak olan.",
+        "meaning_ur": "اکیس سہارا، ہر کسی کا پناہ۔",
+        "meaning_id": "Yang Tidak bergantung pada yang lain och diharapkan oleh semua makhluk.",
+        "meaning_bn": "সকলের নির্ভরযোগ্য আশ্রয়স্থল।",
+        "meaning_fa": "ملجاء och بی‌نیاز همه"
     },
     {
         "id": 69,
@@ -618,7 +958,12 @@
         "meaning": "The All-Powerful",
         "meaning_en": "The All-Powerful",
         "meaning_ar": "القادر",
-        "meaning_bs": "Moćni"
+        "meaning_bs": "Moćni",
+        "meaning_tr": "Her şeye gücü yeten, her istediğini yapmaya kâdir olan.",
+        "meaning_ur": "ہر چیز پر قادر، ہر حال میں کام لانے والا",
+        "meaning_id": "Yang memiliki kekuatan and kekuasaan.",
+        "meaning_bn": "সবকিছুর উপর ক্ষমতাবান।",
+        "meaning_fa": "قادر مطلق بر هر رخداد"
     },
     {
         "id": 70,
@@ -627,7 +972,12 @@
         "meaning": "The Creator of All Power",
         "meaning_en": "The Creator of All Power",
         "meaning_ar": "المقتدر",
-        "meaning_bs": "Svemoćni"
+        "meaning_bs": "Svemoćni",
+        "meaning_tr": "Kuvvet ve kudret sahipleri üzerinde dilediği gibi tasarruf eden.",
+        "meaning_ur": "کامل قوت والے، ہر معاملہ پر حکم چلانے والے۔",
+        "meaning_id": "Yang memiliki kekuasaan untuk menentukan segala sesuatu.",
+        "meaning_bn": "সর্বশক্তির নিয়ন্ত্রণকারী।",
+        "meaning_fa": "بسیار مقتدر och توانا"
     },
     {
         "id": 71,
@@ -636,7 +986,12 @@
         "meaning": "The Expediter",
         "meaning_en": "The Expediter",
         "meaning_ar": "المقدم",
-        "meaning_bs": "Onaj Koji unapređuje"
+        "meaning_bs": "Onaj Koji unapređuje",
+        "meaning_tr": "İstediğini ileri geçirip, öne alan.",
+        "meaning_ur": "جسے چاہے آگے بڑھا دے۔",
+        "meaning_id": "Yang mengutamakan apa yang dikehendaki-Nya.",
+        "meaning_bn": "যাকে চান আগিয়ে দেন।",
+        "meaning_fa": "پیش‌برنده‌ی امور"
     },
     {
         "id": 72,
@@ -645,7 +1000,12 @@
         "meaning": "The Delayer",
         "meaning_en": "The Delayer",
         "meaning_ar": "المؤخر",
-        "meaning_bs": "Onaj Koji unazađuje"
+        "meaning_bs": "Onaj Koji unazađuje",
+        "meaning_tr": "İstediğini geri koyan, arkaya bırakan.",
+        "meaning_ur": "جسے چاہے پیچھے رکھ دے۔",
+        "meaning_id": "Yang mengakhirkan apa yang dikehendaki-Nya.",
+        "meaning_bn": "যাকে চান পিছিয়ে দেন।",
+        "meaning_fa": "تأخیرانداز امور"
     },
     {
         "id": 73,
@@ -654,7 +1014,12 @@
         "meaning": "The First",
         "meaning_en": "The First",
         "meaning_ar": "الأول",
-        "meaning_bs": "Prvi"
+        "meaning_bs": "Prvi",
+        "meaning_tr": "Başlangıcı olmayan, ilk olan.",
+        "meaning_ur": "نہ شروع، نہ انتہا، ہر چیز سے پہلا۔",
+        "meaning_id": "Yang tidak mempunyai permulaan, yang pertama.",
+        "meaning_bn": "প্রথম, যার পূর্বে কিছুই নেই।",
+        "meaning_fa": "اولین بی‌ابتدا"
     },
     {
         "id": 74,
@@ -663,7 +1028,12 @@
         "meaning": "The Last",
         "meaning_en": "The Last",
         "meaning_ar": "الآخر",
-        "meaning_bs": "Posljednji"
+        "meaning_bs": "Posljednji",
+        "meaning_tr": "Sonu olmayan, sonsuz olan.",
+        "meaning_ur": "انتہا نہیں، همیشه آخری۔",
+        "meaning_id": "Tanpa penghujung.",
+        "meaning_bn": "শেষ, যার পর আর কিছু নেই।",
+        "meaning_fa": "آخر بی‌انتها"
     },
     {
         "id": 75,
@@ -672,7 +1042,12 @@
         "meaning": "The Manifest One",
         "meaning_en": "The Manifest One",
         "meaning_ar": "الظاهر",
-        "meaning_bs": "Vidljivi"
+        "meaning_bs": "Vidljivi",
+        "meaning_tr": "Açıkca bilinen, âşikâr olan.",
+        "meaning_ur": "ظاہر، آشکار۔",
+        "meaning_id": "Yang nyata and terang.",
+        "meaning_bn": "প্রকাশ্য, যিনি সর্বত্র দৃশ্যমান।",
+        "meaning_fa": "آشکار در همه جا"
     },
     {
         "id": 76,
@@ -681,7 +1056,12 @@
         "meaning": "The Hidden One",
         "meaning_en": "The Hidden One",
         "meaning_ar": "الباطن",
-        "meaning_bs": "Skriveni"
+        "meaning_bs": "Skriveni",
+        "meaning_tr": "Gizli olan.",
+        "meaning_ur": "باطنی، چھپا ہوا۔",
+        "meaning_id": "Yang tersembunyi and tidak diketahui kecuali oleh-Nya.",
+        "meaning_bn": "অদৃশ্য, লুকায়িত।",
+        "meaning_fa": "غیبی och پنهان"
     },
     {
         "id": 77,
@@ -690,7 +1070,12 @@
         "meaning": "The Protecting Friend",
         "meaning_en": "The Protecting Friend",
         "meaning_ar": "الوالي",
-        "meaning_bs": "Upravitelj"
+        "meaning_bs": "Upravitelj",
+        "meaning_tr": "Her şeyi tek başına idare eden.",
+        "meaning_ur": "ہر شے کا اکیلا منتظم۔",
+        "meaning_id": "Yang menguasai and mengatur segala urusan.",
+        "meaning_bn": "সকল বিষয়ে কর্তৃত্বশালী, একক পরিচালক।",
+        "meaning_fa": "یگانه مدبر همه چیز"
     },
     {
         "id": 78,
@@ -699,7 +1084,12 @@
         "meaning": "The Supreme One",
         "meaning_en": "The Supreme One",
         "meaning_ar": "المتعالي",
-        "meaning_bs": "Preuzvišeni"
+        "meaning_bs": "Preuzvišeni",
+        "meaning_tr": "Aklın mümkün gördüğü her şeyden, her hâl ve tavırdan münezzeh olan.",
+        "meaning_ur": "وہ جو ہر قسم کی عقل و کیفیت سے منزه ہے۔",
+        "meaning_id": "Yang Maha Tinggi and berada di atas segala sesuatu.",
+        "meaning_bn": "সকল সীমা ও কল্পনার ঊর্ধ্বে।",
+        "meaning_fa": "برتر از همه تصوّرات"
     },
     {
         "id": 79,
@@ -708,7 +1098,12 @@
         "meaning": "The Doer of Good",
         "meaning_en": "The Doer of Good",
         "meaning_ar": "البر",
-        "meaning_bs": "Dobročinitelj"
+        "meaning_bs": "Dobročinitelj",
+        "meaning_tr": "Kullarına iyilik ve ihsanı, nimetleri bol olan.",
+        "meaning_ur": "بندوں پر بہت رحم کرنے والا، انعامات والا۔",
+        "meaning_id": "Yang Maha Baik and penuh kebaikan.",
+        "meaning_bn": "সকল মঙ্গল ও অনুগ্রহের আধার।",
+        "meaning_fa": "سرچشمه همه نیکی‌ها"
     },
     {
         "id": 80,
@@ -717,7 +1112,12 @@
         "meaning": "The Guide to Repentance",
         "meaning_en": "The Guide to Repentance",
         "meaning_ar": "التواب",
-        "meaning_bs": "Onaj Koji prima pokajanje"
+        "meaning_bs": "Onaj Koji prima pokajanje",
+        "meaning_tr": "Tövbeleri kabul eden.",
+        "meaning_ur": "باربار توبہ قبول کرنے والا ۔",
+        "meaning_id": "Yang menerima taubat hamba-hamba-Nya.",
+        "meaning_bn": "অনেকবার ক্ষমা গ্রহণকারী।",
+        "meaning_fa": "بسیار توبه‌پذیر"
     },
     {
         "id": 81,
@@ -726,7 +1126,12 @@
         "meaning": "The Avenger",
         "meaning_en": "The Avenger",
         "meaning_ar": "المنتقم",
-        "meaning_bs": "Osvetnik"
+        "meaning_bs": "Osvetnik",
+        "meaning_tr": "Suçluları adaletiyle cezalandırıp intikam alan.",
+        "meaning_ur": "مجرموں سے اپنی عدل کے ساتھ انتقام لینے والا۔",
+        "meaning_id": "Yang memberikan pembalasan yang adil.",
+        "meaning_bn": "ন্যায়বিচারের মাধ্যমে প্রতিশোধ গ্রহণকারী।",
+        "meaning_fa": "مجازات‌گر متعدیان"
     },
     {
         "id": 82,
@@ -735,7 +1140,12 @@
         "meaning": "The Forgiver",
         "meaning_en": "The Forgiver",
         "meaning_ar": "العفو",
-        "meaning_bs": "Onaj Koji prašta"
+        "meaning_bs": "Onaj Koji prašta",
+        "meaning_tr": "Affı ve rahmeti çok olan, bağışlayan.",
+        "meaning_ur": "بہت معاف کرنے والا، بخشنے والا ۔",
+        "meaning_id": "Yang mengampuni kesalahan.",
+        "meaning_bn": "পরম ক্ষমাশীল ও দয়ালu।",
+        "meaning_fa": "بسیار عفوکننده och بخشنده"
     },
     {
         "id": 83,
@@ -744,7 +1154,12 @@
         "meaning": "The Clement",
         "meaning_en": "The Clement",
         "meaning_ar": "الرؤوف",
-        "meaning_bs": "Samilosni"
+        "meaning_bs": "Samilosni",
+        "meaning_tr": "Pek acıyan, lütuf ve merhametle pek esirgeyen.",
+        "meaning_ur": "بہت رحم کرنے والا، نوازنے والا۔",
+        "meaning_id": "Yang Maha Penyayang and pengasih.",
+        "meaning_bn": "অত্যন্ত দয়াশীল ও কোমলপ্রাণ।",
+        "meaning_fa": "بسیار مهربان"
     },
     {
         "id": 84,
@@ -753,7 +1168,12 @@
         "meaning": "The Owner of All",
         "meaning_en": "The Owner of All",
         "meaning_ar": "مالك الملك",
-        "meaning_bs": "Vladar svih svjetova"
+        "meaning_bs": "Vladar svih svjetova",
+        "meaning_tr": "Mülkün ebedi sahibi olan.",
+        "meaning_ur": "حکومت کا دائمی مالک۔",
+        "meaning_id": "Penguasa segala kekayaan and kekuasaan.",
+        "meaning_bn": "সমগ্র রাজত্বের চিরস্থায়ী মালিক।",
+        "meaning_fa": "صاحب حکومت دائمی"
     },
     {
         "id": 85,
@@ -762,7 +1182,12 @@
         "meaning": "The Lord of Majesty and Bounty",
         "meaning_en": "The Lord of Majesty and Bounty",
         "meaning_ar": "ذو الجلال والإكرام",
-        "meaning_bs": "Gospodar veličanstva i plemenitosti"
+        "meaning_bs": "Gospodar veličanstva i plemenitosti",
+        "meaning_tr": "Her türlü büyüklüğün, her türlü keremin sahibi olan.",
+        "meaning_ur": "ہر عظمت اور کرم کا مالک۔",
+        "meaning_id": "Yang memiliki kemuliaan and kehormatan.",
+        "meaning_bn": "মহত্ত্ব ও মর্যাদার অধিকারী।",
+        "meaning_fa": "دارنده جلال och کرم"
     },
     {
         "id": 86,
@@ -771,7 +1196,12 @@
         "meaning": "The Equitable One",
         "meaning_en": "The Equitable One",
         "meaning_ar": "المقسط",
-        "meaning_bs": "Pravedni"
+        "meaning_bs": "Pravedni",
+        "meaning_tr": "Bütün işleri birbirine uygun ve denk yapan.",
+        "meaning_ur": "ہر کام کو عدل و انصاف کے ساتھ معتدل رکھنے والا۔",
+        "meaning_id": "Yang adil dalam memberikan ganjaran and hukuman.",
+        "meaning_bn": "ন্যায় ও ভারসাম্য প্রদানকারী।",
+        "meaning_fa": "عادل och معتدل‌کننده"
     },
     {
         "id": 87,
@@ -780,7 +1210,12 @@
         "meaning": "The Gatherer",
         "meaning_en": "The Gatherer",
         "meaning_ar": "الجامع",
-        "meaning_bs": "Onaj Koji sve okuplja"
+        "meaning_bs": "Onaj Koji sve okuplja",
+        "meaning_tr": "İstediğini istediği zaman istediği yerde toplayan.",
+        "meaning_ur": "جسے چاہے کسی بھی وقت جمع کرنے والا۔",
+        "meaning_id": "Yang mengumpulkan segala sesuatu.",
+        "meaning_bn": "যাকে চান, যেখানেই চান একত্র করেন।",
+        "meaning_fa": "گردآورنده چیزها در هر زمان"
     },
     {
         "id": 88,
@@ -789,7 +1224,12 @@
         "meaning": "The Rich One",
         "meaning_en": "The Rich One",
         "meaning_ar": "الغني",
-        "meaning_bs": "Bogati, Neovisni"
+        "meaning_bs": "Bogati, Neovisni",
+        "meaning_tr": "Çok zengin olan.",
+        "meaning_ur": "بہت مالدار، کسی پر محتاج نہ۔",
+        "meaning_id": "Yang Kaya and tidak membutuhkan apapun.",
+        "meaning_bn": "অत्यন্ত ধনী, নির্ভরশীল নয় কারো উপর।",
+        "meaning_fa": "بی‌نیاز och ثروتمند مطلق"
     },
     {
         "id": 89,
@@ -798,7 +1238,12 @@
         "meaning": "The Enricher",
         "meaning_en": "The Enricher",
         "meaning_ar": "المغني",
-        "meaning_bs": "Onaj Koji bogatstvom obasipa"
+        "meaning_bs": "Onaj Koji bogatstvom obasipa",
+        "meaning_tr": "İstediğini zengin eden.",
+        "meaning_ur": "چاہے جسے چاہے امیر کرنے والا۔",
+        "meaning_id": "Yang memberi kekayaan and kecukupan.",
+        "meaning_bn": "ধন ও সম্পদ প্রদানকারী।",
+        "meaning_fa": "غنی‌کننده och بی‌نیاز کننده"
     },
     {
         "id": 90,
@@ -807,7 +1252,12 @@
         "meaning": "The Preventer of Harm",
         "meaning_en": "The Preventer of Harm",
         "meaning_ar": "المانع",
-        "meaning_bs": "Onaj Koji sprečava i uskraćuje"
+        "meaning_bs": "Onaj Koji sprečava i uskraćuje",
+        "meaning_tr": "Bazı şeylerin meydana gelmesine müsaade etmeyen, engelleyen.",
+        "meaning_ur": "کچھ چیزوں کو رونما ہونے سے روکنے والا۔",
+        "meaning_id": "Yang menahan and mencegah.",
+        "meaning_bn": "যার যা ইচ্ছা ঘটাতে বা আটকাতে পারেন।",
+        "meaning_fa": "بازدارنده‌ی برخی رخدادها"
     },
     {
         "id": 91,
@@ -816,7 +1266,12 @@
         "meaning": "The Creator of The Harmful",
         "meaning_en": "The Creator of The Harmful",
         "meaning_ar": "الضار",
-        "meaning_bs": "Onaj Koji štetu stvara"
+        "meaning_bs": "Onaj Koji štetu stvara",
+        "meaning_tr": "Elem ve zarar verecek şeyleri yaratan, hüsrana ugratan.",
+        "meaning_ur": "درد اور نقصان دینے والی چیز پیدا کرنے والا۔",
+        "meaning_id": "Yang menciptakan kesulitan and keburukan.",
+        "meaning_bn": "বিপদ ও কষ্ট সৃষ্টিকারী।",
+        "meaning_fa": "آفریدگار ضررها"
     },
     {
         "id": 92,
@@ -825,7 +1280,12 @@
         "meaning": "The Creator of Good",
         "meaning_en": "The Creator of Good",
         "meaning_ar": "النافع",
-        "meaning_bs": "Onaj Koji korist stvara"
+        "meaning_bs": "Onaj Koji korist stvara",
+        "meaning_tr": "Hayır ve menfaat verecek şeyleri yaratan.",
+        "meaning_ur": "بھلائی اور مفاد دینے والا۔",
+        "meaning_id": "Yang memberikan manfaat and kebaikan.",
+        "meaning_bn": "কল্যাণ ও উপকার সৃষ্টিকারী।",
+        "meaning_fa": "نافع همه خیرها"
     },
     {
         "id": 93,
@@ -834,7 +1294,12 @@
         "meaning": "The Light",
         "meaning_en": "The Light",
         "meaning_ar": "النور",
-        "meaning_bs": "Svjetlost"
+        "meaning_bs": "Svjetlost",
+        "meaning_tr": "Alemleri nurlandıran.",
+        "meaning_ur": "کائنات کو نور دینے والا۔",
+        "meaning_id": "Yang Maha Cahaya and menerangi seluruh alam semesta.",
+        "meaning_bn": "আলো ও জ্যোতির আধার, সমগ্র সৃষ্টিকে আলোকিত করেন।",
+        "meaning_fa": "نوردهنده‌ی جهان‌ها"
     },
     {
         "id": 94,
@@ -843,7 +1308,12 @@
         "meaning": "The Guide",
         "meaning_en": "The Guide",
         "meaning_ar": "الهادي",
-        "meaning_bs": "Uputitelj"
+        "meaning_bs": "Uputitelj",
+        "meaning_tr": "Hidayete ve doğru yola erdiren.",
+        "meaning_ur": "ہدایت دینے والا، صحیح راستہ دکھانے والا۔",
+        "meaning_id": "Yang memberi petunjuk kepada kebenaran.",
+        "meaning_bn": "পথ প্রদর্শক, হিদায়াত প্রদানকারী।",
+        "meaning_fa": "راهنما به مسیر حق"
     },
     {
         "id": 95,
@@ -852,7 +1322,12 @@
         "meaning": "The Originator",
         "meaning_en": "The Originator",
         "meaning_ar": "البديع",
-        "meaning_bs": "Inovator, Besprimjerni Tvorac"
+        "meaning_bs": "Inovator, Besprimjerni Tvorac",
+        "meaning_tr": "Örneksiz, misilsiz, hayret verici nice âlemler icad eden.",
+        "meaning_ur": "بے مثال تخلیق کرنے والا۔",
+        "meaning_id": "Yang menciptakan sesuatu yang belum pernah ada sebelumnya.",
+        "meaning_bn": "নতুনভাবে, নিদর্শন ছাড়াই সৃষ্টিকর্তা।",
+        "meaning_fa": "نوآفرین بی‌نظیر"
     },
     {
         "id": 96,
@@ -861,7 +1336,12 @@
         "meaning": "The Everlasting One",
         "meaning_en": "The Everlasting One",
         "meaning_ar": "الباقي",
-        "meaning_bs": "Vječni"
+        "meaning_bs": "Vječni",
+        "meaning_tr": "Varlığının sonu bulunmayan, ebedi olan.",
+        "meaning_ur": "اس کی ذات کی کوئی انتہا نہیں، ہمیشہ قائم۔",
+        "meaning_id": "Yang kekal and tidak akan pernah lenyap.",
+        "meaning_bn": "চিরস্থায়ী, যাঁর কোন শেষ নেই।",
+        "meaning_fa": "باقی‌ماننده‌ی ابدی"
     },
     {
         "id": 97,
@@ -870,7 +1350,12 @@
         "meaning": "The Inheritor of All",
         "meaning_en": "The Inheritor of All",
         "meaning_ar": "الوارث",
-        "meaning_bs": "Nasljednik svega"
+        "meaning_bs": "Nasljednik svega",
+        "meaning_tr": "Servetlerin gerçek sahibi olan.",
+        "meaning_ur": "ساری دولت کا حقیقی وارث۔",
+        "meaning_id": "Yang mewarisi segala sesuatu and akan ada setelah segala sesuatu lenyap.",
+        "meaning_bn": "সমগ্র সম্পদের চূড়ান্ত উত্তরাধিকারী।",
+        "meaning_fa": "وارث همیشگی مواهب"
     },
     {
         "id": 98,
@@ -879,7 +1364,12 @@
         "meaning": "The Righteous Teacher",
         "meaning_en": "The Righteous Teacher",
         "meaning_ar": "الرشيد",
-        "meaning_bs": "Vodič na Pravi put"
+        "meaning_bs": "Vodič na Pravi put",
+        "meaning_tr": "Bütün işleri ezeli takdirine uygun bir nizam ve hikmet üzere sonuna ulaştıran.",
+        "meaning_ur": "اپنے ازلی حکم کے مطابق تمام کاموں کو نظام میں مکمل کرنے والا۔",
+        "meaning_id": "Yang memberikan petunjuk yang benar and lurus.",
+        "meaning_bn": "সঠিক পথে পরিচালনা ও পরিণামে জ্ঞানসম্পন্ন।",
+        "meaning_fa": "هدایت‌گر جز به راه حق"
     },
     {
         "id": 99,
@@ -888,6 +1378,11 @@
         "meaning": "The Patient One",
         "meaning_en": "The Patient One",
         "meaning_ar": "الصبور",
-        "meaning_bs": "Strpljivi"
+        "meaning_bs": "Strpljivi",
+        "meaning_tr": "Çok sabırlı olan.",
+        "meaning_ur": "بہت صابر، دیر کرنے والا۔",
+        "meaning_id": "Yang sangat sabar",
+        "meaning_bn": "অত্যন্ত ধৈর্যশীল।",
+        "meaning_fa": "بسیار صبور och بردبار"
     }
 ]

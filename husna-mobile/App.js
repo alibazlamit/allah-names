@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Dimensions, Platform, Modal } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as NavigationBar from 'expo-navigation-bar';
 import * as SystemUI from 'expo-system-ui';
+import { useAudioPlayer } from 'expo-audio';
 import LearnMode from './components/LearnMode';
 import MemorizeMode from './components/MemorizeMode';
 import HallOfFame from './components/HallOfFame';
 import Dedication from './components/Dedication';
+import AudioPlayer from './components/AudioPlayer';
 import './i18n';
 import { useTranslation } from 'react-i18next';
 
@@ -18,12 +20,98 @@ if (Platform.OS === 'android') {
   SystemUI.setBackgroundColorAsync('#121212'); // prevent flashes behind nav
 }
 
-const { height } = Dimensions.get('window');
+const NASHEEDS = [
+  { id: '1', title: 'Asma Allah (Asmaa Allah)', type: 'local', file: require('./assets/imad-rami.mp3') },
+];
 
 export default function App() {
   const [currentView, setCurrentView] = useState('learn');
   const [langModalVisible, setLangModalVisible] = useState(false);
   const { t, i18n } = useTranslation();
+
+  // Global Audio State
+  const [isPlayingNasheed, setIsPlayingNasheed] = useState(false);
+  const [isPlayerMinimized, setIsPlayerMinimized] = useState(false);
+  const [currentNasheedTitle, setCurrentNasheedTitle] = useState('');
+  const [currentAudioSource, setCurrentAudioSource] = useState(null);
+  const [nasheedModalVisible, setNasheedModalVisible] = useState(false);
+  const [position, setPosition] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [loopA, setLoopA] = useState(null);
+  const [loopB, setLoopB] = useState(null);
+
+  const player = useAudioPlayer(currentAudioSource);
+
+  useEffect(() => {
+    if (!player) return;
+
+    const interval = setInterval(() => {
+      if (player.playing) {
+        setPosition(player.currentTime * 1000);
+        if (loopA !== null && loopB !== null && player.currentTime * 1000 >= loopB) {
+          player.seekTo(loopA / 1000);
+        }
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [player, loopA, loopB]);
+
+  useEffect(() => {
+    if (player) {
+      setDuration((player.duration || 0) * 1000);
+    }
+  }, [player?.duration, currentAudioSource]);
+
+  useEffect(() => {
+    if (player && currentAudioSource && isPlayingNasheed) {
+      player.loop = true;
+      player.play();
+    }
+  }, [player, currentAudioSource]);
+
+  const togglePlayPause = () => {
+    if (!player) return;
+    if (isPlayingNasheed) {
+      player.pause();
+      setIsPlayingNasheed(false);
+    } else {
+      player.play();
+      setIsPlayingNasheed(true);
+    }
+  };
+
+  const stopNasheed = () => {
+    if (player) player.pause();
+    setIsPlayingNasheed(false);
+    setCurrentNasheedTitle('');
+    setCurrentAudioSource(null);
+    setLoopA(null);
+    setLoopB(null);
+    setPosition(0);
+  };
+
+  const handleSetLoop = () => {
+    if (loopA === null) setLoopA(position);
+    else if (loopB === null) {
+      if (position > loopA + 1000) {
+        setLoopB(position);
+        player?.seekTo(loopA / 1000);
+      }
+    } else {
+      setLoopA(null);
+      setLoopB(null);
+    }
+  };
+
+  const selectAndPlayNasheed = (nasheed) => {
+    stopNasheed();
+    if (nasheed.type === 'local') setCurrentAudioSource(nasheed.file);
+    else setCurrentAudioSource({ uri: nasheed.uri });
+    setCurrentNasheedTitle(nasheed.title);
+    setIsPlayingNasheed(true);
+    setNasheedModalVisible(false);
+  };
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -37,7 +125,7 @@ export default function App() {
         <View style={styles.container}>
 
           <View style={[styles.mainContent, { paddingBottom: 0 }]}>
-            {currentView === 'learn' && <LearnMode />}
+            {currentView === 'learn' && <LearnMode onPlayNasheed={() => setNasheedModalVisible(true)} isNasheedPlaying={!!currentNasheedTitle} />}
             {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
             {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
             {currentView === 'oath' && <HallOfFame initialMode="oath" onOathComplete={() => setCurrentView('hall')} />}
@@ -49,6 +137,41 @@ export default function App() {
               <Ionicons name="globe-outline" size={24} color="#d4af37" />
             </TouchableOpacity>
           )}
+
+          <AudioPlayer
+            isPlaying={isPlayingNasheed}
+            title={currentNasheedTitle}
+            duration={duration}
+            position={position}
+            isMinimized={isPlayerMinimized}
+            onTogglePlay={togglePlayPause}
+            onStop={stopNasheed}
+            onToggleMinimize={() => setIsPlayerMinimized(!isPlayerMinimized)}
+            onSeek={(val) => player?.seekTo(val / 1000)}
+            onSetLoop={handleSetLoop}
+            loopA={loopA}
+            loopB={loopB}
+            onOpenMenu={() => setNasheedModalVisible(true)}
+          />
+
+          <Modal visible={nasheedModalVisible} transparent={true} animationType="slide">
+            <View style={styles.nasheedModalOverlay}>
+              <View style={styles.nasheedModalContent}>
+                <View style={styles.nasheedHeader}>
+                  <Text style={styles.nasheedTitle}>{t('learn.nasheeds')}</Text>
+                  <TouchableOpacity onPress={() => setNasheedModalVisible(false)}>
+                    <Ionicons name="close" size={28} color="#b0b3b8" />
+                  </TouchableOpacity>
+                </View>
+                {NASHEEDS.map(item => (
+                  <TouchableOpacity key={item.id} style={styles.nasheedItem} onPress={() => selectAndPlayNasheed(item)}>
+                    <Text style={styles.nasheedItemText}>{item.title}</Text>
+                    {currentNasheedTitle === item.title && <Ionicons name="volume-high" size={20} color="#d4af37" />}
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </View>
+          </Modal>
 
           <Modal visible={langModalVisible} transparent={true} animationType="fade">
             <View style={styles.modalOverlay}>
@@ -64,9 +187,33 @@ export default function App() {
                 <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bs')}>
                   <Text style={styles.langText}>Bosanski</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('tr')}>
+                  <Text style={styles.langText}>Türkçe</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ur')}>
+                  <Text style={styles.langText}>اردو</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('id')}>
+                  <Text style={styles.langText}>Bahasa Indonesia</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bn')}>
+                  <Text style={styles.langText}>বাংলা</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('fa')}>
+                  <Text style={styles.langText}>فارسی</Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity style={styles.closeBtn} onPress={() => setLangModalVisible(false)}>
                   <Text style={styles.closeBtnText}>Cancel</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                   style={{ marginTop: 20 }} 
+                   onPress={() => require('react-native').Linking.openURL('https://allahin99ismi.com/')}
+                >
+                  <Text style={{ color: '#d4af37', fontSize: 12, opacity: 0.8, textAlign: 'center' }}>
+                    {t('common.translationCredit')}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -210,6 +357,43 @@ const styles = StyleSheet.create({
   },
   placeholderText: {
     color: '#b0b3b8',
+    fontSize: 16,
+  },
+  nasheedModalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    justifyContent: 'flex-end',
+  },
+  nasheedModalContent: {
+    backgroundColor: '#1E1E1E',
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    padding: 24,
+    paddingBottom: 40,
+    borderWidth: 1,
+    borderColor: 'rgba(212, 175, 55, 0.2)',
+  },
+  nasheedHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  nasheedTitle: {
+    color: '#d4af37',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  nasheedItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.05)',
+  },
+  nasheedItemText: {
+    color: '#f8f9fa',
     fontSize: 16,
   }
 });

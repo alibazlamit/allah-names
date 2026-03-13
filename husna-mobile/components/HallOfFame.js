@@ -134,7 +134,7 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
         <View style={styles.leaderboardContainer}>
             <View style={styles.leaderboardHeader}>
                 <Text style={styles.leaderboardTitle}>{t('hall.title')}</Text>
-                <Text style={styles.leaderboardSubtitle}>Nations uniting in the remembrance of Allah.</Text>
+                <Text style={styles.leaderboardSubtitle}>{t('hall.subtitle')}</Text>
             </View>
 
             {loading ? (

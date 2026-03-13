@@ -149,8 +149,8 @@ const MemorizeMode = ({ onComplete }) => {
                     </TouchableOpacity>
                 ) : (
                     <View style={{ alignItems: 'center' }}>
-                        <Text style={[styles.scoreMsg, { textAlign: 'center', marginBottom: 20, paddingHorizontal: 20 }]}>
-                            In order to qualify for the Hall of Fame you must memorize 99 names using no hints. Keep doing it brother!
+                        <Text style={[styles.scoreMsg, { textAlign: 'center', marginBottom: 20, paddingHorizontal: 20, color: '#b0b3b8' }]}>
+                            {t('memorize.tryAgainNoHints')}
                         </Text>
                         <TouchableOpacity
                             style={styles.primaryBtn}
@@ -160,7 +160,7 @@ const MemorizeMode = ({ onComplete }) => {
                                 setInputVal('');
                             }}
                         >
-                            <Text style={styles.primaryBtnText}>Try Again</Text>
+                            <Text style={styles.primaryBtnText}>{t('memorize.tryAgain') || 'Try Again'}</Text>
                         </TouchableOpacity>
                     </View>
                 )}

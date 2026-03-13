@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "7dc0610f-7bbb-4131-9be2-fe4d3cd4b121"
+      }
+    },
+    "android": {
+      "package": "com.alibazlamit.allahnames"
+    }
+  }
+}
