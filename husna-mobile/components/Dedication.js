@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Animated, Dimensions, Platform } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 const { height } = Dimensions.get('window');
 
 const Dedication = () => {
+    const { t } = useTranslation();
     // Soft fade-in animation for the text
     const fadeAnim = React.useRef(new Animated.Value(0)).current;
 
@@ -26,31 +28,31 @@ const Dedication = () => {
                     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                 </Text>
 
-                <Text style={styles.title}>Dedication</Text>
+                <Text style={styles.title}>{t('dedication.title')}</Text>
 
                 <View style={styles.divider} />
 
                 <Text style={styles.paragraph}>
-                    This application is humbly dedicated to the loving memory of my late father,{' '}
-                    <Text style={styles.highlightText}>Issa</Text>, my beloved sister,{' '}
-                    <Text style={styles.highlightText}>Zainab</Text>, and my dear{' '}
-                    <Text style={styles.highlightText}>Grandparents</Text>.
+                    {t('dedication.intro')}{' '}
+                    <Text style={styles.highlightText}>{t('dedication.issa')}</Text>{t('dedication.sisterIntro')}{' '}
+                    <Text style={styles.highlightText}>{t('dedication.zainab')}</Text>{t('dedication.grandparentsIntro')}{' '}
+                    <Text style={styles.highlightText}>{t('dedication.grandparents')}</Text>.
                 </Text>
 
                 <Text style={styles.paragraph}>
-                    May Allah (ﷻ) envelop them in His infinite mercy, forgive their sins, illuminate their graves, and elevate their ranks in Jannatul Firdaus.
+                    {t('dedication.prayer1')}
                 </Text>
 
                 <Text style={styles.paragraph}>
-                    We ask that whoever benefits from this app takes a brief moment to make a sincere Du'a for them, and for all deceased Muslims around the world.
+                    {t('dedication.prayer2')}
                 </Text>
 
                 <View style={styles.duaBox}>
                     <Text style={styles.duaArabic}>
-                        اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ
+                        {t('dedication.duaArabic')}
                     </Text>
                     <Text style={styles.duaTranslation}>
-                        "O Allah, forgive them and have mercy on them, keep them safe and sound and forgive them, honor their rest and ease their entrance; wash them with water and snow and hail, and cleanse them of sin as a white garment is cleansed of dirt."
+                        {t('dedication.duaTranslation')}
                     </Text>
                 </View>
 
@@ -59,7 +61,7 @@ const Dedication = () => {
                 </View>
 
                 <Text style={styles.footerText}>
-                    Please keep us in your prayers.
+                    {t('dedication.footer')}
                 </Text>
             </Animated.View>
         </ScrollView>

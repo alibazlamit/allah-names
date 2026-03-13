@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Platform } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import CountryPicker from 'react-native-country-picker-modal';
 
 const API_URL = 'https://husna.alibazlamit.com';
 
 const HallOfFame = ({ initialMode, onOathComplete }) => {
+    const { t } = useTranslation();
     const [mode, setMode] = useState(initialMode); // 'oath' or 'leaderboard'
     const [name, setName] = useState('');
     const [country, setCountry] = useState(null); // Will store country object
@@ -72,16 +74,15 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
         return (
             <View style={styles.oathContainer}>
                 <View style={styles.oathCard}>
-                    <Text style={styles.oathTitle}>The Honor System</Text>
+                    <Text style={styles.oathTitle}>{t('hall.oathTitle')}</Text>
                     <Text style={styles.oathDesc}>
-                        You have completed the memorization journey. Spiritual milestones rely on honesty and sincerity with Allah.
-                        Before your name is inscribed in the Hall of Fame, you must take this solemn oath.
+                        {t('hall.oathText')}
                     </Text>
 
                     <View style={styles.formContainer}>
                         <TextInput
                             style={styles.input}
-                            placeholder="Your Name (or Nickname)"
+                            placeholder={t('hall.namePlaceholder')}
                             placeholderTextColor="#888"
                             value={name}
                             onChangeText={setName}
@@ -104,7 +105,7 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
                                     primaryColor: '#000',
                                 }}
                             />
-                            {!country && <Text style={styles.countryPlaceholder}>Select Your Country</Text>}
+                            {!country && <Text style={styles.countryPlaceholder}>{t('hall.selectCountry')}</Text>}
                         </View>
 
                         <TouchableOpacity
@@ -114,14 +115,14 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
                         >
                             <View style={[styles.checkbox, sworeOath && styles.checkboxChecked]} />
                             <Text style={styles.checkboxLabel}>
-                                "I swear by Allah that I completed the 99 Names memorization test truthfully, without looking at any external resources."
+                                {t('hall.oathPrompt')}
                             </Text>
                         </TouchableOpacity>
 
                         {!!error && <Text style={styles.errorMsg}>{error}</Text>}
 
                         <TouchableOpacity style={styles.submitBtn} onPress={handleOathSubmit} disabled={loading}>
-                            <Text style={styles.submitBtnText}>{loading ? 'Submitting...' : 'Sign Oath & Enter Hall of Fame'}</Text>
+                            <Text style={styles.submitBtnText}>{loading ? t('hall.submitting') : t('hall.signOath')}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -132,7 +133,7 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
     return (
         <View style={styles.leaderboardContainer}>
             <View style={styles.leaderboardHeader}>
-                <Text style={styles.leaderboardTitle}>Global Hall of Fame</Text>
+                <Text style={styles.leaderboardTitle}>{t('hall.title')}</Text>
                 <Text style={styles.leaderboardSubtitle}>Nations uniting in the remembrance of Allah.</Text>
             </View>
 

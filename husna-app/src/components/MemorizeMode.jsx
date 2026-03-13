@@ -152,7 +152,6 @@ const MemorizeMode = ({ onComplete }) => {
         <div className="memorize-container">
             <div className="header-row" style={{ width: '100%', maxWidth: '600px' }}>
                 <div className="memorize-header">
-                    <h2>Memorize (Grid Mode)</h2>
                     <div className="progress">{revealedIds.size} / 99 Revealed</div>
                 </div>
                 <button className="hint-btn" onClick={useHint}>Use Hint</button>

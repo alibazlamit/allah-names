@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Slider from '@react-native-community/slider';
 import * as Speech from 'expo-speech';
 import { useAudioPlayer } from 'expo-audio';
@@ -10,6 +11,7 @@ const NASHEEDS = [
 ];
 
 const LearnMode = () => {
+    const { t, i18n } = useTranslation();
     const [isPlayingNasheed, setIsPlayingNasheed] = React.useState(false);
     const [nasheedModalVisible, setNasheedModalVisible] = React.useState(false);
     const [isPlayerMinimized, setIsPlayerMinimized] = React.useState(false);
@@ -173,27 +175,39 @@ const LearnMode = () => {
         return styles.loopBtnInactive;
     };
 
-    const renderItem = ({ item }) => (
-        <View style={styles.card}>
-            <View style={styles.cardHeader}>
-                <View style={styles.numberBadge}>
-                    <Text style={styles.numberText}>{item.id}</Text>
+    const renderItem = ({ item }) => {
+        let localizedMeaning = item.meaning; // fallback
+
+        if (i18n.language === 'ar' && item.meaning_ar) {
+            localizedMeaning = item.meaning_ar;
+        } else if (i18n.language === 'bs' && item.meaning_bs) {
+            localizedMeaning = item.meaning_bs;
+        } else if (item.meaning_en) {
+            localizedMeaning = item.meaning_en;
+        }
+
+        return (
+            <View style={styles.card}>
+                <View style={styles.cardHeader}>
+                    <View style={styles.numberBadge}>
+                        <Text style={styles.numberText}>{item.id}</Text>
+                    </View>
+                    <TouchableOpacity style={styles.playBtn} onPress={() => playNameAudio(item.arabic)}>
+                        <Text style={styles.playIcon}>▶</Text>
+                    </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.playBtn} onPress={() => playNameAudio(item.arabic)}>
-                    <Text style={styles.playIcon}>▶</Text>
-                </TouchableOpacity>
+                <Text style={styles.arabicText}>{item.arabic}</Text>
+                <Text style={styles.transliterationText}>{item.transliteration}</Text>
+                <Text style={styles.meaningText}>{localizedMeaning}</Text>
             </View>
-            <Text style={styles.arabicText}>{item.arabic}</Text>
-            <Text style={styles.transliterationText}>{item.transliteration}</Text>
-            <Text style={styles.meaningText}>{item.meaning}</Text>
-        </View>
-    );
+        );
+    };
 
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
-                <Text style={styles.headerTitle}>Learn the 99 Names</Text>
-                <Text style={styles.headerDesc}>Scroll through and reflect on their meanings.</Text>
+                <Text style={styles.headerTitle}>{t('learn.title')}</Text>
+                <Text style={styles.headerDesc}>{t('learn.subtitle')}</Text>
 
                 {!currentNasheedTitle && (
                     <TouchableOpacity
@@ -201,7 +215,7 @@ const LearnMode = () => {
                         onPress={() => setNasheedModalVisible(true)}
                     >
                         <Text style={styles.nasheedBtnMenuText}>
-                            🎵 Choose a Nasheed to Play
+                            🎵 {t('learn.playNasheed')}
                         </Text>
                     </TouchableOpacity>
                 )}
@@ -304,7 +318,7 @@ const LearnMode = () => {
                 <View style={styles.modalOverlay}>
                     <View style={styles.modalContent}>
                         <View style={styles.modalHeader}>
-                            <Text style={styles.modalTitle}>Select Nasheed</Text>
+                            <Text style={styles.modalTitle}>{t('learn.nasheeds')}</Text>
                             <TouchableOpacity onPress={() => setNasheedModalVisible(false)}>
                                 <Text style={styles.closeModalText}>✕</Text>
                             </TouchableOpacity>

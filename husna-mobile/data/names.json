@@ -3,594 +3,891 @@
         "id": 1,
         "arabic": "الرحمن",
         "transliteration": "Ar-Rahman",
-        "meaning": "The All-Compassionate"
+        "meaning": "The All-Compassionate",
+        "meaning_en": "The All-Compassionate",
+        "meaning_ar": "الله",
+        "meaning_bs": "Allah, Bog"
     },
     {
         "id": 2,
         "arabic": "ٱلْرَّحِيْمُ",
         "transliteration": "Ar-Raheem",
-        "meaning": "The Merciful"
+        "meaning": "The Merciful",
+        "meaning_en": "The Merciful",
+        "meaning_ar": "الرحمن",
+        "meaning_bs": "Svemilosni"
     },
     {
         "id": 3,
         "arabic": "ٱلْمَلِكُ",
         "transliteration": "Al-Malik",
-        "meaning": "The King"
+        "meaning": "The King",
+        "meaning_en": "The King",
+        "meaning_ar": "الرحيم",
+        "meaning_bs": "Samilosni"
     },
     {
         "id": 4,
         "arabic": "ٱلْقُدُّوسُ",
         "transliteration": "Al-Quddus",
-        "meaning": "The Most Sacred"
+        "meaning": "The Most Sacred",
+        "meaning_en": "The Most Sacred",
+        "meaning_ar": "الملك",
+        "meaning_bs": "Vladar, Suvereni"
     },
     {
         "id": 5,
         "arabic": "ٱلْسَّلَامُ",
         "transliteration": "As-Salam",
-        "meaning": "The Source of Peace"
+        "meaning": "The Source of Peace",
+        "meaning_en": "The Source of Peace",
+        "meaning_ar": "القدوس",
+        "meaning_bs": "Sveti, Najčistiji"
     },
     {
         "id": 6,
         "arabic": "ٱلْمُؤْمِنُ",
         "transliteration": "Al-Mu'min",
-        "meaning": "The Infuser of Faith"
+        "meaning": "The Infuser of Faith",
+        "meaning_en": "The Infuser of Faith",
+        "meaning_ar": "السلام",
+        "meaning_bs": "Izvor mira i spasa"
     },
     {
         "id": 7,
         "arabic": "ٱلْمُهَيْمِنُ",
         "transliteration": "Al-Muhaymin",
-        "meaning": "The Preserver of Safety"
+        "meaning": "The Preserver of Safety",
+        "meaning_en": "The Preserver of Safety",
+        "meaning_ar": "المؤمن",
+        "meaning_bs": "Pouzdani, Koji daje sigurnost"
     },
     {
         "id": 8,
         "arabic": "ٱلْعَزِيزُ",
         "transliteration": "Al-Aziz",
-        "meaning": "The All Mighty"
+        "meaning": "The All Mighty",
+        "meaning_en": "The All Mighty",
+        "meaning_ar": "المهيمن",
+        "meaning_bs": "Zaštitnik, Koji sve pazi i prati"
     },
     {
         "id": 9,
         "arabic": "ٱلْجَبَّارُ",
         "transliteration": "Al-Jabbar",
-        "meaning": "The Compeller"
+        "meaning": "The Compeller",
+        "meaning_en": "The Compeller",
+        "meaning_ar": "العزيز",
+        "meaning_bs": "Silni, Snažni"
     },
     {
         "id": 10,
         "arabic": "ٱلْمُتَكَبِّرُ",
         "transliteration": "Al-Mutakabbir",
-        "meaning": "The Supreme, The Majestic"
+        "meaning": "The Supreme, The Majestic",
+        "meaning_en": "The Supreme, The Majestic",
+        "meaning_ar": "الجبار",
+        "meaning_bs": "Silni, Koji sve potčinjava"
     },
     {
         "id": 11,
         "arabic": "ٱلْخَالِقُ",
         "transliteration": "Al-Khaaliq",
-        "meaning": "The Creator"
+        "meaning": "The Creator",
+        "meaning_en": "The Creator",
+        "meaning_ar": "المتكبر",
+        "meaning_bs": "Gordi, Veličanstveni"
     },
     {
         "id": 12,
         "arabic": "ٱلْبَارِئُ",
         "transliteration": "Al-Baari'",
-        "meaning": "The Maker"
+        "meaning": "The Maker",
+        "meaning_en": "The Maker",
+        "meaning_ar": "الخالق",
+        "meaning_bs": "Stvoritelj"
     },
     {
         "id": 13,
         "arabic": "ٱلْمُصَوِّرُ",
         "transliteration": "Al-Musawwir",
-        "meaning": "The Fashioner of Forms"
+        "meaning": "The Fashioner of Forms",
+        "meaning_en": "The Fashioner of Forms",
+        "meaning_ar": "البارئ",
+        "meaning_bs": "Koji divno stvara"
     },
     {
         "id": 14,
         "arabic": "ٱلْغَفَّارُ",
         "transliteration": "Al-Ghaffaar",
-        "meaning": "The All-Forgiving"
+        "meaning": "The All-Forgiving",
+        "meaning_en": "The All-Forgiving",
+        "meaning_ar": "المصور",
+        "meaning_bs": "Koji likove daje"
     },
     {
         "id": 15,
         "arabic": "ٱلْقَهَّارُ",
         "transliteration": "Al-Qahhaar",
-        "meaning": "The All-Compelling Subduer"
+        "meaning": "The All-Compelling Subduer",
+        "meaning_en": "The All-Compelling Subduer",
+        "meaning_ar": "الغفار",
+        "meaning_bs": "Onaj Koji mnogo prašta"
     },
     {
         "id": 16,
         "arabic": "ٱلْوَهَّابُ",
         "transliteration": "Al-Wahhaab",
-        "meaning": "The Bestower"
+        "meaning": "The Bestower",
+        "meaning_en": "The Bestower",
+        "meaning_ar": "القهار",
+        "meaning_bs": "Onaj Koji nadvladava"
     },
     {
         "id": 17,
         "arabic": "ٱلْرَّزَّاقُ",
         "transliteration": "Ar-Razzaaq",
-        "meaning": "The Ever-Providing"
+        "meaning": "The Ever-Providing",
+        "meaning_en": "The Ever-Providing",
+        "meaning_ar": "الوهاب",
+        "meaning_bs": "Onaj Koji obilno daruje"
     },
     {
         "id": 18,
         "arabic": "ٱلْفَتَّاحُ",
         "transliteration": "Al-Fattaah",
-        "meaning": "The Opener, The Judge"
+        "meaning": "The Opener, The Judge",
+        "meaning_en": "The Opener, The Judge",
+        "meaning_ar": "الرزاق",
+        "meaning_bs": "Onaj Koji opskrbljuje"
     },
     {
         "id": 19,
         "arabic": "ٱلْعَلِيمُ",
         "transliteration": "Al-Aleem",
-        "meaning": "The All-Knowing"
+        "meaning": "The All-Knowing",
+        "meaning_en": "The All-Knowing",
+        "meaning_ar": "الفتاح",
+        "meaning_bs": "Onaj Koji otvara i rješava"
     },
     {
         "id": 20,
         "arabic": "ٱلْقَابِضُ",
         "transliteration": "Al-Qaabidh",
-        "meaning": "The Withholder"
+        "meaning": "The Withholder",
+        "meaning_en": "The Withholder",
+        "meaning_ar": "العليم",
+        "meaning_bs": "Sveznajući"
     },
     {
         "id": 21,
         "arabic": "ٱلْبَاسِطُ",
         "transliteration": "Al-Baasit",
-        "meaning": "The Expander"
+        "meaning": "The Expander",
+        "meaning_en": "The Expander",
+        "meaning_ar": "القابض",
+        "meaning_bs": "Onaj Koji steže i susteže"
     },
     {
         "id": 22,
         "arabic": "ٱلْخَافِضُ",
         "transliteration": "Al-Khaafidh",
-        "meaning": "The Abaser"
+        "meaning": "The Abaser",
+        "meaning_en": "The Abaser",
+        "meaning_ar": "الباسط",
+        "meaning_bs": "Onaj Koji pruža i širi"
     },
     {
         "id": 23,
         "arabic": "ٱلْرَّافِعُ",
         "transliteration": "Ar-Raafi'",
-        "meaning": "The Exalter"
+        "meaning": "The Exalter",
+        "meaning_en": "The Exalter",
+        "meaning_ar": "الخافض",
+        "meaning_bs": "Onaj Koji spušta"
     },
     {
         "id": 24,
         "arabic": "ٱلْمُعِزُّ",
         "transliteration": "Al-Mu'izz",
-        "meaning": "The Giver of Honor"
+        "meaning": "The Giver of Honor",
+        "meaning_en": "The Giver of Honor",
+        "meaning_ar": "الرافع",
+        "meaning_bs": "Onaj Koji uzdiže"
     },
     {
         "id": 25,
         "arabic": "ٱلْمُذِلُّ",
         "transliteration": "Al-Muzil",
-        "meaning": "The Giver of Dishonor"
+        "meaning": "The Giver of Dishonor",
+        "meaning_en": "The Giver of Dishonor",
+        "meaning_ar": "المعز",
+        "meaning_bs": "Onaj Koji uzvisuje"
     },
     {
         "id": 26,
         "arabic": "ٱلْسَّمِيعُ",
         "transliteration": "As-Samee'",
-        "meaning": "The All-Hearing"
+        "meaning": "The All-Hearing",
+        "meaning_en": "The All-Hearing",
+        "meaning_ar": "المذل",
+        "meaning_bs": "Onaj Koji unižava"
     },
     {
         "id": 27,
         "arabic": "ٱلْبَصِيرُ",
         "transliteration": "Al-Baseer",
-        "meaning": "The All-Seeing"
+        "meaning": "The All-Seeing",
+        "meaning_en": "The All-Seeing",
+        "meaning_ar": "السميع",
+        "meaning_bs": "Svečujući"
     },
     {
         "id": 28,
         "arabic": "ٱلْحَكَمُ",
         "transliteration": "Al-Hakam",
-        "meaning": "The Judge"
+        "meaning": "The Judge",
+        "meaning_en": "The Judge",
+        "meaning_ar": "البصير",
+        "meaning_bs": "Svevideći"
     },
     {
         "id": 29,
         "arabic": "ٱلْعَدْلُ",
         "transliteration": "Al-'Adl",
-        "meaning": "The Utterly Just"
+        "meaning": "The Utterly Just",
+        "meaning_en": "The Utterly Just",
+        "meaning_ar": "الحكم",
+        "meaning_bs": "Sudija"
     },
     {
         "id": 30,
         "arabic": "ٱلْلَّطِيفُ",
         "transliteration": "Al-Lateef",
-        "meaning": "The Subtle One"
+        "meaning": "The Subtle One",
+        "meaning_en": "The Subtle One",
+        "meaning_ar": "العدل",
+        "meaning_bs": "Pravedni"
     },
     {
         "id": 31,
         "arabic": "ٱلْخَبِيرُ",
         "transliteration": "Al-Khabeer",
-        "meaning": "The All-Aware"
+        "meaning": "The All-Aware",
+        "meaning_en": "The All-Aware",
+        "meaning_ar": "اللطيف",
+        "meaning_bs": "Dobri, Milostivi"
     },
     {
         "id": 32,
         "arabic": "ٱلْحَلِيمُ",
         "transliteration": "Al-Haleem",
-        "meaning": "The Forbearing"
+        "meaning": "The Forbearing",
+        "meaning_en": "The Forbearing",
+        "meaning_ar": "الخبير",
+        "meaning_bs": "O svemu obaviješteni"
     },
     {
         "id": 33,
         "arabic": "ٱلْعَظِيمُ",
         "transliteration": "Al-Azeem",
-        "meaning": "The Magnificent"
+        "meaning": "The Magnificent",
+        "meaning_en": "The Magnificent",
+        "meaning_ar": "الحليم",
+        "meaning_bs": "Blagi, Strpljivi"
     },
     {
         "id": 34,
         "arabic": "ٱلْغَفُورُ",
         "transliteration": "Al-Ghafoor",
-        "meaning": "The Great Forgiver"
+        "meaning": "The Great Forgiver",
+        "meaning_en": "The Great Forgiver",
+        "meaning_ar": "العظيم",
+        "meaning_bs": "Veličanstveni"
     },
     {
         "id": 35,
         "arabic": "ٱلْشَّكُورُ",
         "transliteration": "Ash-Shakoor",
-        "meaning": "The Rewarder of Thankfulness"
+        "meaning": "The Rewarder of Thankfulness",
+        "meaning_en": "The Rewarder of Thankfulness",
+        "meaning_ar": "الغفور",
+        "meaning_bs": "Onaj Koji mnogo prašta"
     },
     {
         "id": 36,
         "arabic": "ٱلْعَلِيُّ",
         "transliteration": "Al-Aliyy",
-        "meaning": "The Highest"
+        "meaning": "The Highest",
+        "meaning_en": "The Highest",
+        "meaning_ar": "الشكور",
+        "meaning_bs": "Zahvalni"
     },
     {
         "id": 37,
         "arabic": "ٱلْكَبِيرُ",
         "transliteration": "Al-Kabeer",
-        "meaning": "The Greatest"
+        "meaning": "The Greatest",
+        "meaning_en": "The Greatest",
+        "meaning_ar": "العلي",
+        "meaning_bs": "Uzvišeni"
     },
     {
         "id": 38,
         "arabic": "ٱلْحَفِيظُ",
         "transliteration": "Al-Hafeez",
-        "meaning": "The Preserver"
+        "meaning": "The Preserver",
+        "meaning_en": "The Preserver",
+        "meaning_ar": "الكبير",
+        "meaning_bs": "Veliki"
     },
     {
         "id": 39,
         "arabic": "ٱلْمُقِيتُ",
         "transliteration": "Al-Muqeet",
-        "meaning": "The Nourisher"
+        "meaning": "The Nourisher",
+        "meaning_en": "The Nourisher",
+        "meaning_ar": "الحفيظ",
+        "meaning_bs": "Čuvar"
     },
     {
         "id": 40,
         "arabic": "ٱلْحَسِيبُ",
         "transliteration": "Al-Haseeb",
-        "meaning": "The Reckoner"
+        "meaning": "The Reckoner",
+        "meaning_en": "The Reckoner",
+        "meaning_ar": "المقيت",
+        "meaning_bs": "Onaj Koji pazi i izdržava"
     },
     {
         "id": 41,
         "arabic": "ٱلْجَلِيلُ",
         "transliteration": "Al-Jaleel",
-        "meaning": "The Majestic"
+        "meaning": "The Majestic",
+        "meaning_en": "The Majestic",
+        "meaning_ar": "الحسيب",
+        "meaning_bs": "Onaj Koji obračun svodi"
     },
     {
         "id": 42,
         "arabic": "ٱلْكَرِيمُ",
         "transliteration": "Al-Kareem",
-        "meaning": "The Bountiful"
+        "meaning": "The Bountiful",
+        "meaning_en": "The Bountiful",
+        "meaning_ar": "الجليل",
+        "meaning_bs": "Veličanstveni"
     },
     {
         "id": 43,
         "arabic": "ٱلْرَّقِيبُ",
         "transliteration": "Ar-Raqeeb",
-        "meaning": "The Watchful One"
+        "meaning": "The Watchful One",
+        "meaning_en": "The Watchful One",
+        "meaning_ar": "الكريم",
+        "meaning_bs": "Plemeniti"
     },
     {
         "id": 44,
         "arabic": "ٱلْمُجِيبُ",
         "transliteration": "Al-Mujeeb",
-        "meaning": "The Responsive"
+        "meaning": "The Responsive",
+        "meaning_en": "The Responsive",
+        "meaning_ar": "الرقيب",
+        "meaning_bs": "Onaj Koji na sve motri"
     },
     {
         "id": 45,
         "arabic": "ٱلْوَاسِعُ",
         "transliteration": "Al-Waasi'",
-        "meaning": "The All-Encompassing"
+        "meaning": "The All-Encompassing",
+        "meaning_en": "The All-Encompassing",
+        "meaning_ar": "المجيب",
+        "meaning_bs": "Onaj Koji molitve uslišava"
     },
     {
         "id": 46,
         "arabic": "ٱلْحَكِيمُ",
         "transliteration": "Al-Hakeem",
-        "meaning": "The Wise"
+        "meaning": "The Wise",
+        "meaning_en": "The Wise",
+        "meaning_ar": "الواسع",
+        "meaning_bs": "Sveobuhvatni"
     },
     {
         "id": 47,
         "arabic": "ٱلْوَدُودُ",
         "transliteration": "Al-Wadood",
-        "meaning": "The Loving"
+        "meaning": "The Loving",
+        "meaning_en": "The Loving",
+        "meaning_ar": "الحكيم",
+        "meaning_bs": "Mudri"
     },
     {
         "id": 48,
         "arabic": "ٱلْمَجِيدُ",
         "transliteration": "Al-Majeed",
-        "meaning": "The Glorious"
+        "meaning": "The Glorious",
+        "meaning_en": "The Glorious",
+        "meaning_ar": "الودود",
+        "meaning_bs": "Onaj Koji voli"
     },
     {
         "id": 49,
         "arabic": "ٱلْبَاعِثُ",
         "transliteration": "Al-Baa'ith",
-        "meaning": "The Resurrector"
+        "meaning": "The Resurrector",
+        "meaning_en": "The Resurrector",
+        "meaning_ar": "المجيد",
+        "meaning_bs": "Slavljeni"
     },
     {
         "id": 50,
         "arabic": "ٱلْشَّهِيدُ",
         "transliteration": "Ash-Shaheed",
-        "meaning": "The Witness"
+        "meaning": "The Witness",
+        "meaning_en": "The Witness",
+        "meaning_ar": "الباعث",
+        "meaning_bs": "Onaj Koji proživljava"
     },
     {
         "id": 51,
         "arabic": "ٱلْحَقُّ",
         "transliteration": "Al-Haqq",
-        "meaning": "The Truth"
+        "meaning": "The Truth",
+        "meaning_en": "The Truth",
+        "meaning_ar": "الشهيد",
+        "meaning_bs": "Svjedok svega"
     },
     {
         "id": 52,
         "arabic": "ٱلْوَكِيلُ",
         "transliteration": "Al-Wakeel",
-        "meaning": "The Trustee"
+        "meaning": "The Trustee",
+        "meaning_en": "The Trustee",
+        "meaning_ar": "الحق",
+        "meaning_bs": "Istina"
     },
     {
         "id": 53,
         "arabic": "ٱلْقَوِيُّ",
         "transliteration": "Al-Qaweyy",
-        "meaning": "The Possessor of All Strength"
+        "meaning": "The Possessor of All Strength",
+        "meaning_en": "The Possessor of All Strength",
+        "meaning_ar": "الوكيل",
+        "meaning_bs": "Zaštitnik, Oslonac"
     },
     {
         "id": 54,
         "arabic": "ٱلْمَتِينُ",
         "transliteration": "Al-Mateen",
-        "meaning": "The Forceful One"
+        "meaning": "The Forceful One",
+        "meaning_en": "The Forceful One",
+        "meaning_ar": "القوي",
+        "meaning_bs": "Snažni"
     },
     {
         "id": 55,
         "arabic": "ٱلْوَلِيُّ",
         "transliteration": "Al-Waliyy",
-        "meaning": "The Protecting Friend"
+        "meaning": "The Protecting Friend",
+        "meaning_en": "The Protecting Friend",
+        "meaning_ar": "المتين",
+        "meaning_bs": "Čvrsti"
     },
     {
         "id": 56,
         "arabic": "ٱلْحَمِيدُ",
         "transliteration": "Al-Hameed",
-        "meaning": "The Praiseworthy"
+        "meaning": "The Praiseworthy",
+        "meaning_en": "The Praiseworthy",
+        "meaning_ar": "الولي",
+        "meaning_bs": "Zaštitnik, Prijatelj"
     },
     {
         "id": 57,
         "arabic": "ٱلْمُحْصِيُ",
         "transliteration": "Al-Muhsee",
-        "meaning": "The Accounter"
+        "meaning": "The Accounter",
+        "meaning_en": "The Accounter",
+        "meaning_ar": "الحميد",
+        "meaning_bs": "Hvaljeni"
     },
     {
         "id": 58,
         "arabic": "ٱلْمُبْدِئُ",
         "transliteration": "Al-Mubdi'",
-        "meaning": "The Originator"
+        "meaning": "The Originator",
+        "meaning_en": "The Originator",
+        "meaning_ar": "المحصي",
+        "meaning_bs": "Onaj Koji sve obuhvata i broji"
     },
     {
         "id": 59,
         "arabic": "ٱلْمُعِيدُ",
         "transliteration": "Al-Mu'eed",
-        "meaning": "The Restorer"
+        "meaning": "The Restorer",
+        "meaning_en": "The Restorer",
+        "meaning_ar": "المبدئ",
+        "meaning_bs": "Početni Stvoritelj"
     },
     {
         "id": 60,
         "arabic": "ٱلْمُحْيِ",
         "transliteration": "Al-Muhyee",
-        "meaning": "The Giver of Life"
+        "meaning": "The Giver of Life",
+        "meaning_en": "The Giver of Life",
+        "meaning_ar": "المعيد",
+        "meaning_bs": "Onaj Koji sve vraća na početak"
     },
     {
         "id": 61,
         "arabic": "ٱلْمُمِيتُ",
         "transliteration": "Al-Mumeet",
-        "meaning": "The Taker of Life"
+        "meaning": "The Taker of Life",
+        "meaning_en": "The Taker of Life",
+        "meaning_ar": "المحيي",
+        "meaning_bs": "Onaj Koji život daje"
     },
     {
         "id": 62,
         "arabic": "ٱلْحَىُّ",
         "transliteration": "Al-Hayy",
-        "meaning": "The Ever Living One"
+        "meaning": "The Ever Living One",
+        "meaning_en": "The Ever Living One",
+        "meaning_ar": "المميت",
+        "meaning_bs": "Onaj Koji smrt daje"
     },
     {
         "id": 63,
         "arabic": "ٱلْقَيُّومُ",
         "transliteration": "Al-Qayyoom",
-        "meaning": "The Self-Existing One"
+        "meaning": "The Self-Existing One",
+        "meaning_en": "The Self-Existing One",
+        "meaning_ar": "الحي",
+        "meaning_bs": "Živi"
     },
     {
         "id": 64,
         "arabic": "ٱلْوَاجِدُ",
         "transliteration": "Al-Waajid",
-        "meaning": "The Finder"
+        "meaning": "The Finder",
+        "meaning_en": "The Finder",
+        "meaning_ar": "القيوم",
+        "meaning_bs": "Vječni, Održavatelj"
     },
     {
         "id": 65,
         "arabic": "ٱلْمَاجِدُ",
         "transliteration": "Al-Maajid",
-        "meaning": "The Glorious"
+        "meaning": "The Glorious",
+        "meaning_en": "The Glorious",
+        "meaning_ar": "الواجد",
+        "meaning_bs": "Bogati, Koji sve ima"
     },
     {
         "id": 66,
         "arabic": "ٱلْوَاحِدُ",
         "transliteration": "Al-Waahid",
-        "meaning": "The Only One"
+        "meaning": "The Only One",
+        "meaning_en": "The Only One",
+        "meaning_ar": "الماجد",
+        "meaning_bs": "Slavni"
     },
     {
         "id": 67,
         "arabic": "ٱلْأَحَد",
         "transliteration": "Al-Ahad",
-        "meaning": "The One"
+        "meaning": "The One",
+        "meaning_en": "The One",
+        "meaning_ar": "الواحد",
+        "meaning_bs": "Jedini"
     },
     {
         "id": 68,
         "arabic": "ٱلْصَّمَدُ",
         "transliteration": "As-Samad",
-        "meaning": "The Eternal, Absolute"
+        "meaning": "The Eternal, Absolute",
+        "meaning_en": "The Eternal, Absolute",
+        "meaning_ar": "الصمد",
+        "meaning_bs": "Utočište svakom"
     },
     {
         "id": 69,
         "arabic": "ٱلْقَادِرُ",
         "transliteration": "Al-Qaadir",
-        "meaning": "The All-Powerful"
+        "meaning": "The All-Powerful",
+        "meaning_en": "The All-Powerful",
+        "meaning_ar": "القادر",
+        "meaning_bs": "Moćni"
     },
     {
         "id": 70,
         "arabic": "ٱلْمُقْتَدِرُ",
         "transliteration": "Al-Muqtadir",
-        "meaning": "The Creator of All Power"
+        "meaning": "The Creator of All Power",
+        "meaning_en": "The Creator of All Power",
+        "meaning_ar": "المقتدر",
+        "meaning_bs": "Svemoćni"
     },
     {
         "id": 71,
         "arabic": "ٱلْمُقَدِّمُ",
         "transliteration": "Al-Muqaddim",
-        "meaning": "The Expediter"
+        "meaning": "The Expediter",
+        "meaning_en": "The Expediter",
+        "meaning_ar": "المقدم",
+        "meaning_bs": "Onaj Koji unapređuje"
     },
     {
         "id": 72,
         "arabic": "ٱلْمُؤَخِّرُ",
         "transliteration": "Al-Mu'akhkhir",
-        "meaning": "The Delayer"
+        "meaning": "The Delayer",
+        "meaning_en": "The Delayer",
+        "meaning_ar": "المؤخر",
+        "meaning_bs": "Onaj Koji unazađuje"
     },
     {
         "id": 73,
         "arabic": "ٱلأَوَّلُ",
         "transliteration": "Al-Awwal",
-        "meaning": "The First"
+        "meaning": "The First",
+        "meaning_en": "The First",
+        "meaning_ar": "الأول",
+        "meaning_bs": "Prvi"
     },
     {
         "id": 74,
         "arabic": "ٱلْآخِرُ",
         "transliteration": "Al-Aakhir",
-        "meaning": "The Last"
+        "meaning": "The Last",
+        "meaning_en": "The Last",
+        "meaning_ar": "الآخر",
+        "meaning_bs": "Posljednji"
     },
     {
         "id": 75,
         "arabic": "ٱلْظَّاهِرُ",
         "transliteration": "Az-Zaahir",
-        "meaning": "The Manifest One"
+        "meaning": "The Manifest One",
+        "meaning_en": "The Manifest One",
+        "meaning_ar": "الظاهر",
+        "meaning_bs": "Vidljivi"
     },
     {
         "id": 76,
         "arabic": "ٱلْبَاطِنُ",
         "transliteration": "Al-Baatin",
-        "meaning": "The Hidden One"
+        "meaning": "The Hidden One",
+        "meaning_en": "The Hidden One",
+        "meaning_ar": "الباطن",
+        "meaning_bs": "Skriveni"
     },
     {
         "id": 77,
         "arabic": "ٱلْوَالِي",
         "transliteration": "Al-Waali",
-        "meaning": "The Protecting Friend"
+        "meaning": "The Protecting Friend",
+        "meaning_en": "The Protecting Friend",
+        "meaning_ar": "الوالي",
+        "meaning_bs": "Upravitelj"
     },
     {
         "id": 78,
         "arabic": "ٱلْمُتَعَالِي",
         "transliteration": "Al-Muta'ali",
-        "meaning": "The Supreme One"
+        "meaning": "The Supreme One",
+        "meaning_en": "The Supreme One",
+        "meaning_ar": "المتعالي",
+        "meaning_bs": "Preuzvišeni"
     },
     {
         "id": 79,
         "arabic": "ٱلْبَرُّ",
         "transliteration": "Al-Barr",
-        "meaning": "The Doer of Good"
+        "meaning": "The Doer of Good",
+        "meaning_en": "The Doer of Good",
+        "meaning_ar": "البر",
+        "meaning_bs": "Dobročinitelj"
     },
     {
         "id": 80,
         "arabic": "ٱلْتَّوَّابُ",
         "transliteration": "At-Tawwaab",
-        "meaning": "The Guide to Repentance"
+        "meaning": "The Guide to Repentance",
+        "meaning_en": "The Guide to Repentance",
+        "meaning_ar": "التواب",
+        "meaning_bs": "Onaj Koji prima pokajanje"
     },
     {
         "id": 81,
         "arabic": "ٱلْمُنْتَقِمُ",
         "transliteration": "Al-Muntaqim",
-        "meaning": "The Avenger"
+        "meaning": "The Avenger",
+        "meaning_en": "The Avenger",
+        "meaning_ar": "المنتقم",
+        "meaning_bs": "Osvetnik"
     },
     {
         "id": 82,
         "arabic": "ٱلْعَفُوُّ",
         "transliteration": "Al-'Afuww",
-        "meaning": "The Forgiver"
+        "meaning": "The Forgiver",
+        "meaning_en": "The Forgiver",
+        "meaning_ar": "العفو",
+        "meaning_bs": "Onaj Koji prašta"
     },
     {
         "id": 83,
         "arabic": "الرؤوف",
         "transliteration": "Ar-Ra'oof",
-        "meaning": "The Clement"
+        "meaning": "The Clement",
+        "meaning_en": "The Clement",
+        "meaning_ar": "الرؤوف",
+        "meaning_bs": "Samilosni"
     },
     {
         "id": 84,
         "arabic": "مَالِكُ ٱلْمُلْكُ",
         "transliteration": "Maalik-ul-Mulk",
-        "meaning": "The Owner of All"
+        "meaning": "The Owner of All",
+        "meaning_en": "The Owner of All",
+        "meaning_ar": "مالك الملك",
+        "meaning_bs": "Vladar svih svjetova"
     },
     {
         "id": 85,
         "arabic": "ذُو ٱلْجَلَالِ وَٱلْإِكْرَامُ",
         "transliteration": "Dhul-Jalaali Wal-Ikraam",
-        "meaning": "The Lord of Majesty and Bounty"
+        "meaning": "The Lord of Majesty and Bounty",
+        "meaning_en": "The Lord of Majesty and Bounty",
+        "meaning_ar": "ذو الجلال والإكرام",
+        "meaning_bs": "Gospodar veličanstva i plemenitosti"
     },
     {
         "id": 86,
         "arabic": "ٱلْمُقْسِطُ",
         "transliteration": "Al-Muqsit",
-        "meaning": "The Equitable One"
+        "meaning": "The Equitable One",
+        "meaning_en": "The Equitable One",
+        "meaning_ar": "المقسط",
+        "meaning_bs": "Pravedni"
     },
     {
         "id": 87,
         "arabic": "ٱلْجَامِعُ",
         "transliteration": "Al-Jaami'",
-        "meaning": "The Gatherer"
+        "meaning": "The Gatherer",
+        "meaning_en": "The Gatherer",
+        "meaning_ar": "الجامع",
+        "meaning_bs": "Onaj Koji sve okuplja"
     },
     {
         "id": 88,
         "arabic": "ٱلْغَنِىُّ",
         "transliteration": "Al-Ghaniyy",
-        "meaning": "The Rich One"
+        "meaning": "The Rich One",
+        "meaning_en": "The Rich One",
+        "meaning_ar": "الغني",
+        "meaning_bs": "Bogati, Neovisni"
     },
     {
         "id": 89,
         "arabic": "ٱلْمُغْنِىُّ",
         "transliteration": "Al-Mughniyy",
-        "meaning": "The Enricher"
+        "meaning": "The Enricher",
+        "meaning_en": "The Enricher",
+        "meaning_ar": "المغني",
+        "meaning_bs": "Onaj Koji bogatstvom obasipa"
     },
     {
         "id": 90,
         "arabic": "ٱلْمَانِعُ",
         "transliteration": "Al-Maani'",
-        "meaning": "The Preventer of Harm"
+        "meaning": "The Preventer of Harm",
+        "meaning_en": "The Preventer of Harm",
+        "meaning_ar": "المانع",
+        "meaning_bs": "Onaj Koji sprečava i uskraćuje"
     },
     {
         "id": 91,
         "arabic": "ٱلْضَّارُ",
         "transliteration": "Ad-Daarr",
-        "meaning": "The Creator of The Harmful"
+        "meaning": "The Creator of The Harmful",
+        "meaning_en": "The Creator of The Harmful",
+        "meaning_ar": "الضار",
+        "meaning_bs": "Onaj Koji štetu stvara"
     },
     {
         "id": 92,
         "arabic": "ٱلْنَّافِعُ",
         "transliteration": "An-Naafi'",
-        "meaning": "The Creator of Good"
+        "meaning": "The Creator of Good",
+        "meaning_en": "The Creator of Good",
+        "meaning_ar": "النافع",
+        "meaning_bs": "Onaj Koji korist stvara"
     },
     {
         "id": 93,
         "arabic": "ٱلْنُّورُ",
         "transliteration": "An-Noor",
-        "meaning": "The Light"
+        "meaning": "The Light",
+        "meaning_en": "The Light",
+        "meaning_ar": "النور",
+        "meaning_bs": "Svjetlost"
     },
     {
         "id": 94,
         "arabic": "ٱلْهَادِي",
         "transliteration": "Al-Haadi",
-        "meaning": "The Guide"
+        "meaning": "The Guide",
+        "meaning_en": "The Guide",
+        "meaning_ar": "الهادي",
+        "meaning_bs": "Uputitelj"
     },
     {
         "id": 95,
         "arabic": "ٱلْبَدِيعُ",
         "transliteration": "Al-Badee'",
-        "meaning": "The Originator"
+        "meaning": "The Originator",
+        "meaning_en": "The Originator",
+        "meaning_ar": "البديع",
+        "meaning_bs": "Inovator, Besprimjerni Tvorac"
     },
     {
         "id": 96,
         "arabic": "ٱلْبَاقِي",
         "transliteration": "Al-Baaqi",
-        "meaning": "The Everlasting One"
+        "meaning": "The Everlasting One",
+        "meaning_en": "The Everlasting One",
+        "meaning_ar": "الباقي",
+        "meaning_bs": "Vječni"
     },
     {
         "id": 97,
         "arabic": "ٱلْوَارِثُ",
         "transliteration": "Al-Waarith",
-        "meaning": "The Inheritor of All"
+        "meaning": "The Inheritor of All",
+        "meaning_en": "The Inheritor of All",
+        "meaning_ar": "الوارث",
+        "meaning_bs": "Nasljednik svega"
     },
     {
         "id": 98,
         "arabic": "ٱلْرَّشِيدُ",
         "transliteration": "Ar-Rasheed",
-        "meaning": "The Righteous Teacher"
+        "meaning": "The Righteous Teacher",
+        "meaning_en": "The Righteous Teacher",
+        "meaning_ar": "الرشيد",
+        "meaning_bs": "Vodič na Pravi put"
     },
     {
         "id": 99,
         "arabic": "ٱلْصَّبُورُ",
         "transliteration": "As-Saboor",
-        "meaning": "The Patient One"
+        "meaning": "The Patient One",
+        "meaning_en": "The Patient One",
+        "meaning_ar": "الصبور",
+        "meaning_bs": "Strpljivi"
     }
 ]

@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Animated, ScrollView, Dimensions, TouchableWithoutFeedback } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import namesData from '../data/names.json';
 
 const { width } = Dimensions.get('window');
-// Calculate 3 columns grid
-const TILE_SIZE = (width - 40 - 20) / 3;
+// Calculate 3 columns grid: padding 20 on each side (40) + two 10px gaps (20) = 60.
+// We subtract an extra 3-4 pixels total from the width before dividing to account for sub-pixel rendering.
+const TILE_SIZE = Math.floor((width - 64) / 3);
 
 // A single Tile Component
 const NameTile = ({ item, isFlipped, onLongPress }) => {
@@ -45,6 +47,7 @@ const NameTile = ({ item, isFlipped, onLongPress }) => {
 };
 
 const MemorizeMode = ({ onComplete }) => {
+    const { t } = useTranslation();
     const [inputVal, setInputVal] = useState('');
     const [revealedIds, setRevealedIds] = useState(new Set());
     const [hintsUsed, setHintsUsed] = useState(0);
@@ -135,14 +138,14 @@ const MemorizeMode = ({ onComplete }) => {
     if (isTestComplete) {
         return (
             <View style={styles.completeContainer}>
-                <Text style={styles.completeHeader}>Masha'Allah!</Text>
+                <Text style={styles.completeHeader}>{t('memorize.congratulations')}</Text>
                 <Text style={styles.successMsg}>
-                    You memorized {namesData.length - hintsUsed} of {namesData.length} and used {hintsUsed} hints.
+                    {t('memorize.completedMessage')}
                 </Text>
 
                 {hintsUsed === 0 ? (
                     <TouchableOpacity style={styles.primaryBtn} onPress={onComplete}>
-                        <Text style={styles.primaryBtnText}>Proceed to Oath</Text>
+                        <Text style={styles.primaryBtnText}>{t('memorize.proceedToOath')}</Text>
                     </TouchableOpacity>
                 ) : (
                     <View style={{ alignItems: 'center' }}>
@@ -169,20 +172,20 @@ const MemorizeMode = ({ onComplete }) => {
         <View style={styles.container}>
             <View style={styles.headerRow}>
                 <View style={styles.header}>
-                    <Text style={styles.progress}>{revealedIds.size} / 99 Revealed</Text>
+                    <Text style={styles.progress}>{revealedIds.size} / 99 {t('memorize.revealed')}</Text>
                 </View>
                 <TouchableOpacity
                     style={styles.hintBtn}
                     onPress={useHint}
                 >
-                    <Text style={styles.hintBtnText}>Use Hint</Text>
+                    <Text style={styles.hintBtnText}>{t('memorize.useHint')}</Text>
                 </TouchableOpacity>
             </View>
 
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Type any name..."
+                    placeholder={t('memorize.inputPlaceholder')}
                     placeholderTextColor="#b0b3b8"
                     value={inputVal}
                     onChangeText={handleInputChange}
@@ -198,7 +201,7 @@ const MemorizeMode = ({ onComplete }) => {
                     style={styles.submitBtnFloating}
                     onPress={() => handleInputChange(inputVal)}
                 >
-                    <Text style={styles.submitBtnText}>Submit</Text>
+                    <Text style={styles.submitBtnText}>{t('memorize.submit')}</Text>
                 </TouchableOpacity>
             </View>
 
