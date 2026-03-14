@@ -1,0 +1,12 @@
+husna-mobile/node_modules/
+husna-mobile/android/build/
+husna-mobile/android/app/build/
+husna-mobile/android/.gradle/
+husna-mobile/android/.cxx/
+**/node_modules/
+**/build/
+**/.gradle/
+**/.cxx/
+.expo/
+dist/
+web-build/
