@@ -7,7 +7,8 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "build:android": "expo run:android"
+    "build:android": "expo run:android",
+    "postinstall": "chmod +x ./node_modules/react-native/sdks/hermesc/linux64-bin/hermesc || true"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
