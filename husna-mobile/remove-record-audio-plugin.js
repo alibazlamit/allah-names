@@ -5,8 +5,12 @@ module.exports = function withRemoveRecordAudio(config) {
     const manifest = config.modResults.manifest;
     
     // 1. Add tools namespace if it doesn't exist
+    // Correct namespace is http://schemas.android.com/tools
     if (!manifest.$['xmlns:tools']) {
-      manifest.$['xmlns:tools'] = 'http://schemas.android.com/apk/res/tools';
+      manifest.$['xmlns:tools'] = 'http://schemas.android.com/tools';
+    } else if (manifest.$['xmlns:tools'] !== 'http://schemas.android.com/tools') {
+      // Ensure it's the correct one even if already present
+      manifest.$['xmlns:tools'] = 'http://schemas.android.com/tools';
     }
 
     // 2. Ensure uses-permission array exists
