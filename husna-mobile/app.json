@@ -23,7 +23,7 @@
       "backgroundColor": "#121212",
       "edgeToEdgeEnabled": true,
       "package": "com.alibazlamit.husnamobile",
-      "versionCode": 20
+      "versionCode": 21
     },
     "web": {
       "favicon": "./assets/favicon.png"
