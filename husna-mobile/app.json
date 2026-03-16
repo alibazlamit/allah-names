@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "husna-mobile",
+    "name": "Husna",
     "slug": "husna-mobile",
     "version": "1.0.1",
     "orientation": "portrait",
@@ -23,7 +23,7 @@
       "backgroundColor": "#121212",
       "edgeToEdgeEnabled": true,
       "package": "com.alibazlamit.husnamobile",
-      "versionCode": 21
+      "versionCode": 22
     },
     "web": {
       "favicon": "./assets/favicon.png"
