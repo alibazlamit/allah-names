@@ -22,7 +22,8 @@
       },
       "backgroundColor": "#121212",
       "edgeToEdgeEnabled": true,
-      "package": "com.alibazlamit.husnamobile"
+      "package": "com.alibazlamit.husnamobile",
+      "versionCode": 18
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -33,7 +34,14 @@
       }
     },
     "plugins": [
-      "expo-audio"
+      [
+        "expo-audio",
+        {
+          "recordAudioAndroid": false
+        }
+      ],
+      "expo-build-properties",
+      "./remove-record-audio-plugin"
     ]
   }
 }
