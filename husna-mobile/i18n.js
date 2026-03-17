@@ -61,7 +61,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"O Allah, forgive them and have mercy on them, keep them safe and sound and forgive them, honor their rest and ease their entrance; wash them with water and snow and hail, and cleanse them of sin as a white garment is cleansed of dirt.\"",
                 footer: "Please keep us in your prayers.",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'Translations provided by Allahin99ismi.com',
@@ -127,7 +127,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 footer: "لا تنسونا من صالح دعائكم.",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'تم توفير الترجمات بواسطة Allahin99ismi.com',
@@ -193,7 +193,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"Gospodaru, oprosti im i smiluj im se, spasi ih i pređi preko grijeha njihovih, učini im plemenitim mjesto boravka, a prostranim mjesto ulaska, operi ih vodom, snijegom i gradom, i očisti ih od grijeha kao što se čisti bijela odjeća od prljavštine.\"",
                 footer: "Molimo vas da nas sačuvate u svojim dovama.",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'Prijevodi preuzeti sa Allahin99ismi.com',
@@ -259,7 +259,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"Allahım, onları bağışla ve onlara merhamet et, onları esenlikte kıl ve kusurlarını affet. Konakladıkları yeri onurlandır ve girişlerini kolaylaştır; onları su, kar ve dolu ile yıka; beyaz elbiseyi kirden temizlediğin gibi onları da günahlardan arındır.\"",
                 footer: "Lütfen bizi dualarınızda eksik etmeyin.",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'Çeviriler Allahin99ismi.com tarafından sağlanmıştır',
@@ -325,7 +325,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"اے اللہ، انہیں بخش دے اور ان پر رحم کر، انہیں عافیت دے اور ان سے درگزر فرما، ان کی مہمانی کو معزز بنا اور ان کے داخلے کو وسیع کر؛ انہیں پانی، برف اور اولوں سے دھو دے؛ اور انہیں گناہوں سے ایسے پاک کر دے جیسے سفید کپڑے کو میل کچیل سے پاک کیا جاتا ہے۔\"",
                 footer: "براہ کرم ہمیں اپنی دعاؤں میں یاد رکھیں۔",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'ترجمہ بشکریہ Allahin99ismi.com',
@@ -391,7 +391,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"Ya Allah, ampunilah mereka dan kasihanilah mereka, selamatkanlah mereka dan maafkanlah mereka, muliakanlah tempat tinggal mereka dan luaskanlah pintu masuk mereka; mandikanlah mereka dengan air, salju, dan es; dan bersihkanlah mereka dari dosa sebagaimana pakaian putih dibersihkan dari kotoran.\"",
                 footer: "Mohon doakan kami.",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'Terjemahan disediakan oleh Allahin99ismi.com',
@@ -457,7 +457,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"হে আল্লাহ, তাঁদের ক্ষমা করুন ও দয়া করুন, তাঁদের শান্তিতে রাখুন এবং তাঁদের ভুলত্রুটি ক্ষমা করুন। তাঁদের অবস্থানকে সম্মানিত করুন এবং তাঁদের প্রবেশপথকে প্রশস্ত করুন; তাঁদের জল, তুষার ও শিলাবৃষ্টি দিয়ে ধৌত করুন; এবং তাঁদের পাপ থেকে এমনভাবে পরিচ্ছন্ন করুন যেমন সাদা পোশাক ময়লা থেকে পরিষ্কার করা হয়।\"",
                 footer: "দয়া করে আমাদের দোয়াতে রাখবেন।",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'অনুবাদ Allahin99ismi.com থেকে সংগৃহীত',
@@ -523,7 +523,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"بارالها، آنان را بیامرز و مورد رحمت قرار ده، سلامت و عافیت بدار و از آنان درگذر، جایگاهشان را گرامی بدار و ورودشان را وسعت بخش؛ آنان را با آب، برف و تگرگ شستشو ده؛ و آنان را از گناهان پاک کن، همانگونه که جامه سپید از آلودگی پاک می‌شود.\"",
                 footer: "لطفاً ما را در دعای خود یاد کنید.",
-                version: "v1.0.6"
+                version: "v1.0.7"
             },
             common: {
                 translationCredit: 'ترجمه‌ها توسط Allahin99ismi.com ارائه شده است',
