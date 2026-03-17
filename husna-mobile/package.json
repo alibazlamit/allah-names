@@ -27,18 +27,5 @@
     "react-native-country-picker-modal": "^2.0.0",
     "react-native-safe-area-context": "~5.6.0"
   },
-  "devDependencies": {},
-  "overrides": {
-    "react": "18.3.1",
-    "react-native": "0.81.1",
-    "react-test-renderer": "18.3.1",
-    "@react-native/assets-registry": "0.81.1",
-    "@react-native/codegen": "0.81.1",
-    "@react-native/community-cli-plugin": "0.81.1",
-    "@react-native/gradle-plugin": "0.81.1",
-    "@react-native/js-polyfills": "0.81.1",
-    "@react-native/virtualized-lists": "0.81.1",
-    "react-native-safe-area-context": "5.3.0"
-  },
   "private": true
 }

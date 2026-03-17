@@ -23,7 +23,7 @@
       "backgroundColor": "#121212",
       "edgeToEdgeEnabled": true,
       "package": "com.alibazlamit.husnamobile",
-      "versionCode": 23
+      "versionCode": 27
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -41,7 +41,8 @@
         }
       ],
       "expo-build-properties",
-      "./remove-record-audio-plugin"
+      "./remove-record-audio-plugin",
+      "expo-asset"
     ]
   }
 }
