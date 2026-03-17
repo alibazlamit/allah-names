@@ -13,12 +13,7 @@ import AudioPlayer from './components/AudioPlayer';
 import './i18n';
 import { useTranslation } from 'react-i18next';
 
-// Force absolute Edge-to-Edge on Android
-if (Platform.OS === 'android') {
-  NavigationBar.setPositionAsync('absolute');
-  NavigationBar.setBackgroundColorAsync('#ffffff00'); // fully transparent
-  SystemUI.setBackgroundColorAsync('#121212'); // prevent flashes behind nav
-}
+// Force absolute Edge-to-Edge on Android logic moved inside App component
 
 const NASHEEDS = [
   { id: '1', title: 'Asma Allah (Asmaa Allah)', type: 'local', file: require('./assets/imad-rami.mp3') },
@@ -40,7 +35,20 @@ export default function App() {
   const [loopA, setLoopA] = useState(null);
   const [loopB, setLoopB] = useState(null);
 
-  const player = useAudioPlayer(currentAudioSource);
+  const player = useAudioPlayer(currentAudioSource || null);
+
+  useEffect(() => {
+    // Force absolute Edge-to-Edge on Android
+    if (Platform.OS === 'android') {
+      try {
+        NavigationBar.setPositionAsync('absolute').catch(() => {});
+        NavigationBar.setBackgroundColorAsync('#ffffff00').catch(() => {}); // fully transparent
+        SystemUI.setBackgroundColorAsync('#121212').catch(() => {}); // prevent flashes behind nav
+      } catch (e) {
+        console.warn('Native UI initialization failed', e);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (!player) return;
