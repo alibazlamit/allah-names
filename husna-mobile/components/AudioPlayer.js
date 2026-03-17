@@ -42,6 +42,9 @@ const AudioPlayer = ({
         return styles.loopBtnInactive;
     };
 
+    const [isSliding, setIsSliding] = React.useState(false);
+    const [slidingValue, setSlidingValue] = React.useState(0);
+
     return (
         <View style={[styles.playerContainer, isMinimized && styles.playerContainerMinimized]}>
             <View style={styles.topRow}>
@@ -65,11 +68,18 @@ const AudioPlayer = ({
                             style={styles.slider}
                             minimumValue={0}
                             maximumValue={duration || 1}
-                            value={position}
+                            value={isSliding ? slidingValue : position}
                             minimumTrackTintColor="#d4af37"
                             maximumTrackTintColor="rgba(255, 255, 255, 0.2)"
                             thumbTintColor="#d4af37"
-                            onSlidingComplete={onSeek}
+                            onValueChange={(val) => {
+                                setIsSliding(true);
+                                setSlidingValue(val);
+                            }}
+                            onSlidingComplete={(val) => {
+                                setIsSliding(false);
+                                onSeek(val);
+                            }}
                         />
                         {loopA !== null && (
                             <View style={[styles.marker, { left: `${(loopA / duration) * 100}%` }]}>
@@ -83,7 +93,7 @@ const AudioPlayer = ({
                         )}
                     </View>
                     <View style={styles.timeRow}>
-                        <Text style={styles.timeText}>{formatTime(position)}</Text>
+                        <Text style={styles.timeText}>{formatTime(isSliding ? slidingValue : position)}</Text>
                         <Text style={styles.timeText}>{formatTime(duration)}</Text>
                     </View>
                 </>
