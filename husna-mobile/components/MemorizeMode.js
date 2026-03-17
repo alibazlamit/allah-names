@@ -71,43 +71,47 @@ const MemorizeMode = ({ onComplete }) => {
         setInputVal(text);
         if (!text.trim()) return;
 
-        const normEnInput = normalizeEnglish(text);
-        const normArInput = normalizeArabic(text);
+        try {
+            const normEnInput = normalizeEnglish(text);
+            const normArInput = normalizeArabic(text);
 
-        const matchedName = namesData.find(name => {
-            if (revealedIds.has(name.id)) return false;
+            const matchedName = namesData.find(name => {
+                if (revealedIds.has(name.id)) return false;
 
-            // Transliteration checks
-            const normTrans = normalizeEnglish(name.transliteration);
-            let normTransBase = normTrans;
-            if (normTrans.startsWith('al')) normTransBase = normTrans.slice(2);
-            else if (normTrans.startsWith('ar')) normTransBase = normTrans.slice(2);
-            else if (normTrans.startsWith('as')) normTransBase = normTrans.slice(2);
-            else if (normTrans.startsWith('ad')) normTransBase = normTrans.slice(2);
-            else if (normTrans.startsWith('an')) normTransBase = normTrans.slice(2);
-            else if (normTrans.startsWith('az')) normTransBase = normTrans.slice(2);
-            else if (normTrans.startsWith('ash')) normTransBase = normTrans.slice(3);
-            else if (normTrans.startsWith('at')) normTransBase = normTrans.slice(2);
+                // Transliteration checks
+                const normTrans = normalizeEnglish(name.transliteration);
+                let normTransBase = normTrans;
+                if (normTrans.startsWith('al')) normTransBase = normTrans.slice(2);
+                else if (normTrans.startsWith('ar')) normTransBase = normTrans.slice(2);
+                else if (normTrans.startsWith('as')) normTransBase = normTrans.slice(2);
+                else if (normTrans.startsWith('ad')) normTransBase = normTrans.slice(2);
+                else if (normTrans.startsWith('an')) normTransBase = normTrans.slice(2);
+                else if (normTrans.startsWith('az')) normTransBase = normTrans.slice(2);
+                else if (normTrans.startsWith('ash')) normTransBase = normTrans.slice(3);
+                else if (normTrans.startsWith('at')) normTransBase = normTrans.slice(2);
 
-            // Arabic checks
-            const normArabic = normalizeArabic(name.arabic);
-            const normArabicBase = normArabic.startsWith('ال') ? normArabic.substring(2) : normArabic;
+                // Arabic checks
+                const normArabic = normalizeArabic(name.arabic);
+                const normArabicBase = normArabic.startsWith('ال') ? normArabic.substring(2) : normArabic;
 
-            const isEnglishMatch = normEnInput.length > 2 && (normEnInput === normTrans || normEnInput === normTransBase);
-            const isArabicMatch = normArInput.length > 1 && (normArInput === normArabic || normArInput === normArabicBase);
+                const isEnglishMatch = normEnInput.length > 2 && (normEnInput === normTrans || normEnInput === normTransBase);
+                const isArabicMatch = normArInput.length > 1 && (normArInput === normArabic || normArInput === normArabicBase);
 
-            return isEnglishMatch || isArabicMatch;
-        });
+                return isEnglishMatch || isArabicMatch;
+            });
 
-        if (matchedName) {
-            setRevealedIds(prev => new Set(prev).add(matchedName.id));
-            setInputVal(''); // clear input after correct guess
+            if (matchedName) {
+                setRevealedIds(prev => new Set(prev).add(matchedName.id));
+                setInputVal(''); // clear input after correct guess
 
-            // Auto scroll to the correctly guessed tile
-            const rowIndex = Math.floor((matchedName.id - 1) / 3);
-            if (scrollViewRef.current) {
-                scrollViewRef.current.scrollTo({ y: rowIndex * (TILE_SIZE + 10), animated: true });
+                // Auto scroll to the correctly guessed tile
+                const rowIndex = Math.floor((matchedName.id - 1) / 3);
+                if (scrollViewRef.current) {
+                    scrollViewRef.current.scrollTo({ y: rowIndex * (TILE_SIZE + 10), animated: true });
+                }
             }
+        } catch (error) {
+            console.error('Match error:', error);
         }
     };
 

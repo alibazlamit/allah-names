@@ -14,7 +14,11 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying }) => {
     const { t, i18n } = useTranslation();
 
     const playNameAudio = (arabicText) => {
-        Speech.speak(arabicText, { language: 'ar-SA' });
+        try {
+            Speech.speak(arabicText, { language: 'ar-SA' });
+        } catch (error) {
+            console.error('Speech error:', error);
+        }
     };
 
     const renderItem = ({ item }) => {

@@ -17,24 +17,33 @@ const HallOfFame = ({ initialMode, onOathComplete }) => {
 
     useEffect(() => {
         setMode(initialMode);
+        const controller = new AbortController();
         if (initialMode === 'leaderboard') {
-            fetchLeaderboard();
+            fetchLeaderboard(controller.signal);
         }
+        return () => controller.abort();
     }, [initialMode]);
 
-    const fetchLeaderboard = async () => {
+    const fetchLeaderboard = async (signal) => {
         setLoading(true);
+        setError('');
         try {
-            const res = await fetch(`${API_URL}/api/leaderboard`);
+            const res = await fetch(`${API_URL}/api/leaderboard`, { signal });
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                throw new Error(errorData.error || `Server returned ${res.status}`);
+            }
             const data = await res.json();
             if (data.data) {
                 setLeaderboard(data.data);
             }
         } catch (err) {
-            console.error(err);
-            setError('Failed to load leaderboard. Ensure API is running on port 3005.');
+            if (err.name === 'AbortError') return;
+            console.error('Leaderboard error:', err);
+            setError(t('hall.networkError') || 'Failed to load leaderboard. Please check your connection.');
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
     };
 
     const handleOathSubmit = async () => {

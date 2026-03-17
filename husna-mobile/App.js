@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Dimensions, Platform, Modal } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as NavigationBar from 'expo-navigation-bar';
 import * as SystemUI from 'expo-system-ui';
-import { useAudioPlayer } from 'expo-audio';
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import LearnMode from './components/LearnMode';
 import MemorizeMode from './components/MemorizeMode';
 import HallOfFame from './components/HallOfFame';
@@ -19,7 +19,7 @@ const NASHEEDS = [
   { id: '1', title: 'Asma Allah (Asmaa Allah)', type: 'local', file: require('./assets/imad-rami.mp3') },
 ];
 
-export default function App() {
+function HusnaApp() {
   const [currentView, setCurrentView] = useState('learn');
   const [langModalVisible, setLangModalVisible] = useState(false);
   const { t, i18n } = useTranslation();
@@ -30,12 +30,8 @@ export default function App() {
   const [currentNasheedTitle, setCurrentNasheedTitle] = useState('');
   const [currentAudioSource, setCurrentAudioSource] = useState(null);
   const [nasheedModalVisible, setNasheedModalVisible] = useState(false);
-  const [position, setPosition] = useState(0);
-  const [duration, setDuration] = useState(0);
   const [loopA, setLoopA] = useState(null);
   const [loopB, setLoopB] = useState(null);
-
-  const player = useAudioPlayer(currentAudioSource || null);
 
   useEffect(() => {
     // Force absolute Edge-to-Edge on Android
@@ -50,60 +46,62 @@ export default function App() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!player) return;
+  const player = useAudioPlayer(currentAudioSource || null);
+  const status = useAudioPlayerStatus(player);
 
-    const interval = setInterval(() => {
-      if (player.playing) {
-        setPosition(player.currentTime * 1000);
-        if (loopA !== null && loopB !== null && player.currentTime * 1000 >= loopB) {
-          player.seekTo(loopA / 1000);
-        }
+  useEffect(() => {
+    if (status.playing) {
+      if (loopA !== null && loopB !== null && status.currentTime * 1000 >= loopB) {
+        player.seekTo(loopA / 1000);
       }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, [player, loopA, loopB]);
-
-  useEffect(() => {
-    if (player) {
-      setDuration((player.duration || 0) * 1000);
     }
-  }, [player?.duration, currentAudioSource]);
+  }, [status.currentTime, loopA, loopB]);
 
   useEffect(() => {
     if (player && currentAudioSource && isPlayingNasheed) {
-      player.loop = true;
-      player.play();
+      try {
+        player.loop = true;
+        player.play();
+      } catch (err) {
+        console.error('Failed to start playback:', err);
+      }
     }
-  }, [player, currentAudioSource]);
+  }, [player, currentAudioSource, isPlayingNasheed]);
 
   const togglePlayPause = () => {
     if (!player) return;
-    if (isPlayingNasheed) {
-      player.pause();
-      setIsPlayingNasheed(false);
-    } else {
-      player.play();
-      setIsPlayingNasheed(true);
+    try {
+      if (isPlayingNasheed) {
+        player.pause();
+        setIsPlayingNasheed(false);
+      } else {
+        player.play();
+        setIsPlayingNasheed(true);
+      }
+    } catch (e) {
+      console.error('Playback toggle error:', e);
     }
   };
 
   const stopNasheed = () => {
-    if (player) player.pause();
+    try {
+      if (player) player.pause();
+    } catch (e) {
+      console.error('Stop error:', e);
+    }
     setIsPlayingNasheed(false);
     setCurrentNasheedTitle('');
     setCurrentAudioSource(null);
     setLoopA(null);
     setLoopB(null);
-    setPosition(0);
   };
 
   const handleSetLoop = () => {
-    if (loopA === null) setLoopA(position);
+    const currentPos = status.currentTime * 1000;
+    if (loopA === null) setLoopA(currentPos);
     else if (loopB === null) {
-      if (position > loopA + 1000) {
-        setLoopB(position);
+      if (currentPos > loopA + 1000) {
+        setLoopB(currentPos);
         player?.seekTo(loopA / 1000);
       }
     } else {
@@ -127,130 +125,142 @@ export default function App() {
   };
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.safeArea} edges={['top']}>
-        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent={true} />
-        <View style={styles.container}>
+    <SafeAreaView style={styles.safeArea} edges={['top']}>
+      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent={true} />
+      <View style={styles.container}>
 
-          <View style={[styles.mainContent, { paddingBottom: 0 }]}>
-            {currentView === 'learn' && <LearnMode onPlayNasheed={() => setNasheedModalVisible(true)} isNasheedPlaying={!!currentNasheedTitle} />}
-            {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
-            {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
-            {currentView === 'oath' && <HallOfFame initialMode="oath" onOathComplete={() => setCurrentView('hall')} />}
-            {currentView === 'dedication' && <Dedication />}
-          </View>
-
-          {currentView === 'learn' && (
-            <TouchableOpacity style={styles.langBtn} onPress={() => setLangModalVisible(true)}>
-              <Ionicons name="globe-outline" size={24} color="#d4af37" />
-            </TouchableOpacity>
-          )}
-
-          <AudioPlayer
-            isPlaying={isPlayingNasheed}
-            title={currentNasheedTitle}
-            duration={duration}
-            position={position}
-            isMinimized={isPlayerMinimized}
-            onTogglePlay={togglePlayPause}
-            onStop={stopNasheed}
-            onToggleMinimize={() => setIsPlayerMinimized(!isPlayerMinimized)}
-            onSeek={(val) => player?.seekTo(val / 1000)}
-            onSetLoop={handleSetLoop}
-            loopA={loopA}
-            loopB={loopB}
-            onOpenMenu={() => setNasheedModalVisible(true)}
-          />
-
-          <Modal visible={nasheedModalVisible} transparent={true} animationType="slide">
-            <View style={styles.nasheedModalOverlay}>
-              <View style={styles.nasheedModalContent}>
-                <View style={styles.nasheedHeader}>
-                  <Text style={styles.nasheedTitle}>{t('learn.nasheeds')}</Text>
-                  <TouchableOpacity onPress={() => setNasheedModalVisible(false)}>
-                    <Ionicons name="close" size={28} color="#b0b3b8" />
-                  </TouchableOpacity>
-                </View>
-                {NASHEEDS.map(item => (
-                  <TouchableOpacity key={item.id} style={styles.nasheedItem} onPress={() => selectAndPlayNasheed(item)}>
-                    <Text style={styles.nasheedItemText}>{item.title}</Text>
-                    {currentNasheedTitle === item.title && <Ionicons name="volume-high" size={20} color="#d4af37" />}
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
-          </Modal>
-
-          <Modal visible={langModalVisible} transparent={true} animationType="fade">
-            <View style={styles.modalOverlay}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Select Language</Text>
-
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('en')}>
-                  <Text style={styles.langText}>English</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ar')}>
-                  <Text style={styles.langText}>العربية</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bs')}>
-                  <Text style={styles.langText}>Bosanski</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('tr')}>
-                  <Text style={styles.langText}>Türkçe</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ur')}>
-                  <Text style={styles.langText}>اردو</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('id')}>
-                  <Text style={styles.langText}>Bahasa Indonesia</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bn')}>
-                  <Text style={styles.langText}>বাংলা</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('fa')}>
-                  <Text style={styles.langText}>فارسی</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.closeBtn} onPress={() => setLangModalVisible(false)}>
-                  <Text style={styles.closeBtnText}>Cancel</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                   style={{ marginTop: 20 }} 
-                   onPress={() => require('react-native').Linking.openURL('https://allahin99ismi.com/')}
-                >
-                  <Text style={{ color: '#d4af37', fontSize: 12, opacity: 0.8, textAlign: 'center' }}>
-                    {t('common.translationCredit')}
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
-
-          <View style={styles.bottomNav}>
-            <TouchableOpacity onPress={() => setCurrentView('learn')} style={styles.tabBtn}>
-              <Ionicons name={currentView === 'learn' ? 'book' : 'book-outline'} size={24} color={currentView === 'learn' ? '#d4af37' : '#b0b3b8'} />
-              <Text style={[styles.tabText, currentView === 'learn' && styles.activeTabText]}>{t('navigation.learn')}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => setCurrentView('memorize')} style={styles.tabBtn}>
-              <Ionicons name={currentView === 'memorize' ? 'flash' : 'flash-outline'} size={24} color={currentView === 'memorize' ? '#d4af37' : '#b0b3b8'} />
-              <Text style={[styles.tabText, currentView === 'memorize' && styles.activeTabText]}>{t('navigation.memorize')}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => setCurrentView('hall')} style={styles.tabBtn}>
-              <Ionicons name={currentView === 'hall' ? 'trophy' : 'trophy-outline'} size={24} color={currentView === 'hall' ? '#d4af37' : '#b0b3b8'} />
-              <Text style={[styles.tabText, currentView === 'hall' && styles.activeTabText]}>{t('navigation.hall')}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => setCurrentView('dedication')} style={styles.tabBtn}>
-              <Ionicons name={currentView === 'dedication' ? 'heart' : 'heart-outline'} size={24} color={currentView === 'dedication' ? '#d4af37' : '#b0b3b8'} />
-              <Text style={[styles.tabText, currentView === 'dedication' && styles.activeTabText]}>{t('navigation.dua')}</Text>
-            </TouchableOpacity>
-          </View>
-
+        <View style={[styles.mainContent, { paddingBottom: 0 }]}>
+          {currentView === 'learn' && <LearnMode onPlayNasheed={() => setNasheedModalVisible(true)} isNasheedPlaying={!!currentNasheedTitle} />}
+          {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
+          {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
+          {currentView === 'oath' && <HallOfFame initialMode="oath" onOathComplete={() => setCurrentView('hall')} />}
+          {currentView === 'dedication' && <Dedication />}
         </View>
-      </SafeAreaView>
+
+        {currentView === 'learn' && (
+          <TouchableOpacity style={styles.langBtn} onPress={() => setLangModalVisible(true)}>
+            <Ionicons name="globe-outline" size={24} color="#d4af37" />
+          </TouchableOpacity>
+        )}
+
+        <AudioPlayer
+          isPlaying={status.playing}
+          title={currentNasheedTitle}
+          duration={status.duration * 1000}
+          position={status.currentTime * 1000}
+          isMinimized={isPlayerMinimized}
+          onTogglePlay={togglePlayPause}
+          onStop={stopNasheed}
+          onToggleMinimize={() => setIsPlayerMinimized(!isPlayerMinimized)}
+          onSeek={(val) => {
+             try {
+               player?.seekTo(val / 1000);
+             } catch(e) { console.error('Seek error:', e); }
+          }}
+          onSetLoop={handleSetLoop}
+          loopA={loopA}
+          loopB={loopB}
+          onOpenMenu={() => setNasheedModalVisible(true)}
+        />
+
+        <Modal visible={nasheedModalVisible} transparent={true} animationType="slide">
+          <View style={styles.nasheedModalOverlay}>
+            <View style={styles.nasheedModalContent}>
+              <View style={styles.nasheedHeader}>
+                <Text style={styles.nasheedTitle}>{t('learn.nasheeds')}</Text>
+                <TouchableOpacity onPress={() => setNasheedModalVisible(false)}>
+                  <Ionicons name="close" size={28} color="#b0b3b8" />
+                </TouchableOpacity>
+              </View>
+              {NASHEEDS.map(item => (
+                <TouchableOpacity key={item.id} style={styles.nasheedItem} onPress={() => selectAndPlayNasheed(item)}>
+                  <Text style={styles.nasheedItemText}>{item.title}</Text>
+                  {currentNasheedTitle === item.title && <Ionicons name="volume-high" size={20} color="#d4af37" />}
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        </Modal>
+
+        <Modal visible={langModalVisible} transparent={true} animationType="fade">
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalTitle}>Select Language</Text>
+
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('en')}>
+                <Text style={styles.langText}>English</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ar')}>
+                <Text style={styles.langText}>العربية</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bs')}>
+                <Text style={styles.langText}>Bosanski</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('tr')}>
+                <Text style={styles.langText}>Türkçe</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ur')}>
+                <Text style={styles.langText}>اردو</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('id')}>
+                <Text style={styles.langText}>Bahasa Indonesia</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bn')}>
+                <Text style={styles.langText}>বাংলা</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('fa')}>
+                <Text style={styles.langText}>فارسی</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.closeBtn} onPress={() => setLangModalVisible(false)}>
+                <Text style={styles.closeBtnText}>Cancel</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity 
+                 style={{ marginTop: 20 }} 
+                 onPress={() => require('react-native').Linking.openURL('https://allahin99ismi.com/')}
+              >
+                <Text style={{ color: '#d4af37', fontSize: 12, opacity: 0.8, textAlign: 'center' }}>
+                  {t('common.translationCredit')}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
+        <View style={styles.bottomNav}>
+          <TouchableOpacity onPress={() => setCurrentView('learn')} style={styles.tabBtn}>
+            <Ionicons name={currentView === 'learn' ? 'book' : 'book-outline'} size={24} color={currentView === 'learn' ? '#d4af37' : '#b0b3b8'} />
+            <Text style={[styles.tabText, currentView === 'learn' && styles.activeTabText]}>{t('navigation.learn')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => setCurrentView('memorize')} style={styles.tabBtn}>
+            <Ionicons name={currentView === 'memorize' ? 'flash' : 'flash-outline'} size={24} color={currentView === 'memorize' ? '#d4af37' : '#b0b3b8'} />
+            <Text style={[styles.tabText, currentView === 'memorize' && styles.activeTabText]}>{t('navigation.memorize')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => setCurrentView('hall')} style={styles.tabBtn}>
+            <Ionicons name={currentView === 'hall' ? 'trophy' : 'trophy-outline'} size={24} color={currentView === 'hall' ? '#d4af37' : '#b0b3b8'} />
+            <Text style={[styles.tabText, currentView === 'hall' && styles.activeTabText]}>{t('navigation.hall')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => setCurrentView('dedication')} style={styles.tabBtn}>
+            <Ionicons name={currentView === 'dedication' ? 'heart' : 'heart-outline'} size={24} color={currentView === 'dedication' ? '#d4af37' : '#b0b3b8'} />
+            <Text style={[styles.tabText, currentView === 'dedication' && styles.activeTabText]}>{t('navigation.dua')}</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
+    </SafeAreaView>
+  );
+}
+
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <Suspense fallback={<View style={{ flex: 1, backgroundColor: '#121212', justifyContent: 'center', alignItems: 'center' }}><Text style={{ color: '#d4af37' }}>Loading...</Text></View>}>
+        <HusnaApp />
+      </Suspense>
     </SafeAreaProvider>
   );
 }
@@ -402,6 +412,16 @@ const styles = StyleSheet.create({
   },
   nasheedItemText: {
     color: '#f8f9fa',
+    fontSize: 16,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#121212',
+  },
+  loadingText: {
+    color: '#d4af37',
     fontSize: 16,
   }
 });
