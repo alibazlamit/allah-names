@@ -65,6 +65,19 @@ const resources = {
                 footer: "Please keep us in your prayers.",
                 version: "v1.0.8"
             },
+            onboarding: {
+                title: 'Welcome to Husna',
+                subtitle: 'Your companion for the 99 Beautiful Names of Allah.',
+                step1Title: 'Learn & Reflect',
+                step1Text: 'Browse the 99 Names, listen to their pronunciation, and reflect on their deep meanings.',
+                step2Title: 'The Memorization Game',
+                step2Text: 'Test your memory! Type the name in Arabic or transliteration. Correct guesses flip a new tile.',
+                step3Title: 'Hints & Hall of Fame',
+                step3Text: 'You can use hints if you get stuck, but remember: using even one hint disqualifies you from entering the global Hall of Fame for that session.',
+                step4Title: 'The Oath of Honesty',
+                step4Text: 'Once you memorize all names without help, sign the oath and join the ranks of seekers across the world.',
+                getStarted: 'Get Started',
+            },
             common: {
                 translationCredit: 'Translations provided by Allahin99ismi.com',
                 selectLanguage: 'Select Language',
@@ -132,6 +145,19 @@ const resources = {
                 duaTranslation: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 footer: "لا تنسونا من صالح دعائكم.",
                 version: "v1.0.8"
+            },
+            onboarding: {
+                title: 'مرحباً بكم في حسنى',
+                subtitle: 'رفيقك لتعلم ومعرفة أسماء الله الحسنى الـ ٩٩.',
+                step1Title: 'تعلّم وتأمّل',
+                step1Text: 'تصفح الأسماء الـ ٩٩، استمع إلى نطقها، وتأمل في معانيها العميقة.',
+                step2Title: 'لعبة الحفظ',
+                step2Text: 'اختبر ذاكرتك! اكتب الاسم بالعربية أو بالترجمة الصوتية. الإجابات الصحيحة تقلب بلاطة جديدة.',
+                step3Title: 'التلميحات ولوحة الشرف',
+                step3Text: 'يمكنك استخدام التلميحات إذا تعثرت، ولكن تذكر: استخدام تلميح واحد فقط يمنعك من دخول لوحة الشرف العالمية لتلك الجلسة.',
+                step4Title: 'قسم الأمانة',
+                step4Text: 'بمجرد حفظ جميع الأسماء بدون مساعدة، وقع القسم وانضم إلى صفوف الذاكرين حول العالم.',
+                getStarted: 'ابدأ الآن',
             },
             common: {
                 translationCredit: 'تم توفير الترجمات بواسطة Allahin99ismi.com',
@@ -602,6 +628,19 @@ const resources = {
                 duaTranslation: "\"Ô Allah, pardonne-leur et fais-leur miséricorde, préserve-les et pardonne-leur, honore leur repos et facilite leur entrée ; lave-les avec l'eau, la neige et la grêle, et purifie-les du péché comme un vêtement blanc est purifié de la saleté.\"",
                 footer: "S'il vous plaît, gardez-nous dans vos prières.",
                 version: "v1.0.8"
+            },
+            onboarding: {
+                title: 'Bienvenue sur Husna',
+                subtitle: 'Votre compagnon pour les 99 Noms de Dieu (Allâh).',
+                step1Title: 'Apprendre et Méditer',
+                step1Text: 'Parcourez les 99 Noms, écoutez leur prononciation et méditez sur leurs significations profondes.',
+                step2Title: 'Le Jeu de Mémorisation',
+                step2Text: 'Testez votre mémoire ! Tapez le nom en arabe ou en translittération. Les bonnes réponses retournent une nouvelle tuile.',
+                step3Title: 'Indices et Classement',
+                step3Text: 'Vous pouvez utiliser des indices si vous êtes bloqué, mais n\'oubliez pas : l\'utilisation d\'un seul indice vous disqualifie du Classement mondial pour cette session.',
+                step4Title: 'Le Serment d\'Honnêteté',
+                step4Text: 'Une fois que vous avez mémorisé tous les noms sans aide, signez le serment et rejoignez les rangs des chercheurs du monde entier.',
+                getStarted: 'Commencer',
             },
             common: {
                 translationCredit: 'Traduction par Allahin99ismi.com',

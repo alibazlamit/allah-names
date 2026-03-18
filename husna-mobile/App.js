@@ -10,6 +10,8 @@ import MemorizeMode from './components/MemorizeMode';
 import HallOfFame from './components/HallOfFame';
 import Dedication from './components/Dedication';
 import AudioPlayer from './components/AudioPlayer';
+import HelpModal from './components/HelpModal';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import './i18n';
 import { useTranslation } from 'react-i18next';
 
@@ -23,6 +25,7 @@ function HusnaApp() {
   const insets = useSafeAreaInsets();
   const [currentView, setCurrentView] = useState('learn');
   const [langModalVisible, setLangModalVisible] = useState(false);
+  const [helpModalVisible, setHelpModalVisible] = useState(false);
   const [timeTaken, setTimeTaken] = useState(null);
   const { t, i18n } = useTranslation();
 
@@ -121,6 +124,22 @@ function HusnaApp() {
     setNasheedModalVisible(false);
   };
 
+  useEffect(() => {
+    checkFirstUse();
+  }, []);
+
+  const checkFirstUse = async () => {
+    try {
+      const hasOnboarded = await AsyncStorage.getItem('@has_onboarded');
+      if (!hasOnboarded) {
+        setHelpModalVisible(true);
+        await AsyncStorage.setItem('@has_onboarded', 'true');
+      }
+    } catch (e) {
+      console.error('Error checking onboarding status:', e);
+    }
+  };
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setLangModalVisible(false);
@@ -150,11 +169,16 @@ function HusnaApp() {
           {currentView === 'dedication' && <Dedication />}
         </View>
 
-        {currentView === 'learn' && (
-          <TouchableOpacity style={styles.langBtn} onPress={() => setLangModalVisible(true)}>
-            <Ionicons name="globe-outline" size={24} color="#d4af37" />
+        <View style={styles.headerBtns}>
+          <TouchableOpacity style={styles.headerBtn} onPress={() => setHelpModalVisible(true)}>
+            <Ionicons name="help-circle-outline" size={24} color="#d4af37" />
           </TouchableOpacity>
-        )}
+          {currentView === 'learn' && (
+            <TouchableOpacity style={styles.headerBtn} onPress={() => setLangModalVisible(true)}>
+              <Ionicons name="globe-outline" size={24} color="#d4af37" />
+            </TouchableOpacity>
+          )}
+        </View>
 
         <AudioPlayer
           isPlaying={status.playing}
@@ -248,6 +272,11 @@ function HusnaApp() {
           </View>
         </Modal>
 
+        <HelpModal 
+          visible={helpModalVisible} 
+          onClose={() => setHelpModalVisible(false)} 
+        />
+
         <View style={[styles.bottomNav, { bottom: Math.max(insets.bottom, Platform.OS === 'web' ? 20 : 30) }]}>
           <TouchableOpacity onPress={() => setCurrentView('learn')} style={styles.tabBtn}>
             <Ionicons name={currentView === 'learn' ? 'book' : 'book-outline'} size={24} color={currentView === 'learn' ? '#d4af37' : '#b0b3b8'} />
@@ -332,18 +361,23 @@ const styles = StyleSheet.create({
   activeTabText: {
     color: '#d4af37',
   },
-  langBtn: {
+  headerBtns: {
     position: 'absolute',
     top: Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 40,
     right: 20,
-    backgroundColor: 'rgba(25, 30, 28, 0.8)',
+    zIndex: 10,
+    flexDirection: 'row',
+  },
+  headerBtn: {
     width: 44,
     height: 44,
     borderRadius: 22,
+    backgroundColor: 'rgba(25, 30, 28, 0.8)',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'rgba(212, 175, 55, 0.3)',
+    marginLeft: 12,
   },
   modalOverlay: {
     flex: 1,
