@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Dimensions, Platform, Modal } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as NavigationBar from 'expo-navigation-bar';
 import * as SystemUI from 'expo-system-ui';
@@ -20,6 +20,7 @@ const NASHEEDS = [
 ];
 
 function HusnaApp() {
+  const insets = useSafeAreaInsets();
   const [currentView, setCurrentView] = useState('learn');
   const [langModalVisible, setLangModalVisible] = useState(false);
   const { t, i18n } = useTranslation();
@@ -228,7 +229,7 @@ function HusnaApp() {
           </View>
         </Modal>
 
-        <View style={styles.bottomNav}>
+        <View style={[styles.bottomNav, { bottom: Math.max(insets.bottom, Platform.OS === 'web' ? 20 : 30) }]}>
           <TouchableOpacity onPress={() => setCurrentView('learn')} style={styles.tabBtn}>
             <Ionicons name={currentView === 'learn' ? 'book' : 'book-outline'} size={24} color={currentView === 'learn' ? '#d4af37' : '#b0b3b8'} />
             <Text style={[styles.tabText, currentView === 'learn' && styles.activeTabText]}>{t('navigation.learn')}</Text>
