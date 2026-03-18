@@ -66,11 +66,11 @@ const HelpModal = ({ visible, onClose }) => {
                                 </View>
                             </View>
                         ))}
-                    </ScrollView>
 
-                    <TouchableOpacity style={styles.getStartedBtn} onPress={onClose}>
-                        <Text style={styles.getStartedText}>{t('onboarding.getStarted')}</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity style={styles.getStartedBtn} onPress={onClose}>
+                            <Text style={styles.getStartedText}>{t('onboarding.getStarted')}</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
                 </View>
             </View>
         </Modal>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     modalContent: {
         backgroundColor: '#1E1E1E',
         width: '100%',
-        height: '85%',
+        height: '80%',
         borderRadius: 24,
         padding: 24,
         borderWidth: 1,
