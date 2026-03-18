@@ -144,7 +144,7 @@ const MemorizeMode = ({ onComplete }) => {
 
     const testFinish = () => {
         const allIds = new Set(namesData.map(n => n.id));
-        setStartTime(Date.now() - 120000); // Simulated 2 minutes
+        setStartTime(Date.now() - 5000); // Simulated 5 seconds
         setEndTime(Date.now());
         setRevealedIds(allIds);
         setHintsUsed(0);
