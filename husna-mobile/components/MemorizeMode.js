@@ -47,7 +47,7 @@ const NameTile = ({ item, isFlipped, onLongPress }) => {
     );
 };
 
-const MemorizeMode = ({ onComplete }) => {
+const MemorizeMode = ({ onComplete, onShowHelp }) => {
     const { t } = useTranslation();
     const [inputVal, setInputVal] = useState('');
     const [revealedIds, setRevealedIds] = useState(new Set());
@@ -201,12 +201,20 @@ const MemorizeMode = ({ onComplete }) => {
                 <View style={styles.header}>
                     <Text style={styles.progress}>{revealedIds.size} / 99 {t('memorize.revealed')}</Text>
                 </View>
-                <TouchableOpacity
-                    style={styles.hintBtn}
-                    onPress={useHint}
-                >
-                    <Text style={styles.hintBtnText}>{t('memorize.useHint')}</Text>
-                </TouchableOpacity>
+                <View style={styles.headerRight}>
+                    <TouchableOpacity
+                        style={styles.helpBtn}
+                        onPress={onShowHelp}
+                    >
+                        <Ionicons name="help-circle-outline" size={24} color="#d4af37" />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.hintBtn}
+                        onPress={useHint}
+                    >
+                        <Text style={styles.hintBtnText}>{t('memorize.useHint')}</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
             <View style={styles.inputContainer}>
@@ -262,6 +270,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 20,
         marginBottom: 15,
+    },
+    headerRight: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    helpBtn: {
+        padding: 5,
+        marginRight: 10,
     },
     header: {
         alignItems: 'flex-start',

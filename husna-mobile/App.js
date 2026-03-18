@@ -153,10 +153,13 @@ function HusnaApp() {
         <View style={[styles.mainContent, { paddingBottom: 0 }]}>
           {currentView === 'learn' && <LearnMode onPlayNasheed={() => setNasheedModalVisible(true)} isNasheedPlaying={!!currentNasheedTitle} />}
           {currentView === 'memorize' && (
-            <MemorizeMode onComplete={(time) => { 
-              setTimeTaken(time); 
-              setCurrentView('oath'); 
-            }} />
+            <MemorizeMode 
+              onShowHelp={() => setHelpModalVisible(true)}
+              onComplete={(time) => { 
+                setTimeTaken(time); 
+                setCurrentView('oath'); 
+              }} 
+            />
           )}
           {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
           {currentView === 'oath' && (
@@ -169,16 +172,16 @@ function HusnaApp() {
           {currentView === 'dedication' && <Dedication />}
         </View>
 
-        <View style={styles.headerBtns}>
-          <TouchableOpacity style={styles.headerBtn} onPress={() => setHelpModalVisible(true)}>
-            <Ionicons name="help-circle-outline" size={24} color="#d4af37" />
-          </TouchableOpacity>
-          {currentView === 'learn' && (
+        {currentView === 'learn' && (
+          <View style={styles.headerBtns}>
+            <TouchableOpacity style={styles.headerBtn} onPress={() => setHelpModalVisible(true)}>
+              <Ionicons name="help-circle-outline" size={24} color="#d4af37" />
+            </TouchableOpacity>
             <TouchableOpacity style={styles.headerBtn} onPress={() => setLangModalVisible(true)}>
               <Ionicons name="globe-outline" size={24} color="#d4af37" />
             </TouchableOpacity>
-          )}
-        </View>
+          </View>
+        )}
 
         <AudioPlayer
           isPlaying={status.playing}
