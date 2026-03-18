@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Slider from '@react-native-community/slider';
 import * as Speech from 'expo-speech';
 import { useAudioPlayer } from 'expo-audio';
+import { Ionicons } from '@expo/vector-icons';
 import namesData from '../data/names.json';
 
 const translations = {
@@ -22,7 +23,7 @@ const NASHEEDS = [
     { id: '1', title: 'Asma Allah (Asmaa Allah)', type: 'local', file: require('../assets/imad-rami.mp3') },
 ];
 
-const LearnMode = ({ onPlayNasheed, isNasheedPlaying }) => {
+const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) => {
     const { t, i18n } = useTranslation();
 
     const playNameAudio = (arabicText) => {
@@ -57,6 +58,14 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying }) => {
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
+                <View style={styles.topBtns}>
+                    <TouchableOpacity style={styles.iconBtn} onPress={onShowHelp}>
+                        <Ionicons name="help-circle-outline" size={26} color="#d4af37" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconBtn} onPress={onShowLang}>
+                        <Ionicons name="globe-outline" size={26} color="#d4af37" />
+                    </TouchableOpacity>
+                </View>
                 <Text style={styles.headerTitle}>{t('learn.title')}</Text>
                 <Text style={styles.headerDesc}>{t('learn.subtitle')}</Text>
 
@@ -90,6 +99,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
         paddingHorizontal: 20,
+        position: 'relative',
+    },
+    topBtns: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        width: '100%',
+        gap: 15,
+        marginBottom: 5,
+    },
+    iconBtn: {
+        padding: 8,
+        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+        borderRadius: 20,
     },
     headerTitle: {
         fontSize: 24,

@@ -151,7 +151,14 @@ function HusnaApp() {
       <View style={styles.container}>
 
         <View style={[styles.mainContent, { paddingBottom: 0 }]}>
-          {currentView === 'learn' && <LearnMode onPlayNasheed={() => setNasheedModalVisible(true)} isNasheedPlaying={!!currentNasheedTitle} />}
+          {currentView === 'learn' && (
+            <LearnMode 
+              onPlayNasheed={() => setNasheedModalVisible(true)} 
+              isNasheedPlaying={!!currentNasheedTitle} 
+              onShowHelp={() => setHelpModalVisible(true)}
+              onShowLang={() => setLangModalVisible(true)}
+            />
+          )}
           {currentView === 'memorize' && (
             <MemorizeMode 
               onShowHelp={() => setHelpModalVisible(true)}
@@ -171,17 +178,6 @@ function HusnaApp() {
           )}
           {currentView === 'dedication' && <Dedication />}
         </View>
-
-        {currentView === 'learn' && (
-          <View style={styles.headerBtns}>
-            <TouchableOpacity style={styles.headerBtn} onPress={() => setHelpModalVisible(true)}>
-              <Ionicons name="help-circle-outline" size={24} color="#d4af37" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.headerBtn} onPress={() => setLangModalVisible(true)}>
-              <Ionicons name="globe-outline" size={24} color="#d4af37" />
-            </TouchableOpacity>
-          </View>
-        )}
 
         <AudioPlayer
           isPlaying={status.playing}
