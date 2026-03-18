@@ -1,0 +1,347 @@
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Platform } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
+
+const API_URL = 'https://husna.alibazlamit.com';
+
+const HallOfFame = ({ initialMode, onOathComplete }) => {
+    const { t } = useTranslation();
+    const options = React.useMemo(() => countryList().getData(), []);
+    const [mode, setMode] = useState(initialMode); // 'oath' or 'leaderboard'
+    const [name, setName] = useState('');
+    const [country, setCountry] = useState(null); // { label: 'Country Name', value: 'ISO' }
+    const [sworeOath, setSworeOath] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [leaderboard, setLeaderboard] = useState([]);
+
+    useEffect(() => {
+        setMode(initialMode);
+        const controller = new AbortController();
+        if (initialMode === 'leaderboard') {
+            fetchLeaderboard(controller.signal);
+        }
+        return () => controller.abort();
+    }, [initialMode]);
+
+    const fetchLeaderboard = async (signal) => {
+        setLoading(true);
+        setError('');
+        try {
+            const res = await fetch(`${API_URL}/api/leaderboard`, { signal });
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                throw new Error(errorData.error || `Server returned ${res.status}`);
+            }
+            const data = await res.json();
+            if (data.data) {
+                setLeaderboard(data.data);
+            }
+        } catch (err) {
+            if (err.name === 'AbortError') return;
+            console.error('Leaderboard error:', err);
+            setError(t('hall.networkError') || 'Failed to load leaderboard. Please check your connection.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleOathSubmit = async () => {
+        if (!sworeOath) {
+            setError('You must swear the oath to proceed.');
+            return;
+        }
+        if (!name.trim() || !country) {
+            setError('Please provide your name and select your country.');
+            return;
+        }
+
+        setLoading(true);
+        setError('');
+        try {
+            const res = await fetch(`${API_URL}/api/leaderboard`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, country: country.label, sworeOath })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                if (onOathComplete) onOathComplete();
+                setMode('leaderboard');
+                fetchLeaderboard();
+            } else {
+                setError(data.error || 'Submission failed.');
+            }
+        } catch (err) {
+            console.error(err);
+            setError('Network error syncing with server.');
+        }
+        setLoading(false);
+    };
+
+    if (mode === 'oath') {
+        return (
+            <View style={styles.oathContainer}>
+                <View style={styles.oathCard}>
+                    <Text style={styles.oathTitle}>{t('hall.oathTitle')}</Text>
+                    <Text style={styles.oathDesc}>
+                        {t('hall.oathText')}
+                    </Text>
+
+                    <View style={styles.formContainer}>
+                        <TextInput
+                            style={styles.input}
+                            placeholder={t('hall.namePlaceholder')}
+                            placeholderTextColor="#888"
+                            value={name}
+                            onChangeText={setName}
+                        />
+
+                        <View style={styles.countryPickerContainer}>
+                            <Select
+                                options={options}
+                                value={country}
+                                onChange={setCountry}
+                                placeholder={t('hall.selectCountry') || "Select your country..."}
+                                styles={customSelectStyles}
+                            />
+                        </View>
+
+                        <TouchableOpacity
+                            style={styles.checkboxWrapper}
+                            onPress={() => setSworeOath(!sworeOath)}
+                            activeOpacity={0.7}
+                        >
+                            <View style={[styles.checkbox, sworeOath && styles.checkboxChecked]} />
+                            <Text style={styles.checkboxLabel}>
+                                {t('hall.oathPrompt')}
+                            </Text>
+                        </TouchableOpacity>
+
+                        {!!error && <Text style={styles.errorMsg}>{error}</Text>}
+
+                        <TouchableOpacity style={styles.submitBtn} onPress={handleOathSubmit} disabled={loading}>
+                            <Text style={styles.submitBtnText}>{loading ? t('hall.submitting') : t('hall.signOath')}</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        );
+    }
+
+    return (
+        <View style={styles.leaderboardContainer}>
+            <View style={styles.leaderboardHeader}>
+                <Text style={styles.leaderboardTitle}>{t('hall.title')}</Text>
+                <Text style={styles.leaderboardSubtitle}>{t('hall.subtitle')}</Text>
+            </View>
+
+            {loading ? (
+                <Text style={styles.loadingText}>Loading rankings...</Text>
+            ) : (
+                <ScrollView style={styles.rankingsList} contentContainerStyle={{ paddingBottom: 40 }}>
+                    {leaderboard.length === 0 ? (
+                        <Text style={styles.emptyMsg}>No one has entered the Hall of Fame yet. Be the first!</Text>
+                    ) : (
+                        leaderboard.map((item, idx) => (
+                            <View key={idx} style={styles.rankingCard}>
+                                <Text style={styles.rankNum}>#{idx + 1}</Text>
+                                <Text style={styles.rankCountry}>{item.country}</Text>
+                                <Text style={styles.rankCount}>{item.count} Memorizers</Text>
+                            </View>
+                        ))
+                    )}
+                </ScrollView>
+            )}
+        </View>
+    );
+};
+
+const customSelectStyles = {
+    control: (base) => ({
+        ...base,
+        backgroundColor: 'transparent',
+        border: 'none',
+        boxShadow: 'none',
+        minHeight: 54,
+    }),
+    menu: (base) => ({
+        ...base,
+        backgroundColor: '#1e1e1e',
+        zIndex: 100,
+    }),
+    option: (base, state) => ({
+        ...base,
+        backgroundColor: state.isFocused ? '#d4af37' : '#1e1e1e',
+        color: state.isFocused ? '#000' : '#fff',
+        cursor: 'pointer',
+    }),
+    singleValue: (base) => ({
+        ...base,
+        color: '#fff',
+    }),
+    input: (base) => ({
+        ...base,
+        color: '#fff',
+    }),
+};
+
+const styles = StyleSheet.create({
+    oathContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+    oathCard: {
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        borderWidth: 1,
+        borderColor: 'rgba(212, 175, 55, 0.3)',
+        borderRadius: 16,
+        padding: 25,
+        width: '100%',
+        alignItems: 'center',
+    },
+    oathTitle: {
+        color: '#d4af37',
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 15,
+    },
+    oathDesc: {
+        color: '#b0b3b8',
+        fontSize: 14,
+        textAlign: 'center',
+        lineHeight: 22,
+        marginBottom: 30,
+    },
+    formContainer: {
+        width: '100%',
+    },
+    input: {
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+        borderRadius: 8,
+        color: '#fff',
+        padding: 15,
+        marginBottom: 15,
+        fontSize: 16,
+    },
+    countryPickerContainer: {
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+        borderRadius: 8,
+        padding: 15,
+        marginBottom: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        minHeight: 54,
+    },
+    checkboxWrapper: {
+        flexDirection: 'row',
+        backgroundColor: 'rgba(212, 175, 55, 0.05)',
+        padding: 15,
+        borderRadius: 8,
+        borderWidth: 1,
+        borderStyle: 'dashed',
+        borderColor: 'rgba(212, 175, 55, 0.3)',
+        marginBottom: 20,
+        alignItems: 'flex-start',
+    },
+    checkbox: {
+        width: 20,
+        height: 20,
+        borderWidth: 2,
+        borderColor: '#d4af37',
+        marginRight: 10,
+        marginTop: 2,
+    },
+    checkboxChecked: {
+        backgroundColor: '#d4af37',
+    },
+    checkboxLabel: {
+        color: '#f8f9fa',
+        flex: 1,
+        fontStyle: 'italic',
+        lineHeight: 20,
+    },
+    errorMsg: {
+        color: '#ef4444',
+        marginBottom: 15,
+        textAlign: 'center',
+    },
+    submitBtn: {
+        backgroundColor: '#d4af37',
+        padding: 15,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    submitBtnText: {
+        color: '#000',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    leaderboardContainer: {
+        flex: 1,
+        alignItems: 'center',
+        paddingTop: 20,
+    },
+    leaderboardHeader: {
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    leaderboardTitle: {
+        color: '#d4af37',
+        fontSize: 24,
+        fontWeight: 'bold',
+    },
+    leaderboardSubtitle: {
+        color: '#b0b3b8',
+        marginTop: 5,
+    },
+    loadingText: {
+        color: '#fff',
+        marginTop: 20,
+    },
+    rankingsList: {
+        width: '100%',
+        paddingHorizontal: 20,
+    },
+    rankingCard: {
+        flexDirection: 'row',
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        padding: 20,
+        borderRadius: 12,
+        borderLeftWidth: 4,
+        borderLeftColor: '#d4af37',
+        marginBottom: 15,
+        alignItems: 'center',
+    },
+    rankNum: {
+        color: '#d4af37',
+        fontSize: 18,
+        fontWeight: 'bold',
+        width: 40,
+    },
+    rankCountry: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: '600',
+        flex: 1,
+    },
+    rankCount: {
+        color: '#b0b3b8',
+        fontSize: 14,
+    },
+    emptyMsg: {
+        color: '#b0b3b8',
+        textAlign: 'center',
+        marginTop: 40,
+    }
+});
+
+export default HallOfFame;
