@@ -55,31 +55,45 @@ app.get('/api/leaderboard', (req, res) => {
 // Submit completion and oath
 app.post('/api/leaderboard', submissionLimiter, (req, res) => {
     let { name, country, sworeOath } = req.body;
+    const clientIp = req.ip || req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 
-    // Type checking
-    if (typeof name !== 'string' || typeof country !== 'string' || sworeOath !== true) {
-        return res.status(400).json({ error: 'Invalid submission data. Oath is required.' });
+    console.log(`[Submission] Attempt from IP: ${clientIp}, Name: ${name}, Country: ${country}, SworeOath: ${sworeOath}`);
+
+    // Type checking and validation
+    if (typeof name !== 'string' || typeof country !== 'string') {
+        console.warn(`[Submission Error] Invalid types: name=${typeof name}, country=${typeof country}`);
+        return res.status(400).json({ error: 'Invalid submission data. Name and country must be strings.' });
+    }
+
+    if (!sworeOath) {
+        console.warn(`[Submission Error] Oath not sworn: ${sworeOath}`);
+        return res.status(400).json({ error: 'You must swear the oath to proceed.' });
     }
 
     name = name.trim();
     country = country.trim();
 
-    // Length validation to prevent massive strings
+    // Length validation
     if (name.length === 0 || name.length > 50) {
+        console.warn(`[Submission Error] Name length invalid: ${name.length}`);
         return res.status(400).json({ error: 'Name must be between 1 and 50 characters.' });
     }
 
     if (country.length === 0 || country.length > 50) {
+        console.warn(`[Submission Error] Country length invalid: ${country.length}`);
         return res.status(400).json({ error: 'Country must be between 1 and 50 characters.' });
     }
 
     const sql = 'INSERT INTO leaderboard (name, country, swore_oath) VALUES (?, ?, ?)';
     const params = [name, country, 1];
+    
     db.run(sql, params, function (err) {
         if (err) {
+            console.error(`[Database Error] ${err.message}`);
             res.status(400).json({ error: err.message });
             return;
         }
+        console.log(`[Submission Success] ID: ${this.lastID}, Name: ${name}, Country: ${country}`);
         res.json({
             message: 'Successfully added to leaderboard',
             data: { id: this.lastID, name, country }
