@@ -14,6 +14,8 @@ export default function App() {
 const styles = StyleSheet.create({
   webContainer: {
     flex: 1,
+    height: '100vh',
+    width: '100%',
     backgroundColor: '#121212',
   },
 });
