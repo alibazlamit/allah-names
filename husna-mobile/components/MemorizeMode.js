@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Animated, ScrollView, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { Ionicons } from '@expo/vector-icons';
 import namesData from '../data/names.json';
 
 const { width } = Dimensions.get('window');
@@ -142,14 +143,6 @@ const MemorizeMode = ({ onComplete }) => {
 
     const isTestComplete = revealedIds.size === namesData.length;
 
-    const testFinish = () => {
-        const allIds = new Set(namesData.map(n => n.id));
-        setStartTime(Date.now() - 5000); // Simulated 5 seconds
-        setEndTime(Date.now());
-        setRevealedIds(allIds);
-        setHintsUsed(0);
-    };
-
     // Start timer on first reveal
     if (revealedIds.size === 1 && !startTime) {
         setStartTime(Date.now());
@@ -208,20 +201,12 @@ const MemorizeMode = ({ onComplete }) => {
                 <View style={styles.header}>
                     <Text style={styles.progress}>{revealedIds.size} / 99 {t('memorize.revealed')}</Text>
                 </View>
-                <View style={{ flexDirection: 'row', gap: 10 }}>
-                    <TouchableOpacity
-                        style={[styles.hintBtn, { backgroundColor: 'rgba(255, 0, 0, 0.1)', borderColor: '#ff4d4d' }]}
-                        onPress={testFinish}
-                    >
-                        <Text style={[styles.hintBtnText, { color: '#ff4d4d' }]}>Test Finish</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.hintBtn}
-                        onPress={useHint}
-                    >
-                        <Text style={styles.hintBtnText}>{t('memorize.useHint')}</Text>
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity
+                    style={styles.hintBtn}
+                    onPress={useHint}
+                >
+                    <Text style={styles.hintBtnText}>{t('memorize.useHint')}</Text>
+                </TouchableOpacity>
             </View>
 
             <View style={styles.inputContainer}>
@@ -243,7 +228,7 @@ const MemorizeMode = ({ onComplete }) => {
                     style={styles.submitBtnFloating}
                     onPress={() => handleInputChange(inputVal)}
                 >
-                    <Text style={styles.submitBtnText}>{t('memorize.submit')}</Text>
+                    <Ionicons name="arrow-forward" size={24} color="#000" />
                 </TouchableOpacity>
             </View>
 
@@ -327,12 +312,10 @@ const styles = StyleSheet.create({
     submitBtnFloating: {
         backgroundColor: '#d4af37',
         justifyContent: 'center',
-        paddingHorizontal: 20,
+        alignItems: 'center',
+        width: 54,
+        height: 54,
         borderRadius: 8,
-    },
-    submitBtnText: {
-        color: '#000',
-        fontWeight: 'bold',
     },
     gridContainer: {
         flexDirection: 'row',

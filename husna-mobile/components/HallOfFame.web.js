@@ -227,13 +227,13 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
                         style={[styles.tabItem, tab === 'country' && styles.tabItemActive]} 
                         onPress={() => setTab('country')}
                     >
-                        <Text style={[styles.tabLabel, tab === 'country' && styles.tabLabelActive]}>Countries</Text>
+                        <Text style={[styles.tabLabel, tab === 'country' && styles.tabLabelActive]}>{t('hall.countriesTab') || 'Countries'}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         style={[styles.tabItem, tab === 'names' && styles.tabItemActive]} 
                         onPress={() => setTab('names')}
                     >
-                        <Text style={[styles.tabLabel, tab === 'names' && styles.tabLabelActive]}>Fastest</Text>
+                        <Text style={[styles.tabLabel, tab === 'names' && styles.tabLabelActive]}>{t('hall.fastestTab') || 'Fastest'}</Text>
                     </TouchableOpacity>
                 </View>
             </View>

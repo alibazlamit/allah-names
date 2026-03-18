@@ -6,6 +6,18 @@ import * as Speech from 'expo-speech';
 import { useAudioPlayer } from 'expo-audio';
 import namesData from '../data/names.json';
 
+const translations = {
+    en: require('../data/translations/en.json'),
+    ar: require('../data/translations/ar.json'),
+    bs: require('../data/translations/bs.json'),
+    tr: require('../data/translations/tr.json'),
+    ur: require('../data/translations/ur.json'),
+    id: require('../data/translations/id.json'),
+    bn: require('../data/translations/bn.json'),
+    fa: require('../data/translations/fa.json'),
+    fr: require('../data/translations/fr.json'),
+};
+
 const NASHEEDS = [
     { id: '1', title: 'Asma Allah (Asmaa Allah)', type: 'local', file: require('../assets/imad-rami.mp3') },
 ];
@@ -23,7 +35,7 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying }) => {
 
     const renderItem = ({ item }) => {
         const lang = i18n.language;
-        const localizedMeaning = item[`meaning_${lang}`] || item.meaning_en || item.meaning;
+        const localizedMeaning = translations[lang]?.[item.id] || translations['en']?.[item.id] || '';
 
         return (
             <View style={styles.card}>

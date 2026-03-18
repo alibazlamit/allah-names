@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Dimensions, Platform, Modal } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Dimensions, Platform, Modal, ScrollView } from 'react-native';
 import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as NavigationBar from 'expo-navigation-bar';
@@ -198,35 +198,42 @@ function HusnaApp() {
         <Modal visible={langModalVisible} transparent={true} animationType="fade">
           <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
-              <Text style={styles.modalTitle}>Select Language</Text>
-
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('en')}>
-                <Text style={styles.langText}>English</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ar')}>
-                <Text style={styles.langText}>العربية</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bs')}>
-                <Text style={styles.langText}>Bosanski</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('tr')}>
-                <Text style={styles.langText}>Türkçe</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ur')}>
-                <Text style={styles.langText}>اردو</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('id')}>
-                <Text style={styles.langText}>Bahasa Indonesia</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bn')}>
-                <Text style={styles.langText}>বাংলা</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('fa')}>
-                <Text style={styles.langText}>فارسی</Text>
-              </TouchableOpacity>
+              <Text style={styles.modalTitle}>{t('common.selectLanguage') || 'Select Language'}</Text>
+              
+              <View style={{ maxHeight: 400, width: '100%' }}>
+                <ScrollView showsVerticalScrollIndicator={true} contentContainerStyle={{ alignItems: 'center' }}>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('en')}>
+                    <Text style={styles.langText}>English</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ar')}>
+                    <Text style={styles.langText}>العربية</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bs')}>
+                    <Text style={styles.langText}>Bosanski</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('tr')}>
+                    <Text style={styles.langText}>Türkçe</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('ur')}>
+                    <Text style={styles.langText}>اردو</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('id')}>
+                    <Text style={styles.langText}>Bahasa Indonesia</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('bn')}>
+                    <Text style={styles.langText}>বাংলা</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('fa')}>
+                    <Text style={styles.langText}>فارسی</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.langOption} onPress={() => changeLanguage('fr')}>
+                    <Text style={styles.langText}>Français</Text>
+                  </TouchableOpacity>
+                </ScrollView>
+              </View>
 
               <TouchableOpacity style={styles.closeBtn} onPress={() => setLangModalVisible(false)}>
-                <Text style={styles.closeBtnText}>Cancel</Text>
+                <Text style={styles.closeBtnText}>{t('learn.close') || 'Cancel'}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity 
