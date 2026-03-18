@@ -23,6 +23,7 @@ function HusnaApp() {
   const insets = useSafeAreaInsets();
   const [currentView, setCurrentView] = useState('learn');
   const [langModalVisible, setLangModalVisible] = useState(false);
+  const [timeTaken, setTimeTaken] = useState(null);
   const { t, i18n } = useTranslation();
 
   // Global Audio State
@@ -132,9 +133,20 @@ function HusnaApp() {
 
         <View style={[styles.mainContent, { paddingBottom: 0 }]}>
           {currentView === 'learn' && <LearnMode onPlayNasheed={() => setNasheedModalVisible(true)} isNasheedPlaying={!!currentNasheedTitle} />}
-          {currentView === 'memorize' && <MemorizeMode onComplete={() => setCurrentView('oath')} />}
+          {currentView === 'memorize' && (
+            <MemorizeMode onComplete={(time) => { 
+              setTimeTaken(time); 
+              setCurrentView('oath'); 
+            }} />
+          )}
           {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
-          {currentView === 'oath' && <HallOfFame initialMode="oath" onOathComplete={() => setCurrentView('hall')} />}
+          {currentView === 'oath' && (
+            <HallOfFame 
+              initialMode="oath" 
+              timeTaken={timeTaken} 
+              onOathComplete={() => setCurrentView('hall')} 
+            />
+          )}
           {currentView === 'dedication' && <Dedication />}
         </View>
 

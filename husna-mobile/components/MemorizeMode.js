@@ -137,7 +137,37 @@ const MemorizeMode = ({ onComplete }) => {
         }
     };
 
+    const [startTime, setStartTime] = useState(null);
+    const [endTime, setEndTime] = useState(null);
+
     const isTestComplete = revealedIds.size === namesData.length;
+
+    const testFinish = () => {
+        const allIds = new Set(namesData.map(n => n.id));
+        setStartTime(Date.now() - 120000); // Simulated 2 minutes
+        setEndTime(Date.now());
+        setRevealedIds(allIds);
+        setHintsUsed(0);
+    };
+
+    // Start timer on first reveal
+    if (revealedIds.size === 1 && !startTime) {
+        setStartTime(Date.now());
+    }
+
+    // Stop timer on completion
+    if (isTestComplete && !endTime && startTime) {
+        setEndTime(Date.now());
+    }
+
+    const getTimeTaken = () => {
+        if (!startTime || !endTime) return null;
+        return Math.floor((endTime - startTime) / 1000); // return seconds
+    };
+
+    const handleComplete = () => {
+        if (onComplete) onComplete(getTimeTaken());
+    };
 
     if (isTestComplete) {
         return (
@@ -148,7 +178,7 @@ const MemorizeMode = ({ onComplete }) => {
                 </Text>
 
                 {hintsUsed === 0 ? (
-                    <TouchableOpacity style={styles.primaryBtn} onPress={onComplete}>
+                    <TouchableOpacity style={styles.primaryBtn} onPress={handleComplete}>
                         <Text style={styles.primaryBtnText}>{t('memorize.proceedToOath')}</Text>
                     </TouchableOpacity>
                 ) : (
@@ -178,12 +208,20 @@ const MemorizeMode = ({ onComplete }) => {
                 <View style={styles.header}>
                     <Text style={styles.progress}>{revealedIds.size} / 99 {t('memorize.revealed')}</Text>
                 </View>
-                <TouchableOpacity
-                    style={styles.hintBtn}
-                    onPress={useHint}
-                >
-                    <Text style={styles.hintBtnText}>{t('memorize.useHint')}</Text>
-                </TouchableOpacity>
+                <View style={{ flexDirection: 'row', gap: 10 }}>
+                    <TouchableOpacity
+                        style={[styles.hintBtn, { backgroundColor: 'rgba(255, 0, 0, 0.1)', borderColor: '#ff4d4d' }]}
+                        onPress={testFinish}
+                    >
+                        <Text style={[styles.hintBtnText, { color: '#ff4d4d' }]}>Test Finish</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.hintBtn}
+                        onPress={useHint}
+                    >
+                        <Text style={styles.hintBtnText}>{t('memorize.useHint')}</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
             <View style={styles.inputContainer}>
