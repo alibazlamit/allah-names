@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import HusnaApp from './App'; // Reuse the main app logic from App.js if possible
+import HusnaApp from './App.js'; // Explicitly point to the .js file to avoid cycle
 
 // We can wrap the mobile app with web-specific layout or just export it
 export default function App() {
