@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build:web": "cd husna-mobile && npm run build:web"
+  },
   "dependencies": {
     "@react-native-community/slider": "^5.1.2"
   }
