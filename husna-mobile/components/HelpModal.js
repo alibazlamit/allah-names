@@ -36,6 +36,7 @@ const HelpModal = ({ visible, onClose }) => {
             visible={visible}
             transparent={true}
             animationType="slide"
+            statusBarTranslucent={true}
             onRequestClose={onClose}
         >
             <View style={styles.modalOverlay}>
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     modalContent: {
         backgroundColor: '#1E1E1E',
         width: '100%',
-        height: '80%',
+        height: Dimensions.get('window').height * 0.8,
         borderRadius: 24,
         padding: 24,
         borderWidth: 1,
