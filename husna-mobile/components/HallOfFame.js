@@ -9,6 +9,17 @@ import Hex from 'crypto-js/enc-hex';
 const API_URL = 'https://husna.alibazlamit.com';
 const API_SECRET = 'husna-secret-key-2026'; // Same as on server
 
+const formatTime = (seconds) => {
+    if (!seconds && seconds !== 0) return '';
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    if (h > 0) {
+        return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+    return `${m}:${s.toString().padStart(2, '0')}`;
+};
+
 const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
     const { t } = useTranslation();
     const [mode, setMode] = useState(initialMode || 'leaderboard'); // 'oath' or 'leaderboard'
@@ -250,7 +261,7 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
                                         <Text style={styles.rankSubText}>{tab === 'country' ? `${item.count} Memorizers` : item.country}</Text>
                                     </View>
                                     {tab === 'names' && item.time_taken && (
-                                        <Text style={styles.rankMetric}>{item.time_taken}s</Text>
+                                        <Text style={styles.rankMetric}>{formatTime(item.time_taken)}</Text>
                                     )}
                                 </View>
                             ))}
@@ -264,7 +275,7 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
                                             <Text style={styles.rankMainText}>{userRank.user.name} (You)</Text>
                                             <Text style={styles.rankSubText}>{userRank.user.country}</Text>
                                         </View>
-                                        <Text style={styles.rankMetric}>{userRank.user.time_taken}s</Text>
+                                        <Text style={styles.rankMetric}>{formatTime(userRank.user.time_taken)}</Text>
                                     </View>
                                 </>
                             )}
