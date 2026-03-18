@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build:web",
-  "outputDirectory": "husna-mobile/dist",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
