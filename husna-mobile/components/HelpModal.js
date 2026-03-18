@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     modalContent: {
         backgroundColor: '#1E1E1E',
         width: '100%',
-        height: '75%',
+        height: '85%',
         borderRadius: 24,
         padding: 24,
         borderWidth: 1,
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     },
     scrollContent: {
         paddingVertical: 10,
+        paddingBottom: 40,
     },
     sectionCard: {
         flexDirection: 'row',
