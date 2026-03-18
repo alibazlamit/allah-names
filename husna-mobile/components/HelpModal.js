@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Modal, TouchableOpacity, ScrollView, Dimensions
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('screen');
 
 const HelpModal = ({ visible, onClose }) => {
     const { t } = useTranslation();
@@ -40,7 +40,7 @@ const HelpModal = ({ visible, onClose }) => {
             onRequestClose={onClose}
         >
             <View style={styles.modalOverlay}>
-                <View style={styles.modalContent}>
+                <View style={[styles.modalContent, { height: height * 0.75 }]}>
                     <View style={styles.header}>
                         <View>
                             <Text style={styles.title}>{t('onboarding.title')}</Text>
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     },
     modalContent: {
         backgroundColor: '#1E1E1E',
-        width: '100%',
-        height: Dimensions.get('window').height * 0.8,
+        width: width * 0.9,
+        // height is handled in the inline style for more stability
         borderRadius: 24,
         padding: 24,
         borderWidth: 1,
@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'flex-start',
         marginBottom: 20,
+        flexShrink: 0,
     },
     closeHeaderBtn: {
         padding: 4,
@@ -126,6 +127,7 @@ const styles = StyleSheet.create({
     scrollContent: {
         paddingVertical: 10,
         paddingBottom: 40,
+        flexGrow: 1,
     },
     sectionCard: {
         flexDirection: 'row',
