@@ -33,6 +33,8 @@ const resources = {
                 completedMessage: 'You have beautifully memorized all 99 Names of Allah.',
                 proceedToOath: 'Proceed to Oath',
                 tryAgain: 'Try Again',
+                viewAllNames: 'View All Names',
+                alreadyEntered: 'Already entered!',
             },
             hall: {
                 title: 'Hall of Fame',
@@ -63,7 +65,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"O Allah, forgive them and have mercy on them, keep them safe and sound and forgive them, honor their rest and ease their entrance; wash them with water and snow and hail, and cleanse them of sin as a white garment is cleansed of dirt.\"",
                 footer: "Please keep us in your prayers.",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             onboarding: {
                 title: 'Welcome to Husna',
@@ -114,6 +116,8 @@ const resources = {
                 completedMessage: 'لقد أتممت حفظ ٩٩ اسماً من أسماء الله الحسنى.',
                 proceedToOath: 'الانتقال إلى القسم',
                 tryAgain: 'إعادة المحاولة',
+                viewAllNames: 'عرض جميع الأسماء',
+                alreadyEntered: 'تم إدخاله بالفعل!',
             },
             hall: {
                 title: 'لوحة الشرف',
@@ -144,7 +148,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 footer: "لا تنسونا من صالح دعائكم.",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             onboarding: {
                 title: 'مرحباً بكم في حسنى',
@@ -195,6 +199,8 @@ const resources = {
                 completedMessage: 'Predivno si zapamtio svih 99 Allahovih Imena.',
                 proceedToOath: 'Zavjet',
                 tryAgain: 'Pokušaj ponovo',
+                viewAllNames: 'Pogledaj sva imena',
+                alreadyEntered: 'Već uneseno!',
             },
             hall: {
                 title: 'Kuća Slavnih',
@@ -225,7 +231,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"Gospodaru, oprosti im i smiluj im se, spasi ih i pređi preko grijeha njihovih, učini im plemenitim mjesto boravka, a prostranim mjesto ulaska, operi ih vodom, snijegom i gradom, i očisti ih od grijeha kao što se čisti bijela odjeća od prljavštine.\"",
                 footer: "Molimo vas da nas sačuvate u svojim dovama.",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             common: {
                 translationCredit: 'Prijevodi preuzeti sa Allahin99ismi.com',
@@ -263,6 +269,8 @@ const resources = {
                 completedMessage: 'Allah\'ın 99 ismini de başarıyla ezberlediniz.',
                 proceedToOath: 'Yemin Et',
                 tryAgain: 'Tekrar Dene',
+                viewAllNames: 'Tüm İsimleri Gör',
+                alreadyEntered: 'Zaten girildi!',
             },
             hall: {
                 title: 'Onur Listesi',
@@ -293,7 +301,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"Allahım, onları bağışla ve onlara merhamet et, onları esenlikte kıl ve kusurlarını affet. Konakladıkları yeri onurlandır ve girişlerini kolaylaştır; onları su, kar ve dolu ile yıka; beyaz elbiseyi kirden temizlediğin gibi onları da günahlardan arındır.\"",
                 footer: "Lütfen bizi dualarınızda eksik etmeyin.",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             common: {
                 translationCredit: 'Çeviriler Allahin99ismi.com tarafından sağlanmıştır',
@@ -331,6 +339,8 @@ const resources = {
                 completedMessage: 'آپ نے اللہ کے تمام 99 نام خوبصورتی سے یاد کر لیے ہیں۔',
                 proceedToOath: 'حلف اٹھائیں',
                 tryAgain: 'دوبارہ کوشش کریں',
+                viewAllNames: 'تمام نام دیکھیں',
+                alreadyEntered: 'پہلے ہی درج کر دیا گیا ہے!',
             },
             hall: {
                 title: 'ہال آف فیم',
@@ -361,7 +371,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"اے اللہ، انہیں بخش دے اور ان پر رحم کر، انہیں عافیت دے اور ان سے درگزر فرما، ان کی مہمانی کو معزز بنا اور ان کے داخلے کو وسیع کر؛ انہیں پانی، برف اور اولوں سے دھو دے؛ اور انہیں گناہوں سے ایسے پاک کر دے جیسے سفید کپڑے کو میل کچیل سے پاک کیا جاتا ہے۔\"",
                 footer: "براہ کرم ہمیں اپنی دعاؤں میں یاد رکھیں۔",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             common: {
                 translationCredit: 'ترجمہ بشکریہ Allahin99ismi.com',
@@ -399,6 +409,8 @@ const resources = {
                 completedMessage: 'Anda telah menghafal ke-99 Nama Allah dengan indah.',
                 proceedToOath: 'Lanjutkan ke Sumpah',
                 tryAgain: 'Coba Lagi',
+                viewAllNames: 'Lihat Semua Nama',
+                alreadyEntered: 'Sudah dimasukkan!',
             },
             hall: {
                 title: 'Aula Kehormatan',
@@ -427,7 +439,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"Ya Allah, ampunilah mereka dan kasihanilah mereka, selamatkanlah mereka dan maafkanlah mereka, muliakanlah tempat tinggal mereka dan luaskanlah pintu masuk mereka; mandikanlah mereka dengan air, salju, dan es; dan bersihkanlah mereka dari dosa sebagaimana pakaian putih dibersihkan dari kotoran.\"",
                 footer: "Mohon doakan kami.",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             common: {
                 translationCredit: 'Terjemahan disediakan oleh Allahin99ismi.com',
@@ -465,6 +477,8 @@ const resources = {
                 completedMessage: 'আপনি সফলভাবে আল্লাহর ৯৯টি নাম মুখস্থ করেছেন।',
                 proceedToOath: 'শপথে এগিয়ে যান',
                 tryAgain: 'আবার চেষ্টা করুন',
+                viewAllNames: 'সব নাম দেখুন',
+                alreadyEntered: 'আগেই প্রবেশ করানো হয়েছে!',
             },
             hall: {
                 title: 'হল অফ ফেম',
@@ -493,7 +507,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"হে আল্লাহ, তাঁদের ক্ষমা করুন ও দয়া করুন, তাঁদের শান্তিতে রাখুন এবং তাঁদের ভুলত্রুটি ক্ষমা করুন। তাঁদের অবস্থানকে সম্মানিত করুন এবং তাঁদের প্রবেশপথকে প্রশস্ত করুন; তাঁদের জল, তুষার ও শিলাবৃষ্টি দিয়ে ধৌত করুন; এবং তাঁদের পাপ থেকে এমনভাবে পরিচ্ছন্ন করুন যেমন সাদা পোশাক ময়লা থেকে পরিষ্কার করা হয়।\"",
                 footer: "দয়া করে আমাদের দোয়াতে রাখবেন।",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             common: {
                 translationCredit: 'অনুবাদ Allahin99ismi.com থেকে সংগৃহীত',
@@ -531,6 +545,8 @@ const resources = {
                 completedMessage: 'شما تمام ۹۹ نام الله را به زیبایی حفظ کرده‌ید.',
                 proceedToOath: 'مشاهده سوگندنامه',
                 tryAgain: 'تلاش مجدد',
+                viewAllNames: 'مشاهده همه نام‌ها',
+                alreadyEntered: 'قبلاً وارد شده است!',
             },
             hall: {
                 title: 'تالار مشاهیر',
@@ -559,7 +575,7 @@ const resources = {
                 duaArabic: "اللَّهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ، وَعَافِهِمْ وَاعْفُ عَنْهُمْ، وَأَكْرِمْ نُزُلَهُمْ، وَوَسِّعْ مُدْخَلَهُمْ، وَاغْسِلْهُمْ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِمْ مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ",
                 duaTranslation: "\"بارالها، آنان را بیامرز و مورد رحمت قرار ده، سلامت و عافیت بدار و از آنان درگذر، جایگاهشان را گرامی بدار و ورودشان را وسعت بخش؛ آنان را با آب، برف و تگرگ شستشو ده؛ و آنان را از گناهان پاک کن، همانگونه که جامه سپید از آلودگی پاک می‌شود.\"",
                 footer: "لطفاً ما را در دعای خود یاد کنید.",
-                version: "v1.0.15"
+                version: "v1.0.17"
             },
             common: {
                 translationCredit: 'ترجمه‌ها توسط Allahin99ismi.com ارائه شده است',
@@ -597,6 +613,8 @@ const resources = {
                 completedMessage: 'Vous avez magnifiquement mémorisé les 99 Noms d\'Allah.',
                 proceedToOath: 'Passer au Serment',
                 tryAgain: 'Réessayer',
+                viewAllNames: 'Voir tous les noms',
+                alreadyEntered: 'Déjà entré !',
             },
             hall: {
                 title: 'Classement',

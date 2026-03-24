@@ -25,7 +25,8 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
     const [mode, setMode] = useState(initialMode || 'leaderboard'); // 'oath' or 'leaderboard'
     const [tab, setTab] = useState('country'); // 'country' or 'names'
     const [name, setName] = useState('');
-    const [country, setCountry] = useState(null); 
+    const [country, setCountry] = useState(null);
+    const [pickerVisible, setPickerVisible] = useState(false);
     const [sworeOath, setSworeOath] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -56,7 +57,7 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
                 await AsyncStorage.setItem('user_uuid', uuid);
             }
             setUserUuid(uuid);
-            
+
             const savedName = await AsyncStorage.getItem('user_name');
             if (savedName) setName(savedName);
         } catch (e) { console.error(e); }
@@ -109,14 +110,14 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
 
             const res = await fetch(`${API_URL}/api/leaderboard`, {
                 method: 'POST',
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json',
                     'x-husna-signature': signature,
                     'x-husna-timestamp': timestamp
                 },
-                body: JSON.stringify({ 
-                    name: name.trim(), 
-                    country: country.name, 
+                body: JSON.stringify({
+                    name: name.trim(),
+                    country: country.name,
                     sworeOath,
                     user_uuid: userUuid,
                     time_taken: timeTaken
@@ -127,7 +128,7 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
             if (res.ok) {
                 if (onOathComplete) onOathComplete();
                 setMode('leaderboard');
-                setTab('names'); 
+                setTab('names');
                 fetchLeaderboard();
             } else {
                 setError(data.error || 'Submission failed.');
@@ -182,7 +183,11 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
                             onChangeText={setName}
                         />
 
-                        <View style={styles.countryPickerContainer}>
+                        <TouchableOpacity 
+                            style={styles.countryPickerContainer}
+                            onPress={() => setPickerVisible(true)}
+                            activeOpacity={0.7}
+                        >
                             <CountryPicker
                                 withFilter
                                 withFlag
@@ -190,17 +195,25 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
                                 withAlphaFilter={false}
                                 withCallingCode={false}
                                 withEmoji
-                                onSelect={(c) => setCountry(c)}
-                                visible={false}
+                                onSelect={(c) => {
+                                    setCountry(c);
+                                    setPickerVisible(false);
+                                }}
+                                onClose={() => setPickerVisible(false)}
+                                countryCode={country?.cca2 || undefined}
+                                modalProps={{ statusBarTranslucent: true }}
+                                visible={pickerVisible}
                                 theme={{
                                     onBackgroundTextColor: '#fff',
                                     backgroundColor: '#1e1e1e',
                                     filterPlaceholderTextColor: '#888',
-                                    primaryColor: '#000',
+                                    primaryColor: '#f8f9fa',
+                                    primaryColorVariant: '#d4af37',
+                                    fontFamily: undefined,
+                                    fontSize: 16,
                                 }}
                             />
-                            {!country && <Text style={styles.countryPlaceholder}>{t('hall.selectCountry')}</Text>}
-                        </View>
+                        </TouchableOpacity>
 
                         <TouchableOpacity
                             style={styles.checkboxWrapper}
@@ -227,14 +240,14 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
             <View style={styles.leaderboardHeader}>
                 <Text style={styles.leaderboardTitle}>{t('hall.title')}</Text>
                 <View style={styles.tabContainer}>
-                    <TouchableOpacity 
-                        style={[styles.tabItem, tab === 'country' && styles.tabItemActive]} 
+                    <TouchableOpacity
+                        style={[styles.tabItem, tab === 'country' && styles.tabItemActive]}
                         onPress={() => setTab('country')}
                     >
                         <Text style={[styles.tabLabel, tab === 'country' && styles.tabLabelActive]}>{t('hall.countriesTab') || 'Countries'}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity 
-                        style={[styles.tabItem, tab === 'names' && styles.tabItemActive]} 
+                    <TouchableOpacity
+                        style={[styles.tabItem, tab === 'names' && styles.tabItemActive]}
                         onPress={() => setTab('names')}
                     >
                         <Text style={[styles.tabLabel, tab === 'names' && styles.tabLabelActive]}>{t('hall.fastestTab') || 'Fastest'}</Text>
@@ -435,8 +448,14 @@ const styles = StyleSheet.create({
     countryPlaceholder: {
         color: '#888',
         fontSize: 14,
-        position: 'absolute',
-        left: 55,
+        marginLeft: 10,
+        flex: 1,
+    },
+    countrySelectedText: {
+        color: '#f8f9fa',
+        fontSize: 16,
+        marginLeft: 10,
+        flex: 1,
     },
     checkboxWrapper: {
         flexDirection: 'row',

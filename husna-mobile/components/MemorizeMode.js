@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Animated, ScrollView, Dimensions, TouchableWithoutFeedback } from 'react-native';
+import React, { useState, useRef, useCallback } from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Animated, ScrollView, Dimensions, TouchableWithoutFeedback, Vibration } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import namesData from '../data/names.json';
@@ -52,7 +52,12 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
     const [inputVal, setInputVal] = useState('');
     const [revealedIds, setRevealedIds] = useState(new Set());
     const [hintsUsed, setHintsUsed] = useState(0);
+    const [showResults, setShowResults] = useState(false);
+    const [duplicateGuess, setDuplicateGuess] = useState(false);
     const scrollViewRef = useRef(null);
+    const lastMatchRef = useRef(null);
+    const inputRef = useRef(null);
+    const shakeAnim = useRef(new Animated.Value(0)).current;
 
     const normalizeArabic = (text) => {
         return text
@@ -68,7 +73,20 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
         return text.toLowerCase().replace(/[^a-z]/gi, ''); // Only letters
     };
 
-    const handleInputChange = (text) => {
+    const handleInputChange = useCallback((text) => {
+        // Guard against autocomplete race condition:
+        // After a match, autocomplete may fire another onChangeText with stale text.
+        if (lastMatchRef.current) {
+            const staleEn = normalizeEnglish(text);
+            const staleAr = normalizeArabic(text);
+            if (staleEn === lastMatchRef.current || staleAr === lastMatchRef.current) {
+                lastMatchRef.current = null;
+                setInputVal('');
+                return;
+            }
+            lastMatchRef.current = null;
+        }
+
         setInputVal(text);
         if (!text.trim()) return;
 
@@ -77,8 +95,6 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
             const normArInput = normalizeArabic(text);
 
             const matchedName = namesData.find(name => {
-                if (revealedIds.has(name.id)) return false;
-
                 // Transliteration checks
                 const normTrans = normalizeEnglish(name.transliteration);
                 let normTransBase = normTrans;
@@ -102,19 +118,47 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
             });
 
             if (matchedName) {
-                setRevealedIds(prev => new Set(prev).add(matchedName.id));
-                setInputVal(''); // clear input after correct guess
+                // Store the matched text to guard against autocomplete re-fire
+                lastMatchRef.current = normalizeEnglish(text) || normalizeArabic(text);
 
-                // Auto scroll to the correctly guessed tile
-                const rowIndex = Math.floor((matchedName.id - 1) / 3);
-                if (scrollViewRef.current) {
-                    scrollViewRef.current.scrollTo({ y: rowIndex * (TILE_SIZE + 10), animated: true });
+                if (revealedIds.has(matchedName.id)) {
+                    // Feedback for already guessed name
+                    Vibration.vibrate(50); // Short vibration
+                    setDuplicateGuess(true);
+                    
+                    Animated.sequence([
+                        Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
+                        Animated.timing(shakeAnim, { toValue: -10, duration: 50, useNativeDriver: true }),
+                        Animated.timing(shakeAnim, { toValue: 10, duration: 50, useNativeDriver: true }),
+                        Animated.timing(shakeAnim, { toValue: 0, duration: 50, useNativeDriver: true })
+                    ]).start();
+
+                    // Revert placeholder after 1.5 seconds
+                    setTimeout(() => setDuplicateGuess(false), 1500);
+                } else {
+                    // New correct guess
+                    setRevealedIds(prev => new Set(prev).add(matchedName.id));
+                    
+                    // Auto scroll to the correctly guessed tile
+                    const rowIndex = Math.floor((matchedName.id - 1) / 3);
+                    if (scrollViewRef.current) {
+                        scrollViewRef.current.scrollTo({ y: rowIndex * (TILE_SIZE + 10), animated: true });
+                    }
                 }
+
+                // Always clear the input after a match
+                setTimeout(() => {
+                    setInputVal('');
+                    // Also programmatically clear the native input
+                    if (inputRef.current) {
+                        inputRef.current.clear();
+                    }
+                }, 50);
             }
         } catch (error) {
             console.error('Match error:', error);
         }
-    };
+    }, [revealedIds]);
 
     const revealHint = (id) => {
         if (!revealedIds.has(id)) {
@@ -162,35 +206,95 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
         if (onComplete) onComplete(getTimeTaken());
     };
 
-    if (isTestComplete) {
+    const resetGame = () => {
+        setRevealedIds(new Set());
+        setHintsUsed(0);
+        setInputVal('');
+        setShowResults(false);
+        setStartTime(null);
+        setEndTime(null);
+    };
+
+    // When game is complete with NO hints -> proceed to oath
+    if (isTestComplete && hintsUsed === 0) {
         return (
             <View style={styles.completeContainer}>
                 <Text style={styles.completeHeader}>{t('memorize.congratulations')}</Text>
                 <Text style={styles.successMsg}>
                     {t('memorize.completedMessage')}
                 </Text>
+                <TouchableOpacity style={styles.primaryBtn} onPress={handleComplete}>
+                    <Text style={styles.primaryBtnText}>{t('memorize.proceedToOath')}</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
 
-                {hintsUsed === 0 ? (
-                    <TouchableOpacity style={styles.primaryBtn} onPress={handleComplete}>
-                        <Text style={styles.primaryBtnText}>{t('memorize.proceedToOath')}</Text>
-                    </TouchableOpacity>
-                ) : (
-                    <View style={{ alignItems: 'center' }}>
-                        <Text style={[styles.scoreMsg, { textAlign: 'center', marginBottom: 20, paddingHorizontal: 20, color: '#b0b3b8' }]}>
-                            {t('memorize.tryAgainNoHints')}
+    // When game is complete WITH hints and user wants to browse the grid
+    if (isTestComplete && hintsUsed > 0 && showResults) {
+        return (
+            <View style={styles.container}>
+                <View style={styles.headerRow}>
+                    <View style={styles.header}>
+                        <Text style={styles.progress}>99 / 99 {t('memorize.revealed')}</Text>
+                        <Text style={{ color: '#b0b3b8', fontSize: 12, marginTop: 2 }}>
+                            {t('memorize.hintsUsed') || 'Hints Used'}: {hintsUsed}
                         </Text>
-                        <TouchableOpacity
-                            style={styles.primaryBtn}
-                            onPress={() => {
-                                setRevealedIds(new Set());
-                                setHintsUsed(0);
-                                setInputVal('');
-                            }}
-                        >
-                            <Text style={styles.primaryBtnText}>{t('memorize.tryAgain') || 'Try Again'}</Text>
-                        </TouchableOpacity>
                     </View>
-                )}
+                </View>
+
+                <ScrollView
+                    ref={scrollViewRef}
+                    contentContainerStyle={styles.gridContainer}
+                    showsVerticalScrollIndicator={false}
+                >
+                    {namesData.map((name) => (
+                        <NameTile
+                            key={name.id}
+                            item={name}
+                            isFlipped={true}
+                            onLongPress={() => {}}
+                        />
+                    ))}
+                </ScrollView>
+
+                <View style={styles.stickyBottomBar}>
+                    <TouchableOpacity style={styles.primaryBtn} onPress={resetGame}>
+                        <Text style={styles.primaryBtnText}>{t('memorize.tryAgain') || 'Try Again'}</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        );
+    }
+
+    // When game is complete WITH hints -> show results overlay
+    if (isTestComplete && hintsUsed > 0 && !showResults) {
+        return (
+            <View style={styles.completeContainer}>
+                <Text style={styles.completeHeader}>{t('memorize.congratulations')}</Text>
+                <Text style={styles.successMsg}>
+                    {t('memorize.completedMessage')}
+                </Text>
+                <Text style={[styles.scoreMsg, { textAlign: 'center', marginBottom: 20, paddingHorizontal: 20, color: '#b0b3b8' }]}>
+                    {t('memorize.tryAgainNoHints')}
+                </Text>
+                <Text style={{ color: '#b0b3b8', fontSize: 14, marginBottom: 25 }}>
+                    {t('memorize.hintsUsed') || 'Hints Used'}: {hintsUsed}
+                </Text>
+
+                <TouchableOpacity
+                    style={[styles.primaryBtn, { marginBottom: 15 }]}
+                    onPress={() => setShowResults(true)}
+                >
+                    <Text style={styles.primaryBtnText}>{t('memorize.viewAllNames') || 'View All Names'}</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.secondaryBtn]}
+                    onPress={resetGame}
+                >
+                    <Text style={styles.secondaryBtnText}>{t('memorize.tryAgain') || 'Try Again'}</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -217,16 +321,16 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
                 </View>
             </View>
 
-            <View style={styles.inputContainer}>
+            <Animated.View style={[styles.inputContainer, { transform: [{ translateX: shakeAnim }] }]}>
                 <TextInput
+                    ref={inputRef}
                     style={styles.input}
-                    placeholder={t('memorize.inputPlaceholder')}
-                    placeholderTextColor="#b0b3b8"
+                    placeholder={duplicateGuess ? (t('memorize.alreadyEntered') || 'Already entered!') : t('memorize.inputPlaceholder')}
+                    placeholderTextColor={duplicateGuess ? '#d4af37' : '#b0b3b8'}
                     value={inputVal}
                     onChangeText={handleInputChange}
                     onSubmitEditing={() => {
                         handleInputChange(inputVal);
-                        // Optional: if it still doesn't match on enter, we can clear it or leave it. Leaving it is better UX.
                     }}
                     autoFocus
                     autoCapitalize="none"
@@ -238,7 +342,7 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
                 >
                     <Ionicons name="arrow-forward" size={24} color="#000" />
                 </TouchableOpacity>
-            </View>
+            </Animated.View>
 
             <ScrollView
                 ref={scrollViewRef}
@@ -339,7 +443,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         justifyContent: 'flex-start',
         gap: 10,
-        paddingBottom: 80,
+        paddingBottom: 300,
     },
     tileWrapper: {
         width: TILE_SIZE,
@@ -412,6 +516,28 @@ const styles = StyleSheet.create({
         color: '#000',
         fontWeight: 'bold',
         fontSize: 16,
+    },
+    secondaryBtn: {
+        paddingVertical: 15,
+        paddingHorizontal: 40,
+        borderRadius: 25,
+        borderWidth: 1,
+        borderColor: '#d4af37',
+        backgroundColor: 'transparent',
+    },
+    secondaryBtnText: {
+        color: '#d4af37',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    stickyBottomBar: {
+        paddingHorizontal: 20,
+        paddingTop: 15,
+        paddingBottom: 120,
+        alignItems: 'center',
+        backgroundColor: '#121212',
+        borderTopWidth: 1,
+        borderTopColor: 'rgba(212, 175, 55, 0.2)',
     },
 });
 

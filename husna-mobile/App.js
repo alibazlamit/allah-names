@@ -168,6 +168,15 @@ function HusnaApp() {
               }} 
             />
           )}
+          {/* DEV: Test button to access oath screen directly */}
+          {__DEV__ && currentView === 'memorize' && (
+            <TouchableOpacity
+              style={{ position: 'absolute', top: 10, left: 20, backgroundColor: '#d4af37', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 15, zIndex: 999 }}
+              onPress={() => { setTimeTaken(120); setCurrentView('oath'); }}
+            >
+              <Text style={{ color: '#000', fontSize: 11, fontWeight: 'bold' }}>Test Oath</Text>
+            </TouchableOpacity>
+          )}
           {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
           {currentView === 'oath' && (
             <HallOfFame 
@@ -218,7 +227,7 @@ function HusnaApp() {
           </View>
         </Modal>
 
-        <Modal visible={langModalVisible} transparent={true} animationType="fade">
+        <Modal visible={langModalVisible} transparent={true} animationType="fade" statusBarTranslucent={true}>
           <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
               <Text style={styles.modalTitle}>{t('common.selectLanguage') || 'Select Language'}</Text>
