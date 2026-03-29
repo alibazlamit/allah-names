@@ -47,7 +47,7 @@ const NameTile = ({ item, isFlipped, onLongPress }) => {
     );
 };
 
-const MemorizeMode = ({ onComplete, onShowHelp }) => {
+const MemorizeMode = ({ isActive, onComplete, onShowHelp }) => {
     const { t } = useTranslation();
     const [inputVal, setInputVal] = useState('');
     const [revealedIds, setRevealedIds] = useState(new Set());
@@ -58,6 +58,15 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
     const lastMatchRef = useRef(null);
     const inputRef = useRef(null);
     const shakeAnim = useRef(new Animated.Value(0)).current;
+
+    React.useEffect(() => {
+        if (isActive && inputRef.current && !duplicateGuess) {
+            const timeout = setTimeout(() => {
+                inputRef.current?.focus();
+            }, 100);
+            return () => clearTimeout(timeout);
+        }
+    }, [isActive]);
 
     const normalizeArabic = (text) => {
         return text
@@ -336,6 +345,12 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
                     <Text style={styles.progress}>{revealedIds.size} / 99 {t('memorize.revealed')}</Text>
                 </View>
                 <View style={styles.headerRight}>
+                    <TouchableOpacity
+                        style={styles.helpBtn}
+                        onPress={resetGame}
+                    >
+                        <Ionicons name="refresh-outline" size={24} color="#d4af37" />
+                    </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.helpBtn}
                         onPress={onShowHelp}

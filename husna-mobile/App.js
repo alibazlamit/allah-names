@@ -151,23 +151,24 @@ function HusnaApp() {
       <View style={styles.container}>
 
         <View style={[styles.mainContent, { paddingBottom: 0 }]}>
-          {currentView === 'learn' && (
+          <View style={{ flex: 1, display: currentView === 'learn' ? 'flex' : 'none' }}>
             <LearnMode 
               onPlayNasheed={() => setNasheedModalVisible(true)} 
               isNasheedPlaying={!!currentNasheedTitle} 
               onShowHelp={() => setHelpModalVisible(true)}
               onShowLang={() => setLangModalVisible(true)}
             />
-          )}
-          {currentView === 'memorize' && (
+          </View>
+          <View style={{ flex: 1, display: currentView === 'memorize' ? 'flex' : 'none' }}>
             <MemorizeMode 
+              isActive={currentView === 'memorize'}
               onShowHelp={() => setHelpModalVisible(true)}
               onComplete={(time) => { 
                 setTimeTaken(time); 
                 setCurrentView('oath'); 
               }} 
             />
-          )}
+          </View>
           {/* DEV: Test button to access oath screen directly */}
           {__DEV__ && currentView === 'memorize' && (
             <TouchableOpacity
@@ -177,7 +178,9 @@ function HusnaApp() {
               <Text style={{ color: '#000', fontSize: 11, fontWeight: 'bold' }}>Test Oath</Text>
             </TouchableOpacity>
           )}
-          {currentView === 'hall' && <HallOfFame initialMode="leaderboard" />}
+          <View style={{ flex: 1, display: currentView === 'hall' ? 'flex' : 'none' }}>
+            <HallOfFame initialMode="leaderboard" />
+          </View>
           {currentView === 'oath' && (
             <HallOfFame 
               initialMode="oath" 
@@ -185,7 +188,9 @@ function HusnaApp() {
               onOathComplete={() => setCurrentView('hall')} 
             />
           )}
-          {currentView === 'dedication' && <Dedication />}
+          <View style={{ flex: 1, display: currentView === 'dedication' ? 'flex' : 'none' }}>
+            <Dedication />
+          </View>
         </View>
 
         <AudioPlayer
