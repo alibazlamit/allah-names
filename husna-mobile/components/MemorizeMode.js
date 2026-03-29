@@ -120,8 +120,9 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
             if (matchedName) {
                 // Store the matched text to guard against autocomplete re-fire
                 lastMatchRef.current = normalizeEnglish(text) || normalizeArabic(text);
+                const isDuplicate = revealedIds.has(matchedName.id);
 
-                if (revealedIds.has(matchedName.id)) {
+                if (isDuplicate) {
                     // Feedback for already guessed name
                     Vibration.vibrate(50); // Short vibration
                     setDuplicateGuess(true);
@@ -146,14 +147,43 @@ const MemorizeMode = ({ onComplete, onShowHelp }) => {
                     }
                 }
 
-                // Always clear the input after a match
-                setTimeout(() => {
-                    setInputVal('');
-                    // Also programmatically clear the native input
-                    if (inputRef.current) {
-                        inputRef.current.clear();
-                    }
-                }, 50);
+                // Check if this matched name is a prefix to another unrevealed name
+                const isPrefixOfAnother = namesData.some(otherName => {
+                    if (otherName.id === matchedName.id) return false;
+                    if (revealedIds.has(otherName.id)) return false;
+
+                    const otherNormTrans = normalizeEnglish(otherName.transliteration);
+                    let otherNormTransBase = otherNormTrans;
+                    if (otherNormTrans.startsWith('al')) otherNormTransBase = otherNormTrans.slice(2);
+                    else if (otherNormTrans.startsWith('ar')) otherNormTransBase = otherNormTrans.slice(2);
+                    else if (otherNormTrans.startsWith('as')) otherNormTransBase = otherNormTrans.slice(2);
+                    else if (otherNormTrans.startsWith('ad')) otherNormTransBase = otherNormTrans.slice(2);
+                    else if (otherNormTrans.startsWith('an')) otherNormTransBase = otherNormTrans.slice(2);
+                    else if (otherNormTrans.startsWith('az')) otherNormTransBase = otherNormTrans.slice(2);
+                    else if (otherNormTrans.startsWith('ash')) otherNormTransBase = otherNormTrans.slice(3);
+                    else if (otherNormTrans.startsWith('at')) otherNormTransBase = otherNormTrans.slice(2);
+
+                    const otherNormArabic = normalizeArabic(otherName.arabic);
+                    const otherNormArabicBase = otherNormArabic.startsWith('ال') ? otherNormArabic.substring(2) : otherNormArabic;
+
+                    const isEnPrefix = normEnInput.length > 2 && (otherNormTrans.startsWith(normEnInput) || otherNormTransBase.startsWith(normEnInput));
+                    const isArPrefix = normArInput.length > 1 && (otherNormArabic.startsWith(normArInput) || otherNormArabicBase.startsWith(normArInput));
+
+                    return isEnPrefix || isArPrefix;
+                });
+
+                // Clear input if:
+                // 1. It's a new guess (always auto-submit newly found names)
+                // 2. OR, it's NOT a prefix for another unrevealed name
+                if (!isDuplicate || !isPrefixOfAnother) {
+                    setTimeout(() => {
+                        setInputVal('');
+                        // Also programmatically clear the native input
+                        if (inputRef.current) {
+                            inputRef.current.clear();
+                        }
+                    }, 50);
+                }
             }
         } catch (error) {
             console.error('Match error:', error);
