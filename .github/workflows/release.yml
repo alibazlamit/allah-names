@@ -55,6 +55,14 @@ jobs:
         working-directory: husna-mobile
         run: eas build --profile production --platform android --non-interactive
 
+      - name: Generate release notes from git commits
+        working-directory: husna-mobile
+        run: |
+          mkdir -p fastlane/metadata/android/en-US/changelogs
+          git log --pretty=format:"• %s" -6 | grep -v "^• Merge" > fastlane/metadata/android/en-US/changelogs/default.txt
+          echo "--- Release notes ---"
+          cat fastlane/metadata/android/en-US/changelogs/default.txt
+
       - name: Submit to Play Store (internal track)
         working-directory: husna-mobile
         run: eas submit --profile production --platform android --latest --non-interactive

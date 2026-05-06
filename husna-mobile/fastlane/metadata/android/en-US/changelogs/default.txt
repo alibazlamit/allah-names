@@ -1,0 +1,3 @@
+• Share your achievement after memorizing all 99 Names
+• Automated build and release pipeline
+• Bug fixes and stability improvements
