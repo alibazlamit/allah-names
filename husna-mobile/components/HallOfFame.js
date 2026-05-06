@@ -168,29 +168,31 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
     const CertificateCard = () => {
         if (!name) return null;
         return (
-            <View style={styles.badgeContainer}>
-                <View style={[styles.badgeCard, { borderStyle: 'solid' }]}>
-                    <View style={styles.badgeTopDecor} />
-                    <Text style={styles.badgeTitle}>Hafiz al-Asma</Text>
-                    <Text style={styles.badgeName}>{name}</Text>
-                    <Text style={styles.badgeText}>
-                        Has successfully memorized the 99 Beautiful Names of Allah.
-                    </Text>
-                    <View style={styles.badgeBottomRow}>
-                        <Text style={styles.badgeDate}>{new Date().toLocaleDateString()}</Text>
-                        <Text style={styles.badgeCountry}>{country?.name || 'World'}</Text>
-                    </View>
-                    <View style={{ position: 'absolute', top: 20, right: 20, transform: [{ rotate: '15deg' }], opacity: 0.2 }}>
-                        <Text style={{ fontSize: 60, color: '#d4af37', fontWeight: 'bold' }}>99</Text>
-                    </View>
-                    <View style={styles.badgeSeal}>
-                        <Text style={styles.badgeSealText}>99</Text>
+            <>
+                <View style={styles.badgeContainer}>
+                    <View style={[styles.badgeCard, { borderStyle: 'solid' }]}>
+                        <View style={styles.badgeTopDecor} />
+                        <Text style={styles.badgeTitle}>Hafiz al-Asma</Text>
+                        <Text style={styles.badgeName}>{name}</Text>
+                        <Text style={styles.badgeText}>
+                            Has successfully memorized the 99 Beautiful Names of Allah.
+                        </Text>
+                        <View style={styles.badgeBottomRow}>
+                            <Text style={styles.badgeDate}>{new Date().toLocaleDateString()}</Text>
+                            <Text style={styles.badgeCountry}>{country?.name || 'World'}</Text>
+                        </View>
+                        <View style={{ position: 'absolute', top: 20, right: 20, transform: [{ rotate: '15deg' }], opacity: 0.2 }}>
+                            <Text style={{ fontSize: 60, color: '#d4af37', fontWeight: 'bold' }}>99</Text>
+                        </View>
+                        <View style={styles.badgeSeal}>
+                            <Text style={styles.badgeSealText}>99</Text>
+                        </View>
                     </View>
                 </View>
-            </View>
-            <TouchableOpacity style={styles.shareBtn} onPress={handleShare}>
-                <Text style={styles.shareBtnText}>🔗  Share Achievement</Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.shareBtn} onPress={handleShare}>
+                    <Text style={styles.shareBtnText}>🔗  Share Achievement</Text>
+                </TouchableOpacity>
+            </>
         );
     };
 
