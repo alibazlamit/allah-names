@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Platform } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Platform, Share } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import CountryPicker from 'react-native-country-picker-modal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -33,6 +33,7 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
     const [leaderboard, setLeaderboard] = useState([]);
     const [userUuid, setUserUuid] = useState(null);
     const [userRank, setUserRank] = useState(null);
+    const [localTimeTaken, setLocalTimeTaken] = useState(null);
 
     useEffect(() => {
         loadUserIdentity();
@@ -60,6 +61,10 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
 
             const savedName = await AsyncStorage.getItem('user_name');
             if (savedName) setName(savedName);
+            const savedCountry = await AsyncStorage.getItem('user_country');
+            if (savedCountry) setCountry({ name: savedCountry });
+            const savedTime = await AsyncStorage.getItem('user_time_taken');
+            if (savedTime) setLocalTimeTaken(parseInt(savedTime));
         } catch (e) { console.error(e); }
     };
 
@@ -102,6 +107,9 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
         try {
             // Save identity locally
             await AsyncStorage.setItem('user_name', name.trim());
+            await AsyncStorage.setItem('user_country', country.name);
+            if (timeTaken) await AsyncStorage.setItem('user_time_taken', String(timeTaken));
+            setLocalTimeTaken(timeTaken);
 
             // Prepare Signature
             const timestamp = Math.floor(Date.now() / 1000).toString();
@@ -141,6 +149,22 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
         }
     };
 
+    const handleShare = async () => {
+        const displayTime = localTimeTaken || timeTaken;
+        const timeStr = displayTime ? formatTime(displayTime) : null;
+        const lines = [
+            `🌟 I memorized all 99 Names of Allah (ﷻ)!`,
+            name && country?.name ? `🏆 ${name} · ${country.name}` : null,
+            timeStr ? `⏱️ Completed in ${timeStr}` : null,
+            ``,
+            `Join the global Hall of Fame on the Husna app:`,
+            `https://husna.alibazlamit.com`,
+        ].filter(l => l !== null);
+        try {
+            await Share.share({ message: lines.join('\n') });
+        } catch (e) { console.error('Share error:', e); }
+    };
+
     const CertificateCard = () => {
         if (!name) return null;
         return (
@@ -164,6 +188,9 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
                     </View>
                 </View>
             </View>
+            <TouchableOpacity style={styles.shareBtn} onPress={handleShare}>
+                <Text style={styles.shareBtnText}>🔗  Share Achievement</Text>
+            </TouchableOpacity>
         );
     };
 
@@ -592,6 +619,22 @@ const styles = StyleSheet.create({
         color: '#b0b3b8',
         textAlign: 'center',
         marginTop: 40,
+    },
+    shareBtn: {
+        marginTop: 16,
+        marginBottom: 10,
+        alignSelf: 'center',
+        paddingVertical: 12,
+        paddingHorizontal: 28,
+        borderRadius: 25,
+        borderWidth: 1,
+        borderColor: '#d4af37',
+        backgroundColor: 'rgba(212, 175, 55, 0.12)',
+    },
+    shareBtnText: {
+        color: '#d4af37',
+        fontWeight: '700',
+        fontSize: 15,
     },
 });
 

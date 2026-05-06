@@ -1,0 +1,39 @@
+name: Build & Release to Play Store
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'husna-mobile/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-submit:
+    name: Build & Submit Android
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        working-directory: husna-mobile
+        run: npm install
+
+      - name: Build Android AAB
+        working-directory: husna-mobile
+        run: eas build --profile production --platform android --non-interactive
+
+      - name: Submit to Play Store (internal track)
+        working-directory: husna-mobile
+        run: eas submit --profile production --platform android --latest --non-interactive
