@@ -157,8 +157,8 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
             name && country?.name ? `🏆 ${name} · ${country.name}` : null,
             timeStr ? `⏱️ Completed in ${timeStr}` : null,
             ``,
-            `Join the global Hall of Fame on the Husna app:`,
-            `https://husna.alibazlamit.com`,
+            `Download Husna on the Play Store:`,
+            `https://play.google.com/store/apps/details?id=com.alibazlamit.husnamobile`,
         ].filter(l => l !== null);
         try {
             await Share.share({ message: lines.join('\n') });
