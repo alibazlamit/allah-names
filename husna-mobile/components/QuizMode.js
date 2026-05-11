@@ -105,13 +105,19 @@ const ResultScreen = ({ score, onRestart }) => {
 // ── Main component ─────────────────────────────────────────────────────────────
 const QuizMode = ({ isActive }) => {
   const { i18n } = useTranslation();
-  const [questions] = useState(() => buildQuestions(i18n.language));
-  const [qIndex, setQIndex] = useState(0);
-  const [lives, setLives] = useState(MAX_LIVES);
-  const [score, setScore] = useState(0);
-  const [selected, setSelected] = useState(null); // null | option id
-  const [showResult, setShowResult] = useState(false);
-  const [key, setKey] = useState(0); // force re-mount on restart
+  const lang = i18n.language;
+
+  const freshState = useCallback(() => ({
+    questions: buildQuestions(lang),
+    qIndex: 0,
+    lives: MAX_LIVES,
+    score: 0,
+    selected: null,
+    showResult: false,
+  }), [lang]);
+
+  const [state, setState] = useState(freshState);
+  const { questions, qIndex, lives, score, selected, showResult } = state;
 
   const shakeAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -125,54 +131,47 @@ const QuizMode = ({ isActive }) => {
     ]).start();
   };
 
-  const advance = useCallback((wasCorrect) => {
+  const advance = useCallback((isCorrect, nextLives) => {
     Animated.sequence([
       Animated.timing(fadeAnim, { toValue: 0, duration: 200, useNativeDriver: true }),
       Animated.timing(fadeAnim, { toValue: 1, duration: 200, useNativeDriver: true }),
     ]).start();
 
     setTimeout(() => {
-      setSelected(null);
-      if (qIndex + 1 >= TOTAL_QUESTIONS) {
-        setShowResult(true);
-      } else {
-        setQIndex(i => i + 1);
-      }
+      setState(s => {
+        if (nextLives <= 0 || s.qIndex + 1 >= TOTAL_QUESTIONS) {
+          return { ...s, selected: null, showResult: true };
+        }
+        return { ...s, selected: null, qIndex: s.qIndex + 1 };
+      });
     }, 700);
-  }, [qIndex, fadeAnim]);
+  }, [fadeAnim]);
 
   const handleOption = useCallback((option) => {
     if (selected !== null) return;
-    setSelected(option.id);
+
+    let nextLives = lives;
+    let nextScore = score;
 
     if (option.correct) {
-      setScore(s => s + 1);
+      nextScore = score + 1;
     } else {
       shake();
-      setLives(l => {
-        const next = l - 1;
-        if (next <= 0) {
-          setTimeout(() => setShowResult(true), 800);
-        }
-        return next;
-      });
+      nextLives = lives - 1;
     }
-    advance(option.correct);
-  }, [selected, advance]);
+
+    setState(s => ({ ...s, selected: option.id, lives: nextLives, score: nextScore }));
+    advance(option.correct, nextLives);
+  }, [selected, lives, score, advance]);
 
   const restart = useCallback(() => {
-    setKey(k => k + 1);
-  }, []);
+    setState(freshState());
+  }, [freshState]);
 
   if (!isActive) return null;
 
   if (showResult) {
     return <ResultScreen score={score} onRestart={restart} />;
-  }
-
-  // Force rebuild on key change
-  if (key > 0) {
-    return <QuizModeInner key={key} isActive={isActive} />;
   }
 
   const q = questions[qIndex];
@@ -260,8 +259,6 @@ const QuizMode = ({ isActive }) => {
   );
 };
 
-// Wrapper to force full remount on restart
-const QuizModeInner = (props) => <QuizMode {...props} />;
 
 const styles = StyleSheet.create({
   container: { flex: 1, paddingHorizontal: 20, paddingTop: 16 },
