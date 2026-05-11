@@ -1,10 +1,13 @@
 import React from 'react';
 import {
   Modal, View, Text, ScrollView, TouchableOpacity,
-  StyleSheet, SafeAreaView, StatusBar
+  StyleSheet, Dimensions
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
+
+const { height } = Dimensions.get('screen');
 
 const detailsMap = {
   en: require('../data/details/en.json'),
@@ -28,7 +31,7 @@ const Section = ({ label, children, italic }) => (
 );
 
 const NameDetailModal = ({ name, onClose, onScrollToName }) => {
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const lang = i18n.language;
 
   if (!name) return null;
@@ -48,107 +51,164 @@ const NameDetailModal = ({ name, onClose, onScrollToName }) => {
   return (
     <Modal
       visible={!!name}
+      transparent={true}
       animationType="slide"
-      presentationStyle="pageSheet"
+      statusBarTranslucent={true}
       onRequestClose={onClose}
     >
-      <SafeAreaView style={styles.safeArea}>
-        <StatusBar barStyle="light-content" />
+      <View style={styles.overlay}>
+        <View style={[styles.sheet, { height: height * 0.92 }]}>
 
-        <View style={styles.header}>
-          <View style={styles.dragHandle} />
-          <TouchableOpacity style={styles.closeBtn} onPress={onClose}>
-            <Text style={styles.closeBtnText}>✕</Text>
-          </TouchableOpacity>
-        </View>
-
-        <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-
-          <View style={styles.hero}>
-            <Text style={styles.arabicText}>{name.arabic}</Text>
-            <Text style={styles.transliteration}>{name.transliteration}</Text>
-            <Text style={styles.nameNumber}>#{name.id}</Text>
-            <TouchableOpacity style={styles.ttsBtn} onPress={playTTS}>
-              <Text style={styles.ttsBtnText}>▶ Listen</Text>
-            </TouchableOpacity>
+          {/* Header */}
+          <View style={styles.header}>
+            <View style={styles.dragHandle} />
+            <View style={styles.headerRow}>
+              <View style={styles.headerText}>
+                <Text style={styles.headerTranslit}>{name.transliteration}</Text>
+                <Text style={styles.headerNumber}>#{name.id}</Text>
+              </View>
+              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+                <Ionicons name="close" size={24} color="#b0b3b8" />
+              </TouchableOpacity>
+            </View>
           </View>
 
-          {base.quran_count > 0 && (
-            <View style={styles.quranBadge}>
-              <Text style={styles.quranBadgeCount}>{base.quran_count}×</Text>
-              <Text style={styles.quranBadgeLabel}> in the Quran</Text>
+          <ScrollView
+            contentContainerStyle={styles.scroll}
+            showsVerticalScrollIndicator={false}
+          >
+            {/* Arabic hero */}
+            <View style={styles.hero}>
+              <Text style={styles.arabicText}>{name.arabic}</Text>
+              <TouchableOpacity style={styles.ttsBtn} onPress={playTTS}>
+                <Ionicons name="volume-high-outline" size={16} color="#d4af37" />
+                <Text style={styles.ttsBtnText}>Listen</Text>
+              </TouchableOpacity>
             </View>
-          )}
 
-          {detail?.extended_meaning && (
-            <Section label="Meaning">{detail.extended_meaning}</Section>
-          )}
-          {detail?.quran_surahs && (
-            <Section label="In the Quran">{detail.quran_surahs}</Section>
-          )}
-          {detail?.why_it_matters && (
-            <Section label="Why it matters">{detail.why_it_matters}</Section>
-          )}
-          {detail?.hadith && (
-            <Section label="Hadith" italic>{detail.hadith}</Section>
-          )}
-          {detail?.reflection && (
-            <Section label="Reflection">{detail.reflection}</Section>
-          )}
-
-          {relatedNames.length > 0 && (
-            <View style={styles.relatedRow}>
-              <Text style={styles.sectionLabel}>Related Names</Text>
-              <View style={styles.chips}>
-                {relatedNames.map(related => (
-                  <TouchableOpacity
-                    key={related.id}
-                    style={styles.chip}
-                    onPress={() => { onClose(); onScrollToName && onScrollToName(related.id); }}
-                  >
-                    <Text style={styles.chipText}>{related.transliteration}</Text>
-                  </TouchableOpacity>
-                ))}
+            {/* Quran count badge */}
+            {base.quran_count > 0 && (
+              <View style={styles.quranBadge}>
+                <Ionicons name="book-outline" size={14} color="#d4af37" />
+                <Text style={styles.quranBadgeText}>
+                  {'  '}Mentioned <Text style={styles.quranBadgeCount}>{base.quran_count}×</Text> in the Quran
+                </Text>
               </View>
-            </View>
-          )}
+            )}
 
-          <View style={{ height: 40 }} />
-        </ScrollView>
-      </SafeAreaView>
+            {detail?.extended_meaning && (
+              <Section label="Meaning">{detail.extended_meaning}</Section>
+            )}
+            {detail?.quran_surahs && (
+              <Section label="In the Quran">{detail.quran_surahs}</Section>
+            )}
+            {detail?.why_it_matters && (
+              <Section label="Why it matters">{detail.why_it_matters}</Section>
+            )}
+            {detail?.hadith && (
+              <Section label="Hadith" italic>{detail.hadith}</Section>
+            )}
+            {detail?.reflection && (
+              <Section label="Reflection">{detail.reflection}</Section>
+            )}
+
+            {relatedNames.length > 0 && (
+              <View style={styles.relatedRow}>
+                <Text style={styles.sectionLabel}>Related Names</Text>
+                <View style={styles.chips}>
+                  {relatedNames.map(related => (
+                    <TouchableOpacity
+                      key={related.id}
+                      style={styles.chip}
+                      onPress={() => { onClose(); onScrollToName && onScrollToName(related.id); }}
+                    >
+                      <Text style={styles.chipText}>{related.transliteration}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </View>
+            )}
+
+            <View style={{ height: 40 }} />
+          </ScrollView>
+        </View>
+      </View>
     </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: '#1a1a2e' },
-  header: { alignItems: 'center', paddingTop: 12, paddingHorizontal: 20, paddingBottom: 8 },
-  dragHandle: { width: 40, height: 4, backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: 2, marginBottom: 12 },
-  closeBtn: { position: 'absolute', right: 20, top: 12, padding: 8 },
-  closeBtnText: { color: '#b0b3b8', fontSize: 18 },
-  scroll: { paddingHorizontal: 20 },
-  hero: { alignItems: 'center', paddingVertical: 24 },
-  arabicText: { fontSize: 52, color: '#d4af37', marginBottom: 8, textAlign: 'center' },
-  transliteration: { fontSize: 22, fontWeight: '700', color: '#f8f9fa', marginBottom: 4 },
-  nameNumber: { fontSize: 13, color: '#b0b3b8', marginBottom: 16 },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.75)',
+    justifyContent: 'flex-end',
+  },
+  sheet: {
+    backgroundColor: '#1E1E1E',
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    borderWidth: 1,
+    borderBottomWidth: 0,
+    borderColor: 'rgba(212,175,55,0.3)',
+    elevation: 20,
+    shadowColor: '#d4af37',
+    shadowOffset: { width: 0, height: -4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+  },
+  header: {
+    alignItems: 'center',
+    paddingTop: 12,
+    paddingHorizontal: 20,
+    paddingBottom: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.06)',
+  },
+  dragHandle: {
+    width: 40, height: 4,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 2, marginBottom: 14,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+  },
+  headerText: { flex: 1 },
+  headerTranslit: { fontSize: 20, fontWeight: '700', color: '#f8f9fa' },
+  headerNumber: { fontSize: 12, color: '#b0b3b8', marginTop: 2 },
+  closeBtn: {
+    padding: 4,
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    borderRadius: 20,
+    width: 36, height: 36,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  scroll: { paddingHorizontal: 20, paddingTop: 4 },
+  hero: { alignItems: 'center', paddingVertical: 20 },
+  arabicText: { fontSize: 56, color: '#d4af37', marginBottom: 16, textAlign: 'center' },
   ttsBtn: {
-    backgroundColor: 'rgba(212,175,55,0.15)',
-    paddingHorizontal: 20, paddingVertical: 8,
-    borderRadius: 20, borderWidth: 1, borderColor: 'rgba(212,175,55,0.3)',
-  },
-  ttsBtnText: { color: '#d4af37', fontWeight: '600', fontSize: 14 },
-  quranBadge: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+    flexDirection: 'row', alignItems: 'center', gap: 6,
     backgroundColor: 'rgba(212,175,55,0.12)',
-    paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, marginBottom: 16,
-    alignSelf: 'center',
+    paddingHorizontal: 16, paddingVertical: 8,
+    borderRadius: 20, borderWidth: 1, borderColor: 'rgba(212,175,55,0.25)',
   },
-  quranBadgeCount: { color: '#d4af37', fontWeight: '800', fontSize: 20 },
-  quranBadgeLabel: { color: '#b0b3b8', fontSize: 14 },
+  ttsBtnText: { color: '#d4af37', fontWeight: '600', fontSize: 13 },
+  quranBadge: {
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: 'rgba(212,175,55,0.08)',
+    paddingVertical: 8, paddingHorizontal: 14,
+    borderRadius: 12, marginBottom: 16,
+    alignSelf: 'center',
+    borderWidth: 1, borderColor: 'rgba(212,175,55,0.2)',
+  },
+  quranBadgeText: { color: '#b0b3b8', fontSize: 13 },
+  quranBadgeCount: { color: '#d4af37', fontWeight: '800' },
   section: {
-    backgroundColor: 'rgba(255,255,255,0.04)',
-    borderRadius: 12, padding: 16, marginBottom: 10,
-    borderWidth: 1, borderColor: 'rgba(212,175,55,0.1)',
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderRadius: 16, padding: 16, marginBottom: 10,
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.05)',
   },
   sectionLabel: {
     fontSize: 10, color: '#d4af37', fontWeight: '700',
@@ -157,15 +217,15 @@ const styles = StyleSheet.create({
   sectionText: { fontSize: 14, color: '#e0e0e0', lineHeight: 22 },
   italic: { fontStyle: 'italic' },
   relatedRow: {
-    backgroundColor: 'rgba(255,255,255,0.04)',
-    borderRadius: 12, padding: 16, marginBottom: 10,
-    borderWidth: 1, borderColor: 'rgba(212,175,55,0.1)',
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderRadius: 16, padding: 16, marginBottom: 10,
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.05)',
   },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 4 },
   chip: {
-    backgroundColor: 'rgba(212,175,55,0.15)',
+    backgroundColor: 'rgba(212,175,55,0.12)',
     paddingHorizontal: 12, paddingVertical: 6,
-    borderRadius: 16, borderWidth: 1, borderColor: 'rgba(212,175,55,0.3)',
+    borderRadius: 16, borderWidth: 1, borderColor: 'rgba(212,175,55,0.25)',
   },
   chipText: { color: '#d4af37', fontSize: 13, fontWeight: '600' },
 });
