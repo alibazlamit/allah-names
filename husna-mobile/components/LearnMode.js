@@ -1,11 +1,10 @@
-import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Modal, Dimensions } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import Slider from '@react-native-community/slider';
 import * as Speech from 'expo-speech';
-import { useAudioPlayer } from 'expo-audio';
 import { Ionicons } from '@expo/vector-icons';
 import namesData from '../data/names.json';
+import NameDetailModal from './NameDetailModal';
 
 const translations = {
     en: require('../data/translations/en.json'),
@@ -19,12 +18,10 @@ const translations = {
     fr: require('../data/translations/fr.json'),
 };
 
-const NASHEEDS = [
-    { id: '1', title: 'Asma Allah (Asmaa Allah)', type: 'local', file: require('../assets/imad-rami.mp3') },
-];
-
 const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) => {
     const { t, i18n } = useTranslation();
+    const [selectedName, setSelectedName] = useState(null);
+    const flatListRef = useRef(null);
 
     const playNameAudio = (arabicText) => {
         try {
@@ -34,12 +31,19 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) 
         }
     };
 
+    const scrollToName = (nameId) => {
+        const index = namesData.findIndex(n => n.id === nameId);
+        if (index !== -1 && flatListRef.current) {
+            flatListRef.current.scrollToIndex({ index, animated: true, viewPosition: 0.3 });
+        }
+    };
+
     const renderItem = ({ item }) => {
         const lang = i18n.language;
         const localizedMeaning = translations[lang]?.[item.id] || translations['en']?.[item.id] || '';
 
         return (
-            <View style={styles.card}>
+            <TouchableOpacity style={styles.card} onPress={() => setSelectedName(item)} activeOpacity={0.75}>
                 <View style={styles.cardHeader}>
                     <View style={styles.numberBadge}>
                         <Text style={styles.numberText}>{item.id}</Text>
@@ -51,7 +55,8 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) 
                 <Text style={styles.arabicText}>{item.arabic}</Text>
                 <Text style={styles.transliterationText}>{item.transliteration}</Text>
                 <Text style={styles.meaningText}>{localizedMeaning}</Text>
-            </View>
+                <Text style={styles.tapHint}>Tap to learn more</Text>
+            </TouchableOpacity>
         );
     };
 
@@ -81,10 +86,19 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) 
                 )}
             </View>
             <FlatList
+                ref={flatListRef}
                 data={namesData}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={renderItem}
                 contentContainerStyle={styles.listContent}
+                onScrollToIndexFailed={({ index }) => {
+                    setTimeout(() => flatListRef.current?.scrollToIndex({ index, animated: true }), 200);
+                }}
+            />
+            <NameDetailModal
+                name={selectedName}
+                onClose={() => setSelectedName(null)}
+                onScrollToName={scrollToName}
             />
         </View>
     );
@@ -196,6 +210,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#b0b3b8',
         textAlign: 'center',
+    },
+    tapHint: {
+        fontSize: 11,
+        color: 'rgba(212,175,55,0.35)',
+        marginTop: 10,
+        letterSpacing: 0.5,
     },
 });
 
