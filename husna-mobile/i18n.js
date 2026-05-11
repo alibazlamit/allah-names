@@ -10,6 +10,7 @@ const resources = {
                 memorize: 'Memorize',
                 hall: 'Hall',
                 dua: 'Dua',
+                quiz: 'Quiz',
             },
             learn: {
                 title: 'Learn the 99 Names',
@@ -93,6 +94,7 @@ const resources = {
                 memorize: 'حفظ',
                 hall: 'السجل',
                 dua: 'دعاء',
+                quiz: 'اختبار',
             },
             learn: {
                 title: 'تعلّم أسماء الله الحسنى',
@@ -176,6 +178,7 @@ const resources = {
                 memorize: 'Pamti',
                 hall: 'Poredak',
                 dua: 'Dova',
+                quiz: 'Kviz',
             },
             learn: {
                 title: 'Nauči 99 Allahovih Imena',
@@ -246,6 +249,7 @@ const resources = {
                 memorize: 'Ezberle',
                 hall: 'Onur Listesi',
                 dua: 'Dua',
+                quiz: 'Test',
             },
             learn: {
                 title: '99 İsmi Öğren',
@@ -316,6 +320,7 @@ const resources = {
                 memorize: 'یاد کریں',
                 hall: 'اعزازات',
                 dua: 'دعا',
+                quiz: 'کوئز',
             },
             learn: {
                 title: '99 نام سیکھیں',
@@ -386,6 +391,7 @@ const resources = {
                 memorize: 'Hafalkan',
                 hall: 'Peringkat',
                 dua: 'Doa',
+                quiz: 'Kuis',
             },
             learn: {
                 title: 'Pelajari 99 Nama',
@@ -454,6 +460,7 @@ const resources = {
                 memorize: 'মুখস্থ',
                 hall: 'র‍্যাঙ্কিং',
                 dua: 'দোয়া',
+                quiz: 'কুইজ',
             },
             learn: {
                 title: '৯৯টি নাম শিখুন',
@@ -522,6 +529,7 @@ const resources = {
                 memorize: 'حفظ کردن',
                 hall: 'برترین‌ها',
                 dua: 'دعا',
+                quiz: 'آزمون',
             },
             learn: {
                 title: 'یادگیری ۹۹ نام',
@@ -590,6 +598,7 @@ const resources = {
                 memorize: 'Mémoriser',
                 hall: 'Classement',
                 dua: 'Doua',
+                quiz: 'Quiz',
             },
             learn: {
                 title: 'Apprendre les 99 Noms',
