@@ -5,7 +5,8 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
-import * as Speech from 'expo-speech';
+import { useAudioPlayer } from 'expo-audio';
+import nameAudio from '../data/nameAudio';
 
 const { height } = Dimensions.get('screen');
 
@@ -34,6 +35,8 @@ const NameDetailModal = ({ name, onClose, onScrollToName }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
+  const player = useAudioPlayer(name ? nameAudio[name.id] : null);
+
   if (!name) return null;
 
   const langDetails = detailsMap[lang] ?? detailsMap['en'];
@@ -41,11 +44,7 @@ const NameDetailModal = ({ name, onClose, onScrollToName }) => {
   const base = baseData[String(name.id)] ?? {};
 
   const playTTS = () => {
-    try {
-      // ٱ (wasla alef) → ا so the article ال stays intact for TTS
-      const clean = name.arabic.replace(/ٱ/g, 'ا');
-      Speech.speak(clean, { language: 'ar-SA' });
-    } catch (_) {}
+    try { player.seekTo(0); player.play(); } catch (_) {}
   };
 
   const relatedNames = (base.related ?? [])
