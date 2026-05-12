@@ -41,7 +41,11 @@ const NameDetailModal = ({ name, onClose, onScrollToName }) => {
   const base = baseData[String(name.id)] ?? {};
 
   const playTTS = () => {
-    try { Speech.speak(name.arabic, { language: 'ar-SA' }); } catch (_) {}
+    try {
+      // Strip harakat so TTS doesn't mispronounce the assimilation markers
+      const clean = name.arabic.replace(/[ً-ٰٟٱ]/g, '');
+      Speech.speak(clean, { language: 'ar-SA' });
+    } catch (_) {}
   };
 
   const relatedNames = (base.related ?? [])
