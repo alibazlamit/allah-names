@@ -37,7 +37,7 @@
   "6": {
     "extended_meaning": "Emn (أمن) kökünden; güvenlik ve iman anlamına gelir. El-Mü'min, yaratıklarına güvence verir ve peygamberlerinin doğruluğunu onaylar.",
     "quran_surahs": "Haşr (59:23).",
-    "hadith": "\"Hiçbiriniz, Allah ve Rasulü kendisine her şeyden daha sevgili olmadıkça gerçekten iman etmiş sayılmaz.\" — Buhari",
+    "hadith": "\"Hiçbiriniz beni oğlundan, babasından ve tüm insanlardan daha çok sevmedikçe gerçek anlamda iman etmiş olmaz.\" — Buhari (Enes ibn Malik'ten).",
     "why_it_matters": "El-Mü'min gerçek güvenliğin kaynağıdır. Bu dünyada güvensiz hissedince, nihai güveni sağlayanın seni gözetlediğini hatırla.",
     "reflection": "El-Mü'min'den yalnızca sözde değil, kalbin derin güvenliğiyle gerçek bir mümin olmayı dile."
   },
@@ -149,7 +149,7 @@
   "22": {
     "extended_meaning": "Hafada (خَفَضَ) kökünden; alçaltmak ve indirmek demektir. El-Hâfid, büyüklenenler ve zalimleri tam adaletle alçaltandır.",
     "quran_surahs": "Bu isim Tirmizi hadisinden gelmektedir. Kavram Kur'an boyunca mevcuttur.",
-    "hadith": "\"Kim Allah için alçalırsa Allah onu yükseltir.\" — Müslim",
+    "hadith": "\"Kalbinde zerre kadar kibir olan kişi cennete giremez.' Bir adam: 'Ya güzel elbise ve güzel ayakkabı sevmek?' dedi. O: 'Allah güzeldir ve güzelliği sever. Kibir, hakkı reddetmek ve insanları küçük görmektir' dedi.\" — Müslim.",
     "why_it_matters": "El-Hâfid büyük eşitleyicidir. Hiçbir dünyevi statü, kibirlileri O'nun alçaltma hükmünden koruyamaz.",
     "reflection": "Haksızlıkla yükselen kişilere imrenme — El-Hâfid haberdardır. Allah'ın karşısında mütevazı olmaya odaklan."
   },
@@ -163,7 +163,7 @@
   "24": {
     "extended_meaning": "İzz (عَزَّ) kökünden; onur ve şeref vermek demektir. El-Muizz, dilediklerine hiçbir insanın söküp alamayacağı onur ve itibar bahşedendir.",
     "quran_surahs": "Al-i İmran (3:26): 'Sen dilediğine onur verir, dilediğini de alçaltırsın.'",
-    "hadith": "\"Kim Allah için alçakgönüllü olursa, Allah onu yüceltir — öyle ki kendini küçük görürken insanlar onu büyük görür.\" — İbn Mace (sahih). Al-Mu'izz'den gerçek onur tevazu yoluyla gelir.",
+    "hadith": "\"Gerçekten Allah bu Kitapla bazı milletleri yükseltir ve diğerlerini alçaltır.\" — Müslim (Resulullah'tan nakleden Ömer ibn el-Hattab'dan). El-Mu'izz, Kur'an aracılığıyla onur verir.",
     "why_it_matters": "İnsanları memnun ederek ya da dininden taviz vererek onur arıyorsan yanlış kapıyı çalıyorsun. Kalıcı onur yalnızca El-Muizz'den gelir.",
     "reflection": "Dünyevi statüye mal olsa bile Allah'a itaati seç. El-Muizz seni kimsenin alamayacağı bir onurla ödüllendirir."
   },
@@ -176,15 +176,15 @@
   },
   "26": {
     "extended_meaning": "Semi'a (سَمِعَ) kökünden; işitmek demektir. Es-Semî', her şeyi işitir — her fısıltıyı, her duayı, her ifade edilemeyen iç çekişi. İşitmesi mesafe ya da dil tanımaz.",
-    "quran_surahs": "45 kez — çoğunlukla El-Basîr ile birlikte. Bakara (2:127), Al-i İmran (3:35).",
-    "hadith": "\"Allah, kocası hakkında seninle tartışan kadının sözünü işitti.\" — Kur'an 58:1",
+    "quran_surahs": "Kur'an'da 45 kez geçer. Her zaman El-Basir ile eşleştirilir. Mücadile suresi (58:1), Allah'ın Havle bint Sa'lebe'nin yakarışını duymasıyla indirildi. İsra (17:1), Hac (22:61, 22:75), Hucurat (49:18).",
+    "hadith": "Aişe şöyle dedi: \"Her sesi işiten Allah'ı tenzih ederim. Ben o kadının sözlerinin bir kısmını duydum, bir kısmı ise benden gizliydi — oysa Allah onun şikâyetini yedi semanın üzerinden işitti.\" — Buhari (Mücadele suresinin nüzul sebebi).",
     "why_it_matters": "Hiçbir zaman boşluğa konuşmuyorsun. Her dua, her şikâyet, her gizli ağlamanın Es-Semî' tarafından tam anlamıyla işitildiğini bil.",
     "reflection": "Dualarını ayrıntılı yap — Es-Semî' her kelimeyi işitiyor. Ona en dikkatli dinleyiciye konuşur gibi konuş, çünkü O öyledir."
   },
   "27": {
     "extended_meaning": "Basara (بَصَرَ) kökünden; görmek demektir. El-Basîr her şeyi görür — karanlık bir gecede siyah taş üzerindeki karıncanın hareketini bile. Görüşü tüm varlık boyutlarını eş zamanlı olarak kapsar.",
     "quran_surahs": "42 kez — Es-Semî' ile sürekli birlikte. İsrâ (17:1), Hac (22:61).",
-    "hadith": "\"Allah'a karşı dikkatli ol; O seni korur.\" — Tirmizi",
+    "hadith": "\"Allah ne suretlerinize ne de mallarınıza bakar. Kalplerinize ve amellerinize bakar.\" — Müslim (Ebu Hüreyre'den). El-Basir'in görüşü, başkalarına görünmeyene — kalbin iç gerçeğine — nüfuz eder.",
     "why_it_matters": "Gizlice yapılan her iyi amel — kimsenin görmediği sadaka, kimsenin bilmediği namaz — El-Basîr tarafından tam anlamıyla şahit olunmuştur.",
     "reflection": "Gizli amelleriniz görülüyor. El-Basîr ile her an tamamen görünür olduğunuzu bilerek yaşayın."
   },
@@ -205,7 +205,7 @@
   "30": {
     "extended_meaning": "Lutf (لُطف) kökünden; ince nezaket demektir. El-Latîf en ince ayrıntıların farkındadır ve yaratılışıyla fark edilemeyecek kadar ince bir şefkatle ilgilenir. Senin elini görmediğin yollarla rızıklandırır.",
     "quran_surahs": "En'am (6:103), Yusuf (12:100), Hac (22:63).",
-    "hadith": "Hz. Yusuf'un kıssası, El-Latîf'in işleyişinin en büyük Kur'an örneğidir — terk gibi görünen şey ince ilahi bir tertipto.",
+    "hadith": "\"Kulum, üzerine farz kıldığım şeylerden daha sevimli bir şeyle Bana yaklaşamaz. Kulum nafilelerle Bana yaklaşmaya devam eder, nihayet onu severim. Onu sevince, onun işittiği kulağı, gördüğü gözü, vurduğu eli ve yürüdüğü ayağı olurum.\" — Buhari (Hadis Kudsi).",
     "why_it_matters": "El-Latîf şu an hayatının perde arkasında çalışıyor. Beklenmedik yardım, doğru anda gerçekleşen buluşma — hepsi El-Latîf.",
     "reflection": "Hayatına geriye dön ve El-Latîf'in ince işlerini fark et. Sonra O'nun şimdinde de aynı şekilde çalıştığına güven."
   },
@@ -275,14 +275,14 @@
   "40": {
     "extended_meaning": "Hasebe (حَسَبَ) kökünden; hesap tutmak demektir. El-Hasîb, her şeyi hesaba katan ve kendisine güvenenlere yeten Hesap Tutici'dir.",
     "quran_surahs": "Nisâ (4:6, 4:86), Ahzâb (33:39): 'Hesap görücü olarak Allah yeter.'",
-    "hadith": "\"Hasbünallahü ve ni'mel-vekîl\" — Hz. İbrâhim ateşe atılırken, Peygamber Uhud günü söyledi. — Buhari",
+    "hadith": "\"Kıyamet gününde Ademoğlunun iki ayağı beş şeyden sorulmadan yerinden kımıldamayacak: Ömrünü nerede tükettiğinden; gençliğini nasıl geçirdiğinden; malını nereden kazanıp nereye harcadığından; ve ilmiyle ne yaptığından.\" — Tirmizi (sahih).",
     "why_it_matters": "El-Hasîb, her nimeti, her haksızlığı, her sabır anını eksiksiz kaydeder. Bu dünyada adalete kavuşamayan müminin açık bir dosyası mevcuttur.",
     "reflection": "Hayat haksız gelince 'Hasbünallah' de. Anlamı: Allah hesap tutucumdur — ve O'nun hesapları mükemmeldir."
   },
   "41": {
     "extended_meaning": "Celle (جَلَّ) kökünden; heybetli olmak demektir. El-Celîl, iki tür azameti bir arada taşır: kudretin azameti ve her sıfatta mükemmelliğin azameti.",
     "quran_surahs": "Bu isim Tirmizi hadisinden gelmektedir. Rahman (55:27): 'Zü'l-Celâli ve'l-İkrâm.'",
-    "hadith": "\"Allah'a en sevimli sözler dörttür: Sübhanallah, Elhamdülillah, La ilahe illallah ve Allahu Ekber. Hangisiyle başlarsan başla, zararı olmaz.\" — Müslim (Semure b. Cündeb'den).",
+    "hadith": "\"İki kelime dilde hafif, mizanda ağır ve Ar-Rahman'a sevimlidir: Subhanallahi ve bihamdihi, Subhanallahil-Azim.\" — Buhari ve Müslim. El-Azim'in yüceltilmesi El-Jalil'in azametiyle örtüşür.",
     "why_it_matters": "El-Celîl'in azameti gerçek bir saygı ve huşu ister. Sonsuz mükemmellik karşısında kalbin gerçekten titremesi gerekir; bu, insan otoritesine sergilenen performatif teslimiyet değildir.",
     "reflection": "Namazında Allah'ın azametini hisset. Günde beş kez El-Celîl'in huzuruna çıktığında, kimin karşısında durduğunu bilerek dur."
   },
@@ -310,14 +310,14 @@
   "45": {
     "extended_meaning": "Vesi'a (وَسِعَ) kökünden; kuşatmak ve geniş olmak demektir. El-Vâsi', rahmeti, ilmi ve rızkı sınırsız olan Geniş Kuşatan'dır.",
     "quran_surahs": "9 kez. Bakara (2:115): 'Allah Vâsi' ve Alîm'dir.'",
-    "hadith": "\"Rahmetim her şeyi kuşatmıştır.\" — Kur'an 7:156",
+    "hadith": "\"Yüce Allah buyurdu: 'Kulum bir iyilik yapmayı niyet eder de yapmazsa, ona bir iyilik yazarım. Niyet eder ve yaparsa, on iyilikten yedi yüze kadar, hatta daha da çok yazarım. Kötülük yapmayı niyet eder de yapmazsa, ona bir iyilik yazarım.'\" — Buhari ve Müslim (Hadis Kudsi).",
     "why_it_matters": "El-Vâsi', ne kadar karmaşık olursa olsun durumunun O'nun kuşatma kapasitesinin dışında kalamayacağını gösterir.",
     "reflection": "Sorunların çok büyük göründüğünde El-Vâsi'i hatırla — O'nun kuşatıcı gücü en büyük sorununu karşılaştırıldığında küçük kılar."
   },
   "46": {
     "extended_meaning": "Hikme (حِكمة) kökünden; hikmetin en tam anlamıyla. El-Hakîm'in hikmeti, her ilahi kararın, emrin insanlar göremese bile mükemmel bir gerekçesi olduğu anlamına gelir.",
     "quran_surahs": "97 kez — en sık zikredilen isim; çoğunlukla El-Azîz ve El-Alîm ile.",
-    "hadith": "\"Allah'ın takdirindeki hikmeti kullarına meşakkat gibi görünse de bir rahmettir.\"",
+    "hadith": "\"Müslümana isabet eden yorgunluk, hastalık, üzüntü, keder, eziyet ve sıkıntıdan — hatta bir dikenin batmasından bile — Allah mutlaka onun günahlarını bununla bağışlar.\" — Buhari ve Müslim.",
     "why_it_matters": "El-Hakîm, hayatında rastlantı, keyfi acı ya da anlamsız güçlük olmadığı anlamına gelir. Her zorluk bir hikmet içerir.",
     "reflection": "Acı verici bir şey olduğunda 'El-Hakîm, bilmediğimi biliyor' de. Güven körlük değil — El-Hakîm'in karakterine dayanır."
   },
@@ -373,7 +373,7 @@
   "54": {
     "extended_meaning": "Metâne (مَتَانَة) kökünden; sertlik ve yenilmezlik demektir. El-Metîn'in gücü mutlak sağlamlıktadır — aşınamaz, sarsılamaz.",
     "quran_surahs": "Zâriyât (51:58): 'Allah çok rızık verendir, güç ve kuvvet sahibidir, El-Metîn'dir.'",
-    "hadith": "\"Allah uyumaz ve O'nun uyuması yakışık almaz. Teraziyi indirir ve kaldırır.\" — Müslim",
+    "hadith": "\"Deveni bağla, sonra Allah'a tevekkül et.\" — Tirmizi (Enes ibn Malik'ten, hasen). Elinizden geleni yaptıktan sonra, kararlılığı sarsılmaz Al-Mateen'e güvenin.",
     "why_it_matters": "El-Metîn'in sağlamlığı, O'nun vaatlerinin sarsılmaz olduğu anlamına gelir — rızık vaadi, diriliş vaadi, sabredenler için mükâfat vaadi.",
     "reflection": "Allah'ın vaadine şüphe gelince El-Metîn'e tutun. O'nun sözü dağlardan daha sağlamdır."
   },
@@ -394,14 +394,14 @@
   "57": {
     "extended_meaning": "Ahsâ (أَحْصَى) kökünden; saymak ve kayıt altına almak demektir. El-Muhsî, varoluştaki her şeyi saydı ve katalogladı — her atomu, her kalp atışını, her ameli.",
     "quran_surahs": "Meryem (19:94), Cin (72:28).",
-    "hadith": "\"Kıyamet günü her kişi hesabını görür — zerre ağırlığı şey bile atlanmaz.\" — Kur'an 99:7-8",
+    "hadith": "\"Ameller, pazartesi ve perşembe günleri Allah'a arz edilir. Ben amellerimin oruçlu iken arz edilmesini severim.\" — Müslim (Ebu Hüreyre'den). El-Muhsi'nin hesabı her hafta iki kez Allah'a sunulur.",
     "why_it_matters": "El-Muhsî'nin hesabı hiçbir şeyin kaybolmadığı anlamına gelir. Unutulan her iyilik, şikâyetsizce katlanılan her sıkıntı — hepsi sayılmıştır.",
     "reflection": "Amellerinin sonsuz bir hassasiyetle kaydedildiğini bil. Hesabını sana faydalı olacak şeylerle doldur."
   },
   "58": {
     "extended_meaning": "Bede'e (بَدَأَ) kökünden; başlamak demektir. El-Mübdi', öncü ve model olmaksızın yoktan yaratmayı başlatan mutlak Başlatıcı'dır.",
     "quran_surahs": "Burûc (85:13), Yûnus (10:34).",
-    "hadith": "\"Allah vardı ve O'ndan önce hiçbir şey yoktu.\" — Buhari",
+    "hadith": "\"Allah yaratılışı yarattığında, Arş'ın üstünde Kendinde olan bir Kitaba yazdı: 'Rahmetim gazabıma galip gelir.'\" — Buhari ve Müslim. Tüm varlığı başlatırken El-Mubdi'nin ilk kararı, rahmeti temel olarak kaydetmekti.",
     "why_it_matters": "El-Mübdi', hayatında her an yeni bir şeye başlayabilir. Başarısızlığın ardından yeni bir başlangıç, kayıptan sonra yeni bir bölüm.",
     "reflection": "Durumunu yeni bir başlangıç için çok ileri gidilmiş olarak asla tanımlama. El-Mübdi' yoktan başlar."
   },
@@ -436,7 +436,7 @@
   "63": {
     "extended_meaning": "Kâme (قَامَ) kökünden; ayakta durmak ve sürdürmek demektir. El-Kayyûm, bizzat kendi kendine var olan ve tüm yaratılışı ayakta tutan Diri ve Sürdürücü'dür.",
     "quran_surahs": "3 kez. Her zaman El-Hayy ile birlikte. Ayetü'l-Kürsî (2:255), Al-i İmran (3:2), Tâhâ (20:111).",
-    "hadith": "\"Allah gökleri ve yeri yerinden kımıldamasınlar diye tutar.\" — Kur'an 35:41",
+    "hadith": "\"Her farz namazdan sonra Ayet'el-Kürsî'yi okuyan kimse, ölüm dışında cennete girmesini engelleyen hiçbir şey kalmaz.\" — Nesai (İbn Hibban tarafından doğrulanmış). Ayetel Kürsü 'Allahu laa ilahe illa Huval-Hayyül-Kayyüm' ile başlar.",
     "why_it_matters": "El-Kayyûm, tam şu an kalbini, nefesini, bilincini ayakta tutuyor. Var oluşun, bir kez yaşanan bir olay değil, süregelen bir tutma eylemidir.",
     "reflection": "Kriz anlarında 'Ya Hayyu ya Kayyûm' tekrarla. Bu isim, özellikle sıkıntıdakilerin dua ile karşılık bulmasıyla ilişkilendirilir."
   },
@@ -464,14 +464,14 @@
   "67": {
     "extended_meaning": "Ahad (أَحَد) kökünden; eşsiz teklik demektir. El-Ehad, El-Vâhid'in birliğinin ötesine geçer — mutlak biçimde eşsizdir; O'nun dengi, eşiti ya da ait olduğu bir kategori yoktur.",
     "quran_surahs": "İhlâs suresi (112:1): 'De ki: O Allah birdir.' Bu sure Kur'an'ın üçte birine denktir.",
-    "hadith": "\"Kim 'Kul hüvallahü ehad'ı on kez okursa Allah ona cennette bir ev inşa eder.\" — Ahmed",
+    "hadith": "\"Peygamber ﷺ namazında sadece İhlas suresini okuyan bir adam duydu ve şöyle dedi: 'Hak etti.' Sordular: 'Ne hak etti?' Dedi: 'Cenneti.'\" — Buhari (Edebul-Müfred'de) ve Ahmed (sahih).",
     "why_it_matters": "El-Ehad hiçbir şeyle kıyaslanamaz — ne bir babayla, ne bir kral, ne de bir güçle. Her insan kavramı O'nu kavramakta yetersiz kalır.",
     "reflection": "Her namazdan sonra ve uyumadan önce İhlâs suresini oku. Her okuma, El-Ehad'ın mutlak tekliğinin bir ilanıdır."
   },
   "68": {
     "extended_meaning": "Samede (صَمَدَ) kökünden; ezelî ve kendi kendine yetmek demektir. Es-Samed, tüm yaratılışın ihtiyaçlarını O'na yönelttiği, kendisinin ise hiç kimseye ihtiyaç duymadığı Sığınak'tır.",
     "quran_surahs": "İhlâs suresi (112:2): 'Allah Es-Samed'tir.' — Kur'an'ın en derin iki kelimelik ifadelerinden biri.",
-    "hadith": "\"Ey Es-Samed, Senin dengine sahip yoktur.\"",
+    "hadith": "\"Bir adam cemaate imam olarak namaz kıldırıyor ve her namazı İhlas suresiyle bitiriyordu. Bunu sorduklarında: 'Çünkü bu Ar-Rahman'ı tarif eder, ben de onu okumayı seviyorum' dedi. Peygamber ﷺ: 'Ona söyleyin ki Allah onu seviyor' buyurdu.\" — Buhari ve Müslim.",
     "why_it_matters": "Es-Samed, her insan varlığının servet, ilişki ve statü peşinde koşarken aslında aradığı şeydir — tam bağımsızlık ve mutlak tatmin. Bunu yalnızca O taşır.",
     "reflection": "Dünyadan çaresizce bir şey aradığını fark edince sor: Es-Samed'i yanlış yerde mi arıyorum?"
   },
@@ -485,7 +485,7 @@
   "70": {
     "extended_meaning": "İktedere (اقْتَدَرَ) kökünden; tam otoriteyle güç kullanmak demektir. El-Muktedir, gücünü mutlak ve karşı konulamaz otoriteyle kullanan Her Şeye Gücü Yeten'dir.",
     "quran_surahs": "4 kez. Kehf (18:45), Kamer (54:42, 54:55).",
-    "hadith": "\"Güçlü mümin, Allah katında zayıf müminden daha sevimlidir.\" — Müslim",
+    "hadith": "\"Allah zalime mühlet verir. Ama onu yakaladığında bırakmaz.\" — Buhari ve Müslim (Ebu Musa el-Eş'ari'den). El-Muktedir'in gücü, tam olarak kullanıldığında mutlak ve kaçınılmazdır.",
     "why_it_matters": "El-Muktedir'in gücü teorik değildir. Tarih, yıkılan imparatorlukları, yarılan denizleri gösterir — hepsi O'nun tam anlamıyla uyguladığı otoriteyle.",
     "reflection": "El-Muktedir'in hayatında ve dünyada aktif biçimde güç kullandığına inan."
   },
@@ -541,7 +541,7 @@
   "78": {
     "extended_meaning": "Te'âlâ (تَعَالَى) kökünden; yüce olmak demektir. El-Müteâl, bizzat kendi zatıyla yücedir — aşkınlığı, Zatına özgü olup yaratılış ya da ibadet tarafından verilmez.",
     "quran_surahs": "Ra'd (13:9), Mü'minun (23:92).",
-    "hadith": "\"Subhânehû, yakıştırdıklarının üstünde çok yüce.\" — Kur'an 17:43",
+    "hadith": "\"Rükunuzda 'Subhane Rabbiyel-Azim' (Yüce Rabbime hamd olsun) deyin üç kez. Secdenizde 'Subhane Rabbiyel-A'la' (En Yüce Rabbime hamd olsun) deyin üç kez.\" — Ebu Davud (sahih, Ukbe ibn Amir'den).",
     "why_it_matters": "El-Müteâl, her insan büyüklük kavramının ötesindedir. O'nun doğasından bir şeyi kavradığını düşündüğünde, O bundan daha yücedir.",
     "reflection": "Allah'ı insan kategorilerine indirgemekten kalbini koru. El-Müteâl tüm çerçeveleri aşar. O'na açık ellerle yaklaş."
   },
@@ -583,7 +583,7 @@
   "84": {
     "extended_meaning": "Meleke (مَلَكَ) ile Mülk'ün (مُلك) birleşiminden oluşur. Mâlikü'l-Mülk, tüm egemenliğin ebedi sahibidir — dilediğine hükümdarlık verir, dilediğinden alır.",
     "quran_surahs": "Âl-i İmran (3:26): 'De ki: Allahım, Hükümdarlığın Sahibi.'",
-    "hadith": "\"Allahım, Hükümdarlığın Sahibi…\" — Kur'an'daki dua (3:26).",
+    "hadith": "\"Allah, Kıyamet gününde gökleri dürecek ve sonra Sağ Eliyle tutacak. Ardından: 'Ben Melikim. Zalimler nerede? Kibirliler nerede?' diyecek.\" — Buhari ve Müslim (İbn Ömer'den).",
     "why_it_matters": "Mâlikü'l-Mülk, her insan 'hükümdarının', hükümetin ve otoritenin gücü gerçek sahibinden kiralık olarak tuttuğu anlamına gelir.",
     "reflection": "Sahip olduğun güç ya da etki ne olursa olsun, Mâlikü'l-Mülk'ün mülkünü geçici olarak teslim aldığını hatırla."
   },
@@ -604,7 +604,7 @@
   "87": {
     "extended_meaning": "Ceme'a (جَمَعَ) kökünden; toplamak ve bir araya getirmek demektir. El-Câmi', kıyamet günü tüm yaratılışı toplayacak ve dağılanları bir araya getirecek Toplayıcı'dır.",
     "quran_surahs": "Âl-i İmran (3:9): 'Rabbimiz, şüphesiz insanları hakında şüphe olmayan bir günde toplayacaksın.'",
-    "hadith": "\"Ben Hâşir'im — insanlar ayaklarım dibinde toplanır.\" — Buhari",
+    "hadith": "\"İnsanlar, Kıyamet gününde beyaz, saf bir düzlükte — ince saf ekmek gibi — hiç kimse için işaret olmaksızın bir araya toplanacak.\" — Buhari ve Müslim (Sehl ibn Sa'd el-Saidi'den).",
     "why_it_matters": "El-Câmi', Âdem'den son insana kadar yaşamış her ruhu tek bir düzlükte toplayacak.",
     "reflection": "Toplanma kesindir. O topluluğa hazırlanarak yaşa."
   },
@@ -660,7 +660,7 @@
   "95": {
     "extended_meaning": "Bede'a (بَدَعَ) kökünden; benzersiz yaratmak demektir. El-Bedî', evreni önceki model, şablon ya da malzeme olmaksızın yaratan Orijinal Yaratıcı'dır.",
     "quran_surahs": "Bakara (2:117): 'Göklerin ve yerin yaratıcısı — bir şeye hükmettiğinde yalnızca 'Ol' der, o da oluverir.'",
-    "hadith": "\"Ol, der; oluverir.\" — El-Bedî'in yaratıcı gücünün hammadde gerektirmediğinin Kur'an'daki ifadesi.",
+    "hadith": "\"Allah'ın yarattığı ilk şey Kalem'di. Ona dedi: 'Yaz.' O: 'Ne yazayım, Ya Rabbim?' dedi. Dedi: 'Kıyamete kadar her şeyin kaderini yaz.'\" — Ebu Davud (El-Hakim ve diğerleri tarafından doğrulanmıştır).",
     "why_it_matters": "El-Bedî', insanlığın henüz harikalarını tüketemediği olağanüstü yenilik ve güzellikte bir evren yarattı.",
     "reflection": "Gerçek bir güzellikle karşılaştığında El-Bedî'i hatırla. Güzellik O'nun icadıdır."
   },
@@ -681,7 +681,7 @@
   "98": {
     "extended_meaning": "Raşede (رَشَدَ) kökünden; hikmet ve olgunlukla doğru yola rehberlik etmek demektir. Er-Reşîd, tüm yaratılışın işlerini mükemmel bir hikmetle doğru hedefe yönlendirir.",
     "quran_surahs": "Bu isim Tirmizi hadisinden gelmektedir.",
-    "hadith": "\"Kim Allah'tan korkarsa, Allah ona bir çıkış yolu açar ve onu beklemediği yerden rızıklandırır.\" — Kur'an 65:2-3. Peygamber ﷺ buyurdu: 'Takva — işte o hidayettir.' — Tirmizi",
+    "hadith": "\"Her çocuk fıtrat üzere doğar (hakikate doğal eğilim). Sonra annesi babası onu Yahudi, Hristiyan veya Mecusi yapar.\" — Buhari ve Müslim. Er-Reşid, doğuştan itibaren her insan ruhuna rehberliğini yerleştirmiştir.",
     "why_it_matters": "Er-Reşîd'in evren işlerini yönetmesi, görünürde kaosun içinden bile hikmetli sonuçlara gider. Görünen düzensizlik, aslında rehberli bir süreçtir.",
     "reflection": "Kendi planların çöktüğünde Er-Reşîd'in planına güven. O, planlamanın ulaşamayacağı bir hikmetle işlerini yürütür."
   },
