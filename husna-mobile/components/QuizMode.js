@@ -22,41 +22,42 @@ const translations = {
   fr: require('../data/translations/fr.json'),
 };
 
-const TOTAL_QUESTIONS = 10;
+const TOTAL_QUESTIONS = namesData.length; // all 99
 const MAX_LIVES = 3;
+const STREAK_LIFE_BONUS = 15;
 
 function shuffle(arr) {
   return [...arr].sort(() => Math.random() - 0.5);
 }
 
 function buildQuestions(lang) {
-  const langMap = translations[lang] ?? translations['en'];
-  const pool = shuffle(namesData).slice(0, TOTAL_QUESTIONS);
+  const enMap = translations['en'];
+  const langMap = translations[lang] ?? enMap;
+  const getMeaning = (id) => langMap[String(id)] ?? enMap[String(id)] ?? '—';
 
-  return pool.map(correct => {
+  return shuffle(namesData).map(correct => {
     const isArabicToMeaning = Math.random() > 0.5;
     const wrongs = shuffle(namesData.filter(n => n.id !== correct.id)).slice(0, 3);
     const options = shuffle([correct, ...wrongs]).map(n => ({
       id: n.id,
-      text: isArabicToMeaning ? (langMap[String(n.id)] ?? n.transliteration) : n.arabic,
+      text: isArabicToMeaning ? getMeaning(n.id) : n.arabic,
       sub: isArabicToMeaning ? null : n.transliteration,
       correct: n.id === correct.id,
     }));
 
     return {
       type: isArabicToMeaning ? 'arabic_to_meaning' : 'meaning_to_arabic',
-      prompt: isArabicToMeaning ? correct.arabic : (langMap[String(correct.id)] ?? correct.transliteration),
+      prompt: isArabicToMeaning ? correct.arabic : getMeaning(correct.id),
       promptSub: isArabicToMeaning ? correct.transliteration : null,
       options,
-      correctId: correct.id,
     };
   });
 }
 
 function starsForScore(score) {
-  if (score >= 9) return 3;
-  if (score >= 6) return 2;
-  if (score >= 3) return 1;
+  if (score >= 80) return 3;
+  if (score >= 60) return 2;
+  if (score >= 40) return 1;
   return 0;
 }
 
@@ -76,7 +77,7 @@ const ResultScreen = ({ score, onRestart }) => {
 
         <View style={styles.scoreCircle}>
           <Text style={styles.scoreNumber}>{score}</Text>
-          <Text style={styles.scoreTotal}>/ {TOTAL_QUESTIONS}</Text>
+          <Text style={styles.scoreTotal}>/{TOTAL_QUESTIONS}</Text>
         </View>
 
         <View style={styles.starsRow}>
@@ -112,12 +113,14 @@ const QuizMode = ({ isActive }) => {
     qIndex: 0,
     lives: MAX_LIVES,
     score: 0,
+    streak: 0,
+    lifeGained: false,
     selected: null,
     showResult: false,
   }), [lang]);
 
   const [state, setState] = useState(freshState);
-  const { questions, qIndex, lives, score, selected, showResult } = state;
+  const { questions, qIndex, lives, score, streak, lifeGained, selected, showResult } = state;
 
   const shakeAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -131,7 +134,7 @@ const QuizMode = ({ isActive }) => {
     ]).start();
   };
 
-  const advance = useCallback((isCorrect, nextLives) => {
+  const advance = useCallback((nextLives) => {
     Animated.sequence([
       Animated.timing(fadeAnim, { toValue: 0, duration: 200, useNativeDriver: true }),
       Animated.timing(fadeAnim, { toValue: 1, duration: 200, useNativeDriver: true }),
@@ -142,7 +145,7 @@ const QuizMode = ({ isActive }) => {
         if (nextLives <= 0 || s.qIndex + 1 >= TOTAL_QUESTIONS) {
           return { ...s, selected: null, showResult: true };
         }
-        return { ...s, selected: null, qIndex: s.qIndex + 1 };
+        return { ...s, selected: null, lifeGained: false, qIndex: s.qIndex + 1 };
       });
     }, 700);
   }, [fadeAnim]);
@@ -152,27 +155,31 @@ const QuizMode = ({ isActive }) => {
 
     let nextLives = lives;
     let nextScore = score;
+    let nextStreak = streak;
+    let gainedLife = false;
 
     if (option.correct) {
       nextScore = score + 1;
+      nextStreak = streak + 1;
+      if (nextStreak % STREAK_LIFE_BONUS === 0 && lives < MAX_LIVES) {
+        nextLives = lives + 1;
+        gainedLife = true;
+      }
     } else {
       shake();
       nextLives = lives - 1;
+      nextStreak = 0;
     }
 
-    setState(s => ({ ...s, selected: option.id, lives: nextLives, score: nextScore }));
-    advance(option.correct, nextLives);
-  }, [selected, lives, score, advance]);
+    setState(s => ({ ...s, selected: option.id, lives: nextLives, score: nextScore, streak: nextStreak, lifeGained: gainedLife }));
+    advance(nextLives);
+  }, [selected, lives, score, streak, advance]);
 
-  const restart = useCallback(() => {
-    setState(freshState());
-  }, [freshState]);
+  const restart = useCallback(() => setState(freshState()), [freshState]);
 
   if (!isActive) return null;
 
-  if (showResult) {
-    return <ResultScreen score={score} onRestart={restart} />;
-  }
+  if (showResult) return <ResultScreen score={score} onRestart={restart} />;
 
   const q = questions[qIndex];
 
@@ -208,13 +215,24 @@ const QuizMode = ({ isActive }) => {
           ))}
         </View>
         <Text style={styles.progress}>{qIndex + 1} / {TOTAL_QUESTIONS}</Text>
-        <Text style={styles.scoreDisplay}>⭐ {score}</Text>
+        <View style={styles.rightStats}>
+          {streak >= 3 && <Text style={styles.streakDisplay}>🔥 {streak}</Text>}
+          <Text style={styles.scoreDisplay}>⭐ {score}</Text>
+        </View>
       </View>
 
       {/* Progress bar */}
       <View style={styles.progressBarBg}>
         <View style={[styles.progressBarFill, { width: `${((qIndex + 1) / TOTAL_QUESTIONS) * 100}%` }]} />
       </View>
+
+      {/* +1 Life banner */}
+      {lifeGained && (
+        <View style={styles.lifeBanner}>
+          <Ionicons name="heart" size={14} color="#ff453a" />
+          <Text style={styles.lifeBannerText}> +1 Life — {STREAK_LIFE_BONUS} in a row!</Text>
+        </View>
+      )}
 
       {/* Question */}
       <Animated.View style={[styles.questionCard, { opacity: fadeAnim, transform: [{ translateX: shakeAnim }] }]}>
@@ -228,7 +246,7 @@ const QuizMode = ({ isActive }) => {
             <Text style={styles.questionTranslit}>{q.promptSub}</Text>
           </>
         ) : (
-          <Text style={styles.questionMeaning}>{q.prompt}</Text>
+          <Text style={styles.questionMeaning}>"{q.prompt}"</Text>
         )}
       </Animated.View>
 
@@ -237,10 +255,7 @@ const QuizMode = ({ isActive }) => {
         {q.options.map(opt => (
           <TouchableOpacity
             key={opt.id}
-            style={[styles.option, {
-              backgroundColor: optionBg(opt),
-              borderColor: optionBorder(opt),
-            }]}
+            style={[styles.option, { backgroundColor: optionBg(opt), borderColor: optionBorder(opt) }]}
             onPress={() => handleOption(opt)}
             activeOpacity={0.75}
           >
@@ -259,7 +274,6 @@ const QuizMode = ({ isActive }) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   container: { flex: 1, paddingHorizontal: 20, paddingTop: 16 },
 
@@ -269,22 +283,31 @@ const styles = StyleSheet.create({
   },
   livesRow: { flexDirection: 'row' },
   progress: { fontSize: 14, color: '#b0b3b8', fontWeight: '600' },
+  rightStats: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  streakDisplay: { fontSize: 13, color: '#ff9f0a', fontWeight: '700' },
   scoreDisplay: { fontSize: 14, color: '#d4af37', fontWeight: '700' },
 
   progressBarBg: {
     height: 4, backgroundColor: 'rgba(255,255,255,0.08)',
-    borderRadius: 2, marginBottom: 24,
+    borderRadius: 2, marginBottom: 12,
   },
   progressBarFill: {
-    height: 4, backgroundColor: '#d4af37',
-    borderRadius: 2,
+    height: 4, backgroundColor: '#d4af37', borderRadius: 2,
   },
+
+  lifeBanner: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+    backgroundColor: 'rgba(255,69,58,0.12)',
+    borderRadius: 8, paddingVertical: 6, paddingHorizontal: 12, marginBottom: 10,
+    borderWidth: 1, borderColor: 'rgba(255,69,58,0.3)',
+  },
+  lifeBannerText: { color: '#ff453a', fontSize: 13, fontWeight: '700' },
 
   questionCard: {
     backgroundColor: 'rgba(255,255,255,0.04)',
-    borderRadius: 20, padding: 24, marginBottom: 20,
+    borderRadius: 20, padding: 24, marginBottom: 16,
     borderWidth: 1, borderColor: 'rgba(212,175,55,0.2)',
-    alignItems: 'center', minHeight: 160, justifyContent: 'center',
+    alignItems: 'center', minHeight: 140, justifyContent: 'center',
   },
   questionType: {
     fontSize: 11, color: '#d4af37', fontWeight: '700',
@@ -292,24 +315,18 @@ const styles = StyleSheet.create({
   },
   questionArabic: { fontSize: 48, color: '#d4af37', textAlign: 'center', marginBottom: 6 },
   questionTranslit: { fontSize: 16, color: '#b0b3b8' },
-  questionMeaning: { fontSize: 18, color: '#f8f9fa', textAlign: 'center', lineHeight: 26 },
+  questionMeaning: { fontSize: 20, color: '#f8f9fa', textAlign: 'center', lineHeight: 28, fontStyle: 'italic' },
 
-  optionsGrid: {
-    flexDirection: 'row', flexWrap: 'wrap', gap: 12,
-  },
+  optionsGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   option: {
     width: (width - 52) / 2,
-    borderRadius: 16, padding: 16,
-    borderWidth: 1,
+    borderRadius: 16, padding: 16, borderWidth: 1,
     minHeight: 80, justifyContent: 'center', alignItems: 'center',
   },
-  optionMeaning: {
-    fontSize: 13, color: '#e0e0e0', textAlign: 'center', lineHeight: 18,
-  },
+  optionMeaning: { fontSize: 13, color: '#e0e0e0', textAlign: 'center', lineHeight: 18 },
   optionArabic: { fontSize: 26, color: '#d4af37', textAlign: 'center', marginBottom: 4 },
   optionTranslit: { fontSize: 11, color: '#b0b3b8', textAlign: 'center' },
 
-  // Result screen
   resultContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
   resultCard: {
     backgroundColor: '#1E1E1E', borderRadius: 24, padding: 32,
@@ -322,13 +339,13 @@ const styles = StyleSheet.create({
   scoreCircle: {
     flexDirection: 'row', alignItems: 'flex-end',
     backgroundColor: 'rgba(212,175,55,0.1)',
-    borderRadius: 60, width: 120, height: 120,
+    borderRadius: 60, width: 130, height: 120,
     justifyContent: 'center', alignItems: 'center',
     borderWidth: 2, borderColor: 'rgba(212,175,55,0.3)',
     marginBottom: 24,
   },
-  scoreNumber: { fontSize: 52, fontWeight: '800', color: '#d4af37' },
-  scoreTotal: { fontSize: 20, color: '#b0b3b8', marginBottom: 8, marginLeft: 2 },
+  scoreNumber: { fontSize: 48, fontWeight: '800', color: '#d4af37' },
+  scoreTotal: { fontSize: 18, color: '#b0b3b8', marginBottom: 6, marginLeft: 2 },
   starsRow: { flexDirection: 'row', marginBottom: 20 },
   resultMessage: { fontSize: 15, color: '#b0b3b8', textAlign: 'center', lineHeight: 22, marginBottom: 28 },
   restartBtn: {
