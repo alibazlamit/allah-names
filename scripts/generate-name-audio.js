@@ -32,7 +32,8 @@ function stripDiacritics(text) {
 }
 
 function buildSSML(text) {
-  const clean = stripDiacritics(text);
+  // Only replace wasla alef (ٱ → ا) — keep harakat so Azure pronounces with proper tajweed
+  const clean = text.replace(/ٱ/g, 'ا');
   return `<speak version='1.0' xml:lang='ar-SA'><voice name='${VOICE}'><prosody rate='-10%'>${clean}</prosody></voice></speak>`;
 }
 
