@@ -1,7 +1,7 @@
 {
   "1": {
     "extended_meaning": "Derived from the Arabic root Rahmah (رحمة), meaning mercy and compassion. Ar-Rahman refers to Allah's all-encompassing mercy that envelops every created being — believer and disbeliever, human and animal alike. It is a mercy that existed before creation itself.",
-    "quran_surahs": "Opens every surah of the Quran (Bismillah). Named entirely in Surah Ar-Rahman (55). Also prominent in Al-Fatiha (1:3).",
+    "quran_surahs": "Opens 113 of 114 surahs (Bismillah). The only exception is Surah At-Tawbah (9), which has no Bismillah. Named entirely in Surah Ar-Rahman (55). Also prominent in Al-Fatiha (1:3).",
     "hadith": "\"Allah is more merciful to His servants than a mother is to her child.\" — Bukhari & Muslim",
     "why_it_matters": "Knowing this name anchors the believer in hope. No matter how great your sin, Allah's mercy is infinitely greater. It reminds us that the default state of our Lord is mercy, not punishment.",
     "reflection": "Start every action — eating, working, studying — with Bismillah Ar-Rahman Ar-Raheem. Let this name be what you call upon when you feel crushed by guilt or despair."
@@ -43,8 +43,8 @@
   },
   "7": {
     "extended_meaning": "From Haymana (هيمن), meaning to oversee, protect, and guard. Al-Muhaymin is the supreme guardian who watches over all creation with perfect awareness, protecting what He wills. He is the witness over all affairs.",
-    "quran_surahs": "Surah Al-Hashr (59:23). The root appears in Al-Ma'idah (5:48) describing the Quran as a guardian over previous scriptures.",
-    "hadith": "\"Allah is the Guardian of those who believe.\" — Quran 2:257, referenced extensively in prophetic traditions on tawakkul.",
+    "quran_surahs": "Surah Al-Hashr (59:23). Also Al-Baqarah (2:257): 'Allah is the Guardian (Waliyy) of those who believe' — the root of guardianship runs throughout. Al-Ma'idah (5:48) uses this root to describe the Quran's guardianship over earlier scriptures.",
+    "hadith": "\"Be mindful of Allah and He will protect you. Be mindful of Allah and you will find Him before you. When you ask, ask Allah; when you seek help, seek it from Allah.\" — Tirmidhi (authenticated from Ibn Abbas)",
     "why_it_matters": "Nothing is outside His watch. Al-Muhaymin sees every hidden act of goodness and every concealed wrongdoing. This name is both a comfort and a call to accountability.",
     "reflection": "When you feel unprotected or watched by the wrong eyes, turn to Al-Muhaymin. He is the true overseer. Live as though He — and only He — is watching you always."
   },
@@ -128,7 +128,7 @@
   "19": {
     "extended_meaning": "From Ilm (عِلم), meaning knowledge. Al-Aleem's knowledge is infinite, perfect, and eternal — encompassing the past, present, and future; the visible and the hidden; the spoken and the unuttered thought. Nothing exists outside His knowledge.",
     "quran_surahs": "The most frequently paired attribute in the Quran — appearing 140+ times. Surah Al-Baqarah (2:29), Al-An'am (6:59), Luqman (31:34), and throughout every juz.",
-    "hadith": "\"Allah knows the treachery of the eyes and what the hearts conceal.\" — Quran 40:19",
+    "hadith": "\"O Allah, I ask You for beneficial knowledge, good provision, and accepted deeds.\" — Ibn Majah (authenticated). The Prophet ﷺ recited this every morning, turning to Al-Aleem for knowledge that truly benefits.",
     "why_it_matters": "Al-Aleem knows every act of hidden goodness that no one else saw, every sincere tear you shed in private, every struggle you carried without complaint. You are fully known and fully seen.",
     "reflection": "Live for the audience of Al-Aleem, not people. Your hidden good deeds matter. Your private sins are known too — let both truths shape how you live in secret."
   },
@@ -163,7 +163,7 @@
   "24": {
     "extended_meaning": "From Azza (عَزَّ), meaning to give honor and might. Al-Mu'izz is the bestower of honor — He gives dignity and elevation to whoever He wills. The honor He gives cannot be stripped away by any human being.",
     "quran_surahs": "Al-Imran (3:26): 'You give honor to whom You will and You humiliate whom You will.' This name comes from the Tirmidhi Hadith listing the 99 names.",
-    "hadith": "\"Honor belongs to Allah, His Messenger, and the believers.\" — Quran 63:8",
+    "hadith": "\"Whoever humbles himself for the sake of Allah, Allah will raise him — so that he considers himself small while people consider him great.\" — Ibn Majah (authenticated). True honor from Al-Mu'izz comes through humility.",
     "why_it_matters": "If you are seeking honor through pleasing people, compromising your deen, or accumulating status — you are asking the wrong source. Only Al-Mu'izz grants lasting honor.",
     "reflection": "Choose obedience to Allah even when it costs you worldly status. Al-Mu'izz will compensate you with honor that no one can take away."
   },
@@ -198,7 +198,7 @@
   "29": {
     "extended_meaning": "From Adl (عَدْل), meaning balance and perfect equity. Al-Adl is absolute justice itself — not just a judge who is just, but the very embodiment of justice. His decisions, His decrees, and His laws are perfectly equitable without a shade of unfairness.",
     "quran_surahs": "The Quran commands justice in Al-Nahl (16:90) and Al-Ma'idah (5:8). While Al-Adl as a name comes from Hadith, divine justice is central to nearly every Quranic discussion.",
-    "hadith": "\"Allah will not wrong anyone even by the weight of a mote of dust.\" — Quran 4:40",
+    "hadith": "\"Beware of injustice, for injustice will be darkness upon darkness on the Day of Resurrection.\" — Muslim (from Jabir ibn Abdullah). Al-Adl guarantees that every injustice is accounted for.",
     "why_it_matters": "Nothing in your life — no suffering, no loss, no apparent unfairness — escapes Al-Adl's perfect accounting. Every moment of injustice you experienced is documented and will be balanced.",
     "reflection": "Be a vessel of Al-Adl's justice. Wherever you have power — over family, employees, subordinates — let this name govern how you treat others."
   },
@@ -212,14 +212,14 @@
   "31": {
     "extended_meaning": "From Khabara (خَبَرَ), meaning to be fully aware and informed. Al-Khabir's awareness penetrates to the inner reality of all things — the hidden intentions, the secret states, the unseen dynamics. He knows not just what but why.",
     "quran_surahs": "45 times in the Quran, often paired with Al-Aleem and Al-Latif. Surah Al-An'am (6:18): 'He is the Subtle, the Acquainted.' Luqman (31:34).",
-    "hadith": "\"Indeed Allah knows what the eyes betray and what the hearts conceal.\" — Quran 40:19",
+    "hadith": "\"Surely Allah does not look at your forms or your wealth, but He looks at your hearts and your deeds.\" — Muslim (from Abu Hurayrah). Al-Khabir sees the inner reality — what matters to Him is invisible to people.",
     "why_it_matters": "Al-Khabir knows the hidden dimension of every situation — the actual state of your heart, the real reason behind others' actions. Nothing is opaque to Him.",
     "reflection": "When you are confused about someone's motives or your own heart, ask Al-Khabir for clarity. He knows the inner reality of every situation and can guide your perception."
   },
   "32": {
     "extended_meaning": "From Hilm (حِلم), meaning clemency and restraint in the face of provocation. Al-Haleem does not rush to punish even when punishment is deserved. He gives people time — to reflect, to repent, to return — without being weak or indifferent.",
     "quran_surahs": "15 times in the Quran. Often paired with Al-Ghafur and Al-Shakur. Surah Al-Baqarah (2:225, 2:235), Al-Imran (3:155), Al-Nisa (4:12).",
-    "hadith": "\"If Allah were to punish people for their wrongdoing, He would not leave upon the earth any creature.\" — Quran 16:61",
+    "hadith": "\"Allah extends His hand at night to accept the repentance of the sinner by day, and extends His hand by day to accept the repentance of the sinner by night — until the sun rises from the west.\" — Muslim. Al-Haleem's patience in accepting repentance has no limit.",
     "why_it_matters": "Al-Haleem's forbearance is the reason you exist today despite your sins. He delays punishment as a mercy — giving you the space to turn back before it is too late.",
     "reflection": "Do not mistake Al-Haleem's patience for indifference. Use the time He gives you wisely — do not let His forbearance lull you into thinking your sins are unseen or unaccounted."
   },
@@ -254,7 +254,7 @@
   "37": {
     "extended_meaning": "From Kabura (كَبُرَ), meaning to be great. Al-Kabeer is great in Himself — His greatness is intrinsic, not conferred by anyone. Every greatness in creation is a borrowed shadow of His true greatness.",
     "quran_surahs": "6 times. Surah Al-Ra'd (13:9): 'Al-Kabeer, Al-Muta'al.' Al-Nisa (4:34), Al-Hajj (22:62), Saba (34:23).",
-    "hadith": "\"Allahu Akbar\" — the most repeated phrase in a Muslim's day — is an affirmation of Al-Kabeer's greatness over all else.",
+    "hadith": "\"The most beloved words to Allah are four: Subhanallah, Alhamdulillah, La ilaha illallah, Allahu Akbar. It does not matter with which one you begin.\" — Muslim (from Samura ibn Jundub). Allahu Akbar — Allah is greater — is the constant proclamation of Al-Kabeer's supremacy.",
     "why_it_matters": "When you say Allahu Akbar in prayer, you declare that everything in your life — your worries, ambitions, fears, desires — is smaller than Al-Kabeer. This is meant to transform how you live.",
     "reflection": "Say Allahu Akbar with full consciousness before every prayer. Place what troubles you on one side and Al-Kabeer on the other. Who is greater?"
   },
@@ -548,7 +548,7 @@
   "79": {
     "extended_meaning": "From Birr (بِرّ), meaning righteousness, kindness, and comprehensive goodness. Al-Barr is the source of all good — His goodness is vast, encompassing both the material and spiritual blessings He showers upon creation without being asked.",
     "quran_surahs": "Surah At-Tur (52:28): 'Indeed, He is Al-Barr, Al-Raheem.' The only occurrence of this divine name in the Quran.",
-    "hadith": "\"Do not curse time, for Allah is time (Al-Dahr).\" — Bukhari. Al-Barr's goodness flows through every moment of time.",
+    "hadith": "\"When you ask, ask Allah; when you seek help, seek it from Allah. Know that if the whole world gathered to benefit you with something, it could only benefit you with something Allah had already decreed for you.\" — Tirmidhi (authenticated from Ibn Abbas). All good — al-birr — flows only from Him.",
     "why_it_matters": "Al-Barr is the source of every good thing in your life — your health, your relationships, your faith, your intelligence. None of it originates with you; it flows from His goodness.",
     "reflection": "When you feel thankful for a blessing, trace it to its source: Al-Barr. Then let that gratitude translate into being a source of goodness to those around you."
   },
@@ -625,7 +625,7 @@
   "90": {
     "extended_meaning": "From Mana'a (مَنَعَ), meaning to prevent and withhold. Al-Maani' is the preventer who withholds harm from His servants and withholds from the universe what would destroy it. What He prevents cannot reach you; what He permits cannot be stopped.",
     "quran_surahs": "This name comes from the Tirmidhi Hadith. The concept of Allah preventing harm runs throughout: Al-Anbiya (21:43): 'Do they have gods who can defend them against Us?'",
-    "hadith": "\"What Allah opens for people, none can withhold; and what He withholds, none can release after Him.\" — Quran 35:2",
+    "hadith": "\"If the whole of creation gathered together to harm you with something, they could only harm you with something Allah had already written against you. And if they gathered to benefit you, they could only benefit you with something Allah had already written for you.\" — Tirmidhi (Ibn Abbas). Al-Maani' alone holds the keys.",
     "why_it_matters": "Al-Maani' is the ultimate protector. The harm that hasn't reached you — the accidents avoided, the diseases that passed — is evidence of Al-Maani's constant prevention.",
     "reflection": "When fear of harm overtakes you, remember Al-Maani'. Then take reasonable precautions and delegate the rest to the preventer who guards what you cannot."
   },
@@ -681,7 +681,7 @@
   "98": {
     "extended_meaning": "From Rashada (رَشَدَ), meaning to guide to the right path with wisdom and maturity. Ar-Rasheed guides all of creation's affairs with perfect wisdom and toward the right destination, even when the path is not visible to those being guided.",
     "quran_surahs": "This name comes from the Tirmidhi Hadith. The concept of rushd (right guidance and maturity) appears in Al-Baqarah (2:256): 'The right course has been made clear from error.' Al-Kahf (18:10).",
-    "hadith": "\"Verily, Allah's plan is more perfect for the believer than his plan for himself.\" — Hadith commentary context on divine guidance.",
+    "hadith": "\"Whoever fears Allah, Allah will make a way out for him and provide for him from where he does not expect.\" — Quran 65:2-3, citing the divine promise of Ar-Rasheed's guided path for the mindful believer. The Prophet ﷺ said: \"Taqwa — that is guidance.\" — Tirmidhi",
     "why_it_matters": "Ar-Rasheed's guidance of the universe's affairs moves toward wisdom outcomes even when they pass through apparent chaos. What looks like disorder is actually a guided process.",
     "reflection": "Trust Ar-Rasheed's plan when your own plans fall apart. He guides your affairs with a wisdom that your planning lacks. Surrender your agenda to His wiser script."
   },
