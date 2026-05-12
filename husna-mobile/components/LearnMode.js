@@ -55,7 +55,7 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) 
                 <Text style={styles.arabicText}>{item.arabic}</Text>
                 <Text style={styles.transliterationText}>{item.transliteration}</Text>
                 <Text style={styles.meaningText}>{localizedMeaning}</Text>
-                <Text style={styles.tapHint}>Tap to learn more</Text>
+                <Text style={styles.tapHint}>{t('learn.tapHint')}</Text>
             </TouchableOpacity>
         );
     };

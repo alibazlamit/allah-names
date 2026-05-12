@@ -62,23 +62,17 @@ function starsForScore(score) {
 
 // ── Result screen ──────────────────────────────────────────────────────────────
 const ResultScreen = ({ score, onRestart }) => {
+  const { t } = useTranslation();
   const stars = starsForScore(score);
 
   useEffect(() => {
     if (stars >= 2) maybeAskForRating();
   }, [stars]);
 
-  const messages = [
-    'Keep practicing — you\'ll get there! 💪',
-    'Good effort! Review the names and try again.',
-    'Well done! You\'re getting there. 🌟',
-    'Excellent! You know the 99 Names well! ✨',
-  ];
-
   return (
     <View style={styles.resultContainer}>
       <View style={styles.resultCard}>
-        <Text style={styles.resultTitle}>Quiz Complete</Text>
+        <Text style={styles.resultTitle}>{t('quiz.quizComplete')}</Text>
 
         <View style={styles.scoreCircle}>
           <Text style={styles.scoreNumber}>{score}</Text>
@@ -97,11 +91,11 @@ const ResultScreen = ({ score, onRestart }) => {
           ))}
         </View>
 
-        <Text style={styles.resultMessage}>{messages[stars]}</Text>
+        <Text style={styles.resultMessage}>{t(`quiz.msg${stars}`)}</Text>
 
         <TouchableOpacity style={styles.restartBtn} onPress={onRestart}>
           <Ionicons name="refresh-outline" size={18} color="#121212" />
-          <Text style={styles.restartBtnText}>Play Again</Text>
+          <Text style={styles.restartBtnText}>{t('quiz.playAgain')}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -225,7 +219,7 @@ const QuizMode = ({ isActive }) => {
       {/* Question */}
       <Animated.View style={[styles.questionCard, { opacity: fadeAnim, transform: [{ translateX: shakeAnim }] }]}>
         <Text style={styles.questionType}>
-          {q.type === 'arabic_to_meaning' ? 'What does this name mean?' : 'Which name has this meaning?'}
+          {q.type === 'arabic_to_meaning' ? t('quiz.questionArabicToMeaning') : t('quiz.questionMeaningToArabic')}
         </Text>
 
         {q.type === 'arabic_to_meaning' ? (

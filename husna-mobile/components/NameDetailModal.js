@@ -31,7 +31,7 @@ const Section = ({ label, children, italic }) => (
 );
 
 const NameDetailModal = ({ name, onClose, onScrollToName }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
   if (!name) return null;
@@ -82,7 +82,7 @@ const NameDetailModal = ({ name, onClose, onScrollToName }) => {
               <Text style={styles.arabicText}>{name.arabic}</Text>
               <TouchableOpacity style={styles.ttsBtn} onPress={playTTS}>
                 <Ionicons name="volume-high-outline" size={16} color="#d4af37" />
-                <Text style={styles.ttsBtnText}>Listen</Text>
+                <Text style={styles.ttsBtnText}>{t('detail.listen')}</Text>
               </TouchableOpacity>
             </View>
 
@@ -91,30 +91,30 @@ const NameDetailModal = ({ name, onClose, onScrollToName }) => {
               <View style={styles.quranBadge}>
                 <Ionicons name="book-outline" size={14} color="#d4af37" />
                 <Text style={styles.quranBadgeText}>
-                  {'  '}Mentioned <Text style={styles.quranBadgeCount}>{base.quran_count}×</Text> in the Quran
+                  {'  '}{t('detail.mentionedInQuran', { count: base.quran_count })}
                 </Text>
               </View>
             )}
 
             {detail?.extended_meaning && (
-              <Section label="Meaning">{detail.extended_meaning}</Section>
+              <Section label={t('detail.sectionMeaning')}>{detail.extended_meaning}</Section>
             )}
             {detail?.quran_surahs && (
-              <Section label="In the Quran">{detail.quran_surahs}</Section>
+              <Section label={t('detail.sectionQuran')}>{detail.quran_surahs}</Section>
             )}
             {detail?.why_it_matters && (
-              <Section label="Why it matters">{detail.why_it_matters}</Section>
+              <Section label={t('detail.sectionWhy')}>{detail.why_it_matters}</Section>
             )}
             {detail?.hadith && (
-              <Section label="Hadith" italic>{detail.hadith}</Section>
+              <Section label={t('detail.sectionHadith')} italic>{detail.hadith}</Section>
             )}
             {detail?.reflection && (
-              <Section label="Reflection">{detail.reflection}</Section>
+              <Section label={t('detail.sectionReflection')}>{detail.reflection}</Section>
             )}
 
             {relatedNames.length > 0 && (
               <View style={styles.relatedRow}>
-                <Text style={styles.sectionLabel}>Related Names</Text>
+                <Text style={styles.sectionLabel}>{t('detail.sectionRelated')}</Text>
                 <View style={styles.chips}>
                   {relatedNames.map(related => (
                     <TouchableOpacity
