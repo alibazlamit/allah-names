@@ -28,6 +28,23 @@ const db = new sqlite3.Database(dbPath, (err) => {
         db.run('CREATE INDEX IF NOT EXISTS idx_leaderboard_country ON leaderboard(country)');
         db.run('CREATE INDEX IF NOT EXISTS idx_leaderboard_time_taken ON leaderboard(time_taken)');
         db.run('CREATE INDEX IF NOT EXISTS idx_leaderboard_user_uuid ON leaderboard(user_uuid)');
+
+        // Quiz leaderboard table
+        db.run(`CREATE TABLE IF NOT EXISTS quiz_leaderboard (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          name TEXT NOT NULL,
+          country TEXT NOT NULL,
+          user_uuid TEXT,
+          score INTEGER NOT NULL,
+          time_taken INTEGER,
+          completed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )`, (err) => {
+          if (!err) {
+            db.run('CREATE INDEX IF NOT EXISTS idx_quiz_score ON quiz_leaderboard(score)');
+            db.run('CREATE INDEX IF NOT EXISTS idx_quiz_time ON quiz_leaderboard(time_taken)');
+            console.log('Quiz leaderboard table ready.');
+          }
+        });
       }
     });
   }

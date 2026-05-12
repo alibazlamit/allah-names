@@ -377,7 +377,6 @@ const MemorizeMode = ({ isActive, onComplete, onShowHelp }) => {
                     onSubmitEditing={() => {
                         handleInputChange(inputVal);
                     }}
-                    autoFocus
                     autoCapitalize="none"
                     autoCorrect={false}
                 />

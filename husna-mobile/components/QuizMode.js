@@ -61,8 +61,13 @@ function starsForScore(score) {
   return 0;
 }
 
+function fmtTime(s) {
+  const m = Math.floor(s / 60);
+  return `${m}:${String(s % 60).padStart(2, '0')}`;
+}
+
 // ── Result screen ──────────────────────────────────────────────────────────────
-const ResultScreen = ({ score, onRestart }) => {
+const ResultScreen = ({ score, timeTaken, completedAll, onRestart, onEnterHoF }) => {
   const { t } = useTranslation();
   const stars = starsForScore(score);
 
@@ -92,11 +97,22 @@ const ResultScreen = ({ score, onRestart }) => {
           ))}
         </View>
 
+        {completedAll && timeTaken > 0 && (
+          <Text style={styles.completionTime}>⏱ {fmtTime(timeTaken)}</Text>
+        )}
+
         <Text style={styles.resultMessage}>{t(`quiz.msg${stars}`)}</Text>
 
-        <TouchableOpacity style={styles.restartBtn} onPress={onRestart}>
-          <Ionicons name="refresh-outline" size={18} color="#121212" />
-          <Text style={styles.restartBtnText}>{t('quiz.playAgain')}</Text>
+        {completedAll && onEnterHoF && (
+          <TouchableOpacity style={styles.hofBtn} onPress={onEnterHoF}>
+            <Ionicons name="trophy-outline" size={18} color="#121212" />
+            <Text style={styles.hofBtnText}>Enter Hall of Fame</Text>
+          </TouchableOpacity>
+        )}
+
+        <TouchableOpacity style={[styles.restartBtn, completedAll && onEnterHoF && styles.restartBtnSecondary]} onPress={onRestart}>
+          <Ionicons name="refresh-outline" size={18} color={completedAll && onEnterHoF ? '#d4af37' : '#121212'} />
+          <Text style={[styles.restartBtnText, completedAll && onEnterHoF && styles.restartBtnTextSecondary]}>{t('quiz.playAgain')}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -104,7 +120,7 @@ const ResultScreen = ({ score, onRestart }) => {
 };
 
 // ── Main component ─────────────────────────────────────────────────────────────
-const QuizMode = ({ isActive }) => {
+const QuizMode = ({ isActive, onQuizComplete }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
@@ -117,10 +133,13 @@ const QuizMode = ({ isActive }) => {
     lifeGained: false,
     selected: null,
     showResult: false,
+    startedAt: Date.now(),
+    timeTaken: 0,
+    completedAll: false,
   }), [lang]);
 
   const [state, setState] = useState(freshState);
-  const { questions, qIndex, lives, score, streak, lifeGained, selected, showResult } = state;
+  const { questions, qIndex, lives, score, streak, lifeGained, selected, showResult, timeTaken, completedAll } = state;
 
   const shakeAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -142,8 +161,13 @@ const QuizMode = ({ isActive }) => {
 
     setTimeout(() => {
       setState(s => {
-        if (nextLives <= 0 || s.qIndex + 1 >= TOTAL_QUESTIONS) {
-          return { ...s, selected: null, showResult: true };
+        const isLast = s.qIndex + 1 >= TOTAL_QUESTIONS;
+        if (nextLives <= 0 || isLast) {
+          return {
+            ...s, selected: null, showResult: true,
+            timeTaken: Math.round((Date.now() - s.startedAt) / 1000),
+            completedAll: isLast && nextLives > 0,
+          };
         }
         return { ...s, selected: null, lifeGained: false, qIndex: s.qIndex + 1 };
       });
@@ -179,7 +203,15 @@ const QuizMode = ({ isActive }) => {
 
   if (!isActive) return null;
 
-  if (showResult) return <ResultScreen score={score} onRestart={restart} />;
+  if (showResult) return (
+    <ResultScreen
+      score={score}
+      timeTaken={timeTaken}
+      completedAll={completedAll}
+      onRestart={restart}
+      onEnterHoF={onQuizComplete ? () => onQuizComplete({ score, timeTaken }) : null}
+    />
+  );
 
   const q = questions[qIndex];
 
@@ -347,13 +379,25 @@ const styles = StyleSheet.create({
   scoreNumber: { fontSize: 48, fontWeight: '800', color: '#d4af37' },
   scoreTotal: { fontSize: 18, color: '#b0b3b8', marginBottom: 6, marginLeft: 2 },
   starsRow: { flexDirection: 'row', marginBottom: 20 },
-  resultMessage: { fontSize: 15, color: '#b0b3b8', textAlign: 'center', lineHeight: 22, marginBottom: 28 },
+  completionTime: { fontSize: 22, color: '#d4af37', fontWeight: '700', marginBottom: 16 },
+  resultMessage: { fontSize: 15, color: '#b0b3b8', textAlign: 'center', lineHeight: 22, marginBottom: 20 },
+  hofBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 8,
+    backgroundColor: '#d4af37',
+    paddingHorizontal: 28, paddingVertical: 14, borderRadius: 25, marginBottom: 12,
+  },
+  hofBtnText: { color: '#121212', fontSize: 16, fontWeight: '700' },
   restartBtn: {
     flexDirection: 'row', alignItems: 'center', gap: 8,
     backgroundColor: '#d4af37',
     paddingHorizontal: 28, paddingVertical: 14, borderRadius: 25,
   },
+  restartBtnSecondary: {
+    backgroundColor: 'transparent',
+    borderWidth: 1, borderColor: '#d4af37',
+  },
   restartBtnText: { color: '#121212', fontSize: 16, fontWeight: '700' },
+  restartBtnTextSecondary: { color: '#d4af37' },
 });
 
 export default QuizMode;

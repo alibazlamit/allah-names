@@ -28,6 +28,7 @@ function HusnaApp() {
   const [langModalVisible, setLangModalVisible] = useState(false);
   const [helpModalVisible, setHelpModalVisible] = useState(false);
   const [timeTaken, setTimeTaken] = useState(null);
+  const [quizResult, setQuizResult] = useState(null);
   const { t, i18n } = useTranslation();
 
   // Global Audio State
@@ -180,20 +181,30 @@ function HusnaApp() {
             </TouchableOpacity>
           )}
           <View style={{ flex: 1, display: currentView === 'hall' ? 'flex' : 'none' }}>
-            <HallOfFame initialMode="leaderboard" />
+            <HallOfFame
+              initialMode="leaderboard"
+              quizResult={quizResult}
+              initialSection={quizResult ? 'quiz' : 'memorize'}
+            />
           </View>
           {currentView === 'oath' && (
-            <HallOfFame 
-              initialMode="oath" 
-              timeTaken={timeTaken} 
-              onOathComplete={() => setCurrentView('hall')} 
+            <HallOfFame
+              initialMode="oath"
+              timeTaken={timeTaken}
+              onOathComplete={() => setCurrentView('hall')}
             />
           )}
           <View style={{ flex: 1, display: currentView === 'dedication' ? 'flex' : 'none' }}>
             <Dedication />
           </View>
           <View style={{ flex: 1, display: currentView === 'quiz' ? 'flex' : 'none' }}>
-            <QuizMode isActive={currentView === 'quiz'} />
+            <QuizMode
+              isActive={currentView === 'quiz'}
+              onQuizComplete={(result) => {
+                setQuizResult(result);
+                setCurrentView('hall');
+              }}
+            />
           </View>
         </View>
 
