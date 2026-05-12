@@ -1,15 +1,9 @@
 /**
- * Generate Arabic audio for all 99 Names of Allah using Azure TTS (free F0 tier).
- *
- * Setup (one time):
- *   1. Go to https://portal.azure.com
- *   2. Create a resource → search "Speech" → select "Speech" by Microsoft
- *   3. Pricing tier: Free F0  (no credit card required)
- *   4. After creation: go to resource → Keys and Endpoint
- *   5. Copy KEY 1 and the Region (e.g. "eastus")
+ * Generate Arabic audio for all 99 Names of Allah.
+ * Uses Google Translate TTS — no account, no API key needed.
  *
  * Usage:
- *   node scripts/generate-name-audio.js --key YOUR_KEY --region YOUR_REGION
+ *   node scripts/generate-name-audio.js
  *
  * Output:
  *   husna-mobile/assets/audio/names/1.mp3 ... 99.mp3
@@ -19,91 +13,87 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const args = process.argv.slice(2);
-const keyIdx = args.indexOf('--key');
-const regionIdx = args.indexOf('--region');
-
-if (keyIdx === -1 || regionIdx === -1) {
-  console.error('Usage: node generate-name-audio.js --key YOUR_AZURE_KEY --region YOUR_REGION');
-  console.error('Example regions: eastus, westeurope, southeastasia');
-  process.exit(1);
-}
-
-const AZURE_KEY = args[keyIdx + 1];
-const AZURE_REGION = args[regionIdx + 1];
-const VOICE = 'ar-SA-HamedNeural'; // male — or 'ar-SA-ZariyahNeural' for female
-
 const names = require('../husna-mobile/data/names.json');
-
 const outDir = path.join(__dirname, '../husna-mobile/assets/audio/names');
 fs.mkdirSync(outDir, { recursive: true });
 
-function buildSSML(arabicText) {
-  return `<speak version='1.0' xml:lang='ar-SA'>
-  <voice xml:lang='ar-SA' name='${VOICE}'>
-    <prosody rate='0.85'>${arabicText}</prosody>
-  </voice>
-</speak>`;
-}
-
-function fetchAudio(arabicText) {
+function fetchAudio(text) {
   return new Promise((resolve, reject) => {
-    const ssml = buildSSML(arabicText);
+    const encoded = encodeURIComponent(text);
+    const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encoded}&tl=ar&client=gtx&ttsspeed=0.5`;
+
     const options = {
-      hostname: `${AZURE_REGION}.tts.speech.microsoft.com`,
-      path: '/cognitiveservices/v1',
-      method: 'POST',
+      hostname: 'translate.google.com',
+      path: `/translate_tts?ie=UTF-8&q=${encoded}&tl=ar&client=gtx&ttsspeed=0.5`,
+      method: 'GET',
       headers: {
-        'Ocp-Apim-Subscription-Key': AZURE_KEY,
-        'Content-Type': 'application/ssml+xml',
-        'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
-        'User-Agent': 'HusnaApp',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Referer': 'https://translate.google.com/',
+        'Accept': '*/*',
       },
     };
 
     const req = https.request(options, (res) => {
-      if (res.statusCode !== 200) {
-        let body = '';
-        res.on('data', d => body += d);
-        res.on('end', () => reject(new Error(`HTTP ${res.statusCode}: ${body}`)));
+      if (res.statusCode === 301 || res.statusCode === 302) {
+        // follow redirect
+        const location = res.headers.location;
+        https.get(location, { headers: options.headers }, (r) => {
+          const chunks = [];
+          r.on('data', c => chunks.push(c));
+          r.on('end', () => resolve(Buffer.concat(chunks)));
+        }).on('error', reject);
         return;
       }
+      if (res.statusCode !== 200) {
+        return reject(new Error(`HTTP ${res.statusCode}`));
+      }
       const chunks = [];
-      res.on('data', chunk => chunks.push(chunk));
+      res.on('data', c => chunks.push(c));
       res.on('end', () => resolve(Buffer.concat(chunks)));
     });
 
     req.on('error', reject);
-    req.write(ssml);
     req.end();
   });
 }
 
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
 async function run() {
-  console.log(`Generating ${names.length} audio files → ${outDir}`);
-  console.log(`Voice: ${VOICE}\n`);
+  console.log(`Generating ${names.length} audio files → ${outDir}\n`);
+
+  let ok = 0, skipped = 0, failed = 0;
 
   for (const name of names) {
     const outPath = path.join(outDir, `${name.id}.mp3`);
 
-    if (fs.existsSync(outPath)) {
-      console.log(`  [skip] ${name.id} — ${name.transliteration} (already exists)`);
+    if (fs.existsSync(outPath) && fs.statSync(outPath).size > 1000) {
+      console.log(`  [skip] ${name.id} — ${name.transliteration}`);
+      skipped++;
       continue;
     }
 
     try {
       const audio = await fetchAudio(name.arabic);
+      if (audio.length < 1000) throw new Error('Response too small — likely an error page');
       fs.writeFileSync(outPath, audio);
       console.log(`  [ok]   ${name.id} — ${name.transliteration}`);
+      ok++;
     } catch (err) {
       console.error(`  [fail] ${name.id} — ${name.transliteration}: ${err.message}`);
+      failed++;
     }
 
-    // 100ms pause between requests to be polite to the API
-    await new Promise(r => setTimeout(r, 100));
+    // Pause between requests to avoid rate limiting
+    await sleep(300);
   }
 
-  console.log('\nDone. Files saved to husna-mobile/assets/audio/names/');
+  console.log(`\nDone. ${ok} generated, ${skipped} skipped, ${failed} failed.`);
+  if (failed > 0) {
+    console.log('Re-run the script to retry failed ones — it skips already-saved files.');
+  }
 }
 
 run();
