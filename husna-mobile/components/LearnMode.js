@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import * as Speech from 'expo-speech';
 import { Ionicons } from '@expo/vector-icons';
+import { useAudioPlayer } from 'expo-audio';
 import namesData from '../data/names.json';
+import nameAudio from '../data/nameAudio';
 import NameDetailModal from './NameDetailModal';
 
 const translations = {
@@ -21,14 +22,17 @@ const translations = {
 const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) => {
     const { t, i18n } = useTranslation();
     const [selectedName, setSelectedName] = useState(null);
+    const [playingId, setPlayingId] = useState(null);
     const flatListRef = useRef(null);
 
-    const playNameAudio = (arabicText) => {
+    const player = useAudioPlayer(playingId ? nameAudio[playingId] : null);
+
+    const playNameAudio = (nameId) => {
         try {
-            Speech.speak(arabicText, { language: 'ar-SA' });
-        } catch (error) {
-            console.error('Speech error:', error);
-        }
+            setPlayingId(nameId);
+            player.seekTo(0);
+            player.play();
+        } catch (_) {}
     };
 
     const scrollToName = (nameId) => {
@@ -48,7 +52,7 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) 
                     <View style={styles.numberBadge}>
                         <Text style={styles.numberText}>{item.id}</Text>
                     </View>
-                    <TouchableOpacity style={styles.playBtn} onPress={() => playNameAudio(item.arabic)}>
+                    <TouchableOpacity style={styles.playBtn} onPress={() => playNameAudio(item.id)}>
                         <Text style={styles.playIcon}>▶</Text>
                     </TouchableOpacity>
                 </View>
