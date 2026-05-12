@@ -11,6 +11,7 @@ import HallOfFame from './components/HallOfFame';
 import Dedication from './components/Dedication';
 import AudioPlayer from './components/AudioPlayer';
 import HelpModal from './components/HelpModal';
+import QuizMode from './components/QuizMode';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import './i18n';
 import { useTranslation } from 'react-i18next';
@@ -27,6 +28,7 @@ function HusnaApp() {
   const [langModalVisible, setLangModalVisible] = useState(false);
   const [helpModalVisible, setHelpModalVisible] = useState(false);
   const [timeTaken, setTimeTaken] = useState(null);
+  const [quizResult, setQuizResult] = useState(null);
   const { t, i18n } = useTranslation();
 
   // Global Audio State
@@ -179,17 +181,30 @@ function HusnaApp() {
             </TouchableOpacity>
           )}
           <View style={{ flex: 1, display: currentView === 'hall' ? 'flex' : 'none' }}>
-            <HallOfFame initialMode="leaderboard" />
+            <HallOfFame
+              initialMode="leaderboard"
+              quizResult={quizResult}
+              initialSection={quizResult ? 'quiz' : 'memorize'}
+            />
           </View>
           {currentView === 'oath' && (
-            <HallOfFame 
-              initialMode="oath" 
-              timeTaken={timeTaken} 
-              onOathComplete={() => setCurrentView('hall')} 
+            <HallOfFame
+              initialMode="oath"
+              timeTaken={timeTaken}
+              onOathComplete={() => setCurrentView('hall')}
             />
           )}
           <View style={{ flex: 1, display: currentView === 'dedication' ? 'flex' : 'none' }}>
             <Dedication />
+          </View>
+          <View style={{ flex: 1, display: currentView === 'quiz' ? 'flex' : 'none' }}>
+            <QuizMode
+              isActive={currentView === 'quiz'}
+              onQuizComplete={(result) => {
+                setQuizResult(result);
+                setCurrentView('hall');
+              }}
+            />
           </View>
         </View>
 
@@ -304,6 +319,11 @@ function HusnaApp() {
           <TouchableOpacity onPress={() => setCurrentView('hall')} style={styles.tabBtn}>
             <Ionicons name={currentView === 'hall' ? 'trophy' : 'trophy-outline'} size={24} color={currentView === 'hall' ? '#d4af37' : '#b0b3b8'} />
             <Text style={[styles.tabText, currentView === 'hall' && styles.activeTabText]}>{t('navigation.hall')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => setCurrentView('quiz')} style={styles.tabBtn}>
+            <Ionicons name={currentView === 'quiz' ? 'bulb' : 'bulb-outline'} size={24} color={currentView === 'quiz' ? '#d4af37' : '#b0b3b8'} />
+            <Text style={[styles.tabText, currentView === 'quiz' && styles.activeTabText]}>{t('navigation.quiz')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => setCurrentView('dedication')} style={styles.tabBtn}>

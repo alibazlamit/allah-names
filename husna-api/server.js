@@ -149,6 +149,58 @@ app.post('/api/leaderboard', submissionLimiter, (req, res) => {
     });
 });
 
+// Get quiz leaderboard — top 20 by score DESC, time ASC
+app.get('/api/quiz-leaderboard', (req, res) => {
+    const sql = `
+        SELECT name, country, score, time_taken, completed_at
+        FROM quiz_leaderboard
+        ORDER BY score DESC, time_taken ASC
+        LIMIT 20
+    `;
+    db.all(sql, [], (err, rows) => {
+        if (err) return res.status(400).json({ error: err.message });
+        res.json({ data: rows });
+    });
+});
+
+// Submit quiz result
+app.post('/api/quiz-leaderboard', submissionLimiter, (req, res) => {
+    let { name, country, user_uuid, score, time_taken } = req.body;
+    const signature = req.headers['x-husna-signature'];
+    const timestamp = req.headers['x-husna-timestamp'];
+    const clientIp = req.ip || req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+    console.log(`[Quiz Submission] IP: ${clientIp}, Name: ${name}, Score: ${score}, Time: ${time_taken}`);
+
+    if (typeof name !== 'string' || typeof country !== 'string' || typeof score !== 'number') {
+        return res.status(400).json({ error: 'Invalid submission data.' });
+    }
+    if (!signature || !timestamp) {
+        return res.status(401).json({ error: 'Security verification failed.' });
+    }
+
+    const now = Math.floor(Date.now() / 1000);
+    if (Math.abs(now - parseInt(timestamp)) > 300) {
+        return res.status(401).json({ error: 'Request expired.' });
+    }
+
+    const payload = `${timestamp}${name}${country}${score}${time_taken}`;
+    const expectedSignature = crypto.createHmac('sha256', API_SECRET).update(payload).digest('hex');
+    if (signature !== expectedSignature) {
+        return res.status(401).json({ error: 'Signature mismatch.' });
+    }
+
+    name = name.trim();
+    country = country.trim();
+    if (name.length === 0 || name.length > 50) return res.status(400).json({ error: 'Invalid name.' });
+
+    const sql = 'INSERT INTO quiz_leaderboard (name, country, user_uuid, score, time_taken) VALUES (?, ?, ?, ?, ?)';
+    db.run(sql, [name, country, user_uuid, score, time_taken], function (err) {
+        if (err) return res.status(400).json({ error: err.message });
+        res.json({ message: 'Score submitted successfully', data: { id: this.lastID } });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
