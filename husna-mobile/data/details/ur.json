@@ -1,14 +1,14 @@
 {
   "1": {
     "extended_meaning": "عربی جڑ رحمہ سے ماخوذ۔ الرحمن اللہ کی اس رحمت کو بیان کرتا ہے جو تمام مخلوقات کو محیط ہے — مومن، کافر، انسان اور حیوان سبھی۔ یہ رحمت تخلیق سے پہلے بھی موجود تھی۔",
-    "quran_surahs": "Ar-Rahman (55) — full surah; Al-Fatiha (1:1, 1:3); throughout the Quran paired with Ar-Raheem",
+    "quran_surahs": "Ar-Rahman (55) — مکمل سورہ; Al-Fatiha (1:1, 1:3); پورے قرآن میں اس کے ساتھ Ar-Raheem",
     "hadith": "",
     "why_it_matters": "یہ نام مومن کے دل کو امید پر قائم رکھتا ہے۔ گناہ چاہے کتنا بھی بڑا ہو، اللہ کی رحمت اس سے بے حد زیادہ ہے۔",
     "reflection": "ہر کام کا آغاز بسم اللہ الرحمن الرحیم سے کریں۔ جب گناہ کا بوجھ محسوس ہو تو اس نام کو یاد کریں۔"
   },
   "2": {
     "extended_meaning": "الرحمن کی طرح رحمہ سے ماخوذ، لیکن الرحیم خاص طور پر مومنین کے لیے مسلسل اور ذاتی رحمت کو ظاہر کرتا ہے۔ الرحمن رحمت کا سمندر ہے؛ الرحیم وہ رحمت ہے جو آپ تک ذاتی طور پر پہنچتی ہے۔",
-    "quran_surahs": "Al-Fatiha (1:1, 1:3); Al-Baqarah (2:143, 2:163); paired with Ar-Rahman throughout the Quran",
+    "quran_surahs": "Al-Fatiha (1:1, 1:3); Al-Baqarah (2:143, 2:163); پورے قرآن میں الرحمن کے ساتھ",
     "hadith": "",
     "why_it_matters": "الرحیم یقین دلاتا ہے کہ اللہ کی رحمت ذاتی طور پر آپ کی طرف متوجہ ہے۔ آپ تخلیق کی وسعت میں گم نہیں ہیں۔",
     "reflection": "جب خود کو اللہ سے دور محسوس کریں تو یاد کریں: الرحیم آپ کی واپسی کا انتظار کرتا ہے۔ لوٹ آئیں۔"
@@ -43,14 +43,14 @@
   },
   "7": {
     "extended_meaning": "ہیمن سے ماخوذ، نگرانی اور حفاظت۔ المہیمن وہ اعلیٰ نگہبان ہے جو کامل آگاہی کے ساتھ تمام مخلوق کی نگرانی کرتا ہے۔",
-    "quran_surahs": "Al-Hashr (59:23) — the only occurrence as a divine name. Note: 5:48 uses 'muhayminan' for the Quran, not Allah.",
+    "quran_surahs": "Al-Hashr (59:23) — بطور الہٰی نام واحد وقوع۔ نوٹ: ٥:٤٨ میں \"مُہیمناً\" قرآن کے لیے ہے، اللہ کے لیے نہیں۔",
     "hadith": "",
     "why_it_matters": "کچھ بھی اس کی نگرانی سے باہر نہیں۔ ہر چھپا ہوا نیک عمل اور ہر پوشیدہ گناہ اسے معلوم ہے۔",
     "reflection": "ایسے جیئیں جیسے صرف المہیمن آپ کو دیکھ رہا ہے — یہ احساس تنہائی میں آپ کی زندگی بدل دے گا۔"
   },
   "8": {
     "extended_meaning": "عزت سے ماخوذ، طاقت اور ناقابل شکست۔ العزیز وہ ہے جسے کبھی مغلوب نہیں کیا جا سکتا، وہ جسے چاہے عزت دے اور جسے چاہے ذلیل کرے۔",
-    "quran_surahs": "Al-Hashr (59:23); Al-Baqarah (2:228); An-Nisa (4:158); Al-Imran (3:6); and throughout — also paired with Al-Hakeem",
+    "quran_surahs": "Al-Hashr (59:23); Al-Baqarah (2:228); An-Nisa (4:158); Al-Imran (3:6); اور پورے — الحکیم کے ساتھ بھی",
     "hadith": "",
     "why_it_matters": "حقیقی عزت صرف اللہ کی ہے۔ جب لوگ آپ کو ذلیل کریں تو العزیز مومن کی عزت بحال کرتا ہے۔",
     "reflection": "عزت مال، شہرت یا لوگوں کی منظوری سے نہ ڈھونڈیں۔ العزیز کی فرمانبرداری میں ڈھونڈیں۔"
@@ -127,42 +127,42 @@
   },
   "19": {
     "extended_meaning": "علم سے ماخوذ۔ العلیم کا علم لامحدود، کامل اور ابدی ہے — ماضی، حال، مستقبل، ظاہر اور پوشیدہ سب کچھ۔",
-    "quran_surahs": "Al-Baqarah (2:29, 2:158); Al-Imran (3:92); Luqman (31:34); most frequently paired with Al-Hakeem and Al-Khabeer",
+    "quran_surahs": "Al-Baqarah (2:29, 2:158); Al-Imran (3:92); Luqman (31:34); اکثر الحکیم اور الخبیر کے ساتھ",
     "hadith": "",
     "why_it_matters": "العلیم آپ کے ہر پوشیدہ نیک عمل کو جانتا ہے۔ آپ مکمل طور پر جانے اور دیکھے گئے ہیں۔",
     "reflection": "العلیم کے لیے جیئیں، لوگوں کے لیے نہیں۔ آپ کے چھپے اعمال اس تک پہنچتے ہیں۔"
   },
   "20": {
     "extended_meaning": "قبض سے ماخوذ، روکنا اور تنگ کرنا۔ القابض حکمت اور امتحان کے طور پر روزی اور نعمتیں روکتا ہے، بے مقصد نہیں۔",
-    "quran_surahs": "Al-Baqarah (2:245): 'Allah constricts and expands' — Al-Qabidh always paired with Al-Basit; not named directly elsewhere",
+    "quran_surahs": "Al-Baqarah (2:245): 'Allah constricts and expands' — القابض ہمیشہ الباسط کے ساتھ؛ کہیں اور براہ راست نہیں",
     "hadith": "",
     "why_it_matters": "جب رزق یا خوشی تنگ ہو تو یہ القابض کا کام ہے — ترک نہیں، حکمت ہے۔",
     "reflection": "تنگی کے موسم میں یاد کریں: القابض تنگ کرتا ہے، الباسط کشادہ کرتا ہے۔ وہی ہاتھ پھیلائے گا۔"
   },
   "21": {
     "extended_meaning": "بسط سے ماخوذ، پھیلانا اور وسیع کرنا۔ الباسط روزی اور دل کو وسیع کرتا ہے اور اپنی سخاوت کو پھیلاتا ہے۔",
-    "quran_surahs": "Al-Baqarah (2:245): 'Allah constricts and expands' — paired with Al-Qabidh",
+    "quran_surahs": "Al-Baqarah (2:245): 'Allah constricts and expands' — القابض کے ساتھ",
     "hadith": "",
     "why_it_matters": "ہر تنگی کے بعد کشادگی آتی ہے — یہ الہی نمونہ ہے۔ الباسط کی کشادگی القابض کی تنگی کے بعد آتی ہے۔",
     "reflection": "نعمت کے موسم میں الباسط کا ہاتھ پہچانیں اور سخاوت کریں۔"
   },
   "22": {
     "extended_meaning": "خفض سے ماخوذ، نیچا کرنا۔ الخافض جسے چاہے متکبرین اور ظالمین کو نیچا کرتا ہے — عادلانہ اور ناقابل مزاحمت۔",
-    "quran_surahs": "Al-Waqi'ah (56:3): 'Abasing [some], exalting [others]' — refers to the Day of Judgment; name comes from the 99 names hadith",
+    "quran_surahs": "Al-Waqi'ah (56:3): 'Abasing [some], exalting [others]' — یوم القیامت کی طرف اشارہ؛ نام 99 اسماء کی حدیث سے",
     "hadith": "",
     "why_it_matters": "الخافض ظلم کرنے والوں کو ضرور گراتا ہے۔ تکبر نہ صرف غلط بلکہ عملی طور پر بیوقوفی ہے۔",
     "reflection": "ظلم سے بلند ہونے والوں سے حسد نہ کریں — الخافض باخبر ہے۔"
   },
   "23": {
     "extended_meaning": "رفع سے ماخوذ۔ الرافع جسے چاہے بلند کرتا ہے — مومنین اور متواضعین کو — ایسی رفعت جو دنیاوی مناصب نہیں دے سکتے۔",
-    "quran_surahs": "Al-Mujadilah (58:11): 'Allah raises those who believe'; Al-An'am (6:83) — name comes from the 99 names hadith",
+    "quran_surahs": "Al-Mujadilah (58:11): 'Allah raises those who believe'; Al-An'am (6:83) — نام 99 اسماء کی حدیث سے ماخوذ",
     "hadith": "",
     "why_it_matters": "حقیقی رفعت الرافع سے ملتی ہے، رابطوں یا خودنمائی سے نہیں۔",
     "reflection": "مرتبے کا پیچھا چھوڑیں۔ الرافع کی قربت حاصل کریں — وہ آپ کو ٹھیک وقت پر بلند کرے گا۔"
   },
   "24": {
     "extended_meaning": "عزت سے ماخوذ۔ المعز جسے چاہے عزت اور وقار عطا کرتا ہے — ایسی عزت جسے کوئی چھین نہیں سکتا۔",
-    "quran_surahs": "Al-Imran (3:26): 'You give honor to whom You will and You humiliate whom You will' — Al-Mu'izz and Al-Muzil appear together",
+    "quran_surahs": "Al-Imran (3:26): 'You give honor to whom You will and You humiliate whom You will' — المعزّ اور المذلّ ساتھ آتے ہیں",
     "hadith": "",
     "why_it_matters": "اگر آپ لوگوں کو خوش کر کے عزت ڈھونڈ رہے ہیں تو غلط دروازہ کھٹکھٹا رہے ہیں۔",
     "reflection": "اللہ کی فرمانبرداری چنیں چاہے دنیوی مقام جائے۔ المعز ایسی عزت دیتا ہے جو کوئی نہیں چھین سکتا۔"
@@ -176,7 +176,7 @@
   },
   "26": {
     "extended_meaning": "سمع سے ماخوذ۔ السمیع ہر چیز سنتا ہے — ہر سرگوشی، ہر دعا، ہر وہ آہ جو الفاظ نہیں پا سکی۔ اس کی سماعت مسافت یا زبان سے محدود نہیں۔",
-    "quran_surahs": "Al-Baqarah (2:127, 2:256); Al-Imran (3:35); An-Nisa (4:58); frequently paired with Al-Baseer — 45 occurrences as divine name",
+    "quran_surahs": "Al-Baqarah (2:127, 2:256); Al-Imran (3:35); An-Nisa (4:58); کثرت سے البصیر کے ساتھ — 45 بطور الہٰی نام وقوعات",
     "hadith": "",
     "why_it_matters": "آپ کبھی خاموشی میں نہیں بول رہے۔ ہر دعا، ہر شکایت، ہر پوشیدہ رونا السمیع سنتا ہے۔",
     "reflection": "اپنی دعائیں مخصوص بنائیں — السمیع ہر لفظ سنتا ہے۔"
@@ -211,28 +211,28 @@
   },
   "31": {
     "extended_meaning": "خبر سے ماخوذ، مکمل آگاہی۔ الخبیر ہر چیز کی باطنی حقیقت جانتا ہے — پوشیدہ نیتیں، خفیہ حالات، اصل وجوہات۔",
-    "quran_surahs": "Al-An'am (6:18); Al-Isra (17:30); Fatir (35:14); Al-Hujurat (49:13); frequently paired with Al-Latif — 45 occurrences",
+    "quran_surahs": "Al-An'am (6:18); Al-Isra (17:30); Fatir (35:14); Al-Hujurat (49:13); کثرت سے اللطیف کے ساتھ — 45 وقوعات",
     "hadith": "",
     "why_it_matters": "الخبیر ہر صورتحال کا پوشیدہ پہلو جانتا ہے۔",
     "reflection": "جب اپنی نیت یا دوسروں کے ارادوں کے بارے میں گھبرائیں تو الخبیر سے وضاحت مانگیں۔"
   },
   "32": {
     "extended_meaning": "حلم سے ماخوذ، بردباری۔ الحلیم عذاب میں جلدی نہیں کرتا چاہے عذاب واجب ہو۔ وہ لوگوں کو وقت دیتا ہے کہ سوچیں، توبہ کریں، واپس آئیں۔",
-    "quran_surahs": "Al-Baqarah (2:225, 2:235); Al-Imran (3:155); An-Nisa (4:12); Al-Isra (17:44) — 15 occurrences as divine name",
+    "quran_surahs": "Al-Baqarah (2:225, 2:235); Al-Imran (3:155); An-Nisa (4:12); Al-Isra (17:44) — 15 بطور الہٰی نام وقوعات",
     "hadith": "",
     "why_it_matters": "الحلیم کی بردباری کی وجہ سے آپ آج بھی موجود ہیں اپنے گناہوں کے باوجود۔",
     "reflection": "الحلیم کے صبر کو غفلت سے نہ بدلیں۔ اسے آپ کو توبہ کی طرف واپس کرنے کے لیے استعمال کریں۔"
   },
   "33": {
     "extended_meaning": "عظم سے ماخوذ۔ العظیم کی عظمت اس قدر وسیع ہے کہ کوئی مخلوق اسے مکمل طور پر سمجھ نہیں سکتی۔",
-    "quran_surahs": "Al-Baqarah (2:255) — Ayat al-Kursi: 'He is Al-Aliyy, Al-Azeem'; Ash-Shura (42:4); Al-Waqi'ah (56:74, 56:96)",
+    "quran_surahs": "Al-Baqarah (2:255) — آیت الکرسی: 'He is Al-Aliyy, Al-Azeem'; Ash-Shura (42:4); Al-Waqi'ah (56:74, 56:96)",
     "hadith": "",
     "why_it_matters": "العظیم کی عظمت کو سمجھنا تواضع پیدا کرتا ہے۔ دنیوی عظمتیں دیکھ کر یاد کریں وہ العظیم کے سامنے ذرے برابر ہیں۔",
     "reflection": "آیت الکرسی صبح، شام اور ہر نماز کے بعد پڑھیں۔"
   },
   "34": {
     "extended_meaning": "غفر سے ماخوذ مبالغے کی صیغے میں۔ الغفور کامل، مکمل معافی دیتا ہے جو کوئی نشان نہیں چھوڑتی — جیسے گناہ ہوا ہی نہ ہو۔",
-    "quran_surahs": "Al-Baqarah (2:173); Az-Zumar (39:53): 'Do not despair of Allah's mercy — He forgives all sins'; most common forgiveness name — 91 occurrences",
+    "quran_surahs": "Al-Baqarah (2:173); Az-Zumar (39:53): 'Do not despair of Allah's mercy — He forgives all sins'; مغفرت کا سب سے عام نام — 91 وقوعات",
     "hadith": "",
     "why_it_matters": "الغفور کی معافی سوکھتی نہیں۔ بار بار واپسی پر بھی وہ نہیں اکتاتا۔",
     "reflection": "شرم کو الغفور سے دور رکھنے کی اجازت نہ دیں۔ واپس آئیں — دروازہ کھلا ہے۔"
@@ -246,7 +246,7 @@
   },
   "36": {
     "extended_meaning": "علو سے ماخوذ، بلندی اور رفعت۔ العلی اپنی ذات، صفات اور اختیار میں تمام مخلوق سے بلند ہے۔",
-    "quran_surahs": "Al-Baqarah (2:255) — Ayat al-Kursi; An-Nisa (4:34); Al-Hajj (22:62); Ash-Shura (42:51); Luqman (31:30)",
+    "quran_surahs": "Al-Baqarah (2:255) — آیت الکرسی; An-Nisa (4:34); Al-Hajj (22:62); Ash-Shura (42:51); Luqman (31:30)",
     "hadith": "",
     "why_it_matters": "العلی آپ کی ہر پریشانی سے بلند ہے۔ جب مسائل بوجھل لگیں تو یاد کریں: جس کے پاس آپ جا رہے ہیں وہ ان سب سے بالا ہے۔",
     "reflection": "العلی کی طرف ہاتھ اٹھائیں۔ دعا کی سمت اوپر — اس نام کا عکس ہے۔"
@@ -267,7 +267,7 @@
   },
   "39": {
     "extended_meaning": "قوت سے ماخوذ۔ المقیت وہ ہے جو ہر مخلوق کو مخصوص غذا مہیا کرتا ہے — جسمانی اور روحانی دونوں۔",
-    "quran_surahs": "An-Nisa (4:85): 'Allah is Muqeet over all things' — sole Quranic occurrence",
+    "quran_surahs": "An-Nisa (4:85): 'Allah is Muqeet over all things' — واحد قرآنی وقوع",
     "hadith": "",
     "why_it_matters": "المقیت آپ کی روح کو ابھی اس لمحے جو غذا چاہیے وہ فراہم کرتا ہے۔",
     "reflection": "المقیت سے مانگیں کہ آپ کی روح کو جس چیز کی ضرورت ہے وہ فراہم کرے، چاہے آپ نہ جانتے ہوں وہ کیا ہے۔"
@@ -281,7 +281,7 @@
   },
   "41": {
     "extended_meaning": "جلال سے ماخوذ، شان و شوکت۔ الجلیل قوت کی عظمت اور ہر صفت میں کمال کو یکجا کرتا ہے۔",
-    "quran_surahs": "Not found as a direct divine name in the Quran — derived from the hadith listing the 99 Names; Ar-Rahman (55:27) uses 'Dhal-Jalal wa-l-Ikram' which is closely related",
+    "quran_surahs": "قرآن میں براہ راست الہٰی نام کے طور پر نہیں آیا — 99 اسماء کی فہرست والی حدیث سے ماخوذ; Ar-Rahman (55:27) uses 'Dhal-Jalal wa-l-Ikram' which is closely related",
     "hadith": "",
     "why_it_matters": "الجلیل کی عظمت واقعی ہیبت مانگتی ہے — ظاہری احترام نہیں بلکہ لامحدود کمال کے سامنے دل کی حقیقی لرزش۔",
     "reflection": "نماز میں ادراک کریں کہ آپ کس کو مخاطب کر رہے ہیں — الجلیل کے سامنے کھڑے ہیں۔"
@@ -316,7 +316,7 @@
   },
   "46": {
     "extended_meaning": "حکمت سے ماخوذ، مکمل معنی میں حکمت۔ الحکیم کی حکمت کا مطلب ہے ہر الہی فیصلہ، ہر حکم، ہر اجازت اور منع میں ایک کامل وجہ ہے۔",
-    "quran_surahs": "Al-Baqarah (2:32, 2:129); most frequently paired with Al-Aziz — 97 occurrences as divine attribute of wisdom",
+    "quran_surahs": "Al-Baqarah (2:32, 2:129); سب سے زیادہ العزیز کے ساتھ — 97 حکمت کی الہٰی صفت کے طور پر وقوعات",
     "hadith": "",
     "why_it_matters": "الحکیم کی حکمت کا مطلب ہے آپ کی زندگی میں کوئی حادثہ نہیں، کوئی بے مقصد تکلیف نہیں۔",
     "reflection": "جب کچھ دردناک ہو اور سمجھ نہ آئے تو کہیں: 'الحکیم جانتا ہے جو میں نہیں جانتا۔' بھروسہ کریں۔"
@@ -337,14 +337,14 @@
   },
   "49": {
     "extended_meaning": "بعث سے ماخوذ، اٹھانا۔ الباعث قیامت کے دن تمام مخلوق کو موت سے اٹھائے گا۔ وہ انبیاء کو بھی مبعوث کرتا ہے۔",
-    "quran_surahs": "Not found as a direct divine name in the Quran; Al-Hajj (22:7) describes the resurrection: 'Allah will resurrect those in the graves' — concept present, name from 99 names hadith",
+    "quran_surahs": "قرآن میں براہ راست الہٰی نام کے طور پر نہیں آیا; Al-Hajj (22:7) describes the resurrection: 'Allah will resurrect those in the graves' — مفہوم موجود, نام 99 اسماء کی حدیث سے",
     "hadith": "",
     "why_it_matters": "موت آخر نہیں بلکہ منتقلی ہے۔ الباعث دوبارہ اٹھائے گا۔",
     "reflection": "موت کو ذہن میں رکھ کر زندگی گزاریں۔ جو الباعث کو ملنا ہو اسے دل میں رکھیں۔"
   },
   "50": {
     "extended_meaning": "شہادت سے ماخوذ۔ الشہید ہمہ وقت حاضر گواہ ہے جو ہر چیز دیکھتا ہے۔",
-    "quran_surahs": "An-Nisa (4:33, 4:79, 4:166); Al-Ma'idah (5:117); Al-An'am (6:19): 'Allah is witness between me and you' — 18 occurrences",
+    "quran_surahs": "An-Nisa (4:33, 4:79, 4:166); Al-Ma'idah (5:117); Al-An'am (6:19): 'Allah is witness between me and you' — 18 وقوعات",
     "hadith": "",
     "why_it_matters": "آپ کا اخلاص گواہ ہے، آپ کی چھپی عبادت دیکھی گئی ہے، آپ کی ہر کشمکش الشہید نے دیکھی ہے۔",
     "reflection": "اس گواہ کی آگاہی کے ساتھ جیئیں جو کبھی غائب نہیں ہوتا۔"
@@ -358,7 +358,7 @@
   },
   "52": {
     "extended_meaning": "وکالت سے ماخوذ۔ الوکیل قابل اعتماد نگران ہے جو معاملات سنبھالتا ہے۔ جب آپ اسے سونپیں تو وہ سب کچھ سنبھالتا ہے۔",
-    "quran_surahs": "Al-Imran (3:173): 'Allah is sufficient for us and He is the best Trustee'; Az-Zumar (39:62) — 14 occurrences",
+    "quran_surahs": "Al-Imran (3:173): 'Allah is sufficient for us and He is the best Trustee'; Az-Zumar (39:62) — 14 وقوعات",
     "hadith": "",
     "why_it_matters": "الوکیل اس وقت تمام معاملات سنبھالتا ہے جب آپ انہیں اس کے حوالے کریں۔",
     "reflection": "دعا کریں پھر نتیجہ الوکیل کو سونپ دیں۔"
@@ -372,7 +372,7 @@
   },
   "54": {
     "extended_meaning": "متانت سے ماخوذ، مضبوط اور ناقابل تغیر۔ المتین کی مضبوطی کا مطلب ہے اس کے وعدے کبھی نہیں ڈگمگاتے اور اس کی تنبیہات کبھی خالی نہیں جاتیں۔",
-    "quran_surahs": "Adh-Dhariyat (51:58): 'Indeed Allah is Ar-Razzaq, Owner of power, Al-Mateen' — sole Quranic occurrence paired with Ar-Razzaq",
+    "quran_surahs": "Adh-Dhariyat (51:58): 'Indeed Allah is Ar-Razzaq, Owner of power, Al-Mateen' — واحد قرآنی وقوع paired with Ar-Razzaq",
     "hadith": "",
     "why_it_matters": "المتین کی مضبوطی کا مطلب ہے اس کے وعدے مطلق یقین ہیں۔",
     "reflection": "اس کے کلام کو مطلق یقین سے لیں — وہ کبھی نہیں بدلتا۔"
@@ -386,7 +386,7 @@
   },
   "56": {
     "extended_meaning": "حمد سے ماخوذ، تمام تعریف کا مستحق۔ الحمید وہ ہے جو تمام تعریف کا سزاوار ہے — نہ صرف جو ہم دیتے ہیں بلکہ تمام ممکنہ تعریف۔",
-    "quran_surahs": "Al-Baqarah (2:267); Ibrahim (14:1, 14:8): 'Allah is free of need, Praiseworthy'; paired frequently with Al-Ghani — 17 occurrences",
+    "quran_surahs": "Al-Baqarah (2:267); Ibrahim (14:1, 14:8): 'Allah is free of need, Praiseworthy'; کثرت سے الغنی کے ساتھ — 17 وقوعات",
     "hadith": "",
     "why_it_matters": "تمام تعریف بالآخر اسی کی طرف لوٹتی ہے۔",
     "reflection": "الحمد للہ کو محض جملہ نہیں بلکہ مسلسل حال بنائیں۔"
@@ -428,14 +428,14 @@
   },
   "62": {
     "extended_meaning": "حیات سے ماخوذ، ابدی زندگی۔ الحی کبھی نہیں مرتا — اس کی زندگی ابدی اور خودکفیل ہے۔",
-    "quran_surahs": "Al-Baqarah (2:255) — Ayat al-Kursi: 'Allah — Al-Hayy, Al-Qayyoom'; Al-Imran (3:2); Ta-Ha (20:111); Al-Furqan (25:58)",
+    "quran_surahs": "Al-Baqarah (2:255) — آیت الکرسی: 'Allah — Al-Hayy, Al-Qayyoom'; Al-Imran (3:2); Ta-Ha (20:111); Al-Furqan (25:58)",
     "hadith": "",
     "why_it_matters": "ہر امید الحی میں لنگر ڈالیں جو کبھی نہیں مرتا۔",
     "reflection": "تمام امیدیں الحی سے باندھیں — وہ ختم نہیں ہو سکتا۔"
   },
   "63": {
     "extended_meaning": "قیام سے ماخوذ، خودکفیل اور تمام کو قائم رکھنے والا۔ القیوم کو کسی چیز کی ضرورت نہیں اور تمام کو قائم رکھتا ہے۔",
-    "quran_surahs": "Al-Baqarah (2:255) — Ayat al-Kursi; Al-Imran (3:2); Ta-Ha (20:111) — always paired with Al-Hayy",
+    "quran_surahs": "Al-Baqarah (2:255) — آیت الکرسی; Al-Imran (3:2); Ta-Ha (20:111) — ہمیشہ الحي کے ساتھ",
     "hadith": "",
     "why_it_matters": "القیوم کو کسی چیز کی ضرورت نہیں لیکن ہر چیز کو قائم رکھتا ہے۔",
     "reflection": "آپ کے وجود کا ہر لمحہ القیوم کی مدد سے ہے۔ اس احسان کو محسوس کریں۔"
@@ -449,7 +449,7 @@
   },
   "65": {
     "extended_meaning": "مجد سے ماخوذ۔ الماجد اپنی ذات میں شاندار ہے — اس کی شان خودکفیل اور کامل ہے۔",
-    "quran_surahs": "Al-Buruj (85:15): 'Owner of the Throne, Al-Majeed'; Hud (11:73): used in Ibrahim salutation",
+    "quran_surahs": "Al-Buruj (85:15): 'Owner of the Throne, Al-Majeed'; Hud (11:73): ابراہیمی صلاۃ میں آتا ہے",
     "hadith": "",
     "why_it_matters": "الماجد کی شان خودکفیل اور کامل ہے۔",
     "reflection": "الماجد سے جڑے لوگوں کی عزت کریں۔"
@@ -463,21 +463,21 @@
   },
   "67": {
     "extended_meaning": "احدیت سے ماخوذ۔ الاحد انفرادی اور بے مثل ہے — اپنی ذات میں کوئی مثل نہیں۔",
-    "quran_surahs": "Al-Ikhlas (112:1): 'Say: He is Allah, Al-Ahad' — the entire surah is dedicated to His uniqueness",
+    "quran_surahs": "Al-Ikhlas (112:1): 'Say: He is Allah, Al-Ahad' — پوری سورہ اس کی وحدانیت کے لیے وقف ہے",
     "hadith": "",
     "why_it_matters": "الاحد اس کی انفرادیت کی گہری ترین تصدیق ہے۔",
     "reflection": "سورہ اخلاص بار بار پڑھیں یہاں تک کہ اس کا معنی دل میں اتر جائے۔"
   },
   "68": {
     "extended_meaning": "صمد سے ماخوذ۔ الصمد ابدی پناہ گاہ ہے — تمام مخلوق اس کی محتاج ہے اور وہ کسی کا محتاج نہیں۔",
-    "quran_surahs": "Al-Ikhlas (112:2): 'Allah As-Samad' — one of only two occurrences of this word in the Quran",
+    "quran_surahs": "Al-Ikhlas (112:2): 'Allah As-Samad' — one of only two وقوعات of this word in the Quran",
     "hadith": "",
     "why_it_matters": "تمام مخلوق الصمد کی محتاج ہے اور وہ کسی کا محتاج نہیں۔",
     "reflection": "الصمد کو پہلا سہارا بنائیں، آخری نہیں۔"
   },
   "69": {
     "extended_meaning": "قدرت سے ماخوذ۔ القادر ہر چیز پر قادر ہے — کوئی صورتحال اس کی تبدیل کرنے کی قدرت سے باہر نہیں۔",
-    "quran_surahs": "Al-An'am (6:65); Al-Kahf (18:45); Ya-Sin (36:81); Al-Ahqaf (46:33) — 12 occurrences as divine attribute",
+    "quran_surahs": "Al-An'am (6:65); Al-Kahf (18:45); Ya-Sin (36:81); Al-Ahqaf (46:33) — 12 وقوعات as divine attribute",
     "hadith": "",
     "why_it_matters": "کوئی صورتحال اس کی تبدیل کرنے کی قدرت سے باہر نہیں۔ ناممکنات القادر کے پاس لے جائیں۔",
     "reflection": "ناممکن لگنے والی چیزیں القادر کے پاس لے جائیں۔"
@@ -491,21 +491,21 @@
   },
   "71": {
     "extended_meaning": "تقدیم سے ماخوذ۔ المقدم جسے چاہے آگے کرتا ہے — مرتبے، رزق اور ہدایت میں۔",
-    "quran_surahs": "Not found explicitly as a divine name in the Quran — Al-Muqaddim and Al-Mu'akhkhir appear together in the prophetic night prayer (Bukhari & Muslim) and the 99 names hadith",
+    "quran_surahs": "قرآن میں صراحتاً الہٰی نام کے طور پر نہیں آیا — Al-Muqaddim and Al-Mu'akhkhir appear together in the prophetic night prayer (Bukhari & Muslim) and the 99 names hadith",
     "hadith": "",
     "why_it_matters": "المقدم جسے چاہے مرتبے، رزق اور ہدایت میں آگے کرتا ہے۔",
     "reflection": "المقدم سے مانگیں کہ جو واقعی اہم ہے اس میں آگے کریں۔"
   },
   "72": {
     "extended_meaning": "تاخیر سے ماخوذ۔ المؤخر کامل حکمت سے تاخیر کرتا ہے — تاخیر انکار نہیں، حکمت ہے۔",
-    "quran_surahs": "Not found explicitly as a divine name in the Quran — paired with Al-Muqaddim in the prophetic night prayer supplication",
+    "quran_surahs": "قرآن میں صراحتاً الہٰی نام کے طور پر نہیں آیا — paired with Al-Muqaddim in the prophetic night prayer supplication",
     "hadith": "",
     "why_it_matters": "المؤخر کی تاخیریں انکار نہیں بلکہ حکمت ہے۔",
     "reflection": "تاخیر کو اعتماد کے ساتھ قبول کریں — المؤخر کا وقت کامل ہے۔"
   },
   "73": {
     "extended_meaning": "اولیت سے ماخوذ۔ الاول پہلا ہے جس سے پہلے کچھ نہیں تھا۔",
-    "quran_surahs": "Al-Hadid (57:3): 'He is Al-Awwal and Al-Aakhir, Az-Zaahir and Al-Baatin' — all four names appear in one verse",
+    "quran_surahs": "Al-Hadid (57:3): 'He is Al-Awwal and Al-Aakhir, Az-Zaahir and Al-Baatin' — چاروں نام ایک ہی آیت میں آتے ہیں",
     "hadith": "",
     "why_it_matters": "الاول تمام چیزوں سے پہلے تھا۔",
     "reflection": "نئی شروعات کے لیے الاول کی طرف رجوع کریں۔"
@@ -540,21 +540,21 @@
   },
   "78": {
     "extended_meaning": "تعالی سے ماخوذ، اعلیٰ درجے پر۔ المتعالی تمام چیزوں سے اعلیٰ ہے — کوئی انسانی تصور اسے مکمل نہیں جان سکتا۔",
-    "quran_surahs": "Ar-Ra'd (13:9): 'Al-Kabeer, Al-Muta'al' — appears once explicitly; concept of supreme exaltation is widespread in the Quran",
+    "quran_surahs": "Ar-Ra'd (13:9): 'Al-Kabeer, Al-Muta'al' — صراحتاً ایک بار آتا ہے؛ سر تعالی کا مفہوم قرآن میں عام ہے",
     "hadith": "",
     "why_it_matters": "المتعالی تمام ادراک سے بالا ہے۔",
     "reflection": "عاجزی کے ساتھ اس کے قریب جائیں — وہ آپ کی سمجھ سے بالا ہے۔"
   },
   "79": {
     "extended_meaning": "بر سے ماخوذ، نیکی۔ البر تمام نیکی کا سرچشمہ ہے — آپ کو ملنے والی ہر نعمت اس سے ہے۔",
-    "quran_surahs": "At-Tur (52:28): 'Indeed He is Al-Barr, Al-Raheem' — sole Quranic occurrence",
+    "quran_surahs": "At-Tur (52:28): 'Indeed He is Al-Barr, Al-Raheem' — واحد قرآنی وقوع",
     "hadith": "",
     "why_it_matters": "آپ کو ملنے والی ہر نعمت البر سے ہے۔",
     "reflection": "اپنی زندگی کی ہر نعمت کو البر سے آئی ہوئی تسلیم کریں۔"
   },
   "80": {
     "extended_meaning": "توبہ سے ماخوذ۔ التواب بار بار توبہ قبول کرتا ہے — اس کا دروازہ کبھی بند نہیں ہوتا۔",
-    "quran_surahs": "Al-Baqarah (2:37, 2:54, 2:128, 2:160); An-Nisa (4:16, 4:64); At-Tawbah (9:104, 9:118) — 11 occurrences",
+    "quran_surahs": "Al-Baqarah (2:37, 2:54, 2:128, 2:160); An-Nisa (4:16, 4:64); At-Tawbah (9:104, 9:118) — 11 وقوعات",
     "hadith": "",
     "why_it_matters": "التواب کا دروازہ کبھی بند نہیں ہوتا — بار بار واپس آئیں۔",
     "reflection": "بار بار واپس آئیں — التواب کبھی نہیں تھکتا۔"
@@ -575,7 +575,7 @@
   },
   "83": {
     "extended_meaning": "رأفت سے ماخوذ، انتہائی مہربانی۔ الرؤوف بے حد مہربان ہے — اس کی مہربانی مانگنے سے پہلے ضروریات کو جانتی ہے۔",
-    "quran_surahs": "Al-Baqarah (2:143); Al-Imran (3:30); At-Tawbah (9:117, 9:128); Al-Hadid (57:9); Al-Hashr (59:10) — 10 occurrences",
+    "quran_surahs": "Al-Baqarah (2:143); Al-Imran (3:30); At-Tawbah (9:117, 9:128); Al-Hadid (57:9); Al-Hashr (59:10) — 10 وقوعات",
     "hadith": "",
     "why_it_matters": "الرؤوف کی مہربانی آپ کی ضروریات کو مانگنے سے پہلے جان لیتی ہے۔",
     "reflection": "اس کی دیکھ بھال پر بھروسہ کریں — وہ آپ سے غافل نہیں۔"
@@ -617,14 +617,14 @@
   },
   "89": {
     "extended_meaning": "غنا سے ماخوذ۔ المغنی غنی کرتا اور کافی کرتا ہے — وہ آپ کو محض دولت ہی نہیں ہر جہت میں کافی کر سکتا ہے۔",
-    "quran_surahs": "An-Najm (53:48): 'It is He who enriches and suffices' — sole Quranic occurrence; name from 99 names hadith",
+    "quran_surahs": "An-Najm (53:48): 'It is He who enriches and suffices' — واحد قرآنی وقوع; نام 99 اسماء کی حدیث سے",
     "hadith": "",
     "why_it_matters": "المغنی صرف مال نہیں ہر جہت میں کافی کر سکتا ہے۔",
     "reflection": "محض دولت نہیں بلکہ ہر جہت میں کفالت کے لیے المغنی سے مانگیں۔"
   },
   "90": {
     "extended_meaning": "منع سے ماخوذ، روکنا۔ المانع حکمت سے روکتا ہے — اس کا روکنا اکثر پوشیدہ حفاظت ہوتی ہے۔",
-    "quran_surahs": "Fatir (35:2): 'What Allah opens for people, none can withhold; and what He withholds, none can release' — concept present; name from hadith",
+    "quran_surahs": "Fatir (35:2): 'What Allah opens for people, none can withhold; and what He withholds, none can release' — مفہوم موجود; name from hadith",
     "hadith": "",
     "why_it_matters": "المانع کا روکنا اکثر پوشیدہ حفاظت ہے۔",
     "reflection": "اس کے روکنے کو اعتماد کے ساتھ قبول کریں۔"
@@ -645,7 +645,7 @@
   },
   "93": {
     "extended_meaning": "نور سے ماخوذ۔ النور روشن کرنے والا ہے — آسمانوں اور زمین کی روشنی۔",
-    "quran_surahs": "An-Nur (24:35): 'Allah is the Light of the heavens and the earth' — the famous Light verse; one of the most commented-upon in all of Islamic scholarship",
+    "quran_surahs": "An-Nur (24:35): 'Allah is the Light of the heavens and the earth' — مشہور آیت النور؛ اسلامی علم میں سب سے زیادہ تفسیر شدہ آیات میں سے",
     "hadith": "",
     "why_it_matters": "جسمانی روشنی اس کی روشنی کا سایہ ہے۔",
     "reflection": "النور سے دل، گھر اور قبر میں روشنی مانگیں۔"
@@ -680,14 +680,14 @@
   },
   "98": {
     "extended_meaning": "رشد سے ماخوذ، کامل رہنمائی۔ الرشید بالکل سیدھی رہنمائی کرتا ہے — اس کی رہنمائی ہمیشہ بہترین نتیجے کی طرف لے جاتی ہے۔",
-    "quran_surahs": "Hud (11:87): used indirectly in Prophet Shu'ayb's speech — name from 99 names hadith; the concept of Divine guidance to the right path is pervasive",
+    "quran_surahs": "Hud (11:87): used indirectly in Prophet Shu'ayb's speech — نام 99 اسماء کی حدیث سے; the concept of Divine guidance to the right path is pervasive",
     "hadith": "",
     "why_it_matters": "الرشید کی رہنمائی ہمیشہ بہترین نتیجے کی طرف ہوتی ہے۔",
     "reflection": "اس کی رہنمائی پر عمل کریں چاہے خواہشات کے خلاف ہو۔"
   },
   "99": {
     "extended_meaning": "صبر سے ماخوذ۔ الصبور لامحدود صابر ہے — وہ آپ کی سست پیشرفت، بار بار غلطیوں اور کمزور ایمان پر صبر کرتا ہے۔",
-    "quran_surahs": "Not found as a divine name in the Quran — As-Saboor comes exclusively from the 99 names hadith tradition; the Quran extensively praises human sabr (patience)",
+    "quran_surahs": "قرآن میں الہٰی نام کے طور پر نہیں آیا — As-Saboor صرف 99 اسماء کی حدیث روایت سے ماخوذ; the Quran extensively praises human sabr (patience)",
     "hadith": "",
     "why_it_matters": "الصبور آپ کی سست پیشرفت اور بار بار ناکامیوں پر صبر کرتا ہے۔",
     "reflection": "صبر کو الصبور کی صفت کے انعکاس کے طور پر پروان چڑھائیں۔"
