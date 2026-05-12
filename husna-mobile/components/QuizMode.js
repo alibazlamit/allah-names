@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity,
   Animated, Dimensions,
@@ -6,6 +6,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import namesData from '../data/names.json';
+import { maybeAskForRating } from '../utils/ratingPrompt';
 
 const { width } = Dimensions.get('window');
 
@@ -62,6 +63,11 @@ function starsForScore(score) {
 // ── Result screen ──────────────────────────────────────────────────────────────
 const ResultScreen = ({ score, onRestart }) => {
   const stars = starsForScore(score);
+
+  useEffect(() => {
+    if (stars >= 2) maybeAskForRating();
+  }, [stars]);
+
   const messages = [
     'Keep practicing — you\'ll get there! 💪',
     'Good effort! Review the names and try again.',

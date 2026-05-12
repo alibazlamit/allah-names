@@ -5,6 +5,7 @@ import CountryPicker from 'react-native-country-picker-modal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hmacSHA256 from 'crypto-js/hmac-sha256';
 import Hex from 'crypto-js/enc-hex';
+import { maybeAskForRating } from '../utils/ratingPrompt';
 
 const API_URL = 'https://husna.alibazlamit.com';
 const API_SECRET = 'husna-secret-key-2026'; // Same as on server
@@ -135,6 +136,7 @@ const HallOfFame = ({ initialMode, timeTaken, onOathComplete }) => {
             const data = await res.json();
             if (res.ok) {
                 if (onOathComplete) onOathComplete();
+                maybeAskForRating();
                 setMode('leaderboard');
                 setTab('names');
                 fetchLeaderboard();
