@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity,
-  Animated, Dimensions,
+  Animated, Dimensions, Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
@@ -201,6 +201,17 @@ const QuizMode = ({ isActive, onQuizComplete }) => {
 
   const restart = useCallback(() => setState(freshState()), [freshState]);
 
+  const confirmRestart = useCallback(() => {
+    Alert.alert(
+      t('quiz.restartTitle'),
+      t('quiz.restartMessage'),
+      [
+        { text: t('quiz.restartCancel'), style: 'cancel' },
+        { text: t('quiz.restartConfirm'), style: 'destructive', onPress: () => setState(freshState()) },
+      ]
+    );
+  }, [freshState, t]);
+
   if (!isActive) return null;
 
   if (showResult) return (
@@ -250,6 +261,9 @@ const QuizMode = ({ isActive, onQuizComplete }) => {
         <View style={styles.rightStats}>
           {streak >= 3 && <Text style={styles.streakDisplay}>🔥 {streak}</Text>}
           <Text style={styles.scoreDisplay}>⭐ {score}</Text>
+          <TouchableOpacity onPress={confirmRestart} style={styles.restartIcon} hitSlop={{top:10,bottom:10,left:10,right:10}}>
+            <Ionicons name="refresh-outline" size={18} color="rgba(176,179,184,0.6)" />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -316,6 +330,7 @@ const styles = StyleSheet.create({
   livesRow: { flexDirection: 'row' },
   progress: { fontSize: 14, color: '#b0b3b8', fontWeight: '600' },
   rightStats: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  restartIcon: { padding: 2 },
   streakDisplay: { fontSize: 13, color: '#ff9f0a', fontWeight: '700' },
   scoreDisplay: { fontSize: 14, color: '#d4af37', fontWeight: '700' },
 
