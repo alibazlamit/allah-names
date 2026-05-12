@@ -104,7 +104,7 @@ const ResultScreen = ({ score, onRestart }) => {
 
 // ── Main component ─────────────────────────────────────────────────────────────
 const QuizMode = ({ isActive }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
   const freshState = useCallback(() => ({
