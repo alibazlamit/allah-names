@@ -42,8 +42,9 @@ const NameDetailModal = ({ name, onClose, onScrollToName }) => {
 
   const playTTS = () => {
     try {
-      // Strip harakat so TTS doesn't mispronounce the assimilation markers
-      const clean = name.arabic.replace(/[ً-ٰٟٱ]/g, '');
+      const clean = name.arabic
+        .replace(/[ً-ٰٟ]/g, '') // strip all harakat (U+064B–U+0670)
+        .replace(/ٱ/g, 'ا');          // wasla alef → regular alef (keeps ال intact)
       Speech.speak(clean, { language: 'ar-SA' });
     } catch (_) {}
   };
