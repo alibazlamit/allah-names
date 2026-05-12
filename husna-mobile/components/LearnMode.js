@@ -27,12 +27,15 @@ const LearnMode = ({ onPlayNasheed, isNasheedPlaying, onShowHelp, onShowLang }) 
 
     const player = useAudioPlayer(playingId ? nameAudio[playingId] : null);
 
+    // Play after the player re-creates with the new source (state update → re-render → new player)
+    React.useEffect(() => {
+        if (playingId) {
+            try { player.play(); } catch (_) {}
+        }
+    }, [player]);
+
     const playNameAudio = (nameId) => {
-        try {
-            setPlayingId(nameId);
-            player.seekTo(0);
-            player.play();
-        } catch (_) {}
+        setPlayingId(nameId);
     };
 
     const scrollToName = (nameId) => {
